@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Hospital" assembly="Hospital">
+	<class name="Gender" table="Gender">
+		<id name="ID_Gender" column="ID_Gender">
+			<generator class="native"/>
+		</id>
+		<property name="GenderName" column="GenderName"  />
+		<bag name="PatientInList" inverse="true">
+			<key column="ID_Gender"/>
+			<one-to-many class="Patient" />
+		</bag>
+		<bag name="RelativeInList" inverse="true">
+			<key column="ID_Gender"/>
+			<one-to-many class="Relative" />
+		</bag>
+	</class>
+</hibernate-mapping>

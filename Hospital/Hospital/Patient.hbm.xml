@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+	namespace="Hospital" assembly="Hospital">
+	<class name="Patient" table="Patient">
+		<id name="ID_Patient" column="ID_Patient">
+			<generator class="native"/>
+		</id>
+		<property name="Lastname" column="Lastname"  />
+		<property name="Firstname" column="Firstname"  />
+		<property name="DOB" column="DOB"  />
+		<property name="SSN" column="SSN"  />
+		<many-to-one name = "Gender" class="Gender" column = "ID_Gender" cascade = "save-update"/>
+		<bag name="RelativeInList" inverse="true">
+			<key column="ID_Patient"/>
+			<one-to-many class="Relative" />
+		</bag>
+		<bag name="OrderOfPatientInList" table="DoctorPatientRelations" cascade = "save-update">
+			<key column="ID_Patient"/>
+			<many-to-many class="OrderOfPatient" column="ID_Order"/>
+		</bag>
+	</class>
+</hibernate-mapping>
