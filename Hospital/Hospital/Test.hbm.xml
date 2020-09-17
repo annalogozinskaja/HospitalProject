@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Hospital" assembly="Hospital">
+	<class name="Test" table="Test">
+		<id name="ID_Test" column="ID_Test">
+			<generator class="native"/>
+		</id>
+		<property name="TestName" column="TestName"  />
+		<bag name="TestsInOrderList" inverse="true">
+			<key column="ID_Test"/>
+			<one-to-many class="TestsInOrder" />
+		</bag>
+	</class>
+</hibernate-mapping>
+

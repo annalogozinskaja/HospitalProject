@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Developer\\Clinica\\Hospital\\Hospital\\Hospital.csproj": {}
+    "C:\\Users\\User\\source\\Repos\\HospitalProject\\Hospital\\Hospital\\Hospital.csproj": {}
   },
   "projects": {
-    "E:\\Developer\\Clinica\\Hospital\\Hospital\\Hospital.csproj": {
+    "C:\\Users\\User\\source\\Repos\\HospitalProject\\Hospital\\Hospital\\Hospital.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Developer\\Clinica\\Hospital\\Hospital\\Hospital.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\Repos\\HospitalProject\\Hospital\\Hospital\\Hospital.csproj",
         "projectName": "Hospital",
-        "projectPath": "E:\\Developer\\Clinica\\Hospital\\Hospital\\Hospital.csproj",
+        "projectPath": "C:\\Users\\User\\source\\Repos\\HospitalProject\\Hospital\\Hospital\\Hospital.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "E:\\Developer\\Clinica\\Hospital\\Hospital\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\Repos\\HospitalProject\\Hospital\\Hospital\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

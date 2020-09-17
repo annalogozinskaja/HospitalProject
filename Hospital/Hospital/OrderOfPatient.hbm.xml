@@ -8,7 +8,7 @@
 		<property name="DateOrder" column="DateOrder"  />
 		<property name="Symptoms" column="Symptoms"  />
 		<property name="ID_OrderStatus" column="ID_OrderStatus"  />
-		<bag name="PatientInList" table="DoctorPatientRelations" inverse="true" cascade = "save-update">
+		<bag name="PatientInList" table="DoctorPatientRelations" inverse="true" lazy="false" cascade = "save-update">
 			<key column="ID_Order"/>
 			<many-to-many class="Patient" column="ID_Patient"/>
 		</bag>

@@ -8,7 +8,11 @@
 		<property name="ID_SpecimentStatus" column="ID_SpecimentStatus"  />
 		<property name="DateOfTaking" column="DateOfTaking"  />
 		<property name="Nurse" column="Nurse"  />
-		<many-to-one name = "OrderOfPatient" class="OrderOfPatient" column = "ID_Order" cascade = "save-update"/>
-		<many-to-one name = "Speciment" class="Speciment" column = "ID_Speciment" cascade = "save-update"/>
+		<many-to-one name = "OrderOfPatient" class="OrderOfPatient" column = "ID_Order" lazy="false" cascade = "save-update"/>
+		<many-to-one name = "Speciment" class="Speciment" column = "ID_Speciment" lazy="false" cascade = "save-update"/>
+		<bag name="TestsInOrder" table="TestsOfSpeciment"  cascade = "save-update">
+			<key column="ID_SpecimentOrder"/>
+			<many-to-many class="TestsInOrder" column="ID_TestsInOrder"/>
+		</bag>
 	</class>
 </hibernate-mapping>

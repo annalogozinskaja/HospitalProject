@@ -12,6 +12,8 @@
     <None Remove="Relative.hbm.xml" />
     <None Remove="Speciment.hbm.xml" />
     <None Remove="SpecimentsInOrder.hbm.xml" />
+    <None Remove="Test.hbm.xml" />
+    <None Remove="TestsInOrder.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +23,8 @@
     <EmbeddedResource Include="Relative.hbm.xml" />
     <EmbeddedResource Include="Speciment.hbm.xml" />
     <EmbeddedResource Include="SpecimentsInOrder.hbm.xml" />
+    <EmbeddedResource Include="Test.hbm.xml" />
+    <EmbeddedResource Include="TestsInOrder.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>

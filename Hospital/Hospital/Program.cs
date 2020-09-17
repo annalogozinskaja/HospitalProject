@@ -22,8 +22,11 @@ namespace Hospital
         {
             foreach (Patient item in patients)
             {
-                Console.WriteLine(item.ToString() + item.RelativeInList.ToString());
-                Console.WriteLine();
+                foreach (Relative itemRelative in item.RelativeInList)
+                {
+                    Console.WriteLine(item.ToString() + itemRelative.ToString());
+                    Console.WriteLine();
+                }
             }
         }
 
@@ -31,8 +34,11 @@ namespace Hospital
         {          
             foreach (Patient item in patients)
             {
-                Console.WriteLine(item.ToString() + item.OrderOfPatientInList.ToString());
-                Console.WriteLine();
+                foreach (OrderOfPatient itemOrder in item.OrderOfPatientInList)
+                {
+                    Console.WriteLine(item.ToString() + itemOrder.ToString());
+                    Console.WriteLine();
+                }
             }          
         }
 
@@ -40,10 +46,40 @@ namespace Hospital
         {
             foreach (Patient item in patients)
             {
-                Console.WriteLine(item.ToString() + item.OrderOfPatientInList[0].SpecimentsInOrderList.ToString());
-                Console.WriteLine();
+                Console.WriteLine("\n"+item.ToString());
+                foreach (OrderOfPatient itemOrder in item.OrderOfPatientInList)
+                {
+                    Console.WriteLine("\nOrder №" + itemOrder.ID_Order);
+                    foreach (SpecimentsInOrder itemSpeciment in itemOrder.SpecimentsInOrderList)
+                    {
+                        Console.WriteLine(itemSpeciment.ToString());
+                    }
+                }
+                Console.WriteLine("=================================================");
             }
         }
+
+        public static void ShowTestsOfSpeciment()
+        {
+            foreach (Patient item in patients)
+            {
+                Console.WriteLine("\n" + item.ToString());
+                foreach (OrderOfPatient itemOrder in item.OrderOfPatientInList)
+                {
+                    Console.WriteLine("\nOrder №" + itemOrder.ID_Order);
+                    foreach (SpecimentsInOrder itemSpeciment in itemOrder.SpecimentsInOrderList)
+                    {
+                        Console.WriteLine(itemSpeciment.ToString());
+                        foreach (TestsInOrder itemTest in itemSpeciment.TestsInOrder)
+                        {
+                            Console.WriteLine(itemTest.ToString());
+                        }
+                    }
+                }
+                Console.WriteLine("=================================================");
+            }
+        }
+
 
         static void Main(string[] args)
         {
@@ -61,8 +97,7 @@ namespace Hospital
                         ICriteria criteria = session.CreateCriteria<Patient>();
                         criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
                         criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
-                        criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.RightOuterJoin);
-                        //criteria.CreateAlias("SpecimentsInOrderList", "speciment", JoinType.RightOuterJoin);
+                        criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
                         criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
                         IList<Patient> list = criteria.List<Patient>();
                         patients = list.ToList();
@@ -72,7 +107,7 @@ namespace Hospital
                     {
                         Console.WriteLine("Choose data you want to see:");
                         Console.WriteLine("1-Patient and his relatives\n2-Orders of patients" +
-                            "\n3-Speciment of 1 order(hasn't done yet)\n4-Exit");
+                            "\n3-Speciments of order\n4-Tests of speciment\n5-Exit");
                         choice = Convert.ToInt32(Console.ReadLine());
 
                         switch (choice)
@@ -92,8 +127,14 @@ namespace Hospital
                                     Console.Clear();
                                     ShowSpecimentsOfPatient();
                                 } break;
+                            case 4:
+                                {
+                                    Console.Clear();
+                                    ShowTestsOfSpeciment();
+                                }
+                                break;
                         }
-                    } while (choice != 4);
+                    } while (choice != 5);
                 }
                 session.Flush();
                 session.Clear();

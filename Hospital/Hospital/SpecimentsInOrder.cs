@@ -13,10 +13,20 @@ namespace Hospital
         public virtual DateTime DateOfTaking { get; set; }
         public virtual string Nurse { get; set; }
 
+        private IList<TestsInOrder> _TestsInOrder;
+        public virtual IList<TestsInOrder> TestsInOrder
+        {
+            get
+            {
+                return _TestsInOrder ?? (_TestsInOrder = new List<TestsInOrder>());
+            }
+            set { _TestsInOrder = value; }
+        }
+
         public override string ToString()
         {
-            return "\nNumber of order: " + OrderOfPatient + "\nSpeciment: " + Speciment.SpecimentName + 
-                "\nDate of speciment was taken: "+ DateOfTaking+"\nNurse: "+Nurse+".";
+            return "\nSpeciment: " + Speciment.SpecimentName+
+                "\nDate of speciment was taken: " + DateOfTaking+"\nNurse: "+Nurse+".";
         }
     }
 }
