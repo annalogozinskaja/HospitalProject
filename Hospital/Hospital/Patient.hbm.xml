@@ -18,5 +18,9 @@
 			<key column="ID_Patient"/>
 			<many-to-many class="OrderOfPatient" column="ID_Order"/>
 		</bag>
+		<bag name="DoctorInList" table="DoctorPatientRelations" cascade = "save-update">
+			<key column="ID_Patient"/>
+			<many-to-many class="Doctor" column="ID_Doctor"/>
+		</bag>
 	</class>
 </hibernate-mapping>

@@ -5,14 +5,14 @@
 		<id name="ID_SpecimentOrder" column="ID_SpecimentOrder">
 			<generator class="native"/>
 		</id>
-		<property name="ID_SpecimentStatus" column="ID_SpecimentStatus"  />
+		<many-to-one name = "SpecimentStatus" class="SpecimentStatus" column = "ID_SpecimentStatus"  lazy="false" cascade = "save-update"/>
 		<property name="DateOfTaking" column="DateOfTaking"  />
 		<property name="Nurse" column="Nurse"  />
 		<many-to-one name = "OrderOfPatient" class="OrderOfPatient" column = "ID_Order" lazy="false" cascade = "save-update"/>
 		<many-to-one name = "Speciment" class="Speciment" column = "ID_Speciment" lazy="false" cascade = "save-update"/>
-		<bag name="TestsInOrder" table="TestsOfSpeciment"  cascade = "save-update">
+		<bag name="TestsInOrder" table="TestsOfSpeciment" inverse="true" cascade = "save-update">
 			<key column="ID_SpecimentOrder"/>
-			<many-to-many class="TestsInOrder" column="ID_TestsInOrder"/>
+			<many-to-many class="TestsInOrder" column="ID_TestOrder"/>
 		</bag>
 	</class>
 </hibernate-mapping>

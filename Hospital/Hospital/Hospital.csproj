@@ -6,25 +6,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Doctor.hbm.xml" />
     <None Remove="Gender.hbm.xml" />
     <None Remove="OrderOfPatient.hbm.xml" />
+    <None Remove="OrderStatus.hbm.xml" />
     <None Remove="Patient.hbm.xml" />
     <None Remove="Relative.hbm.xml" />
     <None Remove="Speciment.hbm.xml" />
     <None Remove="SpecimentsInOrder.hbm.xml" />
+    <None Remove="SpecimentStatus.hbm.xml" />
     <None Remove="Test.hbm.xml" />
     <None Remove="TestsInOrder.hbm.xml" />
+    <None Remove="TestStatus.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Doctor.hbm.xml" />
     <EmbeddedResource Include="Gender.hbm.xml" />
     <EmbeddedResource Include="OrderOfPatient.hbm.xml" />
+    <EmbeddedResource Include="OrderStatus.hbm.xml" />
     <EmbeddedResource Include="Patient.hbm.xml" />
     <EmbeddedResource Include="Relative.hbm.xml" />
     <EmbeddedResource Include="Speciment.hbm.xml" />
     <EmbeddedResource Include="SpecimentsInOrder.hbm.xml" />
+    <EmbeddedResource Include="SpecimentStatus.hbm.xml" />
     <EmbeddedResource Include="Test.hbm.xml" />
     <EmbeddedResource Include="TestsInOrder.hbm.xml" />
+    <EmbeddedResource Include="TestStatus.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>

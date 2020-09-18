@@ -30,6 +30,18 @@ namespace Hospital
             }
         }
 
+        public static void ShowDataPatientAndHisDoctors()
+        {
+            foreach (Patient item in patients)
+            {
+                foreach (Doctor itemDoctor in item.DoctorInList)
+                {
+                    Console.WriteLine(item.ToString() + itemDoctor.ToString());
+                    Console.WriteLine();
+                }
+            }
+        }
+
         public static void ShowDataOrderOfPatient()
         {          
             foreach (Patient item in patients)
@@ -74,6 +86,7 @@ namespace Hospital
                         {
                             Console.WriteLine(itemTest.ToString());
                         }
+                        Console.WriteLine();
                     }
                 }
                 Console.WriteLine("=================================================");
@@ -106,8 +119,8 @@ namespace Hospital
                     do
                     {
                         Console.WriteLine("Choose data you want to see:");
-                        Console.WriteLine("1-Patient and his relatives\n2-Orders of patients" +
-                            "\n3-Speciments of order\n4-Tests of speciment\n5-Exit");
+                        Console.WriteLine("1-Patient and his relatives\n2-Patient and his doctors" +
+                            "\n3-Orders of patients\n4-Speciments of order\n5-Tests of speciment\n6-Exit");
                         choice = Convert.ToInt32(Console.ReadLine());
 
                         switch (choice)
@@ -120,21 +133,27 @@ namespace Hospital
                             case 2:
                                 {
                                     Console.Clear();
+                                    ShowDataPatientAndHisDoctors();
+                                }
+                                break;
+                            case 3:
+                                {
+                                    Console.Clear();
                                     ShowDataOrderOfPatient();
                                 } break;
-                            case 3:
+                            case 4:
                                 {
                                     Console.Clear();
                                     ShowSpecimentsOfPatient();
                                 } break;
-                            case 4:
+                            case 5:
                                 {
                                     Console.Clear();
                                     ShowTestsOfSpeciment();
                                 }
                                 break;
                         }
-                    } while (choice != 5);
+                    } while (choice != 6);
                 }
                 session.Flush();
                 session.Clear();

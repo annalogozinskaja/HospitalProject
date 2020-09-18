@@ -20,6 +20,16 @@ namespace Hospital
             set { _Patient = value; }
         }
 
+        private IList<Doctor> _Doctor;
+        public virtual IList<Doctor> DoctorInList
+        {
+            get
+            {
+                return _Doctor ?? (_Doctor = new List<Doctor>());
+            }
+            set { _Doctor = value; }
+        }
+
         private IList<SpecimentsInOrder> _SpecimentsInOrder;
         public virtual IList<SpecimentsInOrder> SpecimentsInOrderList
         {
@@ -30,11 +40,11 @@ namespace Hospital
             set { _SpecimentsInOrder = value; }
         }
 
-        public virtual int ID_OrderStatus { get; set; }
+        public virtual OrderStatus OrderStatus { get; set; }
 
         public override string ToString()
         {
-            return "\nDate of order: " + DateOrder + "\nSymptoms: " + Symptoms + ".";
+            return "\nDate of order: " + DateOrder + "\nSymptoms: " + Symptoms + "\nStatus: "+OrderStatus.OrderName;
         }
     }
 }

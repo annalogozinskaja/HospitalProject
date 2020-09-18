@@ -34,6 +34,16 @@ namespace Hospital
             set { _OrderOfPatient = value; }
         }
 
+        private IList<Doctor> _Doctor;
+        public virtual IList<Doctor> DoctorInList
+        {
+            get
+            {
+                return _Doctor ?? (_Doctor = new List<Doctor>());
+            }
+            set { _Doctor = value; }
+        }
+
 
         public override string ToString()
         {

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Hospital" assembly="Hospital">
+	<class name="OrderStatus" table="OrderStatus">
+		<id name="ID_OrderStatus" column="ID_OrderStatus">
+			<generator class="native"/>
+		</id>
+		<property name="OrderName" column="OrderName"  />
+		<bag name="OrderOfPatientList" inverse="true">
+			<key column="ID_OrderStatus"/>
+			<one-to-many class="OrderOfPatient" />
+		</bag>
+	</class>
+</hibernate-mapping>

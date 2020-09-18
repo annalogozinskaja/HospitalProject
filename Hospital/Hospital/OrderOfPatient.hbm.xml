@@ -7,10 +7,14 @@
 		</id>
 		<property name="DateOrder" column="DateOrder"  />
 		<property name="Symptoms" column="Symptoms"  />
-		<property name="ID_OrderStatus" column="ID_OrderStatus"  />
+		<many-to-one name = "OrderStatus" class="OrderStatus" column = "ID_OrderStatus"  lazy="false" cascade = "save-update"/>
 		<bag name="PatientInList" table="DoctorPatientRelations" inverse="true" lazy="false" cascade = "save-update">
 			<key column="ID_Order"/>
 			<many-to-many class="Patient" column="ID_Patient"/>
+		</bag>
+		<bag name="DoctorInList" table="DoctorPatientRelations" lazy="false" cascade = "save-update">
+			<key column="ID_Order"/>
+			<many-to-many class="Doctor" column="ID_Doctor"/>
 		</bag>
 		<bag name="SpecimentsInOrderList" inverse="true">
 			<key column="ID_Order"/>

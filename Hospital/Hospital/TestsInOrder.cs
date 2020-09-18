@@ -10,7 +10,7 @@ namespace Hospital
         public virtual Test Test { get; set; }
         public virtual DateTime DateStart { get; set; }
         public virtual DateTime DateEnd { get; set; }
-        public virtual int ID_TestStatus { get; set; }
+        public virtual TestStatus TestStatus { get; set; }
         public virtual string Result { get; set; }
 
         private IList<SpecimentsInOrder> _SpecimentsInOrder;
@@ -27,7 +27,7 @@ namespace Hospital
         public override string ToString()
         {
             return "\nTest: " +Test.TestName + "\nDate start: " + DateStart+
-                "\nDate end: " + DateEnd + "\nResult: " + Result + ".";
+                "\nDate end: " + DateEnd + "\nResult: " + Result + "\nStatus: "+TestStatus.TestStatusName;
         }
     }
 }
