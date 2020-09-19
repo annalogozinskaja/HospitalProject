@@ -98,65 +98,77 @@ namespace Hospital
         {
             try
             {
-                Configuration nhConfig = new Configuration();
-                nhConfig.Configure();
-                ISessionFactory sessionFactory = nhConfig.BuildSessionFactory();
-                Console.WriteLine("NHibernate Configured!");
-                Console.ReadKey();
-                ISession session = sessionFactory.OpenSession();
+                SessionFactory.Init();
+                GenericImpl<Patient, int> patientDao = new GenericImpl<Patient, int>(); 
+                Patient patient = new Patient(); 
+                patient.Lastname = "Litvin";
+                patient.Firstname = "Sonya";
+                patient.SSN = 774411225;  //не забыть что поле unique
+                //patient.Gender = new Gender { GenderName = "smth" };
+                patientDao.Save(patient);
 
-                using (ITransaction tx = session.BeginTransaction())
-                {                 
-                        ICriteria criteria = session.CreateCriteria<Patient>();
-                        criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
-                        criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
-                        criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
-                        criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
-                        IList<Patient> list = criteria.List<Patient>();
-                        patients = list.ToList();
 
-                    int choice;
-                    do
-                    {
-                        Console.WriteLine("Choose data you want to see:");
-                        Console.WriteLine("1-Patient and his relatives\n2-Patient and his doctors" +
-                            "\n3-Orders of patients\n4-Speciments of order\n5-Tests of speciment\n6-Exit");
-                        choice = Convert.ToInt32(Console.ReadLine());
 
-                        switch (choice)
-                        {
-                            case 1:
-                                {
-                                    Console.Clear();
-                                    ShowDataPatientWithRelatives();
-                                } break;
-                            case 2:
-                                {
-                                    Console.Clear();
-                                    ShowDataPatientAndHisDoctors();
-                                }
-                                break;
-                            case 3:
-                                {
-                                    Console.Clear();
-                                    ShowDataOrderOfPatient();
-                                } break;
-                            case 4:
-                                {
-                                    Console.Clear();
-                                    ShowSpecimentsOfPatient();
-                                } break;
-                            case 5:
-                                {
-                                    Console.Clear();
-                                    ShowTestsOfSpeciment();
-                                }
-                                break;
-                        }
-                    } while (choice != 6);
-                }
-                session.Flush();
-                session.Clear();
+
+                //Configuration nhConfig = new Configuration();
+                //nhConfig.Configure();
+                //ISessionFactory sessionFactory = nhConfig.BuildSessionFactory();
+                //Console.WriteLine("NHibernate Configured!");
+                //Console.ReadKey();
+                //ISession session = sessionFactory.OpenSession();
+
+                //using (ITransaction tx = session.BeginTransaction())
+                //{                 
+                //        ICriteria criteria = session.CreateCriteria<Patient>();
+                //        criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
+                //        criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
+                //        criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
+                //        criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
+                //        IList<Patient> list = criteria.List<Patient>();
+                //        patients = list.ToList();
+
+                //    int choice;
+                //    do
+                //    {
+                //        Console.WriteLine("Choose data you want to see:");
+                //        Console.WriteLine("1-Patient and his relatives\n2-Patient and his doctors" +
+                //            "\n3-Orders of patients\n4-Speciments of order\n5-Tests of speciment\n6-Exit");
+                //        choice = Convert.ToInt32(Console.ReadLine());
+
+                //        switch (choice)
+                //        {
+                //            case 1:
+                //                {
+                //                    Console.Clear();
+                //                    ShowDataPatientWithRelatives();
+                //                } break;
+                //            case 2:
+                //                {
+                //                    Console.Clear();
+                //                    ShowDataPatientAndHisDoctors();
+                //                }
+                //                break;
+                //            case 3:
+                //                {
+                //                    Console.Clear();
+                //                    ShowDataOrderOfPatient();
+                //                } break;
+                //            case 4:
+                //                {
+                //                    Console.Clear();
+                //                    ShowSpecimentsOfPatient();
+                //                } break;
+                //            case 5:
+                //                {
+                //                    Console.Clear();
+                //                    ShowTestsOfSpeciment();
+                //                }
+                //                break;
+                //        }
+                //    } while (choice != 6);
+                //}
+                //session.Flush();
+                //session.Clear();
 
             }
             catch (Exception ex)

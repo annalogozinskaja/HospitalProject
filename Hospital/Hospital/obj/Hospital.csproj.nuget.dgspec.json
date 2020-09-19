@@ -38,6 +38,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[6.7.1, )"
+            },
             "NHibernate": {
               "target": "Package",
               "version": "[5.3.3, )"

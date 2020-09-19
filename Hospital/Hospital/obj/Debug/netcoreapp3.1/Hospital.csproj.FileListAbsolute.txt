@@ -152,11 +152,12 @@ C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\bin\Debug\netcoreap
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Cryptography.Pkcs.dll
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.csprojAssemblyReference.cache
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.AssemblyInfoInputs.cache
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.AssemblyInfo.cs
-C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.csproj.CoreCompileInputs.cache
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.csproj.CopyComplete
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.dll
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.pdb
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.genruntimeconfig.cache
+C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.csproj.CoreCompileInputs.cache
