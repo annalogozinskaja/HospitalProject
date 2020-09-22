@@ -47,7 +47,7 @@ namespace Hospital
 
         public override string ToString()
         {
-            return "Patient: "+ ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ", " + Gender.GenderName + ".";
+            return "\nPatient: "+ ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ", " + Gender.GenderName + ".";
         }
     }
 }

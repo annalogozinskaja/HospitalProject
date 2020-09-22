@@ -9,7 +9,7 @@
 		<property name="Firstname" column="Firstname"  />
 		<property name="DOB" column="DOB"  />
 		<property name="SSN" column="SSN"  />
-		<many-to-one name = "Gender" class="Gender" column = "ID_Gender" cascade = "save-update"/>
+		<many-to-one name = "Gender" class="Gender" column = "ID_Gender" lazy="false" cascade = "save-update"/>
 		<bag name="RelativeInList" inverse="true">
 			<key column="ID_Patient"/>
 			<one-to-many class="Relative" />

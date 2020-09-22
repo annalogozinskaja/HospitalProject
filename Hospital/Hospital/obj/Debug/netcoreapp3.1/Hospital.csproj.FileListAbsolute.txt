@@ -161,3 +161,4 @@ C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreap
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Repos\HospitalProject\Hospital\Hospital\obj\Debug\netcoreapp3.1\Hospital.csprojAssemblyReference.cache

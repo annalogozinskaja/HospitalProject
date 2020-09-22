@@ -11,7 +11,7 @@ namespace Hospital
 {
     public class GenericImpl<T, ID> : IGenericDao<T, ID> //Реализуем интерфейс IGenericDao
     {
-        private ISession session //Здесь метод на взятие сессии
+        public ISession session //Здесь метод на взятие сессии
         {
             get
             {
@@ -23,9 +23,9 @@ namespace Hospital
         private static List<Patient> patients = new List<Patient>();
 
         public T Get(ID id) //Метод взятия данных
-        {          
-            T result = session.Get<T>(id);//Говорим что возвращаем тип T и загружаем его используя сессию через метод Load
-            return result; //Возвращаем           
+        {           
+            T result = (T)session.Get<T>(id);//Говорим что возвращаем тип T и загружаем его используя сессию через метод Load                                
+            return result; //Возвращаем     
         }
 
         public T Save(T obj)
@@ -34,43 +34,66 @@ namespace Hospital
               {
                 using (ITransaction tx = session.BeginTransaction())
                 {
-                    ICriteria criteria = session.CreateCriteria<Patient>();
-                        criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
-                        criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
-                        criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
-                        criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
-                        IList<Patient> list = criteria.List<Patient>();
-                        patients = list.ToList();
+                    session.Save(obj);
+                    tx.Commit();
 
-                        foreach (Patient item in patients)
-                        {
-                            Console.WriteLine(item.ToString());
-                        }
+                    //ICriteria criteria = session.CreateCriteria<Patient>();
+                    ////criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
+                    ////criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
+                    ////criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
+                    ////criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
+                    //IList<Patient> list = criteria.List<Patient>();
+                    //patients = list.ToList();
 
-                        session.Save(obj);
-                        tx.Commit();
+                    //foreach (Patient item in patients)
+                    //{
+                    //    Console.WriteLine(item.ToString());
+                    //}
                 }
-                session.Flush();
-                session.Clear();
+                //session.Flush();
+                //session.Clear();
                 return obj;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.StackTrace.ToString());
-                return obj;
+                throw e;
             }
                          
         }
 
         public T SaveOrUpdate(T obj)
-        {
-            session.SaveOrUpdate(obj);
-            return obj;
+        {      
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+                    session.SaveOrUpdate(obj);
+                    tx.Commit();
+                }
+                return obj;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace.ToString());
+                throw e;
+            }
         }
 
         public void Delete(T obj)
-        {
-            session.Delete(obj);
+        {          
+            try
+            {
+                using (ITransaction tx = session.BeginTransaction())
+                {
+                    session.Delete(obj);
+                    tx.Commit();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace.ToString());
+            }
         }
     }
 
