@@ -9,14 +9,11 @@ namespace Hospital
         public virtual int ID_TestStatus { get; set; }
         public virtual string TestStatusName { get; set; }
 
-        private IList<TestsInOrder> _TestsInOrder;
+        private IList<TestsInOrder> testsInOrder = new List<TestsInOrder>();
         public virtual IList<TestsInOrder> TestsInOrderList
         {
-            get
-            {
-                return _TestsInOrder ?? (_TestsInOrder = new List<TestsInOrder>());
-            }
-            set { _TestsInOrder = value; }
+            get { return testsInOrder; }
+            set { testsInOrder = value; }
         }
     }
 }

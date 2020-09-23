@@ -21,18 +21,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Doctor.hbm.xml" />
-    <EmbeddedResource Include="Gender.hbm.xml" />
-    <EmbeddedResource Include="OrderOfPatient.hbm.xml" />
-    <EmbeddedResource Include="OrderStatus.hbm.xml" />
-    <EmbeddedResource Include="Patient.hbm.xml" />
-    <EmbeddedResource Include="Relative.hbm.xml" />
-    <EmbeddedResource Include="Speciment.hbm.xml" />
-    <EmbeddedResource Include="SpecimentsInOrder.hbm.xml" />
-    <EmbeddedResource Include="SpecimentStatus.hbm.xml" />
-    <EmbeddedResource Include="Test.hbm.xml" />
-    <EmbeddedResource Include="TestsInOrder.hbm.xml" />
-    <EmbeddedResource Include="TestStatus.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\Doctor.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\Gender.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\OrderOfPatient.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\OrderStatus.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\Patient.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\Relative.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\Speciment.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\SpecimentsInOrder.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\SpecimentStatus.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\Test.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\TestsInOrder.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\TestStatus.hbm.xml" />
   </ItemGroup>
 
   <ItemGroup>

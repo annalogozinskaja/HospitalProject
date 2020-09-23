@@ -9,22 +9,29 @@ namespace Hospital
 {
     public class SessionFactory
     {
-        private static ISessionFactory sessionFactory; //Объект фабрики сессий, реализованный в хибере
-        private static ISession session;
-        public static void Init() //Инициализация фабрики сессий
+        private ISessionFactory sessionFactory; //Объект фабрики сессий, реализованный в хибере
+        private ISession session;
+        public void Init() //Инициализация фабрики сессий
         {
             Configuration cfg = new Configuration();
             cfg.Configure();
             sessionFactory = cfg.BuildSessionFactory();
             Console.WriteLine("NHibernate Configured!");
-            Console.ReadKey();
-
-            session = sessionFactory.OpenSession();
+            Console.ReadKey();         
         }
 
-        public static ISession GetSession() //Метод возвращающий нам сессию.
+        public void OpenSession()
+        {
+            session = sessionFactory.OpenSession();
+        }
+        public ISession GetSession()
         {
             return session; 
+        }
+        public void CloseSession()
+        {
+            session.Flush();
+            session.Clear();
         }
     }
 }

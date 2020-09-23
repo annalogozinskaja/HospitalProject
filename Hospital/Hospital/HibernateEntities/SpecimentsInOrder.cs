@@ -13,14 +13,11 @@ namespace Hospital
         public virtual DateTime DateOfTaking { get; set; }
         public virtual string Nurse { get; set; }
 
-        private IList<TestsInOrder> _TestsInOrder;
+        private IList<TestsInOrder> testsInOrder = new List<TestsInOrder>();
         public virtual IList<TestsInOrder> TestsInOrder
         {
-            get
-            {
-                return _TestsInOrder ?? (_TestsInOrder = new List<TestsInOrder>());
-            }
-            set { _TestsInOrder = value; }
+            get { return testsInOrder; }
+            set { testsInOrder = value; }
         }
 
         public override string ToString()

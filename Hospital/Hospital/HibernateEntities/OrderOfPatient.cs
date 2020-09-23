@@ -10,34 +10,25 @@ namespace Hospital
         public virtual DateTime DateOrder { get; set; }
         public virtual string Symptoms { get; set; }
 
-        private IList<Patient> _Patient;
+        private IList<Patient> patient= new List<Patient>();
         public virtual IList<Patient> PatientInList
         {
-            get
-            {
-                return _Patient ?? (_Patient = new List<Patient>());
-            }
-            set { _Patient = value; }
+            get { return patient; }
+            set { patient = value; }
         }
 
-        private IList<Doctor> _Doctor;
+        private IList<Doctor> doctor = new List<Doctor>();
         public virtual IList<Doctor> DoctorInList
         {
-            get
-            {
-                return _Doctor ?? (_Doctor = new List<Doctor>());
-            }
-            set { _Doctor = value; }
+            get { return doctor; }
+            set { doctor = value; }
         }
 
-        private IList<SpecimentsInOrder> _SpecimentsInOrder;
+        private IList<SpecimentsInOrder> specimentsInOrder = new List<SpecimentsInOrder>();
         public virtual IList<SpecimentsInOrder> SpecimentsInOrderList
         {
-            get
-            {
-                return _SpecimentsInOrder ?? (_SpecimentsInOrder = new List<SpecimentsInOrder>());
-            }
-            set { _SpecimentsInOrder = value; }
+            get { return specimentsInOrder; }
+            set { specimentsInOrder = value; }
         }
 
         public virtual OrderStatus OrderStatus { get; set; }

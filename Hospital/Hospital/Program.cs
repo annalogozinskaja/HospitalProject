@@ -11,6 +11,7 @@ using Npgsql;
 using ServiceStack;
 using NHibernate.Id;
 using NHibernate.Tool.hbm2ddl;
+using NHibernate.Util;
 
 namespace Hospital
 {
@@ -97,56 +98,82 @@ namespace Hospital
 
 
 
-        public static void DataSave()
+        public static void DataPatientSave(SessionFactory sessionFactory)
         {
-            GenericImpl<Patient, int> patientDao = new GenericImpl<Patient, int>();
+            sessionFactory.OpenSession();
+
+            GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>(sessionFactory.GetSession());      
+            GenericDaoImpl<OrderStatus, int> orderStatusDao = new GenericDaoImpl<OrderStatus, int>(sessionFactory.GetSession());          
+            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(sessionFactory.GetSession());
+            GenericDaoImpl<Doctor, int> doctorDao = new GenericDaoImpl<Doctor, int>(sessionFactory.GetSession());
+            Doctor doctor = new Doctor();
+            doctor = doctorDao.Get(2);
+
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(sessionFactory.GetSession());
             Patient patient = new Patient();
-            patient.Lastname = "Kovalenko3";
-            patient.Firstname = "Natalya3";
-            patient.SSN = 551274479;  //не забыть что поле unique
+            patient.Lastname = "Biluk";
+            patient.Firstname = "Roman";
+            patient.SSN = 797582821;  //не забыть что поле unique
+            patient.Gender = genderDao.Get(1);
+            patient.OrderOfPatientInList.Add(new OrderOfPatient { Symptoms= "pain in throat", OrderStatus = orderStatusDao.Get(1) });
+            //patient.DoctorInList.Add(new Doctor { ID_Doctor = doctorDao.Get(2).ID_Doctor, Lastname = doctorDao.Get(2).Lastname, Firstname = doctorDao.Get(2).Firstname, FieldOfMedicine = doctorDao.Get(2).FieldOfMedicine });
+            patient.DoctorInList.Add(doctor);//stopped in this problem
             patientDao.Save(patient);
 
-            GenericImpl<Gender, int> genderDao = new GenericImpl<Gender, int>();
-            Gender gender = new Gender();
-            gender.GenderName = "bird";
-            genderDao.Save(gender);
+            //ShowDataPatientAndHisDoctors();
 
-            GenericImpl<TestsInOrder, int> testsDao = new GenericImpl<TestsInOrder, int>();
-            TestsInOrder tests = new TestsInOrder();
-            tests.Result = " not healthy";
-            testsDao.Save(tests);
+            //GenericDaoImpl<TestsInOrder, int> testsDao = new GenericDaoImpl<TestsInOrder, int>();
+            //TestsInOrder tests = new TestsInOrder();
+            //tests.Result = " not healthy";
+            //testsDao.Save(tests);
+
+            sessionFactory.CloseSession();
         }
 
         public static void DataGet()
         {
-            GenericImpl<Gender, int> genderDao = new GenericImpl<Gender, int>();
-            Console.WriteLine("Gender is " + genderDao.Get(1).GenderName);
-            Console.WriteLine(genderDao.Get(1));
+            //GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>();
+            //Console.WriteLine("Gender is " + genderDao.Get(1).GenderName);
+            //Console.WriteLine(genderDao.Get(1));
 
-            GenericImpl<Patient, int> patientDao = new GenericImpl<Patient, int>();
-            Console.WriteLine(patientDao.Get(2));
+            //GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>();
+            //Console.WriteLine(patientDao.Get(2));
 
-            GenericImpl<SpecimentsInOrder, int> specimentDao = new GenericImpl<SpecimentsInOrder, int>();
-            Console.WriteLine(specimentDao.Get(3));
+            //GenericDaoImpl<SpecimentsInOrder, int> specimentDao = new GenericDaoImpl<SpecimentsInOrder, int>();
+            //Console.WriteLine(specimentDao.Get(3));
+            //Console.WriteLine("\n");
         }
 
         public static void DataDelete()
         {
-            GenericImpl<Gender, int> genderDao = new GenericImpl<Gender, int>();
-            genderDao.Delete(genderDao.Get(58));
+            //GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>();
+            //genderDao.Delete(genderDao.Get(58));
         }
 
-        static void Main(string[] args)
+        public static void DataGetAll()
+        {
+            //GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>();
+
+            //foreach  (Patient item in patientDao.GetAll().ToList())
+            //{
+            //    Console.Write(item.ToString());
+            //}
+            //Console.WriteLine("\n");
+        }
+
+            static void Main(string[] args)
         {
             try
             {
-                SessionFactory.Init();
+                SessionFactory SF = new SessionFactory();
+                SF.Init();
+
                 int choice;
                 do
                 {
                     Console.WriteLine("Choose data you want to see:");
-                    Console.WriteLine("1-Save data\n2-Get some data" +
-                        "\n3-Delete Data\n4-Exit");
+                    Console.WriteLine("1-Save data of patient\n2-Get some data" +
+                        "\n3-Delete data\n4-Get all data\n5-Exit");
                     choice = Convert.ToInt32(Console.ReadLine());
 
                     switch (choice)
@@ -154,27 +181,29 @@ namespace Hospital
                         case 1:
                             {
                                 Console.Clear();
-                                DataSave();
-                            } break;
+                                DataPatientSave(SF);
+                            }
+                            break;
                         case 2:
                             {
                                 Console.Clear();
                                 DataGet();
-                            } break;
+                            }
+                            break;
                         case 3:
                             {
                                 Console.Clear();
                                 DataDelete();
-                            } break;
+                            }
+                            break;
+                        case 4:
+                            {
+                                Console.Clear();
+                                DataGetAll();
+                            }
+                            break;
                     }
-                } while (choice != 4);
-            
-               
-
-           
-
-
-           
+                } while (choice != 5);
 
 
 
@@ -185,65 +214,75 @@ namespace Hospital
 
 
 
-            //Configuration nhConfig = new Configuration();
-            //nhConfig.Configure();
-            //ISessionFactory sessionFactory = nhConfig.BuildSessionFactory();
-            //Console.WriteLine("NHibernate Configured!");
-            //Console.ReadKey();
-            //ISession session = sessionFactory.OpenSession();
 
-            //using (ITransaction tx = session.BeginTransaction())
-            //{                 
-            //        ICriteria criteria = session.CreateCriteria<Patient>();
-            //        criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
-            //        criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
-            //        criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
-            //        criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
-            //        IList<Patient> list = criteria.List<Patient>();
-            //        patients = list.ToList();
 
-            //    int choice;
-            //    do
-            //    {
-            //        Console.WriteLine("Choose data you want to see:");
-            //        Console.WriteLine("1-Patient and his relatives\n2-Patient and his doctors" +
-            //            "\n3-Orders of patients\n4-Speciments of order\n5-Tests of speciment\n6-Exit");
-            //        choice = Convert.ToInt32(Console.ReadLine());
 
-            //        switch (choice)
-            //        {
-            //            case 1:
-            //                {
-            //                    Console.Clear();
-            //                    ShowDataPatientWithRelatives();
-            //                } break;
-            //            case 2:
-            //                {
-            //                    Console.Clear();
-            //                    ShowDataPatientAndHisDoctors();
-            //                }
-            //                break;
-            //            case 3:
-            //                {
-            //                    Console.Clear();
-            //                    ShowDataOrderOfPatient();
-            //                } break;
-            //            case 4:
-            //                {
-            //                    Console.Clear();
-            //                    ShowSpecimentsOfPatient();
-            //                } break;
-            //            case 5:
-            //                {
-            //                    Console.Clear();
-            //                    ShowTestsOfSpeciment();
-            //                }
-            //                break;
-            //        }
-            //    } while (choice != 6);
-            //}
-            //session.Flush();
-            //session.Clear();
+
+
+
+
+                //Configuration nhConfig = new Configuration();
+                //nhConfig.Configure();
+                //ISessionFactory sessionFactory = nhConfig.BuildSessionFactory();
+                //Console.WriteLine("NHibernate Configured!");
+                //Console.ReadKey();
+                //ISession session = sessionFactory.OpenSession();
+
+                //using (ITransaction tx = session.BeginTransaction())
+                //{
+                //    ICriteria criteria = session.CreateCriteria<Patient>();
+                //    criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
+                //    criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
+                //    criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
+                //    criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
+                //    IList<Patient> list = criteria.List<Patient>();
+                //    patients = list.ToList();
+
+                //    int choice;
+                //    do
+                //    {
+                //        Console.WriteLine("Choose data you want to see:");
+                //        Console.WriteLine("1-Patient and his relatives\n2-Patient and his doctors" +
+                //            "\n3-Orders of patients\n4-Speciments of order\n5-Tests of speciment\n6-Exit");
+                //        choice = Convert.ToInt32(Console.ReadLine());
+
+                //        switch (choice)
+                //        {
+                //            case 1:
+                //                {
+                //                    Console.Clear();
+                //                    ShowDataPatientWithRelatives();
+                //                }
+                //                break;
+                //            case 2:
+                //                {
+                //                    Console.Clear();
+                //                    ShowDataPatientAndHisDoctors();
+                //                }
+                //                break;
+                //            case 3:
+                //                {
+                //                    Console.Clear();
+                //                    ShowDataOrderOfPatient();
+                //                }
+                //                break;
+                //            case 4:
+                //                {
+                //                    Console.Clear();
+                //                    ShowSpecimentsOfPatient();
+                //                }
+                //                break;
+                //            case 5:
+                //                {
+                //                    Console.Clear();
+                //                    ShowTestsOfSpeciment();
+                //                }
+                //                break;
+                //        }
+                //    } while (choice != 6);
+                //}
+                //session.Flush();
+                //session.Clear();
 
             }
             catch (Exception ex)

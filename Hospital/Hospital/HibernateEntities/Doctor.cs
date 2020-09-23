@@ -11,24 +11,18 @@ namespace Hospital
         public virtual string Firstname { get; set; }
         public virtual string FieldOfMedicine { get; set; }
 
-        private IList<Patient> _Patient;
+        private IList<Patient> patient= new List<Patient>();
         public virtual IList<Patient> PatientInList
         {
-            get
-            {
-                return _Patient ?? (_Patient = new List<Patient>());
-            }
-            set { _Patient = value; }
+            get { return patient; }
+            set { patient = value; }
         }
 
-        private IList<OrderOfPatient> _OrderOfPatient;
+        private IList<OrderOfPatient> orderOfPatient = new List<OrderOfPatient>();
         public virtual IList<OrderOfPatient> OrderOfPatientInList
         {
-            get
-            {
-                return _OrderOfPatient ?? (_OrderOfPatient = new List<OrderOfPatient>());
-            }
-            set { _OrderOfPatient = value; }
+            get { return orderOfPatient; }
+            set { orderOfPatient = value; }
         }
 
 

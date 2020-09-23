@@ -12,38 +12,28 @@ namespace Hospital
         public virtual DateTime DOB { get; set; }
         public virtual int SSN { get; set; }
 
-        private IList<Relative> _Relative;
+        private IList<Relative> relative = new List<Relative>();
         public virtual IList<Relative> RelativeInList
         {
-            get
-            {
-                return _Relative ?? (_Relative = new List<Relative>());
-            }
-            set { _Relative = value; }
+            get { return relative; }
+            set { relative = value; }
         }
 
         public virtual Gender Gender { get; set; }
 
-        private IList<OrderOfPatient> _OrderOfPatient;
+        private IList<OrderOfPatient> orderOfPatient=new List<OrderOfPatient>();
         public virtual IList<OrderOfPatient> OrderOfPatientInList
         {
-            get
-            {
-                return _OrderOfPatient ?? (_OrderOfPatient = new List<OrderOfPatient>());
-            }
-            set { _OrderOfPatient = value; }
+            get { return orderOfPatient; }
+            set { orderOfPatient = value; }
         }
 
-        private IList<Doctor> _Doctor;
+        private IList<Doctor> doctor= new List<Doctor>();
         public virtual IList<Doctor> DoctorInList
         {
-            get
-            {
-                return _Doctor ?? (_Doctor = new List<Doctor>());
-            }
-            set { _Doctor = value; }
+            get { return doctor; }
+            set { doctor = value; }
         }
-
 
         public override string ToString()
         {
