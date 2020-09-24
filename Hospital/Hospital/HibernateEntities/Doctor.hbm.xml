@@ -9,11 +9,11 @@
 		<property name="Firstname" column="Firstname"  />
 		<property name="FieldOfMedicine" column="FieldOfMedicine"  />
 
-		<bag name="PatientInList" table="DoctorPatientRelations" lazy="false" cascade = "save-update">
+		<bag name="PatientInList" table="DoctorPatientRelations" inverse="true" cascade = "save-update">
 			<key column="ID_Doctor"/>
 			<many-to-many class="Patient" column="ID_Patient"/>
 		</bag>
-		<bag name="OrderOfPatientInList" table="DoctorPatientRelations" lazy="false" cascade = "save-update">
+		<bag name="OrderOfPatientInList" table="DoctorPatientRelations"  lazy="false" cascade = "save-update">
 			<key column="ID_Doctor"/>
 			<many-to-many class="OrderOfPatient" column="ID_Order"/>
 		</bag>

@@ -17,6 +17,7 @@ namespace Hospital
 {
     class Program
     {
+       
         private static List<Patient> patients = new List<Patient>();
 
         public static void ShowDataPatientWithRelatives()
@@ -102,22 +103,31 @@ namespace Hospital
         {
             sessionFactory.OpenSession();
 
-            GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>(sessionFactory.GetSession());      
-            GenericDaoImpl<OrderStatus, int> orderStatusDao = new GenericDaoImpl<OrderStatus, int>(sessionFactory.GetSession());          
-            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(sessionFactory.GetSession());
-            GenericDaoImpl<Doctor, int> doctorDao = new GenericDaoImpl<Doctor, int>(sessionFactory.GetSession());
-            Doctor doctor = new Doctor();
-            doctor = doctorDao.Get(2);
+            GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>(sessionFactory.GetSession());  
+            
+            GenericDaoImpl<OrderStatus, int> orderStatusDao = new GenericDaoImpl<OrderStatus, int>(sessionFactory.GetSession()); 
+            
+           // GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(sessionFactory.GetSession());
+
+            //GenericDaoImpl<Doctor, int> doctorDao = new GenericDaoImpl<Doctor, int>(sessionFactory.GetSession());
+            //Doctor doctor = new Doctor();
+            ////doctor = doctorDao.Get(2);
+            //doctor.Lastname = "Ivanov";
+            //doctor.Firstname = "Ivan";
+            //doctor.FieldOfMedicine = "terapevt";
 
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(sessionFactory.GetSession());
             Patient patient = new Patient();
-            patient.Lastname = "Biluk";
-            patient.Firstname = "Roman";
-            patient.SSN = 797582821;  //не забыть что поле unique
+            patient.Lastname = "Stadnik2";
+            patient.Firstname = "Igor2";
+            patient.SSN = 859717630;  //не забыть что поле unique
             patient.Gender = genderDao.Get(1);
-            patient.OrderOfPatientInList.Add(new OrderOfPatient { Symptoms= "pain in throat", OrderStatus = orderStatusDao.Get(1) });
-            //patient.DoctorInList.Add(new Doctor { ID_Doctor = doctorDao.Get(2).ID_Doctor, Lastname = doctorDao.Get(2).Lastname, Firstname = doctorDao.Get(2).Firstname, FieldOfMedicine = doctorDao.Get(2).FieldOfMedicine });
-            patient.DoctorInList.Add(doctor);//stopped in this problem
+            patient.DOB = Convert.ToDateTime("11/03/1997");
+            patient.InitOrderOfPatientList();
+            patient.OrderOfPatientInList.Add(new OrderOfPatient { DateOrder= Convert.ToDateTime("20/09/2020"),Symptoms = "pain", OrderStatus = orderStatusDao.Get(1) });
+            patient.InitDoctorList();
+            patient.DoctorInList.Add(new Doctor { Lastname = "Cruglova2", Firstname = "Svetlana2", FieldOfMedicine = "terapevt" });
+            //patient.DoctorInList.Add(doctor);
             patientDao.Save(patient);
 
             //ShowDataPatientAndHisDoctors();

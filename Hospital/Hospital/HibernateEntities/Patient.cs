@@ -21,18 +21,38 @@ namespace Hospital
 
         public virtual Gender Gender { get; set; }
 
-        private IList<OrderOfPatient> orderOfPatient=new List<OrderOfPatient>();
+        //private IList<OrderOfPatient> orderOfPatient=new List<OrderOfPatient>();
+        private IList<OrderOfPatient> orderOfPatient;
         public virtual IList<OrderOfPatient> OrderOfPatientInList
         {
             get { return orderOfPatient; }
             set { orderOfPatient = value; }
         }
+        //public virtual IList<OrderOfPatient> OrderOfPatientInList 
+        //{ 
+        //    get { return orderOfPatient; }
+        //    set { orderOfPatient = value; }
+        //}
 
-        private IList<Doctor> doctor= new List<Doctor>();
+        public virtual void InitOrderOfPatientList()
+        {
+            orderOfPatient = new List<OrderOfPatient>();
+        }
+        //public virtual void AddOrderOfPatientInList(OrderOfPatient op)
+        //{
+        //    OrderOfPatientInList.Add(op);
+        //}
+
+        //private IList<Doctor> doctor= new List<Doctor>();
+        private IList<Doctor> doctor;
         public virtual IList<Doctor> DoctorInList
         {
             get { return doctor; }
             set { doctor = value; }
+        }
+        public virtual void InitDoctorList()
+        {
+            doctor = new List<Doctor>();
         }
 
         public override string ToString()
