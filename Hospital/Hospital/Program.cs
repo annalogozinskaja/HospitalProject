@@ -45,15 +45,23 @@ namespace Hospital
         }
 
         public static void ShowDataOrderOfPatient()
-        {          
+        {
             foreach (Patient item in patients)
             {
-                foreach (OrderOfPatient itemOrder in item.OrderOfPatientInList)
+                foreach (DoctorPatientRelations itemDoctorPatient in item.Doct)
                 {
                     Console.WriteLine(item.ToString() + itemOrder.ToString());
                     Console.WriteLine();
                 }
-            }          
+            }
+            //foreach (Patient item in patients)
+            //{
+            //    foreach (OrderOfPatient itemOrder in item.OrderOfPatientInList)
+            //    {
+            //        Console.WriteLine(item.ToString() + itemOrder.ToString());
+            //        Console.WriteLine();
+            //    }
+            //}          
         }
 
         public static void ShowSpecimentsOfPatient()
@@ -118,15 +126,15 @@ namespace Hospital
 
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(sessionFactory.GetSession());
             Patient patient = new Patient();
-            patient.Lastname = "Stadnik2";
-            patient.Firstname = "Igor2";
-            patient.SSN = 859717630;  //не забыть что поле unique
+            patient.Lastname = "Titarenko";
+            patient.Firstname = "Nikola0";
+            patient.SSN = 887643230;  //не забыть что поле unique
             patient.Gender = genderDao.Get(1);
-            patient.DOB = Convert.ToDateTime("11/03/1997");
+            patient.DOB = Convert.ToDateTime("10/07/1967");
             patient.InitOrderOfPatientList();
-            patient.OrderOfPatientInList.Add(new OrderOfPatient { DateOrder= Convert.ToDateTime("20/09/2020"),Symptoms = "pain", OrderStatus = orderStatusDao.Get(1) });
+            patient.OrderOfPatientInList.Add(new OrderOfPatient { DateOrder = Convert.ToDateTime("20/09/2020"), Symptoms = "paining throat", OrderStatus = orderStatusDao.Get(1) });
             patient.InitDoctorList();
-            patient.DoctorInList.Add(new Doctor { Lastname = "Cruglova2", Firstname = "Svetlana2", FieldOfMedicine = "terapevt" });
+            patient.DoctorInList.Add(new Doctor { Lastname = "Cruglova", Firstname = "Svetlana", FieldOfMedicine = "terapevt" });
             //patient.DoctorInList.Add(doctor);
             patientDao.Save(patient);
 
@@ -175,124 +183,124 @@ namespace Hospital
         {
             try
             {
-                SessionFactory SF = new SessionFactory();
-                SF.Init();
+                //SessionFactory SF = new SessionFactory();
+                //SF.Init();
 
-                int choice;
-                do
-                {
-                    Console.WriteLine("Choose data you want to see:");
-                    Console.WriteLine("1-Save data of patient\n2-Get some data" +
-                        "\n3-Delete data\n4-Get all data\n5-Exit");
-                    choice = Convert.ToInt32(Console.ReadLine());
-
-                    switch (choice)
-                    {
-                        case 1:
-                            {
-                                Console.Clear();
-                                DataPatientSave(SF);
-                            }
-                            break;
-                        case 2:
-                            {
-                                Console.Clear();
-                                DataGet();
-                            }
-                            break;
-                        case 3:
-                            {
-                                Console.Clear();
-                                DataDelete();
-                            }
-                            break;
-                        case 4:
-                            {
-                                Console.Clear();
-                                DataGetAll();
-                            }
-                            break;
-                    }
-                } while (choice != 5);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                //Configuration nhConfig = new Configuration();
-                //nhConfig.Configure();
-                //ISessionFactory sessionFactory = nhConfig.BuildSessionFactory();
-                //Console.WriteLine("NHibernate Configured!");
-                //Console.ReadKey();
-                //ISession session = sessionFactory.OpenSession();
-
-                //using (ITransaction tx = session.BeginTransaction())
+                //int choice;
+                //do
                 //{
-                //    ICriteria criteria = session.CreateCriteria<Patient>();
-                //    criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
-                //    criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
-                //    criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
-                //    criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
-                //    IList<Patient> list = criteria.List<Patient>();
-                //    patients = list.ToList();
+                //    Console.WriteLine("Choose data you want to see:");
+                //    Console.WriteLine("1-Save data of patient\n2-Get some data" +
+                //        "\n3-Delete data\n4-Get all data\n5-Exit");
+                //    choice = Convert.ToInt32(Console.ReadLine());
 
-                //    int choice;
-                //    do
+                //    switch (choice)
                 //    {
-                //        Console.WriteLine("Choose data you want to see:");
-                //        Console.WriteLine("1-Patient and his relatives\n2-Patient and his doctors" +
-                //            "\n3-Orders of patients\n4-Speciments of order\n5-Tests of speciment\n6-Exit");
-                //        choice = Convert.ToInt32(Console.ReadLine());
+                //        case 1:
+                //            {
+                //                Console.Clear();
+                //                DataPatientSave(SF);
+                //            }
+                //            break;
+                //        case 2:
+                //            {
+                //                Console.Clear();
+                //                DataGet();
+                //            }
+                //            break;
+                //        case 3:
+                //            {
+                //                Console.Clear();
+                //                DataDelete();
+                //            }
+                //            break;
+                //        case 4:
+                //            {
+                //                Console.Clear();
+                //                DataGetAll();
+                //            }
+                //            break;
+                //    }
+                //} while (choice != 5);
 
-                //        switch (choice)
-                //        {
-                //            case 1:
-                //                {
-                //                    Console.Clear();
-                //                    ShowDataPatientWithRelatives();
-                //                }
-                //                break;
-                //            case 2:
-                //                {
-                //                    Console.Clear();
-                //                    ShowDataPatientAndHisDoctors();
-                //                }
-                //                break;
-                //            case 3:
-                //                {
-                //                    Console.Clear();
-                //                    ShowDataOrderOfPatient();
-                //                }
-                //                break;
-                //            case 4:
-                //                {
-                //                    Console.Clear();
-                //                    ShowSpecimentsOfPatient();
-                //                }
-                //                break;
-                //            case 5:
-                //                {
-                //                    Console.Clear();
-                //                    ShowTestsOfSpeciment();
-                //                }
-                //                break;
-                //        }
-                //    } while (choice != 6);
-                //}
-                //session.Flush();
-                //session.Clear();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                Configuration nhConfig = new Configuration();
+                nhConfig.Configure();
+                ISessionFactory sessionFactory = nhConfig.BuildSessionFactory();
+                Console.WriteLine("NHibernate Configured!");
+                Console.ReadKey();
+                ISession session = sessionFactory.OpenSession();
+
+                using (ITransaction tx = session.BeginTransaction())
+                {
+                    ICriteria criteria = session.CreateCriteria<Patient>();
+                    criteria.CreateAlias("Gender", "gender", JoinType.LeftOuterJoin);
+                    criteria.CreateAlias("RelativeInList", "relative", JoinType.LeftOuterJoin);
+                    criteria.CreateAlias("OrderOfPatientInList", "order", JoinType.InnerJoin);
+                    criteria.SetResultTransformer(new DistinctRootEntityResultTransformer());
+                    IList<Patient> list = criteria.List<Patient>();
+                    patients = list.ToList();
+
+                    int choice;
+                    do
+                    {
+                        Console.WriteLine("Choose data you want to see:");
+                        Console.WriteLine("1-Patient and his relatives\n2-Patient and his doctors" +
+                            "\n3-Orders of patients\n4-Speciments of order\n5-Tests of speciment\n6-Exit");
+                        choice = Convert.ToInt32(Console.ReadLine());
+
+                        switch (choice)
+                        {
+                            case 1:
+                                {
+                                    Console.Clear();
+                                    ShowDataPatientWithRelatives();
+                                }
+                                break;
+                            case 2:
+                                {
+                                    Console.Clear();
+                                    ShowDataPatientAndHisDoctors();
+                                }
+                                break;
+                            case 3:
+                                {
+                                    Console.Clear();
+                                    ShowDataOrderOfPatient();
+                                }
+                                break;
+                            case 4:
+                                {
+                                    Console.Clear();
+                                    ShowSpecimentsOfPatient();
+                                }
+                                break;
+                            case 5:
+                                {
+                                    Console.Clear();
+                                    ShowTestsOfSpeciment();
+                                }
+                                break;
+                        }
+                    } while (choice != 6);
+                }
+                session.Flush();
+                session.Clear();
 
             }
             catch (Exception ex)

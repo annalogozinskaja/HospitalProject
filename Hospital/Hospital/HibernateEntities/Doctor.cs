@@ -18,12 +18,12 @@ namespace Hospital
             set { patient = value; }
         }
 
-        private IList<OrderOfPatient> orderOfPatient = new List<OrderOfPatient>();
-        public virtual IList<OrderOfPatient> OrderOfPatientInList
-        {
-            get { return orderOfPatient; }
-            set { orderOfPatient = value; }
-        }
+        //private IList<OrderOfPatient> orderOfPatient = new List<OrderOfPatient>();
+        //public virtual IList<OrderOfPatient> OrderOfPatientInList
+        //{
+        //    get { return orderOfPatient; }
+        //    set { orderOfPatient = value; }
+        //}
 
 
         public override string ToString()

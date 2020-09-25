@@ -14,10 +14,6 @@
 			<key column="ID_Patient"/>
 			<one-to-many class="Relative" />
 		</bag>
-		<bag name="OrderOfPatientInList" table="DoctorPatientRelations" lazy="false" cascade = "save-update">
-			<key column="ID_Patient"/>
-			<many-to-many class="OrderOfPatient" column="ID_Order"/>
-		</bag>
 		<bag name="DoctorInList" table="DoctorPatientRelations" lazy="false" cascade = "save-update">
 			<key column="ID_Patient"/>
 			<many-to-many class="Doctor" column="ID_Doctor"/>

@@ -8,17 +8,12 @@
 		<property name="DateOrder" column="DateOrder"  />
 		<property name="Symptoms" column="Symptoms"  />
 		<many-to-one name = "OrderStatus" class="OrderStatus" column = "ID_OrderStatus"  lazy="false" cascade = "save-update"/>
-		<bag name="PatientInList" table="DoctorPatientRelations" lazy="false" cascade = "save-update">
-			<key column="ID_Order"/>
-			<many-to-many class="Patient" column="ID_Patient"/>
-		</bag>
-		<bag name="DoctorInList" table="DoctorPatientRelations" lazy="false" cascade = "save-update">
-			<key column="ID_Order"/>
-			<many-to-many class="Doctor" column="ID_Doctor"/>
-		</bag>
+		<many-to-one name = "Patient" class="Patient" column = "ID_Patient" lazy="false" cascade = "save-update"/>
+		<many-to-one name = "Doctor" class="Doctor" column = "ID_Doctor" lazy="false" cascade = "save-update"/>
 		<bag name="SpecimentsInOrderList" inverse="true">
 			<key column="ID_Order"/>
 			<one-to-many class="SpecimentsInOrder" />
 		</bag>
+		<many-to-one name = "DoctorPatientRelations" class="DoctorPatientRelations" column = "ID_DoctorPatient" lazy="false" cascade = "save-update"/>
 	</class>
 </hibernate-mapping>

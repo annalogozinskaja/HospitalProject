@@ -22,22 +22,22 @@ namespace Hospital
         public virtual Gender Gender { get; set; }
 
         //private IList<OrderOfPatient> orderOfPatient=new List<OrderOfPatient>();
-        private IList<OrderOfPatient> orderOfPatient;
-        public virtual IList<OrderOfPatient> OrderOfPatientInList
-        {
-            get { return orderOfPatient; }
-            set { orderOfPatient = value; }
-        }
+        //private IList<OrderOfPatient> orderOfPatient;
+        //public virtual IList<OrderOfPatient> OrderOfPatientInList
+        //{
+        //    get { return orderOfPatient; }
+        //    set { orderOfPatient = value; }
+        //}
         //public virtual IList<OrderOfPatient> OrderOfPatientInList 
         //{ 
         //    get { return orderOfPatient; }
         //    set { orderOfPatient = value; }
         //}
 
-        public virtual void InitOrderOfPatientList()
-        {
-            orderOfPatient = new List<OrderOfPatient>();
-        }
+        //public virtual void InitOrderOfPatientList()
+        //{
+        //    orderOfPatient = new List<OrderOfPatient>();
+        //}
         //public virtual void AddOrderOfPatientInList(OrderOfPatient op)
         //{
         //    OrderOfPatientInList.Add(op);
