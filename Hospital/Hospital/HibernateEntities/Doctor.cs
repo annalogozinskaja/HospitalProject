@@ -11,21 +11,17 @@ namespace Hospital
         public virtual string Firstname { get; set; }
         public virtual string FieldOfMedicine { get; set; }
 
-        private IList<Patient> patient= new List<Patient>();
-        public virtual IList<Patient> PatientInList
+        private IList<OrderOfPatient> orderOfPatient;
+        public virtual IList<OrderOfPatient> OrderOfPatientInList
         {
-            get { return patient; }
-            set { patient = value; }
+            get { return orderOfPatient; }
+            set { orderOfPatient = value; }
         }
 
-        //private IList<OrderOfPatient> orderOfPatient = new List<OrderOfPatient>();
-        //public virtual IList<OrderOfPatient> OrderOfPatientInList
-        //{
-        //    get { return orderOfPatient; }
-        //    set { orderOfPatient = value; }
-        //}
-
-
+        public virtual void InitOrderOfPatientList()
+        {
+            orderOfPatient = new List<OrderOfPatient>();
+        }
         public override string ToString()
         {
             return "\nDoctor:" + Lastname + " " + Firstname + ", fieldOfMedicine: " + FieldOfMedicine + ".";

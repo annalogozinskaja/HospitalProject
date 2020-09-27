@@ -8,10 +8,9 @@
 		<property name="Lastname" column="Lastname"  />
 		<property name="Firstname" column="Firstname"  />
 		<property name="FieldOfMedicine" column="FieldOfMedicine"  />
-
-		<bag name="PatientInList" table="DoctorPatientRelations" inverse="true" cascade = "save-update">
+		<bag name="OrderOfPatientInList" inverse="true">
 			<key column="ID_Doctor"/>
-			<many-to-many class="Patient" column="ID_Patient"/>
+			<one-to-many class="OrderOfPatient" />
 		</bag>
 	</class>
 </hibernate-mapping>

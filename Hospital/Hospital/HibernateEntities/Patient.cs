@@ -12,47 +12,30 @@ namespace Hospital
         public virtual DateTime DOB { get; set; }
         public virtual int SSN { get; set; }
 
-        private IList<Relative> relative = new List<Relative>();
+        private IList<Relative> relative;
         public virtual IList<Relative> RelativeInList
         {
             get { return relative; }
             set { relative = value; }
         }
 
+        public virtual void InitRelativeInList()
+        {
+            relative = new List<Relative>();
+        }
+
         public virtual Gender Gender { get; set; }
 
-        //private IList<OrderOfPatient> orderOfPatient=new List<OrderOfPatient>();
-        //private IList<OrderOfPatient> orderOfPatient;
-        //public virtual IList<OrderOfPatient> OrderOfPatientInList
-        //{
-        //    get { return orderOfPatient; }
-        //    set { orderOfPatient = value; }
-        //}
-        //public virtual IList<OrderOfPatient> OrderOfPatientInList 
-        //{ 
-        //    get { return orderOfPatient; }
-        //    set { orderOfPatient = value; }
-        //}
-
-        //public virtual void InitOrderOfPatientList()
-        //{
-        //    orderOfPatient = new List<OrderOfPatient>();
-        //}
-        //public virtual void AddOrderOfPatientInList(OrderOfPatient op)
-        //{
-        //    OrderOfPatientInList.Add(op);
-        //}
-
-        //private IList<Doctor> doctor= new List<Doctor>();
-        private IList<Doctor> doctor;
-        public virtual IList<Doctor> DoctorInList
+        private IList<OrderOfPatient> orderOfPatient;
+        public virtual IList<OrderOfPatient> OrderOfPatientInList
         {
-            get { return doctor; }
-            set { doctor = value; }
+            get { return orderOfPatient; }
+            set { orderOfPatient = value; }
         }
-        public virtual void InitDoctorList()
+
+        public virtual void InitOrderOfPatientList()
         {
-            doctor = new List<Doctor>();
+            orderOfPatient = new List<OrderOfPatient>();
         }
 
         public override string ToString()

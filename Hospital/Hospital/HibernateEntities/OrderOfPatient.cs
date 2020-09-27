@@ -12,34 +12,23 @@ namespace Hospital
         public virtual Patient Patient { get; set; }
 
         public virtual Doctor Doctor { get; set; }
+        public virtual OrderStatus OrderStatus { get; set; }
 
-        //private IList<Patient> patient= new List<Patient>();
-        //public virtual IList<Patient> PatientInList
-        //{
-        //    get { return patient; }
-        //    set { patient = value; }
-        //}
-
-        //private IList<Doctor> doctor = new List<Doctor>();
-        //public virtual IList<Doctor> DoctorInList
-        //{
-        //    get { return doctor; }
-        //    set { doctor = value; }
-        //}
-
-        private IList<SpecimentsInOrder> specimentsInOrder = new List<SpecimentsInOrder>();
+        private IList<SpecimentsInOrder> specimentsInOrder;
         public virtual IList<SpecimentsInOrder> SpecimentsInOrderList
         {
             get { return specimentsInOrder; }
             set { specimentsInOrder = value; }
         }
 
-        public virtual OrderStatus OrderStatus { get; set; }
-        public virtual DoctorPatientRelations DoctorPatientRelations { get; set; }
+        public virtual void InitRelativeInList()
+        {
+            specimentsInOrder = new List<SpecimentsInOrder>();
+        }
 
         public override string ToString()
         {
-            return "\nDate of order: " + DateOrder + "\nSymptoms: " + Symptoms + "\nStatus: "+OrderStatus.OrderName;
+            return "\nDoctor: "+Doctor.Lastname+"\nDate of order: " + DateOrder + "\nSymptoms: " + Symptoms + "\nStatus: "+OrderStatus.OrderName;
         }
     }
 }

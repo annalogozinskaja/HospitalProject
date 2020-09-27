@@ -13,13 +13,17 @@ namespace Hospital
         public virtual TestStatus TestStatus { get; set; }
         public virtual string Result { get; set; }
 
-        private IList<SpecimentsInOrder> specimentsInOrder = new List<SpecimentsInOrder>();
+        private IList<SpecimentsInOrder> specimentsInOrder= new List<SpecimentsInOrder>();
 
-        public virtual IList<SpecimentsInOrder> SpecimentsInOrder
+        public virtual IList<SpecimentsInOrder> SpecimentsInOrderList
         {
             get { return specimentsInOrder; }
             set { specimentsInOrder = value; }
         }
+        //public virtual void InitSpecimentsInOrderList()
+        //{
+        //    specimentsInOrder = new List<SpecimentsInOrder>();
+        //}
 
         public override string ToString()
         {

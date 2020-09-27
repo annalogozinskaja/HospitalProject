@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <None Remove="Doctor.hbm.xml" />
-    <None Remove="DoctorPatientRelations.hbm.xml" />
     <None Remove="Gender.hbm.xml" />
     <None Remove="OrderOfPatient.hbm.xml" />
     <None Remove="OrderStatus.hbm.xml" />
@@ -22,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="DoctorPatientRelations.hbm.xml" />
     <EmbeddedResource Include="HibernateEntities\Doctor.hbm.xml" />
     <EmbeddedResource Include="HibernateEntities\Gender.hbm.xml" />
     <EmbeddedResource Include="HibernateEntities\OrderOfPatient.hbm.xml" />

@@ -10,13 +10,13 @@
 		<property name="DOB" column="DOB"  />
 		<property name="SSN" column="SSN"  />
 		<many-to-one name = "Gender" class="Gender" column = "ID_Gender" lazy="false" cascade = "save-update"/>
+		<bag name="OrderOfPatientInList" inverse="true">
+			<key column="ID_Patient"/>
+			<one-to-many class="OrderOfPatient" />
+		</bag>
 		<bag name="RelativeInList" inverse="true">
 			<key column="ID_Patient"/>
 			<one-to-many class="Relative" />
-		</bag>
-		<bag name="DoctorInList" table="DoctorPatientRelations" lazy="false" cascade = "save-update">
-			<key column="ID_Patient"/>
-			<many-to-many class="Doctor" column="ID_Doctor"/>
 		</bag>
 	</class>
 </hibernate-mapping>

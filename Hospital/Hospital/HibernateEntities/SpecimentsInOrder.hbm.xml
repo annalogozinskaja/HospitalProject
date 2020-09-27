@@ -10,7 +10,7 @@
 		<property name="Nurse" column="Nurse"  />
 		<many-to-one name = "OrderOfPatient" class="OrderOfPatient" column = "ID_Order" lazy="false" cascade = "save-update"/>
 		<many-to-one name = "Speciment" class="Speciment" column = "ID_Speciment" lazy="false" cascade = "save-update"/>
-		<bag name="TestsInOrder" table="TestsOfSpeciment" inverse="true" cascade = "save-update">
+		<bag name="TestsInOrderList" table="TestsOfSpeciment" lazy="false" cascade = "save-update">
 			<key column="ID_SpecimentOrder"/>
 			<many-to-many class="TestsInOrder" column="ID_TestOrder"/>
 		</bag>
