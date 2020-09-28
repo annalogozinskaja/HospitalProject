@@ -14,6 +14,7 @@ namespace Hospital
         public virtual string Result { get; set; }
 
         private IList<SpecimentsInOrder> specimentsInOrder= new List<SpecimentsInOrder>();
+        //private IList<SpecimentsInOrder> specimentsInOrder;
 
         public virtual IList<SpecimentsInOrder> SpecimentsInOrderList
         {

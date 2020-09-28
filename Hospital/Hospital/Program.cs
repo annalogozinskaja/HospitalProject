@@ -32,77 +32,33 @@ namespace Hospital
             }
         }
 
-        public static void ShowDataPatientAndHisDoctors()
-        {
-            //foreach (Patient item in patients)
-            //{
-            //    foreach (Doctor itemDoctor in item.DoctorInList)
-            //    {
-            //        Console.WriteLine(item.ToString() + itemDoctor.ToString());
-            //        Console.WriteLine();
-            //    }
-            //}
-        }
-
-        public static void ShowDataOrderOfPatient()
+        public static void ShowAllData()
         {
             foreach (Patient item in patients)
             {
                 foreach ( OrderOfPatient itemOrder in item.OrderOfPatientInList)
                 {
                     Console.WriteLine(item.ToString() + itemOrder.ToString());
-                    Console.WriteLine();
+                    foreach (SpecimentsInOrder itemSpeciment in itemOrder.SpecimentsInOrderList)
+                    {
+                        Console.WriteLine(itemSpeciment.ToString());
+                        foreach (TestsInOrder itemTest in itemSpeciment.TestsInOrderList)
+                        {
+                            Console.WriteLine(itemTest.ToString());
+                        }
+                        Console.WriteLine();
+                    }
                 }
+                Console.WriteLine("=================================================");
             }       
         }
 
-        public static void ShowSpecimentsOfPatient()
-        {
-            //foreach (Patient item in patients)
-            //{
-            //    Console.WriteLine("\n"+item.ToString());
-            //    foreach (OrderOfPatient itemOrder in item.OrderOfPatientInList)
-            //    {
-            //        Console.WriteLine("\nOrder №" + itemOrder.ID_Order);
-            //        foreach (SpecimentsInOrder itemSpeciment in itemOrder.SpecimentsInOrderList)
-            //        {
-            //            Console.WriteLine(itemSpeciment.ToString());
-            //        }
-            //    }
-            //    Console.WriteLine("=================================================");
-            //}
-        }
-
-        public static void ShowTestsOfSpeciment()
-        {
-            //foreach (Patient item in patients)
-            //{
-            //    Console.WriteLine("\n" + item.ToString());
-            //    foreach (OrderOfPatient itemOrder in item.OrderOfPatientInList)
-            //    {
-            //        Console.WriteLine("\nOrder №" + itemOrder.ID_Order);
-            //        foreach (SpecimentsInOrder itemSpeciment in itemOrder.SpecimentsInOrderList)
-            //        {
-            //            Console.WriteLine(itemSpeciment.ToString());
-            //            foreach (TestsInOrder itemTest in itemSpeciment.TestsInOrder)
-            //            {
-            //                Console.WriteLine(itemTest.ToString());
-            //            }
-            //            Console.WriteLine();
-            //        }
-            //    }
-            //    Console.WriteLine("=================================================");
-            //}
-        }
-
-
-
-
-
+        
         public static void DataPatientSave(SessionFactory sessionFactory)
         {
             sessionFactory.OpenSession();
 
+            //GenericDaoImpl<TestsInOrder, int> testOrderDao = new GenericDaoImpl<TestsInOrder, int>(sessionFactory.GetSession());
             GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>(sessionFactory.GetSession());
             GenericDaoImpl<OrderStatus, int> orderStatusDao = new GenericDaoImpl<OrderStatus, int>(sessionFactory.GetSession());
             GenericDaoImpl<Doctor, int> doctorDao = new GenericDaoImpl<Doctor, int>(sessionFactory.GetSession());
@@ -121,7 +77,7 @@ namespace Hospital
             order.Patient.Lastname = "Titarenko";
             order.Patient.Firstname = "Nikolaj";
             order.Patient.DOB = Convert.ToDateTime("23/07/1967");
-            order.Patient.SSN = 295179865;
+            order.Patient.SSN = 295959865;
             order.Patient.Gender = genderDao.Get(1);
             order.Doctor = doctorDao.Get(2);
             order.OrderStatus = orderStatusDao.Get(1);
@@ -153,6 +109,58 @@ namespace Hospital
                 Result = ""
             });
             specimentInOrderDao.Save(speciment);
+
+           
+
+            //1 Variant (if all initilizing in main)-GenericADOException couldn't insert into TestsInOrder
+            //speciment.TestsInOrderList.Add(new TestsInOrder()
+            //{
+            //    SpecimentsInOrderList = new List<SpecimentsInOrder>(),
+            //    Test = testDao.Get(3),
+            //    DateStart = Convert.ToDateTime("28/09/2020"),
+            //    DateEnd = Convert.ToDateTime("29/09/2020"),
+            //    TestStatus = testStatusDao.Get(3),
+            //    Result = ""               
+            //});
+
+            //speciment.TestsInOrderList.Add(new TestsInOrder()
+            //{
+            //    SpecimentsInOrderList = new List<SpecimentsInOrder>(),
+            //    Test = testDao.Get(6),
+            //    DateStart = Convert.ToDateTime("28/09/2020"),
+            //    DateEnd = Convert.ToDateTime("29/09/2020"),
+            //    TestStatus = testStatusDao.Get(6),
+            //    Result = ""
+            //});
+
+
+
+            //2 Variant (if all initilizing in main)-GenericADOException couldn't insert into TestsInOrder
+            //SpecimentsInOrder speciment = new SpecimentsInOrder();
+            //speciment.OrderOfPatient = orderDao.Get(tempOrder.ID_Order);
+            //speciment.Speciment = specimentDao.Get(1);
+            //speciment.SpecimentStatus = specimentStatusDao.Get(4);
+            //speciment.DateOfTaking = Convert.ToDateTime("28/09/2020");
+            //speciment.Nurse = "Abramova";
+            //speciment.InitTestsInOrderList();
+            //SpecimentsInOrder tempSpeciment=specimentInOrderDao.Save(speciment);
+
+            //TestsInOrder test1 = new TestsInOrder();
+            //test1.InitSpecimentsInOrderList();
+            //test1.Test = testDao.Get(3);
+            //test1.DateStart = Convert.ToDateTime("28/09/2020");
+            //test1.DateEnd = Convert.ToDateTime("29/09/2020");
+            //test1.TestStatus = testStatusDao.Get(3);
+            //test1.Result = "";
+            //TestsInOrder tempTest1 = testOrderDao.Save(test1);
+
+            //SpecimentsInOrder specimentUpd = specimentInOrderDao.Get(tempSpeciment.ID_SpecimentOrder);
+            //specimentUpd.TestsInOrderList.Add(testOrderDao.Get(tempTest1.ID_TestOrder));
+            //specimentInOrderDao.SaveOrUpdate(specimentUpd);
+
+            //TestsInOrder testUpd = testOrderDao.Get(tempTest1.ID_TestOrder);
+            //testUpd.SpecimentsInOrderList.Add(specimentInOrderDao.Get(tempSpeciment.ID_SpecimentOrder));
+            //testOrderDao.SaveOrUpdate(testUpd);
 
             sessionFactory.CloseSession();
         }
@@ -190,21 +198,88 @@ namespace Hospital
             sessionFactory.CloseSession();
         }
 
-        public static void DataDelete()
+        public static void DataPatientDelete(SessionFactory sessionFactory)
         {
-            //GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>();
-            //genderDao.Delete(genderDao.Get(58));
+            sessionFactory.OpenSession();
+
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(sessionFactory.GetSession());
+            GenericDaoImpl<Relative, int> relativeDao = new GenericDaoImpl<Relative, int>(sessionFactory.GetSession());
+            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(sessionFactory.GetSession());
+            GenericDaoImpl<SpecimentsInOrder, int> specimentDao = new GenericDaoImpl<SpecimentsInOrder, int>(sessionFactory.GetSession());
+            GenericDaoImpl<TestsInOrder, int> testDao = new GenericDaoImpl<TestsInOrder, int>(sessionFactory.GetSession());
+
+            List<Relative> relativeList = new List<Relative>();
+            List<OrderOfPatient> orderList = new List<OrderOfPatient>();
+            List<SpecimentsInOrder> specimentList = new List<SpecimentsInOrder>();
+            List<TestsInOrder> testList = new List<TestsInOrder>();
+
+            Patient patient = patientDao.Get(3);
+            var orders = sessionFactory.GetSession().Query<OrderOfPatient>()
+            .Where(p => p.Patient.ID_Patient == patient.ID_Patient);
+
+            Console.WriteLine(patient.ToString());
+            foreach (Relative itemRelative in patient.RelativeInList)
+            {
+                Console.WriteLine(itemRelative.ToString());
+                relativeList.Add(itemRelative);
+            }
+
+            foreach (OrderOfPatient itemOrder in orders)
+            {
+                Console.WriteLine(itemOrder.ToString());
+
+                var speciments = sessionFactory.GetSession().Query<SpecimentsInOrder>()
+                   .Where(sp => sp.OrderOfPatient.ID_Order == itemOrder.ID_Order);
+                orderList.Add(itemOrder);
+               
+                foreach (SpecimentsInOrder itemSpeciment in speciments)
+                {
+                    Console.WriteLine(itemSpeciment.ToString());
+                    specimentList.Add(itemSpeciment);
+
+                    foreach (TestsInOrder itemTest in itemSpeciment.TestsInOrderList)
+                    {
+                        Console.WriteLine(itemTest.ToString());
+                        testList.Add(itemTest);
+                    }
+                }
+                Console.WriteLine("+++++++++++++");
+            }
+
+            Console.WriteLine("===================");
+            foreach (Relative item in relativeList)
+            {
+                relativeDao.Delete(item);
+            }
+            foreach (TestsInOrder item in testList)
+            {
+                testDao.Delete(item);
+            }
+            foreach (SpecimentsInOrder item in specimentList)
+            {
+                specimentDao.Delete(item);
+            }
+            foreach (OrderOfPatient item in orderList)
+            {
+                orderDao.Delete(item);
+            }
+
+            patientDao.Delete(patient);
+
+            sessionFactory.CloseSession();
         }
 
-        public static void DataGetAll()
+        public static void DataGetAll(SessionFactory sessionFactory)
         {
-            //GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>();
+            sessionFactory.OpenSession();
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(sessionFactory.GetSession());
 
-            //foreach  (Patient item in patientDao.GetAll().ToList())
-            //{
-            //    Console.Write(item.ToString());
-            //}
-            //Console.WriteLine("\n");
+            foreach (Patient item in patientDao.GetAll().ToList())
+            {
+                Console.Write(item.ToString());
+            }
+            Console.WriteLine("\n");
+            sessionFactory.CloseSession();
         }
 
             static void Main(string[] args)
@@ -219,7 +294,8 @@ namespace Hospital
                 {
                     Console.WriteLine("Choose data you want to see:");
                     Console.WriteLine("1-Save data of patient(ready)\n2-Get data of the patient(ready)"+
-                        "\n3-Update data of patient(ready)\n4-Delete data(not ready)\n5-Get all data(not ready)\n6-Exit");
+                        "\n3-Update data of patient(ready)\n4-Delete all data about patient(ready)"+
+                        "\n5-List of patients(ready)\n6-Exit");
                     choice = Convert.ToInt32(Console.ReadLine());
 
                     switch (choice)
@@ -245,13 +321,13 @@ namespace Hospital
                         case 4:
                             {
                                 Console.Clear();
-                                DataDelete();
+                                DataPatientDelete(SF);
                             }
                             break;
                         case 5:
                             {
                                 Console.Clear();
-                                DataGetAll();
+                                DataGetAll(SF);
                             }
                             break;
                     }

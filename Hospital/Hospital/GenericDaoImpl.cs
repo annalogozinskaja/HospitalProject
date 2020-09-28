@@ -45,12 +45,7 @@ namespace Hospital
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace.ToString());
                 throw e;
-            }
-            finally
-            {
-                Console.WriteLine("Block finally SAVE");              
             }
         }
 
@@ -67,7 +62,7 @@ namespace Hospital
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace.ToString());
+                //Console.WriteLine(e.StackTrace.ToString());
                 throw e;
             }
         }
@@ -82,10 +77,7 @@ namespace Hospital
                     tx.Commit();
                 }
             }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.StackTrace.ToString());
-            }
+            catch (Exception e) {}
         }
     }
 
