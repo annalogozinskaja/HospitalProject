@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hospital
 {
-    class Speciment
+    public class Speciment
     {
         public virtual int ID_Speciment { get; set; }
         public virtual string SpecimentName { get; set; }

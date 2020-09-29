@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hospital
 {
-    interface IGenericDao <T,ID>
+    public interface IGenericDao <T,ID>
     {
         T Get(ID id);
         T Save(T obj);

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hospital
 {
-    class SpecimentsInOrder
+    public class SpecimentsInOrder
     {
         public virtual int ID_SpecimentOrder { get; set; }
         public virtual OrderOfPatient OrderOfPatient { get; set; }

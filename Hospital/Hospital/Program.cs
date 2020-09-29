@@ -12,6 +12,7 @@ using ServiceStack;
 using NHibernate.Id;
 using NHibernate.Tool.hbm2ddl;
 using NHibernate.Util;
+using System.Threading;
 
 namespace Hospital
 {
@@ -68,6 +69,7 @@ namespace Hospital
             GenericDaoImpl<SpecimentStatus, int> specimentStatusDao = new GenericDaoImpl<SpecimentStatus, int>(sessionFactory.GetSession());
             GenericDaoImpl<Test, int> testDao = new GenericDaoImpl<Test, int>(sessionFactory.GetSession());
             GenericDaoImpl<TestStatus, int> testStatusDao = new GenericDaoImpl<TestStatus, int>(sessionFactory.GetSession());
+            GenericDaoImpl<TestsInOrder, int> testOrderDao = new GenericDaoImpl<TestsInOrder, int>(sessionFactory.GetSession());
 
             OrderOfPatient order = new OrderOfPatient();
             order.DateOrder = Convert.ToDateTime("27/09/2020");
@@ -77,11 +79,31 @@ namespace Hospital
             order.Patient.Lastname = "Titarenko";
             order.Patient.Firstname = "Nikolaj";
             order.Patient.DOB = Convert.ToDateTime("23/07/1967");
-            order.Patient.SSN = 295959865;
+            order.Patient.SSN = 961766524;
             order.Patient.Gender = genderDao.Get(1);
             order.Doctor = doctorDao.Get(2);
             order.OrderStatus = orderStatusDao.Get(1);
             OrderOfPatient tempOrder = orderDao.Save(order);
+
+            TestsInOrder test1 = new TestsInOrder();
+            test1.InitSpecimentsInOrderList();  //инициализировать в самом начале 
+            test1.Test = testDao.Get(3);
+            test1.DateStart = Convert.ToDateTime("28/09/2020");
+            test1.DateEnd = Convert.ToDateTime("29/09/2020");
+            test1.TestStatus = testStatusDao.Get(3);
+            test1.Result = "";
+            Thread.Sleep(1000);  //без слипа не успевает проинициализ-ся список и сейвится null
+            TestsInOrder tempTest1 = testOrderDao.Save(test1);
+
+            TestsInOrder test2 = new TestsInOrder();
+            test2.InitSpecimentsInOrderList();
+            test2.Test = testDao.Get(6);
+            test2.DateStart = Convert.ToDateTime("28/09/2020");
+            test2.DateEnd = Convert.ToDateTime("29/09/2020");
+            test2.TestStatus = testStatusDao.Get(6);
+            test2.Result = "";
+            Thread.Sleep(1000);
+            TestsInOrder tempTest2 = testOrderDao.Save(test2);
 
             SpecimentsInOrder speciment = new SpecimentsInOrder();
             speciment.OrderOfPatient = orderDao.Get(tempOrder.ID_Order);
@@ -90,77 +112,9 @@ namespace Hospital
             speciment.DateOfTaking = Convert.ToDateTime("28/09/2020");
             speciment.Nurse = "Abramova";
             speciment.InitTestsInOrderList();
-
-            speciment.TestsInOrderList.Add(new TestsInOrder()
-            {
-                Test = testDao.Get(3),
-                DateStart = Convert.ToDateTime("28/09/2020"),
-                DateEnd = Convert.ToDateTime("29/09/2020"),
-                TestStatus = testStatusDao.Get(3),
-                Result = ""
-            });
-
-            speciment.TestsInOrderList.Add(new TestsInOrder()
-            {
-                Test = testDao.Get(6),
-                DateStart = Convert.ToDateTime("28/09/2020"),
-                DateEnd = Convert.ToDateTime("29/09/2020"),
-                TestStatus = testStatusDao.Get(6),
-                Result = ""
-            });
+            speciment.TestsInOrderList.Add(tempTest1);
+            speciment.TestsInOrderList.Add(tempTest2);
             specimentInOrderDao.Save(speciment);
-
-           
-
-            //1 Variant (if all initilizing in main)-GenericADOException couldn't insert into TestsInOrder
-            //speciment.TestsInOrderList.Add(new TestsInOrder()
-            //{
-            //    SpecimentsInOrderList = new List<SpecimentsInOrder>(),
-            //    Test = testDao.Get(3),
-            //    DateStart = Convert.ToDateTime("28/09/2020"),
-            //    DateEnd = Convert.ToDateTime("29/09/2020"),
-            //    TestStatus = testStatusDao.Get(3),
-            //    Result = ""               
-            //});
-
-            //speciment.TestsInOrderList.Add(new TestsInOrder()
-            //{
-            //    SpecimentsInOrderList = new List<SpecimentsInOrder>(),
-            //    Test = testDao.Get(6),
-            //    DateStart = Convert.ToDateTime("28/09/2020"),
-            //    DateEnd = Convert.ToDateTime("29/09/2020"),
-            //    TestStatus = testStatusDao.Get(6),
-            //    Result = ""
-            //});
-
-
-
-            //2 Variant (if all initilizing in main)-GenericADOException couldn't insert into TestsInOrder
-            //SpecimentsInOrder speciment = new SpecimentsInOrder();
-            //speciment.OrderOfPatient = orderDao.Get(tempOrder.ID_Order);
-            //speciment.Speciment = specimentDao.Get(1);
-            //speciment.SpecimentStatus = specimentStatusDao.Get(4);
-            //speciment.DateOfTaking = Convert.ToDateTime("28/09/2020");
-            //speciment.Nurse = "Abramova";
-            //speciment.InitTestsInOrderList();
-            //SpecimentsInOrder tempSpeciment=specimentInOrderDao.Save(speciment);
-
-            //TestsInOrder test1 = new TestsInOrder();
-            //test1.InitSpecimentsInOrderList();
-            //test1.Test = testDao.Get(3);
-            //test1.DateStart = Convert.ToDateTime("28/09/2020");
-            //test1.DateEnd = Convert.ToDateTime("29/09/2020");
-            //test1.TestStatus = testStatusDao.Get(3);
-            //test1.Result = "";
-            //TestsInOrder tempTest1 = testOrderDao.Save(test1);
-
-            //SpecimentsInOrder specimentUpd = specimentInOrderDao.Get(tempSpeciment.ID_SpecimentOrder);
-            //specimentUpd.TestsInOrderList.Add(testOrderDao.Get(tempTest1.ID_TestOrder));
-            //specimentInOrderDao.SaveOrUpdate(specimentUpd);
-
-            //TestsInOrder testUpd = testOrderDao.Get(tempTest1.ID_TestOrder);
-            //testUpd.SpecimentsInOrderList.Add(specimentInOrderDao.Get(tempSpeciment.ID_SpecimentOrder));
-            //testOrderDao.SaveOrUpdate(testUpd);
 
             sessionFactory.CloseSession();
         }
@@ -183,13 +137,13 @@ namespace Hospital
             GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(sessionFactory.GetSession());
 
             Console.WriteLine("Updating patient of the 3rd order for example:\n");
-            Console.WriteLine("Before updating: "+patientDao.Get(2)+"\n"+ orderDao.Get(3));
+            Console.WriteLine("Before updating: " + patientDao.Get(2) + "\n" + orderDao.Get(3));
 
             OrderOfPatient order = orderDao.Get(3);
-            order.Patient.Lastname= "Avramenko";
+            order.Patient.Lastname = "Avramenko";
             order.Patient.Firstname = "Elena";
             order.Patient.DOB = Convert.ToDateTime("07/03/1987");
-            order.DateOrder= Convert.ToDateTime("11/10/2020");
+            order.DateOrder = Convert.ToDateTime("11/10/2020");
             orderDao.SaveOrUpdate(order);
 
             Console.WriteLine("After updating: " + patientDao.Get(2) + "\n" + orderDao.Get(3));

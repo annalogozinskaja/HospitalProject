@@ -11,7 +11,7 @@ namespace Hospital
 {
     public class GenericDaoImpl<T, ID> : IGenericDao<T, ID> //Реализуем интерфейс IGenericDao
     {
-        private  ISession session;
+        public ISession session;
         public GenericDaoImpl(ISession session)
         {
             this.session = session;

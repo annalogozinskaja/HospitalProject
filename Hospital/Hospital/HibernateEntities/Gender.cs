@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hospital
 {
-    class Gender
+    public class Gender
     {
         public virtual int ID_Gender { get; set; }
         public virtual string GenderName { get; set; }

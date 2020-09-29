@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Hospital
 {
-    class Relative
+    public class Relative
     {
         public virtual int ID_Relative { get; set; }
         public virtual string Lastname { get; set; }
