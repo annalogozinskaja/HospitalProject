@@ -13,6 +13,7 @@ using NHibernate.Id;
 using NHibernate.Tool.hbm2ddl;
 using NHibernate.Util;
 using System.Threading;
+using Hospital.DAO;
 
 namespace Hospital
 {
@@ -168,7 +169,7 @@ namespace Hospital
             List<TestsInOrder> testList = new List<TestsInOrder>();
 
             Patient patient = patientDao.Get(3);
-            var orders = sessionFactory.GetSession().Query<OrderOfPatient>()
+            IQueryable<OrderOfPatient> orders = sessionFactory.GetSession().Query<OrderOfPatient>()
             .Where(p => p.Patient.ID_Patient == patient.ID_Patient);
 
             Console.WriteLine(patient.ToString());
@@ -182,7 +183,7 @@ namespace Hospital
             {
                 Console.WriteLine(itemOrder.ToString());
 
-                var speciments = sessionFactory.GetSession().Query<SpecimentsInOrder>()
+                IQueryable <SpecimentsInOrder> speciments = sessionFactory.GetSession().Query<SpecimentsInOrder>()
                    .Where(sp => sp.OrderOfPatient.ID_Order == itemOrder.ID_Order);
                 orderList.Add(itemOrder);
                
@@ -236,7 +237,61 @@ namespace Hospital
             sessionFactory.CloseSession();
         }
 
-            static void Main(string[] args)
+        public static void DataGetByLastname(SessionFactory sessionFactory)
+        {
+            Console.WriteLine("Enter lastname:");
+            String lastname = Console.ReadLine();
+
+            if (lastname.CompareTo("")!= 0)
+            {
+                sessionFactory.OpenSession();
+                PatientDaoImpl patientDao = new PatientDaoImpl(sessionFactory.GetSession());
+
+                foreach (Patient item in patientDao.GetByLastname(lastname).ToList())
+                {
+                    Console.Write(item.ToString());
+                }
+                Console.WriteLine("\n");
+                sessionFactory.CloseSession();
+            }
+            else
+            {
+                Console.WriteLine("Lastname must be entered");
+            }           
+        }
+
+        public static void DataGetOrdersByDate(SessionFactory sessionFactory)
+        {
+            Console.WriteLine("Enter year:");
+            String year = Console.ReadLine();
+            Console.WriteLine("Enter month:");
+            String month = Console.ReadLine();
+            Console.WriteLine("Enter day:");
+            String day = Console.ReadLine();
+
+            if (day.CompareTo("")!=0 && month.CompareTo("")!= 0 && year.CompareTo("")!= 0)
+            {
+                sessionFactory.OpenSession();
+
+                DateTime dateOrder = Convert.ToDateTime(day + "/" + month + "/" + year);
+                OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(sessionFactory.GetSession());
+
+                foreach (OrderOfPatient item in orderDao.GetOrdersByDate(dateOrder).ToList())
+                {
+                    Console.Write(item.ToString());
+                }
+                Console.WriteLine("\n");
+                sessionFactory.CloseSession();
+            }
+            else
+            {
+                Console.WriteLine("All values must be entered");
+            }          
+        }
+
+
+
+        static void Main(string[] args)
         {
             try
             {
@@ -249,7 +304,7 @@ namespace Hospital
                     Console.WriteLine("Choose data you want to see:");
                     Console.WriteLine("1-Save data of patient(ready)\n2-Get data of the patient(ready)"+
                         "\n3-Update data of patient(ready)\n4-Delete all data about patient(ready)"+
-                        "\n5-List of patients(ready)\n6-Exit");
+                        "\n5-List of patients(ready)\n6-Find patient by lastname\n7-Find orders by date\n8 -Exit");
                     choice = Convert.ToInt32(Console.ReadLine());
 
                     switch (choice)
@@ -284,8 +339,20 @@ namespace Hospital
                                 DataGetAll(SF);
                             }
                             break;
+                        case 6:
+                            {
+                                Console.Clear();
+                                DataGetByLastname(SF);
+                            }
+                            break;
+                        case 7:
+                            {
+                                Console.Clear();
+                                DataGetOrdersByDate(SF);
+                            }
+                            break;
                     }
-                } while (choice != 6);
+                } while (choice != 8);
 
 
 

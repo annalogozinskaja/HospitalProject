@@ -4,5 +4,5 @@ using System.Text;
 
 namespace Hospital
 {
-    public interface IOrderOfPatient : IGenericDao<OrderOfPatient, int> { }
+    public interface IOrderOfPatientDao : IGenericDao<OrderOfPatient, int> { }
 }
