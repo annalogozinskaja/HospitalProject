@@ -5,7 +5,7 @@ using System.Text;
 using NHibernate;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Hospital
+namespace DAOLayer
 {
     public class SessionFactory
     {
@@ -13,11 +13,19 @@ namespace Hospital
         private ISession session;
         public void Init() //Инициализация фабрики сессий
         {
-            Configuration cfg = new Configuration();
-            cfg.Configure();
+            NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration();
+            cfg.SetProperty("connection.provider", "NHibernate.Connection.DriverConnectionProvider");
+            cfg.SetProperty("dialect", "NHibernate.Dialect.PostgreSQLDialect");
+            cfg.SetProperty("query.substitutions", "hqlFunction=SQLFUNC");
+            cfg.SetProperty("connection.driver_class", "NHibernate.Driver.NpgsqlDriver");
+            cfg.SetProperty("connection.connection_string", "Server=localhost;Port=5432;User Id=postgres;Password=postgres;Database=Hospital");
+            cfg.SetProperty("show_sql", "true");
+            //cfg.SetProperty("proxyfactory.factory_class", "NHibernate.ByteCode.LinFu.ProxyFactoryFactory, NHibernate.ByteCode.LinFu");
+            cfg.AddAssembly("DAOLayer");
+            //cfg.Configure();
             sessionFactory = cfg.BuildSessionFactory();
             Console.WriteLine("NHibernate Configured!");
-            Console.ReadKey();         
+            Console.ReadKey();
         }
 
         public void OpenSession()

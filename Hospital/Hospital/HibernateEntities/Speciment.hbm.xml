@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="Hospital" assembly="Hospital">
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" namespace="DAOLayer" assembly="DAOLayer">
 	<class name="Speciment" table="Speciment">
 		<id name="ID_Speciment" column="ID_Speciment">
 			<generator class="native"/>

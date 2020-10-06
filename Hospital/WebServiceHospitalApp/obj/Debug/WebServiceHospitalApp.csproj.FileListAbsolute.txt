@@ -1,0 +1,278 @@
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\WebServiceHospitalApp.dll.config
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\WebServiceHospitalApp.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\WebServiceHospitalApp.pdb
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\csc.exe
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\csc.exe.config
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\csc.rsp
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\csi.exe
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\csi.exe.config
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\csi.rsp
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.Managed.Core.targets
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.AppContext.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Collections.Immutable.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Console.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Globalization.Calendars.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.IO.Compression.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.IO.FileSystem.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Net.Http.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Net.Sockets.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Reflection.Metadata.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.ValueTuple.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Xml.ReaderWriter.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Xml.XmlDocument.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Xml.XPath.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\vbc.exe
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\vbc.exe.config
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\vbc.rsp
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\VBCSCompiler.exe
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\roslyn\VBCSCompiler.exe.config
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.csprojAssemblyReference.cache
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.csproj.CoreCompileInputs.cache
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.csproj.CopyComplete
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.pdb
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\DAOLayer.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\NHibernate.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Remotion.Linq.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Remotion.Linq.EagerFetching.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Antlr3.Runtime.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Iesi.Collections.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\DAOLayer.pdb
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\DAOLayer.dll.config
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Antlr3.Runtime.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Iesi.Collections.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\NHibernate.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Remotion.Linq.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Remotion.Linq.EagerFetching.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Bcl.HashCode.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.Abstractions.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.Relational.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Caching.Abstractions.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Caching.Memory.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.Binder.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.DependencyInjection.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Logging.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Options.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Primitives.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Npgsql.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.Client.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.Common.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.Interfaces.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.Text.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Buffers.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Collections.Immutable.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.ComponentModel.Annotations.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Diagnostics.DiagnosticSource.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Memory.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Numerics.Vectors.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Runtime.CompilerServices.Unsafe.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Text.Encodings.Web.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Text.Json.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Threading.Tasks.Extensions.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.ValueTuple.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Bcl.HashCode.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.Abstractions.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.Relational.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Caching.Abstractions.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Caching.Memory.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.Binder.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.DependencyInjection.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Logging.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Options.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Primitives.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Npgsql.pdb
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\Npgsql.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.Client.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.Common.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.Interfaces.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\ServiceStack.Text.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Buffers.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Collections.Immutable.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Diagnostics.DiagnosticSource.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Memory.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Numerics.Vectors.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Text.Encodings.Web.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Text.Json.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.Threading.Tasks.Extensions.xml
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\WebServiceHospitalApp\bin\System.ValueTuple.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\WebServiceHospitalApp.dll.config
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\WebServiceHospitalApp.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\WebServiceHospitalApp.pdb
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\csc.exe
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\csc.exe.config
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\csc.rsp
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\csi.exe
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\csi.exe.config
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\csi.rsp
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.Managed.Core.targets
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.AppContext.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Console.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Globalization.Calendars.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.IO.Compression.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.IO.Compression.ZipFile.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Net.Http.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Net.Sockets.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Threading.Tasks.Extensions.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.ValueTuple.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Xml.XmlDocument.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Xml.XPath.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\vbc.exe
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\vbc.exe.config
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\vbc.rsp
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\VBCSCompiler.exe
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Antlr3.Runtime.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\DAOLayer.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Iesi.Collections.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Bcl.HashCode.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Logging.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Options.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Primitives.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\NHibernate.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Npgsql.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Remotion.Linq.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Remotion.Linq.EagerFetching.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.Client.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.Common.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.Interfaces.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.Text.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Buffers.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Collections.Immutable.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.ComponentModel.Annotations.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Memory.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Numerics.Vectors.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Text.Encodings.Web.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Text.Json.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.ValueTuple.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\DAOLayer.pdb
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\DAOLayer.dll.config
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Antlr3.Runtime.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Iesi.Collections.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Bcl.HashCode.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.EntityFrameworkCore.Relational.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Logging.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Options.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.Extensions.Primitives.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\NHibernate.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Npgsql.pdb
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Npgsql.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Remotion.Linq.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Remotion.Linq.EagerFetching.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.Client.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.Common.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.Interfaces.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\ServiceStack.Text.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Buffers.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Collections.Immutable.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Memory.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Numerics.Vectors.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Text.Encodings.Web.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Text.Json.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\System.ValueTuple.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.csprojAssemblyReference.cache
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.csproj.CopyComplete
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.dll
+C:\Users\User\source\Repos\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.pdb

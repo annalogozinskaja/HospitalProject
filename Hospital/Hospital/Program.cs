@@ -13,9 +13,9 @@ using NHibernate.Id;
 using NHibernate.Tool.hbm2ddl;
 using NHibernate.Util;
 using System.Threading;
-using Hospital.DAO;
 
-namespace Hospital
+
+namespace DAOLayer
 {
     class Program
     {

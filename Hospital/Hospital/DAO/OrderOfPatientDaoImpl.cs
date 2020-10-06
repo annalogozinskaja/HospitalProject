@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Hospital.DAO
+namespace DAOLayer
 {
     public class OrderOfPatientDaoImpl: GenericDaoImpl<OrderOfPatient, int>, IOrderOfPatientDao
     {

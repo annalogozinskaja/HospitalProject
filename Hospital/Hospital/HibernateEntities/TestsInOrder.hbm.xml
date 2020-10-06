@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-	namespace="Hospital" assembly="Hospital">
+	namespace="DAOLayer" assembly="DAOLayer">
 	<class name="TestsInOrder" table="TestsInOrder">
 		<id name="ID_TestOrder" column="ID_TestOrder">
 			<generator class="native"/>

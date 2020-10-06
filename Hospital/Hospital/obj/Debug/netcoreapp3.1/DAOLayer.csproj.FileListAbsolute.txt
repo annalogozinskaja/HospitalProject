@@ -1,0 +1,10 @@
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\obj\Debug\netcoreapp3.1\DAOLayer.AssemblyInfoInputs.cache
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\obj\Debug\netcoreapp3.1\DAOLayer.AssemblyInfo.cs
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\obj\Debug\netcoreapp3.1\DAOLayer.csproj.CoreCompileInputs.cache
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\bin\Debug\netcoreapp3.1\DAOLayer.dll.config
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\bin\Debug\netcoreapp3.1\DAOLayer.deps.json
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\bin\Debug\netcoreapp3.1\DAOLayer.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\bin\Debug\netcoreapp3.1\DAOLayer.pdb
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\obj\Debug\netcoreapp3.1\DAOLayer.dll
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\obj\Debug\netcoreapp3.1\DAOLayer.pdb
+E:\Developer\Clinica\Hospital_051020_BeforeCreatingDll — копия\Hospital\Hospital\obj\Debug\netcoreapp3.1\DAOLayer.csprojAssemblyReference.cache

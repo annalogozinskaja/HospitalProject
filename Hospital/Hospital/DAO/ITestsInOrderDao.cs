@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hospital.DAO
+namespace DAOLayer.DAO
 {
     public interface ITestsInOrderDao: IGenericDao<TestsInOrder, int> { }
 }
