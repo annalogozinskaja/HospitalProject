@@ -13,7 +13,7 @@ namespace DAOLayer
         private ISession session;
         public void Init() //Инициализация фабрики сессий
         {
-            NHibernate.Cfg.Configuration cfg = new NHibernate.Cfg.Configuration();
+            Configuration cfg = new Configuration();
             cfg.SetProperty("connection.provider", "NHibernate.Connection.DriverConnectionProvider");
             cfg.SetProperty("dialect", "NHibernate.Dialect.PostgreSQLDialect");
             cfg.SetProperty("query.substitutions", "hqlFunction=SQLFUNC");
@@ -24,8 +24,6 @@ namespace DAOLayer
             cfg.AddAssembly("DAOLayer");
             //cfg.Configure();
             sessionFactory = cfg.BuildSessionFactory();
-            Console.WriteLine("NHibernate Configured!");
-            Console.ReadKey();
         }
 
         public void OpenSession()

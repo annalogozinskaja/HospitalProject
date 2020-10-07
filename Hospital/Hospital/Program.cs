@@ -26,11 +26,11 @@ namespace DAOLayer
         {
             foreach (Patient item in patients)
             {
-                foreach (Relative itemRelative in item.RelativeInList)
+          /*      foreach (Relative itemRelative in item.RelativeInList)
                 {
                     Console.WriteLine(item.ToString() + itemRelative.ToString());
                     Console.WriteLine();
-                }
+                }*/
             }
         }
 
@@ -173,11 +173,11 @@ namespace DAOLayer
             .Where(p => p.Patient.ID_Patient == patient.ID_Patient);
 
             Console.WriteLine(patient.ToString());
-            foreach (Relative itemRelative in patient.RelativeInList)
+       /*     foreach (Relative itemRelative in patient.RelativeInList)
             {
                 Console.WriteLine(itemRelative.ToString());
                 relativeList.Add(itemRelative);
-            }
+            }*/
 
             foreach (OrderOfPatient itemOrder in orders)
             {
@@ -302,8 +302,8 @@ namespace DAOLayer
                 do
                 {
                     Console.WriteLine("Choose data you want to see:");
-                    Console.WriteLine("1-Save data of patient(ready)\n2-Get data of the patient(ready)"+
-                        "\n3-Update data of patient(ready)\n4-Delete all data about patient(ready)"+
+                    Console.WriteLine("1-Save data of patient(ready)\n2-Get data of the patient(ready)" +
+                        "\n3-Update data of patient(ready)\n4-Delete all data about patient(ready)" +
                         "\n5-List of patients(ready)\n6-Find patient by lastname\n7-Find orders by date\n8 -Exit");
                     choice = Convert.ToInt32(Console.ReadLine());
 
