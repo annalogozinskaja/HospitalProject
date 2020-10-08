@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Xml.Serialization;
 
 namespace DAOLayer
 {
@@ -10,6 +11,7 @@ namespace DAOLayer
         public virtual string GenderName { get; set; }
 
         private IList<Patient> patient;
+        [XmlIgnore]
         public virtual IList<Patient> PatientInList
         {
             get { return patient; }
@@ -21,6 +23,7 @@ namespace DAOLayer
         }
 
         private IList<Relative> relative;
+        [XmlIgnore]
         public virtual IList<Relative> RelativeInList
         {
             get { return relative; }

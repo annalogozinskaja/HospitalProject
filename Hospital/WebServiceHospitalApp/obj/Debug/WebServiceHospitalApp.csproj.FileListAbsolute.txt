@@ -415,3 +415,5 @@ C:\Users\User\source\Repos\HospitalProject\Hospital\WebServiceHospitalApp\obj\De
 C:\Users\User\source\Repos\HospitalProject\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.csproj.CopyComplete
 C:\Users\User\source\Repos\HospitalProject\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.dll
 C:\Users\User\source\Repos\HospitalProject\Hospital\WebServiceHospitalApp\obj\Debug\WebServiceHospitalApp.pdb
+C:\Users\User\source\Repos\HospitalProject\Hospital\WebServiceHospitalApp\bin\AutoMapper.dll
+C:\Users\User\source\Repos\HospitalProject\Hospital\WebServiceHospitalApp\bin\AutoMapper.xml

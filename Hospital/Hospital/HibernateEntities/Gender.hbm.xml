@@ -13,5 +13,6 @@
 			<key column="ID_Gender"/>
 			<one-to-many class="Relative" />
 		</bag>
-	</class>
+	
+</class>
 </hibernate-mapping>
