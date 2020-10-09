@@ -11,6 +11,7 @@ namespace DAOLayer
         public virtual string GenderName { get; set; }
 
         private IList<Patient> patient;
+
         [XmlIgnore]
         public virtual IList<Patient> PatientInList
         {
@@ -23,6 +24,7 @@ namespace DAOLayer
         }
 
         private IList<Relative> relative;
+
         [XmlIgnore]
         public virtual IList<Relative> RelativeInList
         {

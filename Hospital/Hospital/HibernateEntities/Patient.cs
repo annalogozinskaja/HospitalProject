@@ -20,19 +20,13 @@ namespace DAOLayer
         public virtual IList<Relative> RelativeInList
         {
             get { return relative; }
-            set {
-                    relative = value;
-                    //RelativeAutoMapper =relative.ToList();
-                }
+            set { relative = value; }
         }
 
         public virtual void InitRelativeInList()
         {
             relative = new List<Relative>();
-           // RelativeAutoMapper = new List<Relative>();
         }
-
-        //public virtual List<Relative> RelativeAutoMapper  { get; set; }
 
         public virtual Gender Gender { get; set; }
 

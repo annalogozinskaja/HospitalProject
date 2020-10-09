@@ -11,6 +11,7 @@ namespace DAOLayer
         public virtual string OrderName { get; set; }
 
         private IList<OrderOfPatient> orderOfPatient;
+
         [XmlIgnore]
         public virtual IList<OrderOfPatient> OrderOfPatientList
         {

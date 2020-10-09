@@ -14,7 +14,7 @@ namespace WebServiceHospitalApp.TransportObj
         public  DateTime DOB { get; set; }
         public int SSN { get; set; }
 
-        public List<Relative> relative;
+        private List<Relative> relative { get; set; }
         public List<Relative> RelativeInList
         {
             get { return relative; }
@@ -22,22 +22,22 @@ namespace WebServiceHospitalApp.TransportObj
         }
 
         public Gender Gender { get; set; }
-        public List<OrderOfPatient> orderOfPatient;
+        private List<OrderOfPatient> orderOfPatient;
         public List<OrderOfPatient> OrderOfPatientInList
         {
             get { return orderOfPatient; }
             set { orderOfPatient = value; }
         }
 
-        public PatientTransport()
-        {
-            this.ID_Patient = -1;
-            this.Lastname = string.Empty;
-            this.Firstname = string.Empty;
-            this.DOB = new DateTime();
-            this.SSN = -1;
-            //this.RelativeAutoMapper = new List<Relative>();
-        }
+        //public PatientTransport()
+        //{
+        //    this.ID_Patient = -1;
+        //    this.Lastname = string.Empty;
+        //    this.Firstname = string.Empty;
+        //    this.DOB = new DateTime();
+        //    this.SSN = -1;
+        //    //this.RelativeAutoMapper = new List<Relative>();
+        //}
 
         //public PatientTransport(Patient patient)
         //{

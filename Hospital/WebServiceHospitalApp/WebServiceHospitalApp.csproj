@@ -196,7 +196,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransportObj\DoctorTransport.cs" />
+    <Compile Include="TransportObj\GenderTransport.cs" />
+    <Compile Include="TransportObj\GenericAutoMapper.cs" />
+    <Compile Include="TransportObj\OrderOfPatientTransport.cs" />
+    <Compile Include="TransportObj\OrderStatusTransport.cs" />
     <Compile Include="TransportObj\PatientTransport.cs" />
+    <Compile Include="TransportObj\RelativeTransport.cs" />
+    <Compile Include="TransportObj\SpecimentsInOrderTransport.cs" />
+    <Compile Include="TransportObj\SpecimentStatusTransport.cs" />
+    <Compile Include="TransportObj\SpecimentTransport.cs" />
+    <Compile Include="TransportObj\TestsInOrderTransport.cs" />
+    <Compile Include="TransportObj\TestStatusTransport.cs" />
+    <Compile Include="TransportObj\TestTransport.cs" />
     <Compile Include="WebServiceHospital.asmx.cs">
       <DependentUpon>WebServiceHospital.asmx</DependentUpon>
       <SubType>Component</SubType>

@@ -13,6 +13,7 @@ namespace DAOLayer
         public virtual string FieldOfMedicine { get; set; }
 
         private IList<OrderOfPatient> orderOfPatient;
+
         [XmlIgnore]
         public virtual IList<OrderOfPatient> OrderOfPatientInList
         {
