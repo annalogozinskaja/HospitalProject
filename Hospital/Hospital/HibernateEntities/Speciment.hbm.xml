@@ -5,9 +5,5 @@
 			<generator class="native"/>
 		</id>
 		<property name="SpecimentName" column="SpecimentName"  />
-		<bag name="SpecimentsInOrderList" inverse="true">
-			<key column="ID_Speciment"/>
-			<one-to-many class="SpecimentsInOrder" />
-		</bag>
 	</class>
 </hibernate-mapping>

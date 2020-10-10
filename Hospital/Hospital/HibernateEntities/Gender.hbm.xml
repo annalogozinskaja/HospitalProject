@@ -5,14 +5,5 @@
 			<generator class="native"/>
 		</id>
 		<property name="GenderName" column="GenderName"  />
-		<bag name="PatientInList" inverse="true">
-			<key column="ID_Gender"/>
-			<one-to-many class="Patient" />
-		</bag>
-		<bag name="RelativeInList" inverse="true">
-			<key column="ID_Gender"/>
-			<one-to-many class="Relative" />
-		</bag>
-	
 </class>
 </hibernate-mapping>

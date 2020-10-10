@@ -21,5 +21,13 @@ namespace DAOLayer
 
             return list;
         }
+
+        public List<OrderOfPatient> GetOrdersOfPatient(int PatientId)
+        {
+            IQueryable<OrderOfPatient> result = session.Query<OrderOfPatient>().Where(ord => ord.ID_Patient== PatientId);
+            List<OrderOfPatient> list = result.ToList();
+
+            return list;
+        }
     }
 }

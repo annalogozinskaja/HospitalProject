@@ -9,18 +9,7 @@ namespace DAOLayer
     {
         public virtual int ID_OrderStatus { get; set; }
         public virtual string OrderName { get; set; }
+        public virtual List<int> orderOfPatientList { get; set; }
 
-        private IList<OrderOfPatient> orderOfPatient;
-
-        [XmlIgnore]
-        public virtual IList<OrderOfPatient> OrderOfPatientList
-        {
-            get { return orderOfPatient; }
-            set { orderOfPatient = value; }
-        }
-        public virtual void InitOrderOfPatientList()
-        {
-            orderOfPatient = new List<OrderOfPatient>();
-        }
     }
 }

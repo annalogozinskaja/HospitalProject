@@ -14,14 +14,14 @@ namespace WebServiceHospitalApp.TransportObj
         public  DateTime DOB { get; set; }
         public int SSN { get; set; }
 
-        private List<Relative> relative { get; set; }
-        public List<Relative> RelativeInList
+        private List<int> relative { get; set; }
+        public List<int> RelativeInList
         {
             get { return relative; }
             set { relative = value; }
         }
 
-        public Gender Gender { get; set; }
+        public int ID_Gender { get; set; }
         private List<OrderOfPatient> orderOfPatient;
         public List<OrderOfPatient> OrderOfPatientInList
         {
@@ -29,15 +29,15 @@ namespace WebServiceHospitalApp.TransportObj
             set { orderOfPatient = value; }
         }
 
-        //public PatientTransport()
-        //{
-        //    this.ID_Patient = -1;
-        //    this.Lastname = string.Empty;
-        //    this.Firstname = string.Empty;
-        //    this.DOB = new DateTime();
-        //    this.SSN = -1;
-        //    //this.RelativeAutoMapper = new List<Relative>();
-        //}
+        public PatientTransport()
+        {
+            this.ID_Patient = -1;
+            this.Lastname = string.Empty;
+            this.Firstname = string.Empty;
+            this.DOB = new DateTime();
+            this.SSN = -1;
+            this.RelativeInList = new List<int>();
+        }
 
         //public PatientTransport(Patient patient)
         //{
@@ -63,7 +63,7 @@ namespace WebServiceHospitalApp.TransportObj
 
         public override string ToString()
         {
-            return "\nPatient: " + ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ", " + relative.ToString() + ".";
+            return "\nPatient: " + ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ", "+ID_Gender;
         }
     }
 }

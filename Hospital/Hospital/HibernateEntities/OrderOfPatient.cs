@@ -10,28 +10,16 @@ namespace DAOLayer
         public virtual int ID_Order { get; set; }
         public virtual DateTime DateOrder { get; set; }
         public virtual string Symptoms { get; set; }
-        public virtual Patient Patient { get; set; }
+        public virtual int ID_Patient { get; set; }
 
-        public virtual Doctor Doctor { get; set; }
-        public virtual OrderStatus OrderStatus { get; set; }
+        public virtual int ID_Doctor { get; set; }
+        public virtual int ID_OrderStatus { get; set; }
 
-        private IList<SpecimentsInOrder> specimentsInOrder;
-
-        [XmlIgnore]
-        public virtual IList<SpecimentsInOrder> SpecimentsInOrderList
-        {
-            get { return specimentsInOrder; }
-            set { specimentsInOrder = value; }
-        }
-
-        public virtual void InitRelativeInList()
-        {
-            specimentsInOrder = new List<SpecimentsInOrder>();
-        }
+        public virtual List<int> specimentsInOrderList { get; set; }
 
         public override string ToString()
         {
-            return "\nDoctor: "+Doctor.Lastname+"\nDate of order: " + DateOrder + "\nSymptoms: " + Symptoms + "\nStatus: "+OrderStatus.OrderName;
+            return "\nDoctor: "+ID_Doctor.ToString()+"\nDate of order: " + DateOrder + "\nSymptoms: " + Symptoms + "\nStatus: "+ID_OrderStatus;
         }
     }
 }

@@ -8,6 +8,7 @@
   <ItemGroup>
     <None Remove="Doctor.hbm.xml" />
     <None Remove="Gender.hbm.xml" />
+    <None Remove="HibernateEntities\TestsOfSpeciment.hbm.xml" />
     <None Remove="OrderOfPatient.hbm.xml" />
     <None Remove="OrderStatus.hbm.xml" />
     <None Remove="Patient.hbm.xml" />
@@ -32,6 +33,7 @@
     <EmbeddedResource Include="HibernateEntities\SpecimentStatus.hbm.xml" />
     <EmbeddedResource Include="HibernateEntities\Test.hbm.xml" />
     <EmbeddedResource Include="HibernateEntities\TestsInOrder.hbm.xml" />
+    <EmbeddedResource Include="HibernateEntities\TestsOfSpeciment.hbm.xml" />
     <EmbeddedResource Include="HibernateEntities\TestStatus.hbm.xml" />
   </ItemGroup>
 

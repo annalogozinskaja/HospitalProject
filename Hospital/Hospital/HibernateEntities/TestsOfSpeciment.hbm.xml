@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+	namespace="DAOLayer.HibernateEntities" assembly="DAOLayer">
+	<class name="TestsOfSpeciment" table="TestsOfSpeciment">
+		<id name="ID_TestSpeciment" column="ID_TestSpeciment">
+			<generator class="native"/>
+		</id>
+		<property name="ID_SpecimentOrder" column="ID_SpecimentOrder"  />
+		<property name="ID_TestOrder" column="ID_TestOrder"  />
+	</class>
+</hibernate-mapping>

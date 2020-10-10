@@ -5,9 +5,5 @@
 			<generator class="native"/>
 		</id>
 		<property name="TestStatusName" column="TestStatusName"  />
-		<bag name="TestsInOrderList" inverse="true">
-			<key column="ID_TestStatus"/>
-			<one-to-many class="TestsInOrder" />
-		</bag>
 	</class>
 </hibernate-mapping>

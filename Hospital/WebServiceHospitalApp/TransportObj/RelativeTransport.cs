@@ -14,7 +14,7 @@ namespace WebServiceHospitalApp.TransportObj
         public DateTime DOB { get; set; }
         public string KindOfRelationship { get; set; }
         public Patient Patient { get; set; }
-        public Gender Gender { get; set; }
+        public int ID_Gender { get; set; }
 
 
         public override string ToString()

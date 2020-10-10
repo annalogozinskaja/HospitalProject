@@ -9,7 +9,7 @@
 		<property name="Firstname" column="Firstname"  />
 		<property name="DOB" column="DOB"  />
 		<property name="KindOfRelationship" column="KindOfRelationship"  />
-		<many-to-one name = "Patient" class="Patient" column = "ID_Patient" lazy="false" cascade = "save-update"/>
-		<many-to-one name = "Gender" class="Gender" column = "ID_Gender" lazy="false" cascade = "save-update"/>
+		<property name="ID_Patient" column="ID_Patient"  />
+		<property name="ID_Gender" column="ID_Gender"  />	
 	</class>
 </hibernate-mapping>

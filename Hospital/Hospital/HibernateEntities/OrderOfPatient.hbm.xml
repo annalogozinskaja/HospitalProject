@@ -7,12 +7,8 @@
 		</id>
 		<property name="DateOrder" column="DateOrder"  />
 		<property name="Symptoms" column="Symptoms"  />
-		<many-to-one name = "OrderStatus" class="OrderStatus" column = "ID_OrderStatus"  lazy="false" cascade = "save-update"/>
-		<many-to-one name = "Patient" class="Patient" column = "ID_Patient" lazy="false" cascade = "save-update"/>
-		<many-to-one name = "Doctor" class="Doctor" column = "ID_Doctor" lazy="false" cascade = "save-update"/>
-		<bag name="SpecimentsInOrderList" inverse="true">
-			<key column="ID_Order"/>
-			<one-to-many class="SpecimentsInOrder" />
-		</bag>
+		<property name="ID_OrderStatus" column="ID_OrderStatus"  />
+		<property name="ID_Patient" column="ID_Patient"  />
+		<property name="ID_Doctor" column="ID_Doctor"  />
 	</class>
 </hibernate-mapping>

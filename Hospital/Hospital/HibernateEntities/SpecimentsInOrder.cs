@@ -8,29 +8,16 @@ namespace DAOLayer
     public class SpecimentsInOrder
     {
         public virtual int ID_SpecimentOrder { get; set; }
-        public virtual OrderOfPatient OrderOfPatient { get; set; }
-        public virtual Speciment Speciment { get; set; }
-        public virtual SpecimentStatus SpecimentStatus { get; set; }
+        public virtual int ID_Order { get; set; }
+        public virtual int ID_Speciment { get; set; }
+        public virtual int ID_SpecimentStatus { get; set; }
         public virtual DateTime DateOfTaking { get; set; }
         public virtual string Nurse { get; set; }
-
-        private IList<TestsInOrder> testsInOrder;
-
-        [XmlIgnore]
-        public virtual IList<TestsInOrder> TestsInOrderList
-        {
-            get { return testsInOrder; }
-            set { testsInOrder = value; }
-        }
-        public virtual void InitTestsInOrderList()
-        {
-            testsInOrder = new List<TestsInOrder>();
-        }
+        public virtual List<int> testsInOrderList { get; set; }
 
         public override string ToString()
         {
-            return "\nSpeciment: " + Speciment.SpecimentName+
-                "\nDate of speciment was taken: " + DateOfTaking+"\nNurse: "+Nurse+"\nStatus: "+SpecimentStatus.SpecimentStatusName;
+            return "\nName of Speciment:"+ ID_Speciment.ToString()+" \nDate of speciment was taken: " + DateOfTaking+"\nNurse: "+Nurse+"\nStatus: "+ID_SpecimentStatus;
         }
     }
 }

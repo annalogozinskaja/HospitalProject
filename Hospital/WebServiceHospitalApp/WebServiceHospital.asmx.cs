@@ -30,37 +30,66 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
-        public PatientTransport GetDataPatient()
+        public Patient GetDataPatient()
         {
             SessionFactory SF = new SessionFactory();
             SF.Init();
-
             SF.OpenSession();
+
+            //выведем данные пациента с id=1 и его ордера
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
             Patient p = patientDao.Get(1);
+            p.orderOfPatientList = new List<int>();
 
-            GenericAutoMapper<Patient, PatientTransport> gam = new GenericAutoMapper<Patient, PatientTransport>();
-            PatientTransport pt=gam.CreateMapping(p);
+            OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
+
+            foreach (OrderOfPatient item in orderDao.GetOrdersOfPatient(1).ToList())
+            {
+                p.orderOfPatientList.Add(item.ID_Order);
+            }
 
             SF.CloseSession();
-            return pt;
+            return p;
         }
 
         [WebMethod]
-        public OrderOfPatientTransport GetDataOrder()
+        public OrderOfPatient GetDataOrder()
         {
             SessionFactory SF = new SessionFactory();
             SF.Init();
-
             SF.OpenSession();
-            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(SF.GetSession());
-            OrderOfPatient ord = orderDao.Get(1);
 
-            GenericAutoMapper<OrderOfPatient, OrderOfPatientTransport> gam = new GenericAutoMapper<OrderOfPatient, OrderOfPatientTransport>();
-            OrderOfPatientTransport ot = gam.CreateMapping(ord);
+            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(SF.GetSession());
+            OrderOfPatient ord = orderDao.Get(2);
+           
+            SF.CloseSession();
+            return ord;
+        }
+
+        [WebMethod]
+        public SpecimentsInOrder GetDataSpeciment()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            //вытягиваем все тесты для спесимента ,у которого id=2(еще не готово)
+            GenericDaoImpl<SpecimentsInOrder, int> specimentDao = new GenericDaoImpl<SpecimentsInOrder, int>(SF.GetSession());
+            SpecimentsInOrder spec = specimentDao.Get(2);
+
+            spec.testsInOrderList = new List<int>();
+
+            TestsInOrderDaoImpl testDao = new TestsInOrderDaoImpl(SF.GetSession());
+
+            foreach (TestsInOrder item in testDao.GetTestsOfSpeciment(2).ToList())
+            {
+                spec.testsInOrderList.Add(item.ID_TestOrder);
+            }
 
             SF.CloseSession();
-            return ot;
+            return spec;
         }
+
+       
     }
 }

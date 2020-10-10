@@ -8,9 +8,5 @@
 		<property name="Lastname" column="Lastname"  />
 		<property name="Firstname" column="Firstname"  />
 		<property name="FieldOfMedicine" column="FieldOfMedicine"  />
-		<bag name="OrderOfPatientInList" inverse="true">
-			<key column="ID_Doctor"/>
-			<one-to-many class="OrderOfPatient" />
-		</bag>
 	</class>
 </hibernate-mapping>

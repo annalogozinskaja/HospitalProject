@@ -12,19 +12,8 @@ namespace DAOLayer
         public virtual string Firstname { get; set; }
         public virtual string FieldOfMedicine { get; set; }
 
-        private IList<OrderOfPatient> orderOfPatient;
+        public virtual List<int> orderOfPatientList { get; set; }
 
-        [XmlIgnore]
-        public virtual IList<OrderOfPatient> OrderOfPatientInList
-        {
-            get { return orderOfPatient; }
-            set { orderOfPatient = value; }
-        }
-
-        public virtual void InitOrderOfPatientList()
-        {
-            orderOfPatient = new List<OrderOfPatient>();
-        }
         public override string ToString()
         {
             return "\nDoctor:" + Lastname + " " + Firstname + ", fieldOfMedicine: " + FieldOfMedicine + ".";

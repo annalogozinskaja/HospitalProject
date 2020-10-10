@@ -13,6 +13,7 @@ namespace WebServiceHospitalApp.TransportObj
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
+                //cfg.CreateMap<T1, T2>().MaxDepth(2);
                 cfg.CreateMap<T1, T2>();
             });
 
@@ -20,6 +21,6 @@ namespace WebServiceHospitalApp.TransportObj
             T2 newObj = iMapper.Map<T1, T2>(obj);
 
             return newObj;
-        }
+       }
     }
 }
