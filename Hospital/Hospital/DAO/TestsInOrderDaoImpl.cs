@@ -26,7 +26,7 @@ namespace DAOLayer.DAO
             foreach (TestsOfSpeciment item in listTS)
             {
                IQueryable<TestsInOrder> result2 = session.Query<TestsInOrder>().Where(test => test.ID_TestOrder == item.ID_TestOrder);
-               list.Add((TestsInOrder)result2);
+               list.Add((TestsInOrder)result2.FirstOrDefault());
             }
 
 

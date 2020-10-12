@@ -73,15 +73,17 @@ namespace WebServiceHospitalApp
             SF.Init();
             SF.OpenSession();
 
-            //вытягиваем все тесты для спесимента ,у которого id=2(еще не готово)
+            int IdSpeciment = 2;
+
+            //вытягиваем все тесты для спесимента ,у которого id=2
             GenericDaoImpl<SpecimentsInOrder, int> specimentDao = new GenericDaoImpl<SpecimentsInOrder, int>(SF.GetSession());
-            SpecimentsInOrder spec = specimentDao.Get(2);
+            SpecimentsInOrder spec = specimentDao.Get(IdSpeciment);
 
             spec.testsInOrderList = new List<int>();
 
             TestsInOrderDaoImpl testDao = new TestsInOrderDaoImpl(SF.GetSession());
 
-            foreach (TestsInOrder item in testDao.GetTestsOfSpeciment(2).ToList())
+            foreach (TestsInOrder item in testDao.GetTestsOfSpeciment(IdSpeciment).ToList())
             {
                 spec.testsInOrderList.Add(item.ID_TestOrder);
             }
