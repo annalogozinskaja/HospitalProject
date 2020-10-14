@@ -30,7 +30,7 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
-        public Patient GetDataPatient()
+        public Patient GetDataPatient(int IdPatient)
         {
             SessionFactory SF = new SessionFactory();
             SF.Init();
@@ -38,15 +38,15 @@ namespace WebServiceHospitalApp
 
             //выведем данные пациента с id=1 и его ордера
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
-            Patient p = patientDao.Get(1);
-            p.orderOfPatientList = new List<int>();
+            Patient p = patientDao.Get(IdPatient);
+            //p.orderOfPatientList = new List<int>();
 
-            OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
+            //OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
 
-            foreach (OrderOfPatient item in orderDao.GetOrdersOfPatient(1).ToList())
-            {
-                p.orderOfPatientList.Add(item.ID_Order);
-            }
+            //foreach (OrderOfPatient item in orderDao.GetOrdersOfPatient(IdPatient).ToList())
+            //{
+            //    p.orderOfPatientList.Add(item.ID_Order);
+            //}
 
             SF.CloseSession();
             return p;

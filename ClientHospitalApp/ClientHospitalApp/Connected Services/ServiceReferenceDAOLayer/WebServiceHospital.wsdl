@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataPatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdPatient" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDataPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataPatientResult" type="tns:Patient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Patient">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Patient" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lastname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="SSN" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Gender" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="relativeList" type="tns:ArrayOfInt" />
+          <s:element minOccurs="0" maxOccurs="1" name="orderOfPatientList" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDataOrder">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataOrderResult" type="tns:OrderOfPatient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="OrderOfPatient">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Order" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOrder" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Symptoms" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Patient" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Doctor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_OrderStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="specimentsInOrderList" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDataSpeciment">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataSpecimentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataSpecimentResult" type="tns:SpecimentsInOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SpecimentsInOrder">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_SpecimentOrder" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Order" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Speciment" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_SpecimentStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOfTaking" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nurse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="testsInOrderList" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataPatientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataPatient" />
+  </wsdl:message>
+  <wsdl:message name="GetDataPatientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataOrder" />
+  </wsdl:message>
+  <wsdl:message name="GetDataOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSpecimentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataSpeciment" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSpecimentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataSpecimentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceHospitalSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPatient">
+      <wsdl:input message="tns:GetDataPatientSoapIn" />
+      <wsdl:output message="tns:GetDataPatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrder">
+      <wsdl:input message="tns:GetDataOrderSoapIn" />
+      <wsdl:output message="tns:GetDataOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSpeciment">
+      <wsdl:input message="tns:GetDataSpecimentSoapIn" />
+      <wsdl:output message="tns:GetDataSpecimentSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceHospitalSoap" type="tns:WebServiceHospitalSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPatient">
+      <soap:operation soapAction="http://tempuri.org/GetDataPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrder">
+      <soap:operation soapAction="http://tempuri.org/GetDataOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSpeciment">
+      <soap:operation soapAction="http://tempuri.org/GetDataSpeciment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceHospitalSoap12" type="tns:WebServiceHospitalSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataPatient">
+      <soap12:operation soapAction="http://tempuri.org/GetDataPatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrder">
+      <soap12:operation soapAction="http://tempuri.org/GetDataOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSpeciment">
+      <soap12:operation soapAction="http://tempuri.org/GetDataSpeciment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceHospital">
+    <wsdl:port name="WebServiceHospitalSoap" binding="tns:WebServiceHospitalSoap">
+      <soap:address location="https://localhost:44332/WebServiceHospital.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceHospitalSoap12" binding="tns:WebServiceHospitalSoap12">
+      <soap12:address location="https://localhost:44332/WebServiceHospital.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

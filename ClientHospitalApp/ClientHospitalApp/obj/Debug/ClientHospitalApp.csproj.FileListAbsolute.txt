@@ -1,0 +1,9 @@
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\ClientHospitalApp.exe.config
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\ClientHospitalApp.exe
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\ClientHospitalApp.pdb
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Form1.resources
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Properties.Resources.resources
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.csproj.GenerateResource.cache
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.csproj.CoreCompileInputs.cache
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.exe
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.pdb
