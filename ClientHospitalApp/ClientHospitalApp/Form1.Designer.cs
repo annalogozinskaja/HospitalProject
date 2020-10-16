@@ -31,19 +31,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.buttonGetPatient = new System.Windows.Forms.Button();
-            this.labelID = new System.Windows.Forms.Label();
-            this.labelLastname = new System.Windows.Forms.Label();
-            this.labelFirstname = new System.Windows.Forms.Label();
-            this.labelDOB = new System.Windows.Forms.Label();
-            this.labelSSN = new System.Windows.Forms.Label();
-            this.labelIDGender = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(32, 29);
+            this.label1.Location = new System.Drawing.Point(27, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 20);
             this.label1.TabIndex = 0;
@@ -68,77 +69,64 @@
             this.buttonGetPatient.UseVisualStyleBackColor = true;
             this.buttonGetPatient.Click += new System.EventHandler(this.buttonGetPatient_Click);
             // 
-            // labelID
+            // listView1
             // 
-            this.labelID.AutoSize = true;
-            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelID.Location = new System.Drawing.Point(33, 95);
-            this.labelID.Name = "labelID";
-            this.labelID.Size = new System.Drawing.Size(0, 18);
-            this.labelID.TabIndex = 3;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(12, 84);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(835, 339);
+            this.listView1.TabIndex = 9;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // labelLastname
+            // columnHeader1
             // 
-            this.labelLastname.AutoSize = true;
-            this.labelLastname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelLastname.Location = new System.Drawing.Point(33, 130);
-            this.labelLastname.Name = "labelLastname";
-            this.labelLastname.Size = new System.Drawing.Size(0, 18);
-            this.labelLastname.TabIndex = 4;
+            this.columnHeader1.Text = "ID_Patient";
+            this.columnHeader1.Width = 64;
             // 
-            // labelFirstname
+            // columnHeader2
             // 
-            this.labelFirstname.AutoSize = true;
-            this.labelFirstname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelFirstname.Location = new System.Drawing.Point(36, 169);
-            this.labelFirstname.Name = "labelFirstname";
-            this.labelFirstname.Size = new System.Drawing.Size(0, 18);
-            this.labelFirstname.TabIndex = 5;
+            this.columnHeader2.Text = "Lastname";
+            this.columnHeader2.Width = 175;
             // 
-            // labelDOB
+            // columnHeader3
             // 
-            this.labelDOB.AutoSize = true;
-            this.labelDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDOB.Location = new System.Drawing.Point(34, 202);
-            this.labelDOB.Name = "labelDOB";
-            this.labelDOB.Size = new System.Drawing.Size(0, 18);
-            this.labelDOB.TabIndex = 6;
+            this.columnHeader3.Text = "Firstname";
+            this.columnHeader3.Width = 175;
             // 
-            // labelSSN
+            // columnHeader4
             // 
-            this.labelSSN.AutoSize = true;
-            this.labelSSN.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSSN.Location = new System.Drawing.Point(36, 233);
-            this.labelSSN.Name = "labelSSN";
-            this.labelSSN.Size = new System.Drawing.Size(0, 18);
-            this.labelSSN.TabIndex = 7;
+            this.columnHeader4.Text = "DOB";
+            this.columnHeader4.Width = 170;
             // 
-            // labelIDGender
+            // columnHeader5
             // 
-            this.labelIDGender.AutoSize = true;
-            this.labelIDGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelIDGender.Location = new System.Drawing.Point(37, 267);
-            this.labelIDGender.Name = "labelIDGender";
-            this.labelIDGender.Size = new System.Drawing.Size(0, 18);
-            this.labelIDGender.TabIndex = 8;
+            this.columnHeader5.Text = "SSN";
+            this.columnHeader5.Width = 175;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "ID_Gender";
+            this.columnHeader6.Width = 462;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.labelIDGender);
-            this.Controls.Add(this.labelSSN);
-            this.Controls.Add(this.labelDOB);
-            this.Controls.Add(this.labelFirstname);
-            this.Controls.Add(this.labelLastname);
-            this.Controls.Add(this.labelID);
+            this.ClientSize = new System.Drawing.Size(859, 461);
+            this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonGetPatient);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,13 +136,14 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonGetPatient;
-        private System.Windows.Forms.Label labelID;
-        private System.Windows.Forms.Label labelLastname;
-        private System.Windows.Forms.Label labelFirstname;
-        private System.Windows.Forms.Label labelDOB;
-        private System.Windows.Forms.Label labelSSN;
-        private System.Windows.Forms.Label labelIDGender;
         private System.Windows.Forms.TextBox textBoxID;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 

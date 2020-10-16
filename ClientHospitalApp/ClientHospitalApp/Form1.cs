@@ -13,29 +13,51 @@ using ClientHospitalApp.Presenters;
 namespace ClientHospitalApp
 {
     public partial class Form1 : Form,IPatient
-    {
+    {      
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();           
         }
 
-        public int ID_PatientText { get { return Convert.ToInt32(labelID.Text); } set { labelID.Text = Convert.ToString(value); } }
-        public string LastnameText { get { return labelLastname.Text; } set { labelLastname.Text = value; } }
-        public string FirstnameText { get { return labelFirstname.Text; } set { labelFirstname.Text =value; } }
-        public DateTime DOBText { get { return Convert.ToDateTime(labelDOB.Text); } set { labelDOB.Text = Convert.ToString(value); } }
-        public int SSNText { get { return Convert.ToInt32(labelSSN.Text); } set { labelSSN.Text = Convert.ToString(value); } }
-        public int ID_GenderText { get { return Convert.ToInt32(labelIDGender.Text); } set { labelIDGender.Text = Convert.ToString(value); } }
+        public int ID_PatientText { get; set; }
+        public string LastnameText { get; set; }
+        public string FirstnameText { get; set; }
+        public DateTime DOBText { get; set; }
+        public int SSNText { get; set; }
+        public int ID_GenderText { get; set; }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private void buttonGetPatient_Click(object sender, EventArgs e)
         {
-            PatientPresenter presenter = new PatientPresenter(this);
-            presenter.GetPatient(Convert.ToInt32(textBoxID.Text));
+
+            listView1.Items.Clear();
+
+            if (textBoxID.Text!="")
+            {
+                try 
+                { 
+                    PatientPresenter presenter = new PatientPresenter(this);
+                    presenter.GetPatient(Int32.Parse(textBoxID.Text));
+                
+                    ListViewItem LVI = new ListViewItem(ID_PatientText.ToString());
+                    LVI.SubItems.Add(LastnameText);
+                    LVI.SubItems.Add(FirstnameText);
+                    LVI.SubItems.Add(DOBText.ToString());
+                    LVI.SubItems.Add(SSNText.ToString());
+                    LVI.SubItems.Add(ID_GenderText.ToString());
+                    this.listView1.Items.Add(LVI);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Unable to convert "+ textBoxID.Text+" into index.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter the index");
+            }
 
         }
+       
     }
 }
