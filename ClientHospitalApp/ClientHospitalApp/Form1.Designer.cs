@@ -38,6 +38,7 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.buttonGetAllPatients = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -116,17 +117,29 @@
             this.columnHeader6.Text = "ID_Gender";
             this.columnHeader6.Width = 462;
             // 
+            // buttonGetAllPatients
+            // 
+            this.buttonGetAllPatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonGetAllPatients.Location = new System.Drawing.Point(690, 20);
+            this.buttonGetAllPatients.Name = "buttonGetAllPatients";
+            this.buttonGetAllPatients.Size = new System.Drawing.Size(127, 38);
+            this.buttonGetAllPatients.TabIndex = 10;
+            this.buttonGetAllPatients.Text = "Get All Patients";
+            this.buttonGetAllPatients.UseVisualStyleBackColor = true;
+            this.buttonGetAllPatients.Click += new System.EventHandler(this.buttonGetAllPatients_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 461);
+            this.Controls.Add(this.buttonGetAllPatients);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.buttonGetPatient);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Data of patient";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,6 +157,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Button buttonGetAllPatients;
     }
 }
 

@@ -43,6 +43,21 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetDataAllPatients">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataAllPatientsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataAllPatientsResult" type="tns:ArrayOfPatient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPatient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Patient" nillable="true" type="tns:Patient" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetDataOrder">
         <s:complexType />
       </s:element>
@@ -99,6 +114,12 @@
   <wsdl:message name="GetDataPatientSoapOut">
     <wsdl:part name="parameters" element="tns:GetDataPatientResponse" />
   </wsdl:message>
+  <wsdl:message name="GetDataAllPatientsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataAllPatients" />
+  </wsdl:message>
+  <wsdl:message name="GetDataAllPatientsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataAllPatientsResponse" />
+  </wsdl:message>
   <wsdl:message name="GetDataOrderSoapIn">
     <wsdl:part name="parameters" element="tns:GetDataOrder" />
   </wsdl:message>
@@ -119,6 +140,10 @@
     <wsdl:operation name="GetDataPatient">
       <wsdl:input message="tns:GetDataPatientSoapIn" />
       <wsdl:output message="tns:GetDataPatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllPatients">
+      <wsdl:input message="tns:GetDataAllPatientsSoapIn" />
+      <wsdl:output message="tns:GetDataAllPatientsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDataOrder">
       <wsdl:input message="tns:GetDataOrderSoapIn" />
@@ -142,6 +167,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDataPatient">
       <soap:operation soapAction="http://tempuri.org/GetDataPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllPatients">
+      <soap:operation soapAction="http://tempuri.org/GetDataAllPatients" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -181,6 +215,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetDataPatient">
       <soap12:operation soapAction="http://tempuri.org/GetDataPatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllPatients">
+      <soap12:operation soapAction="http://tempuri.org/GetDataAllPatients" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

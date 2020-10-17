@@ -30,8 +30,28 @@ namespace ClientHospitalApp.Presenters
             patientView.DOBText = p.DOB;
             patientView.SSNText = p.SSN;
             patientView.ID_GenderText = p.ID_Gender;
+        }
 
+        public List<Patient> GetAllPatients()
+        {
+            List<Patient> list = new List<Patient>();
+            list = obj.GetDataAllPatients().ToList();
 
+            //patientViewList = new List<IPatient>();
+            //for (int i = 0; i < list.Count; i++)
+            //{
+            //    patientView.ID_PatientText = list[i].ID_Patient;
+            //    patientView.LastnameText = list[i].Lastname;
+            //    patientView.FirstnameText = list[i].Firstname;
+            //    patientView.DOBText = list[i].DOB;
+            //    patientView.SSNText = list[i].SSN;
+            //    patientView.ID_GenderText = list[i].ID_Gender;
+
+            //    patientViewList.Add(patientView);
+            //}
+
+            return list;
+           
         }
     }
 }
