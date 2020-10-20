@@ -5,53 +5,58 @@ using System.Text;
 using System.Threading.Tasks;
 using ClientHospitalApp.Views;
 using ClientHospitalApp.ServiceReferenceDAOLayer;
+using ClientHospitalApp.Models;
+using System.Windows.Forms;
 
 namespace ClientHospitalApp.Presenters
 {
     public class PatientPresenter
     {
-        IPatient patientView;
-        WebServiceHospitalSoapClient obj;
+        private IPatient patientView;
+        public List<IPatient> patientViewList;
+        private PatientModel patientModel;
 
         public PatientPresenter(IPatient patientView)
         {
             this.patientView = patientView;
-            obj = new WebServiceHospitalSoapClient();
+            this.patientModel = new PatientModel();
         }
 
-        public void GetPatient(int IdPatient)
+        public PatientPresenter()
         {
-            Patient p = new Patient();
-            p=obj.GetDataPatient(IdPatient);
-
-            patientView.ID_PatientText = p.ID_Patient;
-            patientView.LastnameText = p.Lastname;
-            patientView.FirstnameText = p.Firstname;
-            patientView.DOBText = p.DOB;
-            patientView.SSNText = p.SSN;
-            patientView.ID_GenderText = p.ID_Gender;
+            this.patientViewList = new List<IPatient>();
+            this.patientModel = new PatientModel();
         }
 
-        public List<Patient> GetAllPatients()
+        public void GetPatientFromModel(int IdPatient)
         {
-            List<Patient> list = new List<Patient>();
-            list = obj.GetDataAllPatients().ToList();
+            patientModel.GetPatient(IdPatient);
 
-            //patientViewList = new List<IPatient>();
-            //for (int i = 0; i < list.Count; i++)
-            //{
-            //    patientView.ID_PatientText = list[i].ID_Patient;
-            //    patientView.LastnameText = list[i].Lastname;
-            //    patientView.FirstnameText = list[i].Firstname;
-            //    patientView.DOBText = list[i].DOB;
-            //    patientView.SSNText = list[i].SSN;
-            //    patientView.ID_GenderText = list[i].ID_Gender;
+            patientView.ID_PatientText = patientModel.patient.ID_Patient;
+            patientView.LastnameText = patientModel.patient.Lastname;
+            patientView.FirstnameText = patientModel.patient.Firstname;
+            patientView.DOBText = patientModel.patient.DOB;
+            patientView.SSNText = patientModel.patient.SSN;
+            patientView.ID_GenderText = patientModel.patient.ID_Gender;
+        }
 
-            //    patientViewList.Add(patientView);
-            //}
+        public void GetAllPatientsFromModel()
+        {
+            patientModel.GetAllPatients();
 
-            return list;
-           
+            for (int i = 0; i < patientModel.list.Count; i++)
+            {
+                IPatient tempView=new Form2();
+                tempView.ID_PatientText = patientModel.list[i].ID_Patient;
+                tempView.LastnameText = patientModel.list[i].Lastname;
+                tempView.FirstnameText = patientModel.list[i].Firstname;
+                tempView.DOBText = patientModel.list[i].DOB;
+                tempView.SSNText = patientModel.list[i].SSN;
+                tempView.ID_GenderText = patientModel.list[i].ID_Gender;
+
+                patientViewList.Add(tempView);
+            }
+
         }
     }
 }
