@@ -53,6 +53,34 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
+        public void SavePatient(Patient patient)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            patientDao.Save(patient);
+           
+            SF.CloseSession();
+        }
+
+        [WebMethod]
+        public List<Gender> GetDataGender()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>(SF.GetSession());
+            List<Gender> list = new List<Gender>();
+            list = genderDao.GetAll().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
+        [WebMethod]
         public List<Patient> GetDataAllPatients()
         {
             SessionFactory SF = new SessionFactory();

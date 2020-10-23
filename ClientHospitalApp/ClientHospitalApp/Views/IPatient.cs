@@ -8,11 +8,11 @@ namespace ClientHospitalApp.Views
 {
     public interface IPatient
     {
-        int ID_PatientText { get; set; }
+        string ID_PatientText { get; set; }
         string LastnameText { get; set; }
         string FirstnameText { get; set; }
-        DateTime DOBText { get; set; }
-        int SSNText { get; set; }
-        int ID_GenderText { get; set; }
+        string DOBText { get; set; }
+        string SSNText { get; set; }
+        string ID_GenderText { get; set; }
     }
 }

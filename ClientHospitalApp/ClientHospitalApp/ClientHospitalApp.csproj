@@ -72,7 +72,9 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\GenderModel.cs" />
     <Compile Include="Models\PatientModel.cs" />
+    <Compile Include="Presenters\GenderPresenter.cs" />
     <Compile Include="Presenters\PatientPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,7 +95,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.Gender.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllPatientsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderResponse.datasource">
@@ -112,6 +120,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.Patient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.SavePatientResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentsInOrder.datasource">

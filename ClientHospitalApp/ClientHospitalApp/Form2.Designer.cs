@@ -30,12 +30,25 @@
         {
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.labelIdPatient = new System.Windows.Forms.Label();
-            this.textBoxIdPatient = new System.Windows.Forms.TextBox();
-            this.textBoxLnm = new System.Windows.Forms.TextBox();
-            this.labelLnm = new System.Windows.Forms.Label();
-            this.textBoxFnm = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelControlLnm = new DevExpress.XtraEditors.LabelControl();
+            this.textEditLnm = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlFnm = new DevExpress.XtraEditors.LabelControl();
+            this.textEditFnm = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlSSN = new DevExpress.XtraEditors.LabelControl();
+            this.textEditSSN = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlDOB = new DevExpress.XtraEditors.LabelControl();
+            this.labelControlGndr = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEditGndr = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.dateEditDOB = new DevExpress.XtraEditors.DateEdit();
+            this.textEditIdPatient = new DevExpress.XtraEditors.TextEdit();
+            this.labelControlID = new DevExpress.XtraEditors.LabelControl();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditFnm.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditGndr.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditIdPatient.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOK
@@ -60,69 +73,132 @@
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
-            // labelIdPatient
+            // labelControlLnm
             // 
-            this.labelIdPatient.AutoSize = true;
-            this.labelIdPatient.Location = new System.Drawing.Point(85, 33);
-            this.labelIdPatient.Name = "labelIdPatient";
-            this.labelIdPatient.Size = new System.Drawing.Size(66, 13);
-            this.labelIdPatient.TabIndex = 2;
-            this.labelIdPatient.Text = "ID of Patient";
+            this.labelControlLnm.Location = new System.Drawing.Point(34, 63);
+            this.labelControlLnm.Name = "labelControlLnm";
+            this.labelControlLnm.Size = new System.Drawing.Size(46, 13);
+            this.labelControlLnm.TabIndex = 11;
+            this.labelControlLnm.Text = "Lastname";
             // 
-            // textBoxIdPatient
+            // textEditLnm
             // 
-            this.textBoxIdPatient.Location = new System.Drawing.Point(179, 33);
-            this.textBoxIdPatient.Name = "textBoxIdPatient";
-            this.textBoxIdPatient.Size = new System.Drawing.Size(130, 20);
-            this.textBoxIdPatient.TabIndex = 3;
+            this.textEditLnm.Location = new System.Drawing.Point(125, 60);
+            this.textEditLnm.Name = "textEditLnm";
+            this.textEditLnm.Size = new System.Drawing.Size(123, 20);
+            this.textEditLnm.TabIndex = 10;
             // 
-            // textBoxLnm
+            // labelControlFnm
             // 
-            this.textBoxLnm.Location = new System.Drawing.Point(179, 74);
-            this.textBoxLnm.Name = "textBoxLnm";
-            this.textBoxLnm.Size = new System.Drawing.Size(130, 20);
-            this.textBoxLnm.TabIndex = 5;
+            this.labelControlFnm.Location = new System.Drawing.Point(34, 99);
+            this.labelControlFnm.Name = "labelControlFnm";
+            this.labelControlFnm.Size = new System.Drawing.Size(47, 13);
+            this.labelControlFnm.TabIndex = 13;
+            this.labelControlFnm.Text = "Firstname";
             // 
-            // labelLnm
+            // textEditFnm
             // 
-            this.labelLnm.AutoSize = true;
-            this.labelLnm.Location = new System.Drawing.Point(85, 74);
-            this.labelLnm.Name = "labelLnm";
-            this.labelLnm.Size = new System.Drawing.Size(53, 13);
-            this.labelLnm.TabIndex = 4;
-            this.labelLnm.Text = "Lastname";
+            this.textEditFnm.Location = new System.Drawing.Point(125, 96);
+            this.textEditFnm.Name = "textEditFnm";
+            this.textEditFnm.Size = new System.Drawing.Size(123, 20);
+            this.textEditFnm.TabIndex = 12;
             // 
-            // textBoxFnm
+            // labelControlSSN
             // 
-            this.textBoxFnm.Location = new System.Drawing.Point(179, 113);
-            this.textBoxFnm.Name = "textBoxFnm";
-            this.textBoxFnm.Size = new System.Drawing.Size(130, 20);
-            this.textBoxFnm.TabIndex = 7;
+            this.labelControlSSN.Location = new System.Drawing.Point(289, 63);
+            this.labelControlSSN.Name = "labelControlSSN";
+            this.labelControlSSN.Size = new System.Drawing.Size(19, 13);
+            this.labelControlSSN.TabIndex = 17;
+            this.labelControlSSN.Text = "SSN";
             // 
-            // label2
+            // textEditSSN
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(85, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Firstname";
+            this.textEditSSN.Location = new System.Drawing.Point(380, 60);
+            this.textEditSSN.Name = "textEditSSN";
+            this.textEditSSN.Size = new System.Drawing.Size(118, 20);
+            this.textEditSSN.TabIndex = 16;
+            // 
+            // labelControlDOB
+            // 
+            this.labelControlDOB.Location = new System.Drawing.Point(289, 27);
+            this.labelControlDOB.Name = "labelControlDOB";
+            this.labelControlDOB.Size = new System.Drawing.Size(61, 13);
+            this.labelControlDOB.TabIndex = 15;
+            this.labelControlDOB.Text = "Data of birth";
+            // 
+            // labelControlGndr
+            // 
+            this.labelControlGndr.Location = new System.Drawing.Point(289, 99);
+            this.labelControlGndr.Name = "labelControlGndr";
+            this.labelControlGndr.Size = new System.Drawing.Size(35, 13);
+            this.labelControlGndr.TabIndex = 19;
+            this.labelControlGndr.Text = "Gender";
+            // 
+            // comboBoxEditGndr
+            // 
+            this.comboBoxEditGndr.Location = new System.Drawing.Point(380, 96);
+            this.comboBoxEditGndr.Name = "comboBoxEditGndr";
+            this.comboBoxEditGndr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEditGndr.Size = new System.Drawing.Size(118, 20);
+            this.comboBoxEditGndr.TabIndex = 20;
+            // 
+            // dateEditDOB
+            // 
+            this.dateEditDOB.EditValue = null;
+            this.dateEditDOB.Location = new System.Drawing.Point(380, 24);
+            this.dateEditDOB.Name = "dateEditDOB";
+            this.dateEditDOB.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditDOB.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditDOB.Size = new System.Drawing.Size(118, 20);
+            this.dateEditDOB.TabIndex = 21;
+            // 
+            // textEditIdPatient
+            // 
+            this.textEditIdPatient.Enabled = false;
+            this.textEditIdPatient.Location = new System.Drawing.Point(125, 24);
+            this.textEditIdPatient.Name = "textEditIdPatient";
+            this.textEditIdPatient.Size = new System.Drawing.Size(123, 20);
+            this.textEditIdPatient.TabIndex = 8;
+            // 
+            // labelControlID
+            // 
+            this.labelControlID.Location = new System.Drawing.Point(34, 27);
+            this.labelControlID.Name = "labelControlID";
+            this.labelControlID.Size = new System.Drawing.Size(61, 13);
+            this.labelControlID.TabIndex = 9;
+            this.labelControlID.Text = "ID of Patient";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 450);
-            this.Controls.Add(this.textBoxFnm);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxLnm);
-            this.Controls.Add(this.labelLnm);
-            this.Controls.Add(this.textBoxIdPatient);
-            this.Controls.Add(this.labelIdPatient);
+            this.Controls.Add(this.dateEditDOB);
+            this.Controls.Add(this.comboBoxEditGndr);
+            this.Controls.Add(this.labelControlGndr);
+            this.Controls.Add(this.labelControlSSN);
+            this.Controls.Add(this.textEditSSN);
+            this.Controls.Add(this.labelControlDOB);
+            this.Controls.Add(this.labelControlFnm);
+            this.Controls.Add(this.textEditFnm);
+            this.Controls.Add(this.labelControlLnm);
+            this.Controls.Add(this.textEditLnm);
+            this.Controls.Add(this.labelControlID);
+            this.Controls.Add(this.textEditIdPatient);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Name = "Form2";
             this.Text = "Form2";
+            ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditFnm.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditGndr.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditIdPatient.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,11 +208,17 @@
 
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Label labelIdPatient;
-        private System.Windows.Forms.TextBox textBoxIdPatient;
-        private System.Windows.Forms.TextBox textBoxLnm;
-        private System.Windows.Forms.Label labelLnm;
-        private System.Windows.Forms.TextBox textBoxFnm;
-        private System.Windows.Forms.Label label2;
+        private DevExpress.XtraEditors.LabelControl labelControlLnm;
+        private DevExpress.XtraEditors.TextEdit textEditLnm;
+        private DevExpress.XtraEditors.LabelControl labelControlFnm;
+        private DevExpress.XtraEditors.TextEdit textEditFnm;
+        private DevExpress.XtraEditors.LabelControl labelControlSSN;
+        private DevExpress.XtraEditors.TextEdit textEditSSN;
+        private DevExpress.XtraEditors.LabelControl labelControlDOB;
+        private DevExpress.XtraEditors.LabelControl labelControlGndr;
+        private DevExpress.XtraEditors.DateEdit dateEditDOB;
+        public DevExpress.XtraEditors.TextEdit textEditIdPatient;
+        private DevExpress.XtraEditors.LabelControl labelControlID;
+        public DevExpress.XtraEditors.ComboBoxEdit comboBoxEditGndr;
     }
 }

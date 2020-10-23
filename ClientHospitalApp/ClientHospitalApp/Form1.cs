@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Views.BandedGrid;
 
 namespace ClientHospitalApp
 {
@@ -68,7 +69,7 @@ namespace ClientHospitalApp
 
             GridControl gridControl1 = new GridControl();
             gridControl1.Parent = this;
-            //gridControl1.Dock = DockStyle.Fill;
+            gridControl1.Dock = DockStyle.Top;
             gridControl1.DataSource = presenter.patientViewList;
 
             GridView gridView1 = gridControl1.MainView as GridView;
@@ -78,11 +79,13 @@ namespace ClientHospitalApp
             GridColumn colDOB = gridView1.Columns["DOBText"];
             GridColumn colSSN = gridView1.Columns["SSNText"];
             GridColumn colGender = gridView1.Columns["ID_GenderText"];
+            
+            colFirstname.Caption = "";
 
-            colLastname.Name = "Lastname";
-            colFirstname.Name = "Firstname";
-            colDOB.Name = "Data of birth";
-            colSSN.Name = "SSN";
+            colLastname.FieldName = "Lastname";
+            colFirstname.FieldName = "Firstname";
+            colDOB.FieldName = "Data of birth";
+            colSSN.FieldName = "SSN";
 
             colID.Visible = false;
             colGender.Visible = false;
@@ -90,8 +93,8 @@ namespace ClientHospitalApp
             colLastname.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             gridView1.OptionsView.ShowGroupedColumns = true;
             gridView1.ExpandAllGroups();
-            gridView1.ActiveFilterString = "[RequiredDate]>= #" + DateTime.Today.ToString() + "#";
             gridView1.OptionsBehavior.Editable = false;
+
 
             gridView1.FocusedRowHandle = 0;
             gridView1.FocusedColumn = colID;
@@ -99,39 +102,47 @@ namespace ClientHospitalApp
             colLastname.BestFit();
             colGender.BestFit();
 
-
-            SimpleButton buttonOK = new SimpleButton();
-            buttonOK.Parent = this;
-            buttonOK.Text = "OK";
-            buttonOK.Width = 100;
-            buttonOK.Height = 50;
-            buttonOK.Location= new Point(250,250);
-            buttonOK.Visible = true;
-            buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-
-
+            SimpleButton buttonAdd = new SimpleButton();
+            buttonAdd.Parent = this;
+            buttonAdd.Text = "Add";
+            buttonAdd.Width = 50;
+            buttonAdd.Height = 30;
+            buttonAdd.Location = new Point(50, 250);
+            buttonAdd.Visible = true;
+            buttonAdd.Click += new System.EventHandler(buttonAdd_Click);
+            //buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
 
         }
 
-        //private void buttonAdd_Click(object sender, EventArgs e)
-        //{
-        //    Form2 F = new Form2();
-        //    F.Text = "Add patient";
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            Form2 F = new Form2();
+            F.Text = "Add patient";
 
-        //    DialogResult res = F.ShowDialog();
+            GenderPresenter genderPresenter = new GenderPresenter(F);
+            genderPresenter.GetListGenderFromModel();
 
-        //    if (res == DialogResult.OK)
-        //    {
-        //        try
-        //        {
-                    
+            F.comboBoxEditGndr.EditValue = "--choose gender--";
+            foreach (Gender item in genderPresenter.genderModel.list)
+            {
+                F.comboBoxEditGndr.Properties.Items.Add(item.GenderName);
+            }
+           
 
-        //        }
-        //        catch (Exception s)
-        //        {
-        //            Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-        //        }
-        //    }
-        //}
+           DialogResult res = F.ShowDialog();
+
+            if (res == DialogResult.OK)
+            {
+                try
+                {                                    
+                    PatientPresenter patientPresenter = new PatientPresenter(F);
+                    patientPresenter.SavePatientInModel();
+                }
+                catch (Exception s)
+                {
+                    Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+                }
+            }
+        }
     }
 }

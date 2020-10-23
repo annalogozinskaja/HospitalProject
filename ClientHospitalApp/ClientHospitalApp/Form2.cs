@@ -18,13 +18,33 @@ namespace ClientHospitalApp
             InitializeComponent();
         }
 
-        public int ID_PatientText { get; set; }
-        public string LastnameText { get; set; }
-        public string FirstnameText { get; set; }
-        public DateTime DOBText { get; set; }
-        public int SSNText { get; set; }
-        public int ID_GenderText { get; set; }
+        public string ID_PatientText
+        {
+            get { return textEditIdPatient.Text; }
+            set { }
+        }
+        public string LastnameText 
+        {
+            get { return textEditLnm.Text; }
+            set { textEditLnm.Text = value; } 
+        }
+        public string FirstnameText
+        {
+            get { return textEditFnm.Text; }
+            set { textEditFnm.Text = value; }
+        }
+        public string DOBText { get; set; }
+        public string SSNText
+        {
+            get { return textEditSSN.Text; }
+            set { textEditSSN.Text = value; }
+        }
+        public string ID_GenderText
+        {
+            get { return "1"; }
+            set { }
+        }
 
-       
+
     }
 }

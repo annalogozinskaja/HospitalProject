@@ -28,13 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.SuspendLayout();
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "gridColumn4";
+            this.gridColumn1.FieldName = "Data of birth";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 535);
+            this.ClientSize = new System.Drawing.Size(608, 399);
             this.Name = "Form1";
             this.Text = "List of patients";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -43,6 +52,7 @@
         }
 
         #endregion
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
     }
 }
 

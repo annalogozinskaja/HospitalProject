@@ -25,6 +25,11 @@ namespace ClientHospitalApp.Models
             patient = obj.GetDataPatient(IdPatient);
         }
 
+        public void SavePatient()
+        {
+            obj.SavePatient(patient);
+        }
+
         public void GetAllPatients()
         {
             list = obj.GetDataAllPatients().ToList();

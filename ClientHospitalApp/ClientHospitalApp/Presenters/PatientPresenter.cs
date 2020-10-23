@@ -12,7 +12,7 @@ namespace ClientHospitalApp.Presenters
 {
     public class PatientPresenter
     {
-        private IPatient patientView;
+        public IPatient patientView;
         public List<IPatient> patientViewList;
         private PatientModel patientModel;
 
@@ -32,12 +32,12 @@ namespace ClientHospitalApp.Presenters
         {
             patientModel.GetPatient(IdPatient);
 
-            patientView.ID_PatientText = patientModel.patient.ID_Patient;
+            patientView.ID_PatientText = Convert.ToString(patientModel.patient.ID_Patient);
             patientView.LastnameText = patientModel.patient.Lastname;
             patientView.FirstnameText = patientModel.patient.Firstname;
-            patientView.DOBText = patientModel.patient.DOB;
-            patientView.SSNText = patientModel.patient.SSN;
-            patientView.ID_GenderText = patientModel.patient.ID_Gender;
+            patientView.DOBText = Convert.ToString(patientModel.patient.DOB);
+            patientView.SSNText = Convert.ToString(patientModel.patient.SSN);
+            patientView.ID_GenderText = Convert.ToString(patientModel.patient.ID_Gender);
         }
 
         public void GetAllPatientsFromModel()
@@ -47,16 +47,25 @@ namespace ClientHospitalApp.Presenters
             for (int i = 0; i < patientModel.list.Count; i++)
             {
                 IPatient tempView=new Form2();
-                tempView.ID_PatientText = patientModel.list[i].ID_Patient;
+                tempView.ID_PatientText = Convert.ToString(patientModel.list[i].ID_Patient);
                 tempView.LastnameText = patientModel.list[i].Lastname;
                 tempView.FirstnameText = patientModel.list[i].Firstname;
-                tempView.DOBText = patientModel.list[i].DOB;
-                tempView.SSNText = patientModel.list[i].SSN;
-                tempView.ID_GenderText = patientModel.list[i].ID_Gender;
+                tempView.DOBText = Convert.ToString(patientModel.list[i].DOB);
+                tempView.SSNText = Convert.ToString(patientModel.list[i].SSN);
+                tempView.ID_GenderText = Convert.ToString(patientModel.list[i].ID_Gender);
 
                 patientViewList.Add(tempView);
             }
+        }
 
+        public void SavePatientInModel()
+        {
+            patientModel.patient.Lastname=patientView.LastnameText;
+            patientModel.patient.Firstname=patientView.FirstnameText;
+            patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
+            patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
+
+            patientModel.SavePatient();
         }
     }
 }
