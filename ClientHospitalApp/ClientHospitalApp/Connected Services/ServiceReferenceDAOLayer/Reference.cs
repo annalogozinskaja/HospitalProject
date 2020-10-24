@@ -267,6 +267,143 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Relative", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Relative : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ID_RelativeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstnameField;
+        
+        private System.DateTime DOBField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KindOfRelationshipField;
+        
+        private int ID_PatientField;
+        
+        private int ID_GenderField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ID_Relative {
+            get {
+                return this.ID_RelativeField;
+            }
+            set {
+                if ((this.ID_RelativeField.Equals(value) != true)) {
+                    this.ID_RelativeField = value;
+                    this.RaisePropertyChanged("ID_Relative");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Lastname {
+            get {
+                return this.LastnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastnameField, value) != true)) {
+                    this.LastnameField = value;
+                    this.RaisePropertyChanged("Lastname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string Firstname {
+            get {
+                return this.FirstnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstnameField, value) != true)) {
+                    this.FirstnameField = value;
+                    this.RaisePropertyChanged("Firstname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public System.DateTime DOB {
+            get {
+                return this.DOBField;
+            }
+            set {
+                if ((this.DOBField.Equals(value) != true)) {
+                    this.DOBField = value;
+                    this.RaisePropertyChanged("DOB");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public string KindOfRelationship {
+            get {
+                return this.KindOfRelationshipField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KindOfRelationshipField, value) != true)) {
+                    this.KindOfRelationshipField = value;
+                    this.RaisePropertyChanged("KindOfRelationship");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
+        public int ID_Patient {
+            get {
+                return this.ID_PatientField;
+            }
+            set {
+                if ((this.ID_PatientField.Equals(value) != true)) {
+                    this.ID_PatientField = value;
+                    this.RaisePropertyChanged("ID_Patient");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
+        public int ID_Gender {
+            get {
+                return this.ID_GenderField;
+            }
+            set {
+                if ((this.ID_GenderField.Equals(value) != true)) {
+                    this.ID_GenderField = value;
+                    this.RaisePropertyChanged("ID_Gender");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OrderOfPatient", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
     public partial class OrderOfPatient : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -569,6 +706,20 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataGender", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderResponse> GetDataGenderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderRequest request);
         
+        // CODEGEN: Generating message contract since element name GetDataRelativeResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataRelative", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse GetDataRelative(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataRelative", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse> GetDataRelativeAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest request);
+        
+        // CODEGEN: Generating message contract since element name relative from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveRelative", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeResponse SaveRelative(ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveRelative", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeResponse> SaveRelativeAsync(ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequest request);
+        
         // CODEGEN: Generating message contract since element name GetDataAllPatientsResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllPatients", ReplyAction="*")]
         ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllPatientsResponse GetDataAllPatients(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllPatientsRequest request);
@@ -839,6 +990,135 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         public GetDataGenderResponseBody(ClientHospitalApp.ServiceReferenceDAOLayer.Gender[] GetDataGenderResult) {
             this.GetDataGenderResult = GetDataGenderResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataRelativeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataRelative", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequestBody Body;
+        
+        public GetDataRelativeRequest() {
+        }
+        
+        public GetDataRelativeRequest(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetDataRelativeRequestBody {
+        
+        public GetDataRelativeRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataRelativeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataRelativeResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponseBody Body;
+        
+        public GetDataRelativeResponse() {
+        }
+        
+        public GetDataRelativeResponse(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataRelativeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetDataRelativeResult;
+        
+        public GetDataRelativeResponseBody() {
+        }
+        
+        public GetDataRelativeResponseBody(ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetDataRelativeResult) {
+            this.GetDataRelativeResult = GetDataRelativeResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SaveRelativeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SaveRelative", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequestBody Body;
+        
+        public SaveRelativeRequest() {
+        }
+        
+        public SaveRelativeRequest(ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class SaveRelativeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative relative;
+        
+        public SaveRelativeRequestBody() {
+        }
+        
+        public SaveRelativeRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.Relative relative) {
+            this.relative = relative;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SaveRelativeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SaveRelativeResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeResponseBody Body;
+        
+        public SaveRelativeResponse() {
+        }
+        
+        public SaveRelativeResponse(ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class SaveRelativeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int SaveRelativeResult;
+        
+        public SaveRelativeResponseBody() {
+        }
+        
+        public SaveRelativeResponseBody(int SaveRelativeResult) {
+            this.SaveRelativeResult = SaveRelativeResult;
         }
     }
     
@@ -1145,6 +1425,54 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderRequestBody();
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataGenderAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataRelative(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest request) {
+            return base.Channel.GetDataRelative(request);
+        }
+        
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetDataRelative() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequestBody();
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataRelative(inValue);
+            return retVal.Body.GetDataRelativeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataRelativeAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest request) {
+            return base.Channel.GetDataRelativeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse> GetDataRelativeAsync() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequestBody();
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataRelativeAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.SaveRelative(ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequest request) {
+            return base.Channel.SaveRelative(request);
+        }
+        
+        public int SaveRelative(ClientHospitalApp.ServiceReferenceDAOLayer.Relative relative) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequestBody();
+            inValue.Body.relative = relative;
+            ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).SaveRelative(inValue);
+            return retVal.Body.SaveRelativeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.SaveRelativeAsync(ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequest request) {
+            return base.Channel.SaveRelativeAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeResponse> SaveRelativeAsync(ClientHospitalApp.ServiceReferenceDAOLayer.Relative relative) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.SaveRelativeRequestBody();
+            inValue.Body.relative = relative;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).SaveRelativeAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

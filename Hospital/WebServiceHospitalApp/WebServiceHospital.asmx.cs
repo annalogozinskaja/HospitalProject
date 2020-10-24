@@ -81,6 +81,35 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
+        public List<Relative> GetDataRelative()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Relative, int> relativeDao = new GenericDaoImpl<Relative, int>(SF.GetSession());
+            List<Relative> list = new List<Relative>();
+            list = relativeDao.GetAll().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
+        [WebMethod]
+        public int SaveRelative(Relative relative)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Relative, int> relativeDao = new GenericDaoImpl<Relative, int>(SF.GetSession());
+            int id=(relativeDao.Save(relative)).ID_Relative;
+
+            SF.CloseSession();
+            return id;
+        }
+
+        [WebMethod]
         public List<Patient> GetDataAllPatients()
         {
             SessionFactory SF = new SessionFactory();

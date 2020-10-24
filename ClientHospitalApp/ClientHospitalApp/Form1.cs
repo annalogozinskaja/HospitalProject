@@ -20,7 +20,8 @@ using DevExpress.XtraGrid.Views.BandedGrid;
 namespace ClientHospitalApp
 {
     public partial class Form1 : Form
-    {      
+    {
+        public string strGender = "";
         public Form1()
         {
             InitializeComponent();           
@@ -127,14 +128,22 @@ namespace ClientHospitalApp
             {
                 F.comboBoxEditGndr.Properties.Items.Add(item.GenderName);
             }
-           
 
-           DialogResult res = F.ShowDialog();
+            F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
+            DialogResult res = F.ShowDialog();
 
             if (res == DialogResult.OK)
             {
                 try
-                {                                    
+                {
+                    foreach (Gender item in genderPresenter.genderModel.list)
+                    {
+                        if (strGender.CompareTo(item.GenderName) == 0)
+                        {
+                            F.ID_GenderText = Convert.ToString(item.ID_Gender);
+                        }
+                    }
+                  
                     PatientPresenter patientPresenter = new PatientPresenter(F);
                     patientPresenter.SavePatientInModel();
                 }
@@ -143,6 +152,14 @@ namespace ClientHospitalApp
                     Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
                 }
             }
+        }
+
+        private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxEdit combo = sender as ComboBoxEdit;
+            strGender = combo.SelectedItem.ToString();
+            MessageBox.Show(strGender);
+
         }
     }
 }

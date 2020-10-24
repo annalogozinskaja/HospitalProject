@@ -15,7 +15,7 @@ namespace DAOLayer
 
         public override string ToString()
         {
-            return "\n"+ID_Gender.ToString() + ". " + GenderName;
+            return GenderName.ToString();
         }
     }
 }

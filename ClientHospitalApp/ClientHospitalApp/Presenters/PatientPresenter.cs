@@ -62,6 +62,7 @@ namespace ClientHospitalApp.Presenters
         {
             patientModel.patient.Lastname=patientView.LastnameText;
             patientModel.patient.Firstname=patientView.FirstnameText;
+            patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
             patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
             patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
 

@@ -33,18 +33,17 @@ namespace ClientHospitalApp
             get { return textEditFnm.Text; }
             set { textEditFnm.Text = value; }
         }
-        public string DOBText { get; set; }
+        public string DOBText 
+        {
+            get { return dateEditDOB.Text; }
+            set { dateEditDOB.Text = value; }
+        }
         public string SSNText
         {
             get { return textEditSSN.Text; }
             set { textEditSSN.Text = value; }
         }
-        public string ID_GenderText
-        {
-            get { return "1"; }
-            set { }
-        }
-
-
+        public string ID_GenderText { get; set; }
+       
     }
 }
