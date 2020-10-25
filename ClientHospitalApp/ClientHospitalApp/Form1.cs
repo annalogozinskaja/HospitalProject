@@ -16,12 +16,17 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.BandedGrid;
+using System.Windows.Controls.Ribbon;
 
 namespace ClientHospitalApp
 {
     public partial class Form1 : Form
     {
         public string strGender = "";
+        public GridControl gridControl1;
+        public GridView gridView1;
+        public PatientPresenter presenter;
+
         public Form1()
         {
             InitializeComponent();           
@@ -65,15 +70,15 @@ namespace ClientHospitalApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            PatientPresenter presenter = new PatientPresenter();
+            presenter = new PatientPresenter();
             presenter.GetAllPatientsFromModel();
 
-            GridControl gridControl1 = new GridControl();
+            gridControl1 = new GridControl();
             gridControl1.Parent = this;
-            gridControl1.Dock = DockStyle.Top;
+            gridControl1.Dock = DockStyle.Fill;
             gridControl1.DataSource = presenter.patientViewList;
 
-            GridView gridView1 = gridControl1.MainView as GridView;
+            gridView1 = gridControl1.MainView as GridView;
             GridColumn colID = gridView1.Columns["ID_PatientText"];
             GridColumn colLastname = gridView1.Columns["LastnameText"];
             GridColumn colFirstname = gridView1.Columns["FirstnameText"];
@@ -102,20 +107,22 @@ namespace ClientHospitalApp
 
             colLastname.BestFit();
             colGender.BestFit();
-
-            SimpleButton buttonAdd = new SimpleButton();
-            buttonAdd.Parent = this;
-            buttonAdd.Text = "Add";
-            buttonAdd.Width = 50;
-            buttonAdd.Height = 30;
-            buttonAdd.Location = new Point(50, 250);
-            buttonAdd.Visible = true;
-            buttonAdd.Click += new System.EventHandler(buttonAdd_Click);
-            //buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+
+        private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBoxEdit combo = sender as ComboBoxEdit;
+            strGender = combo.SelectedItem.ToString();
+        }
+
+        public void RefreshData()
+        {
+            presenter.GetAllPatientsFromModel();
+            gridControl1.RefreshDataSource();
+        }
+
+        private void barButtonItemAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Form2 F = new Form2();
             F.Text = "Add patient";
@@ -143,7 +150,7 @@ namespace ClientHospitalApp
                             F.ID_GenderText = Convert.ToString(item.ID_Gender);
                         }
                     }
-                  
+
                     PatientPresenter patientPresenter = new PatientPresenter(F);
                     patientPresenter.SavePatientInModel();
                 }
@@ -151,15 +158,9 @@ namespace ClientHospitalApp
                 {
                     Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
                 }
+
+                RefreshData();
             }
-        }
-
-        private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBoxEdit combo = sender as ComboBoxEdit;
-            strGender = combo.SelectedItem.ToString();
-            MessageBox.Show(strGender);
-
         }
     }
 }

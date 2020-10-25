@@ -42,6 +42,7 @@ namespace ClientHospitalApp.Presenters
 
         public void GetAllPatientsFromModel()
         {
+            patientViewList.Clear();
             patientModel.GetAllPatients();
 
             for (int i = 0; i < patientModel.list.Count; i++)
