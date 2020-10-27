@@ -55,7 +55,8 @@ namespace DAOLayer
             {
                 using (ITransaction tx = session.BeginTransaction())
                 {
-                    session.SaveOrUpdate(obj);
+                    //session.SaveOrUpdate(obj);
+                    session.Update(obj);
                     tx.Commit();
                 }
                 return obj;

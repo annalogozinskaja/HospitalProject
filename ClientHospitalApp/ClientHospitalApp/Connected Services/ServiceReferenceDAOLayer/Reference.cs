@@ -699,6 +699,13 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SavePatient", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.SavePatientResponse> SavePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.SavePatientRequest request);
         
+        // CODEGEN: Generating message contract since element name patient from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePatient", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse UpdatePatient(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePatient", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse> UpdatePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest request);
+        
         // CODEGEN: Generating message contract since element name GetDataGenderResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataGender", ReplyAction="*")]
         ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderResponse GetDataGender(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderRequest request);
@@ -929,6 +936,67 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     public partial class SavePatientResponseBody {
         
         public SavePatientResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdatePatientRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdatePatient", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequestBody Body;
+        
+        public UpdatePatientRequest() {
+        }
+        
+        public UpdatePatientRequest(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdatePatientRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient;
+        
+        public UpdatePatientRequestBody() {
+        }
+        
+        public UpdatePatientRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+            this.patient = patient;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdatePatientResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdatePatientResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponseBody Body;
+        
+        public UpdatePatientResponse() {
+        }
+        
+        public UpdatePatientResponse(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdatePatientResponseBody {
+        
+        public UpdatePatientResponseBody() {
         }
     }
     
@@ -1402,6 +1470,30 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.SavePatientRequestBody();
             inValue.Body.patient = patient;
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).SavePatientAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.UpdatePatient(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest request) {
+            return base.Channel.UpdatePatient(request);
+        }
+        
+        public void UpdatePatient(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequestBody();
+            inValue.Body.patient = patient;
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdatePatient(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.UpdatePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest request) {
+            return base.Channel.UpdatePatientAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse> UpdatePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequestBody();
+            inValue.Body.patient = patient;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdatePatientAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

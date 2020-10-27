@@ -35,5 +35,10 @@ namespace ClientHospitalApp.Models
             list = obj.GetDataAllPatients().ToList();
         }
 
+        public void UpdatePatient()
+        {
+            obj.UpdatePatient(patient);
+        }
+
     }
 }

@@ -17,6 +17,9 @@ using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using System.Windows.Controls.Ribbon;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace ClientHospitalApp
 {
@@ -26,6 +29,12 @@ namespace ClientHospitalApp
         public GridControl gridControl1;
         public GridView gridView1;
         public PatientPresenter presenter;
+        public GridColumn colID;
+        public GridColumn colLastname;
+        public GridColumn colFirstname;
+        public GridColumn colDOB;
+        public GridColumn colSSN;
+        public GridColumn colGender;
 
         public Form1()
         {
@@ -75,16 +84,16 @@ namespace ClientHospitalApp
 
             gridControl1 = new GridControl();
             gridControl1.Parent = this;
-            gridControl1.Dock = DockStyle.Fill;
+            gridControl1.Dock = DockStyle.Bottom;
             gridControl1.DataSource = presenter.patientViewList;
 
             gridView1 = gridControl1.MainView as GridView;
-            GridColumn colID = gridView1.Columns["ID_PatientText"];
-            GridColumn colLastname = gridView1.Columns["LastnameText"];
-            GridColumn colFirstname = gridView1.Columns["FirstnameText"];
-            GridColumn colDOB = gridView1.Columns["DOBText"];
-            GridColumn colSSN = gridView1.Columns["SSNText"];
-            GridColumn colGender = gridView1.Columns["ID_GenderText"];
+            colID = gridView1.Columns["ID_PatientText"];
+            colLastname = gridView1.Columns["LastnameText"];
+            colFirstname = gridView1.Columns["FirstnameText"];
+            colDOB = gridView1.Columns["DOBText"];
+            colSSN = gridView1.Columns["SSNText"];
+            colGender = gridView1.Columns["ID_GenderText"];
             
             colFirstname.Caption = "";
 
@@ -100,10 +109,10 @@ namespace ClientHospitalApp
             gridView1.OptionsView.ShowGroupedColumns = true;
             gridView1.ExpandAllGroups();
             gridView1.OptionsBehavior.Editable = false;
-
-
-            gridView1.FocusedRowHandle = 0;
-            gridView1.FocusedColumn = colID;
+            gridView1.OptionsSelection.MultiSelect = false;
+           
+            //gridView1.FocusedRowHandle = 0;
+            //gridView1.FocusedColumn = colID;
 
             colLastname.BestFit();
             colGender.BestFit();
@@ -120,10 +129,12 @@ namespace ClientHospitalApp
         {
             presenter.GetAllPatientsFromModel();
             gridControl1.RefreshDataSource();
+            colLastname.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
         }
 
         private void barButtonItemAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
             Form2 F = new Form2();
             F.Text = "Add patient";
 
@@ -162,5 +173,73 @@ namespace ClientHospitalApp
                 RefreshData();
             }
         }
+
+        private void barButtonItemEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int[] selectedRowHandles = gridView1.GetSelectedRows();
+            if (selectedRowHandles.Length==1)
+            {
+                Form2 F = new Form2();
+                F.Text = "Update patient";
+
+                GenderPresenter genderPresenter = new GenderPresenter(F);
+                genderPresenter.GetListGenderFromModel();
+
+                F.comboBoxEditGndr.EditValue = "--choose gender--";
+                foreach (Gender item in genderPresenter.genderModel.list)
+                {
+                    F.comboBoxEditGndr.Properties.Items.Add(item.GenderName);
+                }
+
+                F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
+                     
+                F.textEditIdPatient.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID);
+                F.textEditLnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colLastname);
+                F.textEditFnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colFirstname);
+                F.dateEditDOB.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colDOB);
+                F.textEditSSN.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colSSN);
+
+                foreach (Gender item in genderPresenter.genderModel.list)
+                {
+                    if (gridView1.GetRowCellDisplayText(selectedRowHandles[0], colGender).CompareTo(Convert.ToString(item.ID_Gender)) == 0)
+                    {
+                        F.comboBoxEditGndr.EditValue = item.GenderName;
+                    }
+                }
+
+
+                DialogResult res = F.ShowDialog();
+
+                if (res == DialogResult.OK)
+                {
+                    try
+                    {
+                        foreach (Gender item in genderPresenter.genderModel.list)
+                        {
+                            if (strGender.CompareTo(item.GenderName) == 0)
+                            {
+                                F.ID_GenderText = Convert.ToString(item.ID_Gender);
+                            }
+                        }
+
+                        PatientPresenter patientPresenter = new PatientPresenter(F);
+                        patientPresenter.UpdatePatientInModel();
+                    }
+                    catch (Exception s)
+                    {
+                        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+                    }
+
+                    RefreshData();
+                }
+
+            }
+            else if(selectedRowHandles.Length == 0)
+            {
+                MessageBox.Show("Choose the patient");
+            }           
+        }
+
+       
     }
 }

@@ -260,14 +260,10 @@
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
         private DevExpress.XtraEditors.LabelControl labelControlLnm;
-        private DevExpress.XtraEditors.TextEdit textEditLnm;
         private DevExpress.XtraEditors.LabelControl labelControlFnm;
-        private DevExpress.XtraEditors.TextEdit textEditFnm;
         private DevExpress.XtraEditors.LabelControl labelControlSSN;
-        private DevExpress.XtraEditors.TextEdit textEditSSN;
         private DevExpress.XtraEditors.LabelControl labelControlDOB;
         private DevExpress.XtraEditors.LabelControl labelControlGndr;
-        private DevExpress.XtraEditors.DateEdit dateEditDOB;
         public DevExpress.XtraEditors.TextEdit textEditIdPatient;
         private DevExpress.XtraEditors.LabelControl labelControlID;
         public DevExpress.XtraEditors.ComboBoxEdit comboBoxEditGndr;
@@ -275,5 +271,9 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.GridControl gridControl2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        public DevExpress.XtraEditors.TextEdit textEditLnm;
+        public DevExpress.XtraEditors.TextEdit textEditFnm;
+        public DevExpress.XtraEditors.TextEdit textEditSSN;
+        public DevExpress.XtraEditors.DateEdit dateEditDOB;
     }
 }

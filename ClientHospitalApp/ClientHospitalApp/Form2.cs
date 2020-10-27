@@ -21,7 +21,7 @@ namespace ClientHospitalApp
         public string ID_PatientText
         {
             get { return textEditIdPatient.Text; }
-            set { }
+            set { textEditIdPatient.Text = value; }
         }
         public string LastnameText 
         {

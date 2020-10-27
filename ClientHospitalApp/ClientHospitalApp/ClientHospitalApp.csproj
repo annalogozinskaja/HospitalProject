@@ -141,6 +141,9 @@
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentsInOrder.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\WebServiceHospital.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

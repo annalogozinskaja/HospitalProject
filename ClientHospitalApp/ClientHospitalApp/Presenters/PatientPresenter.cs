@@ -69,5 +69,17 @@ namespace ClientHospitalApp.Presenters
 
             patientModel.SavePatient();
         }
+
+        public void UpdatePatientInModel()
+        {
+            patientModel.patient.ID_Patient = Convert.ToInt32(patientView.ID_PatientText);
+            patientModel.patient.Lastname = patientView.LastnameText;
+            patientModel.patient.Firstname = patientView.FirstnameText;
+            patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
+            patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
+            patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
+
+            patientModel.UpdatePatient();
+        }
     }
 }
