@@ -110,7 +110,8 @@ namespace ClientHospitalApp
             gridView1.ExpandAllGroups();
             gridView1.OptionsBehavior.Editable = false;
             gridView1.OptionsSelection.MultiSelect = false;
-           
+            gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
+
             //gridView1.FocusedRowHandle = 0;
             //gridView1.FocusedColumn = colID;
 
@@ -134,7 +135,6 @@ namespace ClientHospitalApp
 
         private void barButtonItemAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
             Form2 F = new Form2();
             F.Text = "Add patient";
 
@@ -148,6 +148,13 @@ namespace ClientHospitalApp
             }
 
             F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
+
+            F.gridControlRelatives.Hide();
+            F.gridControlOrders.Hide();
+            F.Size = new Size(802, 287);
+            F.buttonOK.Location = new Point(336, 165);
+            F.buttonCancel.Location = new Point(465, 165);
+
             DialogResult res = F.ShowDialog();
 
             if (res == DialogResult.OK)
@@ -207,6 +214,11 @@ namespace ClientHospitalApp
                     }
                 }
 
+                F.gridControlRelatives.Hide();
+                F.gridControlOrders.Hide();
+                F.Size= new Size(802,287);
+                F.buttonOK.Location = new Point(336,165);
+                F.buttonCancel.Location = new Point(465, 165);
 
                 DialogResult res = F.ShowDialog();
 
@@ -240,6 +252,46 @@ namespace ClientHospitalApp
             }           
         }
 
-       
+        private void gridView1_DoubleClick(object sender, EventArgs e)
+        {
+            DXMouseEventArgs ea = e as DXMouseEventArgs;
+            GridView view = sender as GridView;
+            GridHitInfo info = view.CalcHitInfo(ea.Location);
+            if (info.InRow || info.InRowCell)
+            {
+                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
+                GridColumn col = gridView1.Columns[2];
+                object val = view.GetRowCellValue(info.RowHandle, col);
+               // MessageBox.Show(val.ToString());
+                // MessageBox.Show(string.Format("DoubleClick on row: {0}, column: {1}.", info.InRow, colCaption));
+
+                Form2 F = new Form2();
+                F.Text = "Detailed data of patient";
+
+                GenderPresenter genderPresenter = new GenderPresenter(F);
+                genderPresenter.GetListGenderFromModel();
+
+                F.textEditIdPatient.Text = (view.GetRowCellValue(info.RowHandle, gridView1.Columns[0])).ToString();
+                F.textEditLnm.Text = (view.GetRowCellValue(info.RowHandle, gridView1.Columns[1])).ToString();
+                F.textEditFnm.Text = (view.GetRowCellValue(info.RowHandle, gridView1.Columns[2])).ToString();
+                F.dateEditDOB.Text = (view.GetRowCellValue(info.RowHandle, gridView1.Columns[3])).ToString();
+                F.textEditSSN.Text = (view.GetRowCellValue(info.RowHandle, gridView1.Columns[4])).ToString();
+                string tempGender = (view.GetRowCellValue(info.RowHandle, gridView1.Columns[5])).ToString();
+
+                foreach (Gender item in genderPresenter.genderModel.list)
+                {
+                    if (tempGender.CompareTo(Convert.ToString(item.ID_Gender)) == 0)
+                    {
+                        F.comboBoxEditGndr.EditValue = item.GenderName;
+                    }
+                }
+
+                F.textEditLnm.Enabled = false;
+                DialogResult res = F.ShowDialog();
+                
+
+                
+            }
+        }
     }
 }
