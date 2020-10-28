@@ -713,12 +713,12 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataGender", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderResponse> GetDataGenderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderRequest request);
         
-        // CODEGEN: Generating message contract since element name GetDataRelativeResult from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataRelative", ReplyAction="*")]
-        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse GetDataRelative(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest request);
+        // CODEGEN: Generating message contract since element name GetRelativesOfPatientResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRelativesOfPatient", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse GetRelativesOfPatient(ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataRelative", ReplyAction="*")]
-        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse> GetDataRelativeAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRelativesOfPatient", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse> GetRelativesOfPatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest request);
         
         // CODEGEN: Generating message contract since element name relative from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SaveRelative", ReplyAction="*")]
@@ -1065,42 +1065,15 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetDataRelativeRequest {
+    public partial class GetRelativesOfPatientRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataRelative", Namespace="http://tempuri.org/", Order=0)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetRelativesOfPatient", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequestBody Body;
         
-        public GetDataRelativeRequest() {
+        public GetRelativesOfPatientRequest() {
         }
         
-        public GetDataRelativeRequest(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class GetDataRelativeRequestBody {
-        
-        public GetDataRelativeRequestBody() {
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class GetDataRelativeResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataRelativeResponse", Namespace="http://tempuri.org/", Order=0)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponseBody Body;
-        
-        public GetDataRelativeResponse() {
-        }
-        
-        public GetDataRelativeResponse(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponseBody Body) {
+        public GetRelativesOfPatientRequest(ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -1109,16 +1082,50 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class GetDataRelativeResponseBody {
+    public partial class GetRelativesOfPatientRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetDataRelativeResult;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int IdPatient;
         
-        public GetDataRelativeResponseBody() {
+        public GetRelativesOfPatientRequestBody() {
         }
         
-        public GetDataRelativeResponseBody(ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetDataRelativeResult) {
-            this.GetDataRelativeResult = GetDataRelativeResult;
+        public GetRelativesOfPatientRequestBody(int IdPatient) {
+            this.IdPatient = IdPatient;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetRelativesOfPatientResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetRelativesOfPatientResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponseBody Body;
+        
+        public GetRelativesOfPatientResponse() {
+        }
+        
+        public GetRelativesOfPatientResponse(ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetRelativesOfPatientResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetRelativesOfPatientResult;
+        
+        public GetRelativesOfPatientResponseBody() {
+        }
+        
+        public GetRelativesOfPatientResponseBody(ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetRelativesOfPatientResult) {
+            this.GetRelativesOfPatientResult = GetRelativesOfPatientResult;
         }
     }
     
@@ -1520,26 +1527,28 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataRelative(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest request) {
-            return base.Channel.GetDataRelative(request);
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetRelativesOfPatient(ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest request) {
+            return base.Channel.GetRelativesOfPatient(request);
         }
         
-        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetDataRelative() {
-            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest();
-            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequestBody();
-            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataRelative(inValue);
-            return retVal.Body.GetDataRelativeResult;
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetRelativesOfPatient(int IdPatient) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequestBody();
+            inValue.Body.IdPatient = IdPatient;
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetRelativesOfPatient(inValue);
+            return retVal.Body.GetRelativesOfPatientResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataRelativeAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest request) {
-            return base.Channel.GetDataRelativeAsync(request);
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetRelativesOfPatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest request) {
+            return base.Channel.GetRelativesOfPatientAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse> GetDataRelativeAsync() {
-            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequest();
-            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeRequestBody();
-            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataRelativeAsync(inValue);
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse> GetRelativesOfPatientAsync(int IdPatient) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequestBody();
+            inValue.Body.IdPatient = IdPatient;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetRelativesOfPatientAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

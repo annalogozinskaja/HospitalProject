@@ -30,8 +30,6 @@
         {
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.gridControlOrders = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridControlRelatives = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.dateEditDOB = new DevExpress.XtraEditors.DateEdit();
@@ -46,8 +44,6 @@
             this.textEditLnm = new DevExpress.XtraEditors.TextEdit();
             this.labelControlID = new DevExpress.XtraEditors.LabelControl();
             this.textEditIdPatient = new DevExpress.XtraEditors.TextEdit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlOrders)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlRelatives)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).BeginInit();
@@ -63,7 +59,7 @@
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(336, 395);
+            this.buttonOK.Location = new System.Drawing.Point(49, 265);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(76, 31);
             this.buttonOK.TabIndex = 0;
@@ -74,34 +70,19 @@
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCancel.Location = new System.Drawing.Point(471, 395);
+            this.buttonCancel.Location = new System.Drawing.Point(184, 265);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(78, 31);
             this.buttonCancel.TabIndex = 1;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
-            // gridControlOrders
-            // 
-            this.gridControlOrders.Location = new System.Drawing.Point(461, 139);
-            this.gridControlOrders.MainView = this.gridView2;
-            this.gridControlOrders.Name = "gridControlOrders";
-            this.gridControlOrders.Size = new System.Drawing.Size(400, 200);
-            this.gridControlOrders.TabIndex = 53;
-            this.gridControlOrders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.GridControl = this.gridControlOrders;
-            this.gridView2.Name = "gridView2";
-            // 
             // gridControlRelatives
             // 
-            this.gridControlRelatives.Location = new System.Drawing.Point(25, 139);
+            this.gridControlRelatives.Location = new System.Drawing.Point(332, 21);
             this.gridControlRelatives.MainView = this.gridView1;
             this.gridControlRelatives.Name = "gridControlRelatives";
-            this.gridControlRelatives.Size = new System.Drawing.Size(399, 200);
+            this.gridControlRelatives.Size = new System.Drawing.Size(408, 200);
             this.gridControlRelatives.TabIndex = 52;
             this.gridControlRelatives.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -114,7 +95,7 @@
             // dateEditDOB
             // 
             this.dateEditDOB.EditValue = null;
-            this.dateEditDOB.Location = new System.Drawing.Point(552, 22);
+            this.dateEditDOB.Location = new System.Drawing.Point(121, 129);
             this.dateEditDOB.Name = "dateEditDOB";
             this.dateEditDOB.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -127,21 +108,21 @@
             this.dateEditDOB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEditDOB.Properties.Mask.EditMask = "dd/MM/yy";
             this.dateEditDOB.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dateEditDOB.Size = new System.Drawing.Size(165, 20);
+            this.dateEditDOB.Size = new System.Drawing.Size(155, 20);
             this.dateEditDOB.TabIndex = 51;
             // 
             // comboBoxEditGndr
             // 
-            this.comboBoxEditGndr.Location = new System.Drawing.Point(552, 94);
+            this.comboBoxEditGndr.Location = new System.Drawing.Point(121, 201);
             this.comboBoxEditGndr.Name = "comboBoxEditGndr";
             this.comboBoxEditGndr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditGndr.Size = new System.Drawing.Size(165, 20);
+            this.comboBoxEditGndr.Size = new System.Drawing.Size(155, 20);
             this.comboBoxEditGndr.TabIndex = 50;
             // 
             // labelControlGndr
             // 
-            this.labelControlGndr.Location = new System.Drawing.Point(461, 97);
+            this.labelControlGndr.Location = new System.Drawing.Point(30, 204);
             this.labelControlGndr.Name = "labelControlGndr";
             this.labelControlGndr.Size = new System.Drawing.Size(35, 13);
             this.labelControlGndr.TabIndex = 49;
@@ -149,7 +130,7 @@
             // 
             // labelControlSSN
             // 
-            this.labelControlSSN.Location = new System.Drawing.Point(461, 61);
+            this.labelControlSSN.Location = new System.Drawing.Point(30, 168);
             this.labelControlSSN.Name = "labelControlSSN";
             this.labelControlSSN.Size = new System.Drawing.Size(19, 13);
             this.labelControlSSN.TabIndex = 48;
@@ -157,14 +138,14 @@
             // 
             // textEditSSN
             // 
-            this.textEditSSN.Location = new System.Drawing.Point(552, 58);
+            this.textEditSSN.Location = new System.Drawing.Point(121, 165);
             this.textEditSSN.Name = "textEditSSN";
-            this.textEditSSN.Size = new System.Drawing.Size(165, 20);
+            this.textEditSSN.Size = new System.Drawing.Size(155, 20);
             this.textEditSSN.TabIndex = 47;
             // 
             // labelControlDOB
             // 
-            this.labelControlDOB.Location = new System.Drawing.Point(461, 25);
+            this.labelControlDOB.Location = new System.Drawing.Point(30, 132);
             this.labelControlDOB.Name = "labelControlDOB";
             this.labelControlDOB.Size = new System.Drawing.Size(61, 13);
             this.labelControlDOB.TabIndex = 46;
@@ -220,8 +201,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(886, 448);
-            this.Controls.Add(this.gridControlOrders);
+            this.ClientSize = new System.Drawing.Size(766, 316);
             this.Controls.Add(this.gridControlRelatives);
             this.Controls.Add(this.dateEditDOB);
             this.Controls.Add(this.comboBoxEditGndr);
@@ -239,8 +219,6 @@
             this.Controls.Add(this.buttonOK);
             this.Name = "Form2";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlOrders)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlRelatives)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).EndInit();
@@ -256,7 +234,6 @@
         }
 
         #endregion
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         public DevExpress.XtraEditors.DateEdit dateEditDOB;
         public DevExpress.XtraEditors.ComboBoxEdit comboBoxEditGndr;
@@ -270,7 +247,6 @@
         public DevExpress.XtraEditors.TextEdit textEditLnm;
         private DevExpress.XtraEditors.LabelControl labelControlID;
         public DevExpress.XtraEditors.TextEdit textEditIdPatient;
-        public DevExpress.XtraGrid.GridControl gridControlOrders;
         public DevExpress.XtraGrid.GridControl gridControlRelatives;
         public System.Windows.Forms.Button buttonOK;
         public System.Windows.Forms.Button buttonCancel;

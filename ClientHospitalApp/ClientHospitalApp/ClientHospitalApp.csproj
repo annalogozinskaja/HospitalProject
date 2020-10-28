@@ -114,10 +114,10 @@
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataPatientResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataRelativeResponse.datasource">
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentResponse.datasource">
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.HelloWorldResponse.datasource">

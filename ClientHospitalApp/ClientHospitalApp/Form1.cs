@@ -150,7 +150,6 @@ namespace ClientHospitalApp
             F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
 
             F.gridControlRelatives.Hide();
-            F.gridControlOrders.Hide();
             F.Size = new Size(802, 287);
             F.buttonOK.Location = new Point(336, 165);
             F.buttonCancel.Location = new Point(465, 165);
@@ -215,7 +214,6 @@ namespace ClientHospitalApp
                 }
 
                 F.gridControlRelatives.Hide();
-                F.gridControlOrders.Hide();
                 F.Size= new Size(802,287);
                 F.buttonOK.Location = new Point(336,165);
                 F.buttonCancel.Location = new Point(465, 165);
@@ -285,6 +283,11 @@ namespace ClientHospitalApp
                         F.comboBoxEditGndr.EditValue = item.GenderName;
                     }
                 }
+
+
+                RelativePresenter relativePresenter = new RelativePresenter(F);
+                relativePresenter.GetRelativesOfPatientInModel(Convert.ToInt32(F.textEditIdPatient.Text));
+                F.gridControlRelatives.DataSource = relativePresenter.relativeModel.list;
 
                 F.textEditLnm.Enabled = false;
                 DialogResult res = F.ShowDialog();

@@ -25,5 +25,10 @@ namespace ClientHospitalApp.Models
            int id= obj.SaveRelative(relative);
         }
 
+        public void GetRelativesOfPatient(int IdPatient)
+        {
+            list= obj.GetRelativesOfPatient(IdPatient).ToList();
+        }
+
     }
 }

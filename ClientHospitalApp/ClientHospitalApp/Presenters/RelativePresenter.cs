@@ -23,5 +23,10 @@ namespace ClientHospitalApp.Presenters
         {
             relativeModel.SaveRelative();
         }
+
+        public void GetRelativesOfPatientInModel(int idPatient)
+        {
+            relativeModel.GetRelativesOfPatient(idPatient);
+        }
     }
 }
