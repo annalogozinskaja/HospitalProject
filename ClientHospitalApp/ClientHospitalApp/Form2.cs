@@ -44,6 +44,6 @@ namespace ClientHospitalApp
             set { textEditSSN.Text = value; }
         }
         public string ID_GenderText { get; set; }
-       
+
     }
 }

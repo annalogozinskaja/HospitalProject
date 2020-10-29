@@ -20,6 +20,7 @@ using System.Windows.Controls.Ribbon;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using System.Drawing.Printing;
 
 namespace ClientHospitalApp
 {
@@ -84,7 +85,8 @@ namespace ClientHospitalApp
 
             gridControl1 = new GridControl();
             gridControl1.Parent = this;
-            gridControl1.Dock = DockStyle.Bottom;
+            gridControl1.Dock = DockStyle.Fill;
+            //gridControl1.Margin.Top(50);
             gridControl1.DataSource = presenter.patientViewList;
 
             gridView1 = gridControl1.MainView as GridView;
@@ -94,13 +96,11 @@ namespace ClientHospitalApp
             colDOB = gridView1.Columns["DOBText"];
             colSSN = gridView1.Columns["SSNText"];
             colGender = gridView1.Columns["ID_GenderText"];
-            
-            colFirstname.Caption = "";
 
-            colLastname.FieldName = "Lastname";
-            colFirstname.FieldName = "Firstname";
-            colDOB.FieldName = "Data of birth";
-            colSSN.FieldName = "SSN";
+            gridView1.Columns[1].Caption = "Lastname";
+            gridView1.Columns[2].Caption = "Firstname";
+            gridView1.Columns[3].Caption = "Data of birth";
+            gridView1.Columns[4].Caption = "SSN";
 
             colID.Visible = false;
             colGender.Visible = false;
@@ -148,12 +148,9 @@ namespace ClientHospitalApp
             }
 
             F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
-
             F.gridControlRelatives.Hide();
-            F.Size = new Size(802, 287);
-            F.buttonOK.Location = new Point(336, 165);
-            F.buttonCancel.Location = new Point(465, 165);
-
+            F.Size = new Size(350, 355);
+  
             DialogResult res = F.ShowDialog();
 
             if (res == DialogResult.OK)
@@ -214,10 +211,8 @@ namespace ClientHospitalApp
                 }
 
                 F.gridControlRelatives.Hide();
-                F.Size= new Size(802,287);
-                F.buttonOK.Location = new Point(336,165);
-                F.buttonCancel.Location = new Point(465, 165);
-
+                F.Size = new Size(350, 355);
+                
                 DialogResult res = F.ShowDialog();
 
                 if (res == DialogResult.OK)
@@ -284,16 +279,23 @@ namespace ClientHospitalApp
                     }
                 }
 
-
                 RelativePresenter relativePresenter = new RelativePresenter(F);
                 relativePresenter.GetRelativesOfPatientInModel(Convert.ToInt32(F.textEditIdPatient.Text));
                 F.gridControlRelatives.DataSource = relativePresenter.relativeModel.list;
 
-                F.textEditLnm.Enabled = false;
-                DialogResult res = F.ShowDialog();
-                
+                GridView gridViewRelatives = F.gridControlRelatives.MainView as GridView;
+                gridViewRelatives.OptionsView.ShowViewCaption = true;
+                gridViewRelatives.ViewCaption = "Relatives";
+                gridViewRelatives.Columns["ID_Relative"].Visible=false;
+                gridViewRelatives.Columns["ID_Patient"].Visible = false;
+                gridViewRelatives.Columns["ID_Gender"].Visible = false;
 
-                
+                F.buttonCancel.Hide();
+                F.buttonOK.Hide();
+                F.Size = new Size(822, 305);
+                F.textEditIdPatient.Enabled = true;
+                DialogResult res = F.ShowDialog();
+                               
             }
         }
     }
