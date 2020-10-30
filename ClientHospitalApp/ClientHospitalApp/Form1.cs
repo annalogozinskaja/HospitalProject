@@ -42,41 +42,6 @@ namespace ClientHospitalApp
             InitializeComponent();           
         }
 
-       
-
-        //private void buttonGetPatient_Click(object sender, EventArgs e)
-        //{
-        //    dataGridView1.Rows.Clear();
-
-        //    if (textBoxID.Text!="")
-        //    {
-        //        try 
-        //        { 
-        //            PatientPresenter presenter = new PatientPresenter(this);
-        //            presenter.GetPatientFromModel(Int32.Parse(textBoxID.Text));                  
-        //            dataGridView1.Rows.Add(ID_PatientText, LastnameText, FirstnameText, DOBText.ToString());
-                 
-        //            //ListViewItem LVI = new ListViewItem(ID_PatientText.ToString());
-        //            //LVI.SubItems.Add(LastnameText);
-        //            //LVI.SubItems.Add(FirstnameText);
-        //            //LVI.SubItems.Add(DOBText.ToString());
-        //            //LVI.SubItems.Add(SSNText.ToString());
-        //            //LVI.SubItems.Add(ID_GenderText.ToString());
-        //            //this.listView1.Items.Add(LVI);
-        //        }
-        //        catch (FormatException)
-        //        {
-        //            MessageBox.Show("Unable to convert "+ textBoxID.Text+" into index.");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Enter the index");
-        //    }
-
-        //}
-
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -85,11 +50,12 @@ namespace ClientHospitalApp
 
             gridControl1 = new GridControl();
             gridControl1.Parent = this;
-            gridControl1.Dock = DockStyle.Fill;
-            //gridControl1.Margin.Top(50);
+            gridControl1.Location = new Point(0,170);
+            gridControl1.Size = new Size(785,485);
+            //gridControl1.Dock = DockStyle.Fill;
             gridControl1.DataSource = presenter.patientViewList;
 
-            gridView1 = gridControl1.MainView as GridView;
+            gridView1 = gridControl1.MainView as GridView;          
             colID = gridView1.Columns["ID_PatientText"];
             colLastname = gridView1.Columns["LastnameText"];
             colFirstname = gridView1.Columns["FirstnameText"];
@@ -296,6 +262,27 @@ namespace ClientHospitalApp
                 F.textEditIdPatient.Enabled = true;
                 DialogResult res = F.ShowDialog();
                                
+            }
+        }
+
+        private void barButtonItemDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int[] selectedRowHandles = gridView1.GetSelectedRows();
+            if (selectedRowHandles.Length == 1)
+            {
+                int idPatient = Convert.ToInt32(gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID));
+                MessageBox.Show(idPatient.ToString());
+
+                RelativePresenter relativePresenter = new RelativePresenter();
+                relativePresenter.GetRelativesOfPatientInModel(idPatient);
+                if(relativePresenter.relativeModel.list.Count==0)
+                {
+                    MessageBox.Show("Patient will be deleted");
+                }
+            }
+            else if (selectedRowHandles.Length == 0)
+            {
+                MessageBox.Show("Choose the patient");
             }
         }
     }

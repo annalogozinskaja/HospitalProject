@@ -19,6 +19,11 @@ namespace ClientHospitalApp.Presenters
             this.relativeModel = new RelativeModel();
         }
 
+        public RelativePresenter()
+        {
+            this.relativeModel = new RelativeModel();
+        }
+
         public void SaveRelativeInModel()
         {
             relativeModel.SaveRelative();

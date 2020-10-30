@@ -116,6 +116,36 @@
           <s:element minOccurs="1" maxOccurs="1" name="ID_Gender" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetOrdersOfPatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IdPatient" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrdersOfPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrdersOfPatientResult" type="tns:ArrayOfOrderOfPatient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrderOfPatient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderOfPatient" nillable="true" type="tns:OrderOfPatient" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderOfPatient">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Order" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateOrder" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Symptoms" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Patient" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Doctor" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID_OrderStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="specimentsInOrderList" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="SaveRelative">
         <s:complexType>
           <s:sequence>
@@ -155,17 +185,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="OrderOfPatient">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="ID_Order" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="DateOrder" type="s:dateTime" />
-          <s:element minOccurs="0" maxOccurs="1" name="Symptoms" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="ID_Patient" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="ID_Doctor" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="ID_OrderStatus" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="specimentsInOrderList" type="tns:ArrayOfInt" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetDataSpeciment">
         <s:complexType />
       </s:element>
@@ -225,6 +244,12 @@
   <wsdl:message name="GetRelativesOfPatientSoapOut">
     <wsdl:part name="parameters" element="tns:GetRelativesOfPatientResponse" />
   </wsdl:message>
+  <wsdl:message name="GetOrdersOfPatientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrdersOfPatient" />
+  </wsdl:message>
+  <wsdl:message name="GetOrdersOfPatientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrdersOfPatientResponse" />
+  </wsdl:message>
   <wsdl:message name="SaveRelativeSoapIn">
     <wsdl:part name="parameters" element="tns:SaveRelative" />
   </wsdl:message>
@@ -273,6 +298,10 @@
     <wsdl:operation name="GetRelativesOfPatient">
       <wsdl:input message="tns:GetRelativesOfPatientSoapIn" />
       <wsdl:output message="tns:GetRelativesOfPatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersOfPatient">
+      <wsdl:input message="tns:GetOrdersOfPatientSoapIn" />
+      <wsdl:output message="tns:GetOrdersOfPatientSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SaveRelative">
       <wsdl:input message="tns:SaveRelativeSoapIn" />
@@ -340,6 +369,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetRelativesOfPatient">
       <soap:operation soapAction="http://tempuri.org/GetRelativesOfPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersOfPatient">
+      <soap:operation soapAction="http://tempuri.org/GetOrdersOfPatient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -433,6 +471,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetRelativesOfPatient">
       <soap12:operation soapAction="http://tempuri.org/GetRelativesOfPatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersOfPatient">
+      <soap12:operation soapAction="http://tempuri.org/GetOrdersOfPatient" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -126,6 +126,31 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
+        public List<OrderOfPatient> GetOrdersOfPatient(int IdPatient)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            Patient p = patientDao.Get(IdPatient);
+            p.orderOfPatientList = new List<int>();
+
+            OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
+            List<OrderOfPatient> tempList = orderDao.GetOrdersOfPatient(IdPatient).ToList();
+
+            if (tempList.Count > 0)
+            {
+                foreach (OrderOfPatient item in tempList)
+                {
+                    p.orderOfPatientList.Add(item.ID_Order);
+                }
+            }
+            SF.CloseSession();
+            return tempList;
+        }
+
+        [WebMethod]
         public int SaveRelative(Relative relative)
         {
             SessionFactory SF = new SessionFactory();
