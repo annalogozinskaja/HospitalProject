@@ -63,6 +63,16 @@
       <s:element name="UpdatePatientResponse">
         <s:complexType />
       </s:element>
+      <s:element name="DeletePatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="patient" type="tns:Patient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePatientResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="GetDataGender">
         <s:complexType />
       </s:element>
@@ -232,6 +242,12 @@
   <wsdl:message name="UpdatePatientSoapOut">
     <wsdl:part name="parameters" element="tns:UpdatePatientResponse" />
   </wsdl:message>
+  <wsdl:message name="DeletePatientSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePatient" />
+  </wsdl:message>
+  <wsdl:message name="DeletePatientSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePatientResponse" />
+  </wsdl:message>
   <wsdl:message name="GetDataGenderSoapIn">
     <wsdl:part name="parameters" element="tns:GetDataGender" />
   </wsdl:message>
@@ -290,6 +306,10 @@
     <wsdl:operation name="UpdatePatient">
       <wsdl:input message="tns:UpdatePatientSoapIn" />
       <wsdl:output message="tns:UpdatePatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePatient">
+      <wsdl:input message="tns:DeletePatientSoapIn" />
+      <wsdl:output message="tns:DeletePatientSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDataGender">
       <wsdl:input message="tns:GetDataGenderSoapIn" />
@@ -351,6 +371,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdatePatient">
       <soap:operation soapAction="http://tempuri.org/UpdatePatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePatient">
+      <soap:operation soapAction="http://tempuri.org/DeletePatient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -453,6 +482,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdatePatient">
       <soap12:operation soapAction="http://tempuri.org/UpdatePatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePatient">
+      <soap12:operation soapAction="http://tempuri.org/DeletePatient" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

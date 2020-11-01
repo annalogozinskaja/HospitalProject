@@ -706,6 +706,13 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePatient", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse> UpdatePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest request);
         
+        // CODEGEN: Generating message contract since element name patient from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeletePatient", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse DeletePatient(ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeletePatient", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse> DeletePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest request);
+        
         // CODEGEN: Generating message contract since element name GetDataGenderResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataGender", ReplyAction="*")]
         ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderResponse GetDataGender(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderRequest request);
@@ -1004,6 +1011,67 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     public partial class UpdatePatientResponseBody {
         
         public UpdatePatientResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeletePatientRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeletePatient", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequestBody Body;
+        
+        public DeletePatientRequest() {
+        }
+        
+        public DeletePatientRequest(ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class DeletePatientRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient;
+        
+        public DeletePatientRequestBody() {
+        }
+        
+        public DeletePatientRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+            this.patient = patient;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeletePatientResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeletePatientResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponseBody Body;
+        
+        public DeletePatientResponse() {
+        }
+        
+        public DeletePatientResponse(ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class DeletePatientResponseBody {
+        
+        public DeletePatientResponseBody() {
         }
     }
     
@@ -1576,6 +1644,30 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequestBody();
             inValue.Body.patient = patient;
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdatePatientAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.DeletePatient(ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest request) {
+            return base.Channel.DeletePatient(request);
+        }
+        
+        public void DeletePatient(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequestBody();
+            inValue.Body.patient = patient;
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeletePatient(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.DeletePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest request) {
+            return base.Channel.DeletePatientAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse> DeletePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequestBody();
+            inValue.Body.patient = patient;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeletePatientAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

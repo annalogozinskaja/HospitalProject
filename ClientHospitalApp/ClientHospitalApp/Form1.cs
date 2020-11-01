@@ -271,13 +271,40 @@ namespace ClientHospitalApp
             if (selectedRowHandles.Length == 1)
             {
                 int idPatient = Convert.ToInt32(gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID));
-                MessageBox.Show(idPatient.ToString());
+                //MessageBox.Show(idPatient.ToString());
 
                 RelativePresenter relativePresenter = new RelativePresenter();
                 relativePresenter.GetRelativesOfPatientInModel(idPatient);
-                if(relativePresenter.relativeModel.list.Count==0)
+
+                OrderOfPatientPresenter orderPresenter = new OrderOfPatientPresenter();
+                orderPresenter.GetOrdersOfPatientInModel(idPatient);
+
+                if (relativePresenter.relativeModel.list.Count==0 && orderPresenter.orderModel.list.Count == 0)
                 {
-                    MessageBox.Show("Patient will be deleted");
+                    try
+                    {
+                        Form2 F = new Form2();
+                   
+                        F.textEditIdPatient.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID);
+                        F.textEditLnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colLastname);
+                        F.textEditFnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colFirstname);
+                        F.dateEditDOB.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colDOB);
+                        F.textEditSSN.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colSSN);
+                        F.ID_GenderText= gridView1.GetRowCellDisplayText(selectedRowHandles[0], colGender);
+
+                        PatientPresenter patientPresenter = new PatientPresenter(F);
+                        patientPresenter.DeletePatientInModel();
+                        MessageBox.Show("Patient with id=" + F.textEditIdPatient.Text + " deleted.");
+                    }
+                    catch (Exception s)
+                    {
+                        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+                    }
+                    RefreshData();
+                }
+                else
+                {
+                    MessageBox.Show("There are another data of this patient");
                 }
             }
             else if (selectedRowHandles.Length == 0)

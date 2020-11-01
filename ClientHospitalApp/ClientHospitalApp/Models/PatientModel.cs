@@ -40,5 +40,10 @@ namespace ClientHospitalApp.Models
             obj.UpdatePatient(patient);
         }
 
+        public void DeletePatient()
+        {
+            obj.DeletePatient(patient);
+        }
+
     }
 }

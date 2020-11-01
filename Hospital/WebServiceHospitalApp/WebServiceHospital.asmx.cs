@@ -86,6 +86,21 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
+        public void DeletePatient(Patient patient)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            int IdPatient=Convert.ToInt32(Console.ReadLine());
+            Patient p = patientDao.Get(patient.ID_Patient);
+            patientDao.Delete(p);
+
+            SF.CloseSession();
+        }
+
+        [WebMethod]
         public List<Gender> GetDataGender()
         {
             SessionFactory SF = new SessionFactory();
