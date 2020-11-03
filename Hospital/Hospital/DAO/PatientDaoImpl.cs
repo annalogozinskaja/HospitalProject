@@ -22,5 +22,12 @@ namespace DAOLayer
             return list;
         }
 
+        public List<Patient> GetListOfPatientsWithActiveStatus()
+        {
+            IQueryable<Patient> result = session.Query<Patient>().Where(s => s.Status==1);
+            List<Patient> list = result.ToList();
+
+            return list;
+        }
     }
 }

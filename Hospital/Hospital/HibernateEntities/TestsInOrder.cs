@@ -14,6 +14,7 @@ namespace DAOLayer
         public virtual int ID_TestStatus { get; set; }
         public virtual string Result { get; set; }
         public virtual List<int> specimentsInOrderList { get; set; }
+        public virtual int Status { get; set; }
 
         public override string ToString()
         {

@@ -17,6 +17,8 @@ namespace DAOLayer
         public virtual List<int> relativeList { get; set; }
         public virtual List<int> orderOfPatientList { get; set; }
 
+        public virtual int Status { get; set; }
+
         public override string ToString()
         {
             return "\nPatient: "+ ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ", " + ID_Gender.ToString() + ".";

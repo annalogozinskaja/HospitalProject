@@ -36,7 +36,6 @@ namespace WebServiceHospitalApp
             SF.Init();
             SF.OpenSession();
 
-            //выведем данные пациента с id=1 и его ордера
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
             Patient p = patientDao.Get(IdPatient);
             //p.orderOfPatientList = new List<int>();
@@ -60,6 +59,7 @@ namespace WebServiceHospitalApp
             SF.OpenSession();
 
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            patient.Status = 1;
             patientDao.Save(patient);
            
             SF.CloseSession();
@@ -93,9 +93,67 @@ namespace WebServiceHospitalApp
             SF.OpenSession();
 
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
-            int IdPatient=Convert.ToInt32(Console.ReadLine());
-            Patient p = patientDao.Get(patient.ID_Patient);
-            patientDao.Delete(p);
+           
+            RelativeDaoImpl relativeDao = new RelativeDaoImpl(SF.GetSession());
+            List<Relative> listRel = relativeDao.GetListRelativesOfPatient(patient.ID_Patient).ToList();
+
+            OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
+            List<OrderOfPatient> listOrd = orderDao.GetOrdersOfPatient(patient.ID_Patient).ToList();
+
+            SpecimentsInOrderDaoImpl specimentDao = new SpecimentsInOrderDaoImpl(SF.GetSession());
+            List<SpecimentsInOrder> listSpec;
+
+            TestsInOrderDaoImpl testDao = new TestsInOrderDaoImpl(SF.GetSession());
+            List<TestsInOrder> listTest;
+
+            if (listRel.Count == 0 && listOrd.Count == 0)
+            {
+                patientDao.Delete(patient);
+            }
+            else if(listRel.Count > 0 || listOrd.Count>0)
+            {
+                if(listRel.Count > 0)
+                {
+                    foreach (Relative item in listRel)
+                    {
+                        item.Status = 0;
+                        relativeDao.SaveOrUpdate(item);
+                    }                 
+                }
+                if(listOrd.Count > 0)
+                {
+                    foreach (OrderOfPatient item in listOrd)
+                    {
+                        item.Status = 0;
+                        orderDao.SaveOrUpdate(item);
+
+                        listSpec = specimentDao.GetSpecimentsOfOrder(item.ID_Order).ToList();
+
+                        if (listSpec.Count > 0)
+                        {
+                            foreach (SpecimentsInOrder itemSpec in listSpec)
+                            {
+                                itemSpec.Status = 0;
+                                specimentDao.SaveOrUpdate(itemSpec);
+
+                                listTest = testDao.GetTestsOfSpeciment(itemSpec.ID_SpecimentOrder).ToList();
+
+                                if (listTest.Count > 0)
+                                {
+                                    foreach (TestsInOrder itemTest in listTest)
+                                    {
+                                        itemTest.Status = 0;
+                                        testDao.SaveOrUpdate(itemTest);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                patient.Status = 0;
+                patientDao.SaveOrUpdate(patient);
+            }
 
             SF.CloseSession();
         }
@@ -140,30 +198,30 @@ namespace WebServiceHospitalApp
             return tempList;
         }
 
-        [WebMethod]
-        public List<OrderOfPatient> GetOrdersOfPatient(int IdPatient)
-        {
-            SessionFactory SF = new SessionFactory();
-            SF.Init();
-            SF.OpenSession();
+        //[WebMethod]
+        //public List<OrderOfPatient> GetOrdersOfPatient(int IdPatient)
+        //{
+        //    SessionFactory SF = new SessionFactory();
+        //    SF.Init();
+        //    SF.OpenSession();
 
-            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
-            Patient p = patientDao.Get(IdPatient);
-            p.orderOfPatientList = new List<int>();
+        //    GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+        //    Patient p = patientDao.Get(IdPatient);
+        //    p.orderOfPatientList = new List<int>();
 
-            OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
-            List<OrderOfPatient> tempList = orderDao.GetOrdersOfPatient(IdPatient).ToList();
+        //    OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
+        //    List<OrderOfPatient> tempList = orderDao.GetOrdersOfPatient(IdPatient).ToList();
 
-            if (tempList.Count > 0)
-            {
-                foreach (OrderOfPatient item in tempList)
-                {
-                    p.orderOfPatientList.Add(item.ID_Order);
-                }
-            }
-            SF.CloseSession();
-            return tempList;
-        }
+        //    if (tempList.Count > 0)
+        //    {
+        //        foreach (OrderOfPatient item in tempList)
+        //        {
+        //            p.orderOfPatientList.Add(item.ID_Order);
+        //        }
+        //    }
+        //    SF.CloseSession();
+        //    return tempList;
+        //}
 
         [WebMethod]
         public int SaveRelative(Relative relative)
@@ -186,9 +244,9 @@ namespace WebServiceHospitalApp
             SF.Init();
             SF.OpenSession();
 
-            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            PatientDaoImpl patientDao = new PatientDaoImpl(SF.GetSession());
             List<Patient> list = new List<Patient>();
-            list = patientDao.GetAll().ToList();
+            list = patientDao.GetListOfPatientsWithActiveStatus().ToList();
 
             SF.CloseSession();
             return list;
@@ -233,7 +291,6 @@ namespace WebServiceHospitalApp
             SF.CloseSession();
             return spec;
         }
-
        
     }
 }

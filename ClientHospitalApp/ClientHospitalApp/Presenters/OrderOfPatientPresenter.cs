@@ -25,9 +25,5 @@ namespace ClientHospitalApp.Presenters
             this.orderModel = new OrderOfPatientModel();
         }
 
-        public void GetOrdersOfPatientInModel(int idPatient)
-        {
-            orderModel.GetOrdersOfPatient(idPatient);
-        }
     }
 }

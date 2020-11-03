@@ -10,6 +10,7 @@
 		<property name="ID_Test" column="ID_Test"  />
 		<property name="ID_TestStatus" column="ID_TestStatus"  />
 		<property name="Result" column="Result"  />
+		<property name="Status" column="Status"  />
 	</class>
 </hibernate-mapping>
 

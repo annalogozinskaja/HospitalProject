@@ -14,6 +14,7 @@ namespace DAOLayer
         public virtual DateTime DateOfTaking { get; set; }
         public virtual string Nurse { get; set; }
         public virtual List<int> testsInOrderList { get; set; }
+        public virtual int Status { get; set; }
 
         public override string ToString()
         {

@@ -20,9 +20,5 @@ namespace ClientHospitalApp.Models
             obj = new WebServiceHospitalSoapClient();
         }
 
-        public void GetOrdersOfPatient(int IdPatient)
-        {
-            list = obj.GetOrdersOfPatient(IdPatient).ToList();
-        }
     }
 }

@@ -27,7 +27,7 @@ namespace ClientHospitalApp.Models
 
         public void GetRelativesOfPatient(int IdPatient)
         {
-            list= obj.GetRelativesOfPatient(IdPatient).ToList();
+            list = obj.GetRelativesOfPatient(IdPatient).ToList();
         }
 
     }

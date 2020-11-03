@@ -16,6 +16,7 @@ namespace DAOLayer
         public virtual int ID_OrderStatus { get; set; }
 
         public virtual List<int> specimentsInOrderList { get; set; }
+        public virtual int Status { get; set; }
 
         public override string ToString()
         {

@@ -84,6 +84,7 @@ namespace ClientHospitalApp.Presenters
 
         public void DeletePatientInModel()
         {
+            patientModel.patient.ID_Patient = Convert.ToInt32(patientView.ID_PatientText);
             patientModel.patient.Lastname = patientView.LastnameText;
             patientModel.patient.Firstname = patientView.FirstnameText;
             patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);

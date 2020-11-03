@@ -13,6 +13,7 @@ namespace DAOLayer
         public virtual string KindOfRelationship { get; set; }
         public virtual int ID_Patient { get; set; }
         public virtual int ID_Gender { get; set; }
+        public virtual int Status { get; set; }
 
         public override string ToString()
         {

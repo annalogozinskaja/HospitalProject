@@ -10,5 +10,6 @@
 		<property name="ID_OrderStatus" column="ID_OrderStatus"  />
 		<property name="ID_Patient" column="ID_Patient"  />
 		<property name="ID_Doctor" column="ID_Doctor"  />
+		<property name="Status" column="Status"  />
 	</class>
 </hibernate-mapping>

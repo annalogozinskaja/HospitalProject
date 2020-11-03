@@ -39,7 +39,7 @@ namespace ClientHospitalApp
 
         public Form1()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
 
@@ -50,12 +50,12 @@ namespace ClientHospitalApp
 
             gridControl1 = new GridControl();
             gridControl1.Parent = this;
-            gridControl1.Location = new Point(0,170);
-            gridControl1.Size = new Size(785,485);
+            gridControl1.Location = new Point(0, 170);
+            gridControl1.Size = new Size(785, 485);
             //gridControl1.Dock = DockStyle.Fill;
             gridControl1.DataSource = presenter.patientViewList;
 
-            gridView1 = gridControl1.MainView as GridView;          
+            gridView1 = gridControl1.MainView as GridView;
             colID = gridView1.Columns["ID_PatientText"];
             colLastname = gridView1.Columns["LastnameText"];
             colFirstname = gridView1.Columns["FirstnameText"];
@@ -116,7 +116,7 @@ namespace ClientHospitalApp
             F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
             F.gridControlRelatives.Hide();
             F.Size = new Size(350, 355);
-  
+
             DialogResult res = F.ShowDialog();
 
             if (res == DialogResult.OK)
@@ -146,7 +146,7 @@ namespace ClientHospitalApp
         private void barButtonItemEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int[] selectedRowHandles = gridView1.GetSelectedRows();
-            if (selectedRowHandles.Length==1)
+            if (selectedRowHandles.Length == 1)
             {
                 Form2 F = new Form2();
                 F.Text = "Update patient";
@@ -161,7 +161,7 @@ namespace ClientHospitalApp
                 }
 
                 F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
-                     
+
                 F.textEditIdPatient.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID);
                 F.textEditLnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colLastname);
                 F.textEditFnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colFirstname);
@@ -178,7 +178,7 @@ namespace ClientHospitalApp
 
                 F.gridControlRelatives.Hide();
                 F.Size = new Size(350, 355);
-                
+
                 DialogResult res = F.ShowDialog();
 
                 if (res == DialogResult.OK)
@@ -205,10 +205,10 @@ namespace ClientHospitalApp
                 }
 
             }
-            else if(selectedRowHandles.Length == 0)
+            else if (selectedRowHandles.Length == 0)
             {
                 MessageBox.Show("Choose the patient");
-            }           
+            }
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -221,7 +221,7 @@ namespace ClientHospitalApp
                 string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
                 GridColumn col = gridView1.Columns[2];
                 object val = view.GetRowCellValue(info.RowHandle, col);
-               // MessageBox.Show(val.ToString());
+                // MessageBox.Show(val.ToString());
                 // MessageBox.Show(string.Format("DoubleClick on row: {0}, column: {1}.", info.InRow, colCaption));
 
                 Form2 F = new Form2();
@@ -252,7 +252,7 @@ namespace ClientHospitalApp
                 GridView gridViewRelatives = F.gridControlRelatives.MainView as GridView;
                 gridViewRelatives.OptionsView.ShowViewCaption = true;
                 gridViewRelatives.ViewCaption = "Relatives";
-                gridViewRelatives.Columns["ID_Relative"].Visible=false;
+                gridViewRelatives.Columns["ID_Relative"].Visible = false;
                 gridViewRelatives.Columns["ID_Patient"].Visible = false;
                 gridViewRelatives.Columns["ID_Gender"].Visible = false;
 
@@ -261,7 +261,7 @@ namespace ClientHospitalApp
                 F.Size = new Size(822, 305);
                 F.textEditIdPatient.Enabled = true;
                 DialogResult res = F.ShowDialog();
-                               
+
             }
         }
 
@@ -270,41 +270,33 @@ namespace ClientHospitalApp
             int[] selectedRowHandles = gridView1.GetSelectedRows();
             if (selectedRowHandles.Length == 1)
             {
-                int idPatient = Convert.ToInt32(gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID));
-                //MessageBox.Show(idPatient.ToString());
+                DialogResult res = MessageBox.Show("Delete " + gridView1.GetRowCellDisplayText(selectedRowHandles[0], colLastname) +
+                                    " "+ gridView1.GetRowCellDisplayText(selectedRowHandles[0], colFirstname)+"?", "Deleting patient", MessageBoxButtons.YesNo);
 
-                RelativePresenter relativePresenter = new RelativePresenter();
-                relativePresenter.GetRelativesOfPatientInModel(idPatient);
+                if (res == DialogResult.Yes)
 
-                OrderOfPatientPresenter orderPresenter = new OrderOfPatientPresenter();
-                orderPresenter.GetOrdersOfPatientInModel(idPatient);
-
-                if (relativePresenter.relativeModel.list.Count==0 && orderPresenter.orderModel.list.Count == 0)
                 {
                     try
                     {
+                        int idPatient = Convert.ToInt32(gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID));
+                        
                         Form2 F = new Form2();
-                   
+
                         F.textEditIdPatient.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID);
                         F.textEditLnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colLastname);
                         F.textEditFnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colFirstname);
                         F.dateEditDOB.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colDOB);
                         F.textEditSSN.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colSSN);
-                        F.ID_GenderText= gridView1.GetRowCellDisplayText(selectedRowHandles[0], colGender);
+                        F.ID_GenderText = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colGender);
 
                         PatientPresenter patientPresenter = new PatientPresenter(F);
                         patientPresenter.DeletePatientInModel();
-                        MessageBox.Show("Patient with id=" + F.textEditIdPatient.Text + " deleted.");
+                        RefreshData();
                     }
                     catch (Exception s)
                     {
                         Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
                     }
-                    RefreshData();
-                }
-                else
-                {
-                    MessageBox.Show("There are another data of this patient");
                 }
             }
             else if (selectedRowHandles.Length == 0)

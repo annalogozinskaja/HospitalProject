@@ -10,6 +10,7 @@
 		<property name="DOB" column="DOB"  />
 		<property name="KindOfRelationship" column="KindOfRelationship"  />
 		<property name="ID_Patient" column="ID_Patient"  />
-		<property name="ID_Gender" column="ID_Gender"  />	
+		<property name="ID_Gender" column="ID_Gender"  />
+		<property name="Status" column="Status"  />
 	</class>
 </hibernate-mapping>

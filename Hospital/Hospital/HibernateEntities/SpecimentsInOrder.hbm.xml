@@ -9,6 +9,7 @@
 		<property name="ID_Speciment" column="ID_Speciment"  />
 		<property name="ID_SpecimentStatus" column="ID_SpecimentStatus"  />
 		<property name="DateOfTaking" column="DateOfTaking"  />
-		<property name="Nurse" column="Nurse"  />		
+		<property name="Nurse" column="Nurse"  />
+		<property name="Status" column="Status"  />
 	</class>
 </hibernate-mapping>
