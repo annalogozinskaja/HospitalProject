@@ -1610,7 +1610,8 @@
       "Microsoft.IdentityModel.Tokens >= 6.7.1",
       "NHibernate >= 5.3.3",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.4",
-      "ServiceStack >= 5.9.2"
+      "ServiceStack >= 5.9.2",
+      "System.ComponentModel.Annotations >= 4.7.0"
     ]
   },
   "packageFolders": {
@@ -1667,6 +1668,10 @@
           "ServiceStack": {
             "target": "Package",
             "version": "[5.9.2, )"
+          },
+          "System.ComponentModel.Annotations": {
+            "target": "Package",
+            "version": "[4.7.0, )"
           }
         },
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"

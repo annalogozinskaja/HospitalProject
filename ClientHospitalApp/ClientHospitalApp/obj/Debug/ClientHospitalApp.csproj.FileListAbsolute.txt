@@ -90,3 +90,4 @@ C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\b
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\ru\DevExpress.Office.v19.2.Core.resources.dll
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.exe.licenses
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.csproj.CopyComplete
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\System.ComponentModel.Annotations.dll

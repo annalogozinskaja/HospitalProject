@@ -155,6 +155,7 @@
             this.textEditSSN.Properties.AutoHeight = false;
             this.textEditSSN.Size = new System.Drawing.Size(155, 25);
             this.textEditSSN.TabIndex = 47;
+            this.textEditSSN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditSSN_KeyPress);
             // 
             // labelControlDOB
             // 
@@ -185,6 +186,7 @@
             this.textEditFnm.Properties.AutoHeight = false;
             this.textEditFnm.Size = new System.Drawing.Size(155, 25);
             this.textEditFnm.TabIndex = 44;
+            this.textEditFnm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditLnm_KeyPress);
             // 
             // labelControlLnm
             // 
@@ -205,6 +207,7 @@
             this.textEditLnm.Properties.AutoHeight = false;
             this.textEditLnm.Size = new System.Drawing.Size(155, 25);
             this.textEditLnm.TabIndex = 42;
+            this.textEditLnm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditLnm_KeyPress);
             // 
             // labelControlID
             // 

@@ -21,6 +21,7 @@ using DevExpress.XtraGrid.Views.Base;
 using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System.Drawing.Printing;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClientHospitalApp
 {
@@ -130,7 +131,9 @@ namespace ClientHospitalApp
                             F.ID_GenderText = Convert.ToString(item.ID_Gender);
                         }
                     }
-
+                    ////Patient p = new Patient();
+                    ////p.Lastname = F.LastnameText;
+                    //Validate(p);
                     PatientPresenter patientPresenter = new PatientPresenter(F);
                     patientPresenter.SavePatientInModel();
                 }
@@ -304,5 +307,11 @@ namespace ClientHospitalApp
                 MessageBox.Show("Choose the patient");
             }
         }
+
+
+       
+
+
+
     }
 }

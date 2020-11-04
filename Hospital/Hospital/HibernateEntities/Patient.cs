@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 
 namespace DAOLayer
 {
+    
     public class Patient
     {
         public virtual int ID_Patient { get; set; }

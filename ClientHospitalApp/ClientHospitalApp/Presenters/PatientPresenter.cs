@@ -8,6 +8,7 @@ using ClientHospitalApp.ServiceReferenceDAOLayer;
 using ClientHospitalApp.Models;
 using System.Windows.Forms;
 
+
 namespace ClientHospitalApp.Presenters
 {
     public class PatientPresenter
@@ -61,25 +62,35 @@ namespace ClientHospitalApp.Presenters
 
         public void SavePatientInModel()
         {
-            patientModel.patient.Lastname=patientView.LastnameText;
-            patientModel.patient.Firstname=patientView.FirstnameText;
-            patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
-            patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
-            patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
+            bool flag=Program.Validate(patientView);
 
-            patientModel.SavePatient();
+            if (flag)
+            {
+                patientModel.patient.Lastname = patientView.LastnameText;
+                patientModel.patient.Firstname = patientView.FirstnameText;
+                patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
+                patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
+                patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
+
+                patientModel.SavePatient();
+            }
         }
 
         public void UpdatePatientInModel()
         {
-            patientModel.patient.ID_Patient = Convert.ToInt32(patientView.ID_PatientText);
-            patientModel.patient.Lastname = patientView.LastnameText;
-            patientModel.patient.Firstname = patientView.FirstnameText;
-            patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
-            patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
-            patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
+            bool flag = Program.Validate(patientView);
 
-            patientModel.UpdatePatient();
+            if (flag)
+            {
+                patientModel.patient.ID_Patient = Convert.ToInt32(patientView.ID_PatientText);
+                patientModel.patient.Lastname = patientView.LastnameText;
+                patientModel.patient.Firstname = patientView.FirstnameText;
+                patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
+                patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
+                patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
+
+                patientModel.UpdatePatient();
+            }
         }
 
         public void DeletePatientInModel()
