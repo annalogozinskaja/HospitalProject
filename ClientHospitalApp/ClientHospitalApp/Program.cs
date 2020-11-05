@@ -29,9 +29,9 @@ namespace ClientHospitalApp
             }
             else
             {
-                MessageBox.Show("Пользователь прошел валидацию");
+                MessageBox.Show("All data patient is OK");
             }
-            MessageBox.Show(flag.ToString());
+            
             return flag;
         }
 

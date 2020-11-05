@@ -107,9 +107,9 @@
             this.dateEditDOB.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
             this.dateEditDOB.Properties.DisplayFormat.FormatString = "dd/MM/yy";
             this.dateEditDOB.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEditDOB.Properties.EditFormat.FormatString = "dd/MM/yy";
+            this.dateEditDOB.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateEditDOB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEditDOB.Properties.Mask.EditMask = "dd/MM/yy";
+            this.dateEditDOB.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateEditDOB.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
             this.dateEditDOB.Size = new System.Drawing.Size(155, 25);
             this.dateEditDOB.TabIndex = 51;

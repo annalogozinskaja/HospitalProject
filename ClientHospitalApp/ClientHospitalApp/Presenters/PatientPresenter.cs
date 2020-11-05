@@ -66,12 +66,7 @@ namespace ClientHospitalApp.Presenters
 
             if (flag)
             {
-                patientModel.patient.Lastname = patientView.LastnameText;
-                patientModel.patient.Firstname = patientView.FirstnameText;
-                patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
-                patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
-                patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
-
+                TransformDataPatientFromViewToModel(1);
                 patientModel.SavePatient();
             }
         }
@@ -82,27 +77,28 @@ namespace ClientHospitalApp.Presenters
 
             if (flag)
             {
-                patientModel.patient.ID_Patient = Convert.ToInt32(patientView.ID_PatientText);
-                patientModel.patient.Lastname = patientView.LastnameText;
-                patientModel.patient.Firstname = patientView.FirstnameText;
-                patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
-                patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
-                patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
-
+                TransformDataPatientFromViewToModel(2);
                 patientModel.UpdatePatient();
             }
         }
 
         public void DeletePatientInModel()
         {
-            patientModel.patient.ID_Patient = Convert.ToInt32(patientView.ID_PatientText);
+            TransformDataPatientFromViewToModel(2);
+            patientModel.DeletePatient();
+        }
+
+        public void TransformDataPatientFromViewToModel(int methodNumber)
+        {
+            if (methodNumber == 2)
+            {
+                patientModel.patient.ID_Patient = Convert.ToInt32(patientView.ID_PatientText);
+            }
             patientModel.patient.Lastname = patientView.LastnameText;
             patientModel.patient.Firstname = patientView.FirstnameText;
             patientModel.patient.DOB = Convert.ToDateTime(patientView.DOBText);
             patientModel.patient.SSN = Convert.ToInt32(patientView.SSNText);
             patientModel.patient.ID_Gender = Convert.ToInt32(patientView.ID_GenderText);
-
-            patientModel.DeletePatient();
         }
     }
 }

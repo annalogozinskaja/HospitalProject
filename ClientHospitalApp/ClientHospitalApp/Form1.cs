@@ -27,7 +27,7 @@ namespace ClientHospitalApp
 {
     public partial class Form1 : Form
     {
-        public string strGender = "";
+        public string strGender = "--choose gender--";
         public GridControl gridControl1;
         public GridView gridView1;
         public PatientPresenter presenter;
@@ -124,16 +124,21 @@ namespace ClientHospitalApp
             {
                 try
                 {
+                    bool flagGender = false;
                     foreach (Gender item in genderPresenter.genderModel.list)
                     {
                         if (strGender.CompareTo(item.GenderName) == 0)
                         {
                             F.ID_GenderText = Convert.ToString(item.ID_Gender);
+                            flagGender = true;
                         }
                     }
-                    ////Patient p = new Patient();
-                    ////p.Lastname = F.LastnameText;
-                    //Validate(p);
+                    
+                    if(!flagGender)
+                    {
+                        F.ID_GenderText = strGender;
+                    }
+
                     PatientPresenter patientPresenter = new PatientPresenter(F);
                     patientPresenter.SavePatientInModel();
                 }
@@ -309,7 +314,20 @@ namespace ClientHospitalApp
         }
 
 
-       
+        private static void Validate(Patient patient)
+        {
+            var results = new List<ValidationResult>();
+            var context = new ValidationContext(patient);
+            if (!Validator.TryValidateObject(patient, context, results, true))
+            {
+                foreach (ValidationResult error in results)
+                {
+                    MessageBox.Show(error.ErrorMessage);
+                }
+            }
+            else
+                MessageBox.Show("Пользователь прошел валидацию");
+        }
 
 
 
