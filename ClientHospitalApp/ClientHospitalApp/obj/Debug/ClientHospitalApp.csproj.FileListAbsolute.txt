@@ -187,7 +187,6 @@ C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\b
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\es\DevExpress.Diagram.v19.2.Core.resources.dll
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\ja\DevExpress.Diagram.v19.2.Core.resources.dll
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\ru\DevExpress.Diagram.v19.2.Core.resources.dll
-C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Reports.PatientsReport.resources
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\Microsoft.Bcl.HashCode.dll
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -244,3 +243,4 @@ C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\b
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\System.Text.Json.xml
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\System.ValueTuple.xml
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Reports.OrdersReport.resources

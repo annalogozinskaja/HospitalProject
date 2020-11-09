@@ -22,6 +22,7 @@ using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using System.Drawing.Printing;
 using System.ComponentModel.DataAnnotations;
+using ClientHospitalApp.Reports;
 
 namespace ClientHospitalApp
 {
@@ -314,22 +315,27 @@ namespace ClientHospitalApp
         }
 
 
-        private static void Validate(Patient patient)
+        //private static void Validate(Patient patient)
+        //{
+        //    var results = new List<ValidationResult>();
+        //    var context = new ValidationContext(patient);
+        //    if (!Validator.TryValidateObject(patient, context, results, true))
+        //    {
+        //        foreach (ValidationResult error in results)
+        //        {
+        //            MessageBox.Show(error.ErrorMessage);
+        //        }
+        //    }
+        //    else
+        //        MessageBox.Show("Пользователь прошел валидацию");
+        //}
+
+        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            var results = new List<ValidationResult>();
-            var context = new ValidationContext(patient);
-            if (!Validator.TryValidateObject(patient, context, results, true))
-            {
-                foreach (ValidationResult error in results)
-                {
-                    MessageBox.Show(error.ErrorMessage);
-                }
-            }
-            else
-                MessageBox.Show("Пользователь прошел валидацию");
+            OrdersReport OrdRep = new OrdersReport();
+            OrdRep.Text = "Orders of the patient";
+
+            OrdRep.ShowDialog();
         }
-
-
-
     }
 }
