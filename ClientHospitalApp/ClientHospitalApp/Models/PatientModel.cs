@@ -7,42 +7,52 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.Models
 {
-    public class PatientModel
+    public class PatientModel : IPatientModel
     {
-        public Patient patient;
-        public List<Patient> list;
+        private Patient patient;
+        private List<Patient> list;
         private WebServiceHospitalSoapClient obj;
+        public Patient Patient 
+        { 
+            get => patient; 
+            set => patient = value; 
+        }
+        public List<Patient> List 
+        { 
+            get => list;
+            set => list = value; 
+        }
 
         public PatientModel()
         {
-            patient = new Patient();
-            list = new List<Patient>();
+            Patient = new Patient();
+            List = new List<Patient>();
             obj = new WebServiceHospitalSoapClient();
         }
 
         public void GetPatient(int IdPatient)
         {
-            patient = obj.GetDataPatient(IdPatient);
+            Patient = obj.GetDataPatient(IdPatient);
         }
 
         public void SavePatient()
         {
-            obj.SavePatient(patient);
+            obj.SavePatient(Patient);
         }
 
         public void GetAllPatients()
         {
-            list = obj.GetDataAllPatients().ToList();
+            List = obj.GetDataAllPatients().ToList();
         }
 
         public void UpdatePatient()
         {
-            obj.UpdatePatient(patient);
+            obj.UpdatePatient(Patient);
         }
 
         public void DeletePatient()
         {
-            obj.DeletePatient(patient);
+            obj.DeletePatient(Patient);
         }
 
     }

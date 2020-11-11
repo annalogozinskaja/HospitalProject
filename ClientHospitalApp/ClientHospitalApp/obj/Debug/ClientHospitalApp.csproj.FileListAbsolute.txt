@@ -244,3 +244,5 @@ C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\b
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\System.ValueTuple.xml
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Reports.OrdersReport.resources
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.MainForm.resources
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.PatientDetail.resources

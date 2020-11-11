@@ -19,6 +19,8 @@ namespace DAOLayer
             IQueryable <Patient> result = session.Query<Patient>().Where(p => p.Lastname == lstnm);
             List<Patient> list = result.ToList();
 
+            //additional load patient by relativ id's and then pack to transport objevt
+
             return list;
         }
 

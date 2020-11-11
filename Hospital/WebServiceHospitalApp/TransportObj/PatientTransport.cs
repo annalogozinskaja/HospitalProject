@@ -14,8 +14,8 @@ namespace WebServiceHospitalApp.TransportObj
         public  DateTime DOB { get; set; }
         public int SSN { get; set; }
 
-        private List<int> relative { get; set; }
-        public List<int> RelativeInList
+        private List<Patient> relative { get; set; }
+        public List<Patient> RelativeInList
         {
             get { return relative; }
             set { relative = value; }

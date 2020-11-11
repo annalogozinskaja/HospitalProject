@@ -14,7 +14,7 @@ namespace DAOLayer
         public virtual string Firstname { get; set; }
         public virtual DateTime DOB { get; set; }
         public virtual int SSN { get; set; }     
-        public virtual int ID_Gender { get; set; }
+        public virtual Gender Gender { get; set; }
         public virtual List<int> relativeList { get; set; }
         public virtual List<int> orderOfPatientList { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace ClientHospitalApp
 {
-    partial class Form1
+    partial class ListOfPatientsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListOfPatientsForm));
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -75,7 +75,7 @@
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPagePatient});
-            this.ribbonControl1.Size = new System.Drawing.Size(784, 169);
+            this.ribbonControl1.Size = new System.Drawing.Size(798, 169);
             // 
             // barButtonItemAdd
             // 
@@ -148,7 +148,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 654);
+            this.ClientSize = new System.Drawing.Size(798, 654);
             this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
