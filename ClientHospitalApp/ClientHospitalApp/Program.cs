@@ -41,7 +41,7 @@ namespace ClientHospitalApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListOfPatientsForm());
+            Application.Run(new MainForm());
             //Application.Run(new OrdersReport());
         }
     }

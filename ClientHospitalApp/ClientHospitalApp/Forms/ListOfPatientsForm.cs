@@ -114,8 +114,12 @@ namespace ClientHospitalApp
            // colLastname.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
         }
 
+        public event EventHandler AddPatientEvent;
+       
+
         private void barButtonItemAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            AddPatientEvent(this, EventArgs.Empty);
             //Form2 F = new Form2();
             //F.Text = "Add patient";
 
@@ -147,7 +151,7 @@ namespace ClientHospitalApp
             //                flagGender = true;
             //            }
             //        }
-                    
+
             //        if(!flagGender)
             //        {
             //            F.ID_GenderText = strGender;

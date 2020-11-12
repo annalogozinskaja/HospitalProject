@@ -18,39 +18,39 @@ namespace ClientHospitalApp
 
         public override bool IsValid(object value)
         {
-            IPatient patient = value as IPatient;
-            if (patient.FirstnameText.CompareTo("")==0 || patient.LastnameText.CompareTo("") == 0 
-                || patient.DOBText.CompareTo("") == 0 || patient.SSNText.CompareTo("")==0 ||
-                patient.ID_GenderText.CompareTo("")==0)
-            {
-                this.ErrorMessage = "All fields must be entered";
-                return false;
-            }
-            else if(!Regex.IsMatch(patient.LastnameText, patternName))
-            {
-                this.ErrorMessage = "Lastname must be entered correctly";
-                return false;
-            }
-            else if (!Regex.IsMatch(patient.FirstnameText, patternName))
-            {
-                this.ErrorMessage = "Firstname must be entered correctly";
-                return false;
-            }
-            else if (!Regex.IsMatch(patient.DOBText, patternDOB))
-            {
-                this.ErrorMessage = "Data of birth must be in format dd/mm/yyyy";
-                return false;
-            }
-            else if (!Regex.IsMatch(patient.SSNText, patternSSN))
-            {
-                this.ErrorMessage = "SSN must contain 9 numbers";
-                return false;
-            }
-            else if (patient.ID_GenderText.CompareTo("--choose gender--") ==0)
-            {
-                this.ErrorMessage = "Gender must be chosen";
-                return false;
-            }
+            //IPatient patient = value as IPatient;
+            //if (patient.FirstnameText.CompareTo("")==0 || patient.LastnameText.CompareTo("") == 0 
+            //    || patient.DOBText.CompareTo("") == 0 || patient.SSNText.CompareTo("")==0 ||
+            //    patient.ID_GenderText.CompareTo("")==0)
+            //{
+            //    this.ErrorMessage = "All fields must be entered";
+            //    return false;
+            //}
+            //else if(!Regex.IsMatch(patient.LastnameText, patternName))
+            //{
+            //    this.ErrorMessage = "Lastname must be entered correctly";
+            //    return false;
+            //}
+            //else if (!Regex.IsMatch(patient.FirstnameText, patternName))
+            //{
+            //    this.ErrorMessage = "Firstname must be entered correctly";
+            //    return false;
+            //}
+            //else if (!Regex.IsMatch(patient.DOBText, patternDOB))
+            //{
+            //    this.ErrorMessage = "Data of birth must be in format dd/mm/yyyy";
+            //    return false;
+            //}
+            //else if (!Regex.IsMatch(patient.SSNText, patternSSN))
+            //{
+            //    this.ErrorMessage = "SSN must contain 9 numbers";
+            //    return false;
+            //}
+            //else if (patient.ID_GenderText.CompareTo("--choose gender--") ==0)
+            //{
+            //    this.ErrorMessage = "Gender must be chosen";
+            //    return false;
+            //}
 
 
             return true;         

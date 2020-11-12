@@ -79,7 +79,7 @@ namespace WebServiceHospitalApp
             p.Firstname = patient.Firstname;
             p.DOB = patient.DOB;
             p.SSN = patient.SSN;
-            p.ID_Gender = patient.ID_Gender;
+            p.Gender = patient.Gender;
             patientDao.SaveOrUpdate(p);
           
             SF.CloseSession();

@@ -33,10 +33,16 @@
           <s:element minOccurs="0" maxOccurs="1" name="Firstname" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="DOB" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="SSN" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="ID_Gender" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gender" type="tns:Gender" />
           <s:element minOccurs="0" maxOccurs="1" name="relativeList" type="tns:ArrayOfInt" />
           <s:element minOccurs="0" maxOccurs="1" name="orderOfPatientList" type="tns:ArrayOfInt" />
           <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Gender">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Gender" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GenderName" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfInt">
@@ -87,14 +93,6 @@
       <s:complexType name="ArrayOfGender">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="Gender" nillable="true" type="tns:Gender" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Gender">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="ID_Gender" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="GenderName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="patientList" type="tns:ArrayOfInt" />
-          <s:element minOccurs="0" maxOccurs="1" name="relativeList" type="tns:ArrayOfInt" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetRelativesOfPatient">

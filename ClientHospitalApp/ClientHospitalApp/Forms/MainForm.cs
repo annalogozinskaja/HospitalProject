@@ -23,6 +23,9 @@ namespace ClientHospitalApp
         {
             ListOfPatientsForm lpForm = new ListOfPatientsForm();
             PatientPresenter patientPresenter = new PatientPresenter(lpForm, new PatientModel());
+           
+            lpForm.Show();
+            //Hide();
         }
 
         private void barButtonOrders_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

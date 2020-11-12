@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ClientHospitalApp
 {
-    [PatientValidation]
+    //[PatientValidation]
     public partial class PatientSearchForm : Form, IPatient
     {
         Patient patientData;
@@ -61,18 +61,22 @@ namespace ClientHospitalApp
             textEditFnm.Text = patientData.Firstname;
             dateEditDOB.Text = patientData.DOB.ToString();
             textEditSSN.Text = patientData.SSN.ToString();
-            comboBoxEditGndr.Text = patientData.ID_Gender.ToString();
+            comboBoxEditGndr.Properties.Items.Add(patientData.Gender.GenderName);
+           
         }
 
         Patient getPatientData()
         {
-            patientData.ID_Patient = Convert.ToInt32( textEditIdPatient.Text);
+            if(textEditIdPatient.Text!="")
+            {
+                patientData.ID_Patient = Convert.ToInt32(textEditIdPatient.Text);
+            }          
             patientData.Lastname = textEditLnm.Text;
             patientData.Firstname = textEditFnm.Text;
-            patientData.DOB = Convert.ToDateTime(dateEditDOB);
+            patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
             patientData.SSN = Convert.ToInt32(textEditSSN.Text);
-            patientData.ID_Gender = Convert.ToInt32(comboBoxEditGndr.Text);
-
+            //patientData.Gender= (Gender)comboBoxEditGndr.SelectedItem;
+           
             return patientData;
         }
 

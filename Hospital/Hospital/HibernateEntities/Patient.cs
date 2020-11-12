@@ -22,7 +22,7 @@ namespace DAOLayer
 
         public override string ToString()
         {
-            return "\nPatient: "+ ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ", " + ID_Gender.ToString() + ".";
+            return "\nPatient: "+ ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ".";
         }
     }
 }

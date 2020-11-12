@@ -34,7 +34,8 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         private int SSNField;
         
-        private int ID_GenderField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.Gender GenderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt relativeListField;
@@ -119,15 +120,15 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
-        public int ID_Gender {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Gender Gender {
             get {
-                return this.ID_GenderField;
+                return this.GenderField;
             }
             set {
-                if ((this.ID_GenderField.Equals(value) != true)) {
-                    this.ID_GenderField = value;
-                    this.RaisePropertyChanged("ID_Gender");
+                if ((object.ReferenceEquals(this.GenderField, value) != true)) {
+                    this.GenderField = value;
+                    this.RaisePropertyChanged("Gender");
                 }
             }
         }
@@ -183,13 +184,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfInt", Namespace="http://tempuri.org/", ItemName="int")]
-    [System.SerializableAttribute()]
-    public class ArrayOfInt : System.Collections.Generic.List<int> {
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Gender", Namespace="http://tempuri.org/")]
     [System.SerializableAttribute()]
     public partial class Gender : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -201,12 +195,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string GenderNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt patientListField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt relativeListField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -244,32 +232,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt patientList {
-            get {
-                return this.patientListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.patientListField, value) != true)) {
-                    this.patientListField = value;
-                    this.RaisePropertyChanged("patientList");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt relativeList {
-            get {
-                return this.relativeListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.relativeListField, value) != true)) {
-                    this.relativeListField = value;
-                    this.RaisePropertyChanged("relativeList");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -278,6 +240,13 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfInt", Namespace="http://tempuri.org/", ItemName="int")]
+    [System.SerializableAttribute()]
+    public class ArrayOfInt : System.Collections.Generic.List<int> {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

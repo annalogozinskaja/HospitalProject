@@ -21,7 +21,7 @@ namespace WebServiceHospitalApp.TransportObj
             set { relative = value; }
         }
 
-        public int ID_Gender { get; set; }
+        public Gender Gender { get; set; }
         private List<OrderOfPatient> orderOfPatient;
         public List<OrderOfPatient> OrderOfPatientInList
         {
@@ -36,7 +36,7 @@ namespace WebServiceHospitalApp.TransportObj
             this.Firstname = string.Empty;
             this.DOB = new DateTime();
             this.SSN = -1;
-            this.RelativeInList = new List<int>();
+            //this.RelativeInList = new List<int>();
         }
 
         //public PatientTransport(Patient patient)
@@ -63,7 +63,7 @@ namespace WebServiceHospitalApp.TransportObj
 
         public override string ToString()
         {
-            return "\nPatient: " + ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ", "+ID_Gender;
+            return "\nPatient: " + ID_Patient.ToString() + "." + Lastname + " " + Firstname + ", " + DOB + ", " + SSN.ToString() + ". ";
         }
     }
 }
