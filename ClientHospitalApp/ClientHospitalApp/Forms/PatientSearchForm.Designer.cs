@@ -44,6 +44,7 @@
             this.textEditLnm = new DevExpress.XtraEditors.TextEdit();
             this.labelControlID = new DevExpress.XtraEditors.LabelControl();
             this.textEditIdPatient = new DevExpress.XtraEditors.TextEdit();
+            this.lookUpEditGender = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlRelatives)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).BeginInit();
@@ -53,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditFnm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditIdPatient.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOK
@@ -116,14 +118,14 @@
             // 
             // comboBoxEditGndr
             // 
-            this.comboBoxEditGndr.Location = new System.Drawing.Point(121, 218);
+            this.comboBoxEditGndr.Location = new System.Drawing.Point(240, 213);
             this.comboBoxEditGndr.Name = "comboBoxEditGndr";
             this.comboBoxEditGndr.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxEditGndr.Properties.Appearance.Options.UseFont = true;
             this.comboBoxEditGndr.Properties.AutoHeight = false;
             this.comboBoxEditGndr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditGndr.Size = new System.Drawing.Size(155, 25);
+            this.comboBoxEditGndr.Size = new System.Drawing.Size(60, 25);
             this.comboBoxEditGndr.TabIndex = 50;
             // 
             // labelControlGndr
@@ -230,11 +232,21 @@
             this.textEditIdPatient.Size = new System.Drawing.Size(155, 25);
             this.textEditIdPatient.TabIndex = 40;
             // 
-            // Form2
+            // lookUpEditGender
+            // 
+            this.lookUpEditGender.Location = new System.Drawing.Point(121, 218);
+            this.lookUpEditGender.Name = "lookUpEditGender";
+            this.lookUpEditGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditGender.Size = new System.Drawing.Size(99, 20);
+            this.lookUpEditGender.TabIndex = 53;
+            // 
+            // PatientSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 531);
+            this.Controls.Add(this.lookUpEditGender);
             this.Controls.Add(this.gridControlRelatives);
             this.Controls.Add(this.dateEditDOB);
             this.Controls.Add(this.comboBoxEditGndr);
@@ -250,7 +262,7 @@
             this.Controls.Add(this.textEditIdPatient);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
-            this.Name = "Form2";
+            this.Name = "PatientSearchForm";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.gridControlRelatives)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
@@ -261,6 +273,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditFnm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditIdPatient.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,5 +296,6 @@
         public DevExpress.XtraGrid.GridControl gridControlRelatives;
         public System.Windows.Forms.Button buttonOK;
         public System.Windows.Forms.Button buttonCancel;
+        public DevExpress.XtraEditors.LookUpEdit lookUpEditGender;
     }
 }

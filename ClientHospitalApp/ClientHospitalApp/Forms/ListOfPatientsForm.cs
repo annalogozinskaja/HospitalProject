@@ -99,20 +99,20 @@ namespace ClientHospitalApp
         }
 
 
-        private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ComboBoxEdit combo = sender as ComboBoxEdit;
-            strGender = combo.SelectedItem.ToString();
-        }
+        //private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    ComboBoxEdit combo = sender as ComboBoxEdit;
+        //    strGender = combo.SelectedItem.ToString();
+        //}
 
-        public event EventHandler RefreshDataEvent; 
-        public void RefreshData()
-        {
-            RefreshDataEvent(this, EventArgs.Empty);
-           // presenter.GetAllPatientsFromModel();
-          //  gridControl1.RefreshDataSource();
-           // colLastname.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
-        }
+        //public event EventHandler RefreshDataEvent; 
+        //public void RefreshData()
+        //{
+        //    RefreshDataEvent(this, EventArgs.Empty);
+        //   // presenter.GetAllPatientsFromModel();
+        //  //  gridControl1.RefreshDataSource();
+        //   // colLastname.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+        //}
 
         public event EventHandler AddPatientEvent;
        

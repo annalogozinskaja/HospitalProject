@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraGrid;
 using System.Drawing;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraEditors;
 
 namespace ClientHospitalApp.Presenters
 {
@@ -23,6 +24,7 @@ namespace ClientHospitalApp.Presenters
             get { return patientModel.List; }
             set { patientModel.List= value; }
         }
+        public string strGender = "--choose gender--";
 
         public PatientPresenter(IPatient patientSearchView, IPatientModel model)
         {
@@ -36,12 +38,7 @@ namespace ClientHospitalApp.Presenters
             this.patientModel = model;
             patientsListView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
             patientsListView.AddPatientEvent += AddPatientEventHandler;
-        }
 
-        public PatientPresenter()
-        {
-           
-            this.patientModel = new PatientModel();
         }
 
         public void GetPatientFromModel(int IdPatient)
@@ -67,21 +64,16 @@ namespace ClientHospitalApp.Presenters
             PatientList.Clear();
             patientModel.GetAllPatients();
             PatientList = this.patientModel.List;
-            FillGridControl();           
+            CreateGridControl();
         }
-        private void FillGridControl()
+        private void CreateGridControl()
         {
             this.patientsListView.gridControl1 = new GridControl();
             this.patientsListView.gridControl1.Parent = this.patientsListView;
             this.patientsListView.gridControl1.Location = new Point(0, 170);
             this.patientsListView.gridControl1.Size = new Size(785, 485);
             this.patientsListView.gridControl1.DataSource = PatientList;
-            foreach (var item in PatientList)
-            {
-                MessageBox.Show(item.Gender.GenderName);
-            }
-           
-
+            
             this.patientsListView.gridView1 = this.patientsListView.gridControl1.MainView as GridView;
             this.patientsListView.gridView1.Columns[1].Caption = "Lastname";
             this.patientsListView.gridView1.Columns[2].Caption = "Firstname";
@@ -89,7 +81,7 @@ namespace ClientHospitalApp.Presenters
             this.patientsListView.gridView1.Columns[4].Caption = "SSN";
 
             this.patientsListView.gridView1.Columns[0].Visible = false;
-            //this.patientsListView.gridView1.Columns[5].Visible = false;
+            this.patientsListView.gridView1.Columns[5].Visible = false;
             this.patientsListView.gridView1.Columns[6].Visible = false;
 
             this.patientsListView.gridView1.Columns[1].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
@@ -103,7 +95,7 @@ namespace ClientHospitalApp.Presenters
             this.patientsListView.gridView1.Columns[5].BestFit();
         }
 
-        private void RefreshDataEventHandler(object sender, EventArgs args)
+        private void RefreshData()
         {
             GetAllPatientsFromModel();
             patientsListView.gridControl1.RefreshDataSource();
@@ -115,35 +107,54 @@ namespace ClientHospitalApp.Presenters
             PatientSearchForm psForm = new PatientSearchForm();
             psForm.Text = "Add patient";
 
-            psForm.comboBoxEditGndr.EditValue = "--choose gender--";
+            //psForm.comboBoxEditGndr.EditValue = "--choose gender--";
 
-            bool flag=false;
+            //bool flag=false;
+            //foreach (Patient itemP in PatientList)
+            //{
+            //    flag = false;
+            //    foreach (var itemG in psForm.comboBoxEditGndr.Properties.Items)
+            //    {                 
+            //        if(itemG.ToString()== itemP.Gender.GenderName)
+            //        {
+            //            flag = true;
+            //        }                      
+            //    }
+            //    if(!flag)
+            //    {
+            //        psForm.comboBoxEditGndr.Properties.Items.Add(itemP.Gender);
+            //    }
+            //}
+
+            ////////////////////////////////////
+            List <Gender> gl = new List <Gender>();
+            bool flag = false;
+
             foreach (Patient itemP in PatientList)
             {
                 flag = false;
-                foreach (var itemG in psForm.comboBoxEditGndr.Properties.Items)
-                {                 
-                    if(itemG.ToString()== itemP.Gender.GenderName)
+                foreach (Gender itemG in gl)
+                {
+                    if (itemG.GenderName == itemP.Gender.GenderName)
                     {
                         flag = true;
-                    }                      
+                    }
                 }
-                if(!flag)
+                if (!flag)
                 {
-                    psForm.comboBoxEditGndr.Properties.Items.Add(itemP.Gender.GenderName);
-                }
+                    gl.Add(itemP.Gender);
+                }               
             }
 
-            //GenderPresenter genderPresenter = new GenderPresenter(psForm);
-            //genderPresenter.GetListGenderFromModel();
+            psForm.lookUpEditGender.Properties.DataSource = gl;
+            psForm.lookUpEditGender.Properties.DisplayMember = "GenderName";
+            psForm.lookUpEditGender.Properties.ValueMember ="ID_Gender";
+            DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
+            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
+            psForm.lookUpEditGender.Properties.Columns.Add(col);
+            psForm.lookUpEditGender.Properties.NullText= "--choose gender--";
 
-            //psForm.comboBoxEditGndr.EditValue = "--choose gender--";
-            //foreach (Gender item in genderPresenter.genderModel.list)
-            //{
-            //    psForm.comboBoxEditGndr.Properties.Items.Add(item.GenderName);
-            //}
-
-            // psForm.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
+            psForm.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
             psForm.gridControlRelatives.Hide();
             psForm.Size = new Size(350, 355);
 
@@ -153,21 +164,6 @@ namespace ClientHospitalApp.Presenters
             {
                 try
                 {
-                    //bool flagGender = false;
-                    //foreach (Gender item in genderPresenter.genderModel.list)
-                    //{
-                    //    if (strGender.CompareTo(item.GenderName) == 0)
-                    //    {
-                    //        F.ID_GenderText = Convert.ToString(item.ID_Gender);
-                    //        flagGender = true;
-                    //    }
-                    //}
-
-                    //if (!flagGender)
-                    //{
-                    //    F.ID_GenderText = strGender;
-                    //}
-
                     patientSearchView = psForm;
                     SavePatientInModel();
                 }
@@ -175,11 +171,15 @@ namespace ClientHospitalApp.Presenters
                 {
                     Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
                 }
-
-                //RefreshData();
+                RefreshData();
             }
         }
 
+        private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //ComboBoxEdit combo = sender as ComboBoxEdit;
+            //strGender = combo.SelectedItem.ToString();
+        }
 
         private void SavePatientInModel()
         {
