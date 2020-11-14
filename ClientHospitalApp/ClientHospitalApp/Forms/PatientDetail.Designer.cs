@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gridControlRelatives = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.lookUpEditGender = new DevExpress.XtraEditors.LookUpEdit();
             this.dateEditDOB = new DevExpress.XtraEditors.DateEdit();
-            this.comboBoxEditGndr = new DevExpress.XtraEditors.ComboBoxEdit();
             this.labelControlGndr = new DevExpress.XtraEditors.LabelControl();
             this.labelControlSSN = new DevExpress.XtraEditors.LabelControl();
             this.textEditSSN = new DevExpress.XtraEditors.TextEdit();
@@ -44,36 +42,29 @@
             this.textEditIdPatient = new DevExpress.XtraEditors.TextEdit();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlRelatives)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditGndr.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditFnm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditIdPatient.Properties)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridControlRelatives
+            // lookUpEditGender
             // 
-            this.gridControlRelatives.Location = new System.Drawing.Point(305, 43);
-            this.gridControlRelatives.MainView = this.gridView1;
-            this.gridControlRelatives.Name = "gridControlRelatives";
-            this.gridControlRelatives.Size = new System.Drawing.Size(462, 225);
-            this.gridControlRelatives.TabIndex = 67;
-            this.gridControlRelatives.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControlRelatives;
-            this.gridView1.Name = "gridView1";
+            this.lookUpEditGender.Location = new System.Drawing.Point(103, 215);
+            this.lookUpEditGender.Name = "lookUpEditGender";
+            this.lookUpEditGender.Properties.AutoHeight = false;
+            this.lookUpEditGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditGender.Size = new System.Drawing.Size(155, 25);
+            this.lookUpEditGender.TabIndex = 69;
             // 
             // dateEditDOB
             // 
             this.dateEditDOB.EditValue = null;
-            this.dateEditDOB.Location = new System.Drawing.Point(110, 163);
+            this.dateEditDOB.Location = new System.Drawing.Point(103, 135);
             this.dateEditDOB.Name = "dateEditDOB";
             this.dateEditDOB.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateEditDOB.Properties.Appearance.Options.UseFont = true;
@@ -90,129 +81,119 @@
             this.dateEditDOB.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateEditDOB.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
             this.dateEditDOB.Size = new System.Drawing.Size(155, 25);
-            this.dateEditDOB.TabIndex = 66;
-            // 
-            // comboBoxEditGndr
-            // 
-            this.comboBoxEditGndr.Location = new System.Drawing.Point(110, 243);
-            this.comboBoxEditGndr.Name = "comboBoxEditGndr";
-            this.comboBoxEditGndr.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.comboBoxEditGndr.Properties.Appearance.Options.UseFont = true;
-            this.comboBoxEditGndr.Properties.AutoHeight = false;
-            this.comboBoxEditGndr.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEditGndr.Size = new System.Drawing.Size(155, 25);
-            this.comboBoxEditGndr.TabIndex = 65;
+            this.dateEditDOB.TabIndex = 67;
             // 
             // labelControlGndr
             // 
             this.labelControlGndr.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlGndr.Appearance.Options.UseFont = true;
-            this.labelControlGndr.Location = new System.Drawing.Point(21, 247);
+            this.labelControlGndr.Location = new System.Drawing.Point(14, 219);
             this.labelControlGndr.Name = "labelControlGndr";
             this.labelControlGndr.Size = new System.Drawing.Size(41, 16);
-            this.labelControlGndr.TabIndex = 64;
+            this.labelControlGndr.TabIndex = 65;
             this.labelControlGndr.Text = "Gender";
             // 
             // labelControlSSN
             // 
             this.labelControlSSN.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlSSN.Appearance.Options.UseFont = true;
-            this.labelControlSSN.Location = new System.Drawing.Point(21, 207);
+            this.labelControlSSN.Location = new System.Drawing.Point(14, 179);
             this.labelControlSSN.Name = "labelControlSSN";
             this.labelControlSSN.Size = new System.Drawing.Size(24, 16);
-            this.labelControlSSN.TabIndex = 63;
+            this.labelControlSSN.TabIndex = 64;
             this.labelControlSSN.Text = "SSN";
             // 
             // textEditSSN
             // 
-            this.textEditSSN.Location = new System.Drawing.Point(110, 203);
+            this.textEditSSN.Location = new System.Drawing.Point(103, 175);
             this.textEditSSN.Name = "textEditSSN";
             this.textEditSSN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textEditSSN.Properties.Appearance.Options.UseFont = true;
             this.textEditSSN.Properties.AutoHeight = false;
             this.textEditSSN.Size = new System.Drawing.Size(155, 25);
-            this.textEditSSN.TabIndex = 62;
+            this.textEditSSN.TabIndex = 63;
+            this.textEditSSN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditSSN_KeyPress);
             // 
             // labelControlDOB
             // 
             this.labelControlDOB.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlDOB.Appearance.Options.UseFont = true;
-            this.labelControlDOB.Location = new System.Drawing.Point(21, 167);
+            this.labelControlDOB.Location = new System.Drawing.Point(14, 139);
             this.labelControlDOB.Name = "labelControlDOB";
             this.labelControlDOB.Size = new System.Drawing.Size(71, 16);
-            this.labelControlDOB.TabIndex = 61;
+            this.labelControlDOB.TabIndex = 62;
             this.labelControlDOB.Text = "Data of birth";
             // 
             // labelControlFnm
             // 
             this.labelControlFnm.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlFnm.Appearance.Options.UseFont = true;
-            this.labelControlFnm.Location = new System.Drawing.Point(21, 127);
+            this.labelControlFnm.Location = new System.Drawing.Point(14, 99);
             this.labelControlFnm.Name = "labelControlFnm";
             this.labelControlFnm.Size = new System.Drawing.Size(57, 16);
-            this.labelControlFnm.TabIndex = 60;
+            this.labelControlFnm.TabIndex = 61;
             this.labelControlFnm.Text = "Firstname";
             // 
             // textEditFnm
             // 
-            this.textEditFnm.Location = new System.Drawing.Point(110, 123);
+            this.textEditFnm.Location = new System.Drawing.Point(103, 95);
             this.textEditFnm.Name = "textEditFnm";
             this.textEditFnm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textEditFnm.Properties.Appearance.Options.UseFont = true;
             this.textEditFnm.Properties.AutoHeight = false;
             this.textEditFnm.Size = new System.Drawing.Size(155, 25);
-            this.textEditFnm.TabIndex = 59;
+            this.textEditFnm.TabIndex = 60;
             // 
             // labelControlLnm
             // 
             this.labelControlLnm.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlLnm.Appearance.Options.UseFont = true;
-            this.labelControlLnm.Location = new System.Drawing.Point(21, 87);
+            this.labelControlLnm.Location = new System.Drawing.Point(14, 59);
             this.labelControlLnm.Name = "labelControlLnm";
             this.labelControlLnm.Size = new System.Drawing.Size(55, 16);
-            this.labelControlLnm.TabIndex = 58;
+            this.labelControlLnm.TabIndex = 59;
             this.labelControlLnm.Text = "Lastname";
             // 
             // textEditLnm
             // 
-            this.textEditLnm.Location = new System.Drawing.Point(110, 83);
+            this.textEditLnm.Location = new System.Drawing.Point(103, 55);
             this.textEditLnm.Name = "textEditLnm";
             this.textEditLnm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textEditLnm.Properties.Appearance.Options.UseFont = true;
             this.textEditLnm.Properties.AutoHeight = false;
             this.textEditLnm.Size = new System.Drawing.Size(155, 25);
-            this.textEditLnm.TabIndex = 57;
+            this.textEditLnm.TabIndex = 58;
+            this.textEditLnm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditLnm_KeyPress);
             // 
             // labelControlID
             // 
             this.labelControlID.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlID.Appearance.Options.UseFont = true;
-            this.labelControlID.Location = new System.Drawing.Point(21, 47);
+            this.labelControlID.Location = new System.Drawing.Point(14, 19);
             this.labelControlID.Name = "labelControlID";
             this.labelControlID.Size = new System.Drawing.Size(70, 16);
-            this.labelControlID.TabIndex = 56;
+            this.labelControlID.TabIndex = 57;
             this.labelControlID.Text = "ID of Patient";
             // 
             // textEditIdPatient
             // 
             this.textEditIdPatient.Enabled = false;
-            this.textEditIdPatient.Location = new System.Drawing.Point(110, 43);
+            this.textEditIdPatient.Location = new System.Drawing.Point(103, 15);
             this.textEditIdPatient.Name = "textEditIdPatient";
             this.textEditIdPatient.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textEditIdPatient.Properties.Appearance.Options.UseFont = true;
             this.textEditIdPatient.Properties.AutoHeight = false;
             this.textEditIdPatient.Size = new System.Drawing.Size(155, 25);
-            this.textEditIdPatient.TabIndex = 55;
+            this.textEditIdPatient.TabIndex = 56;
             // 
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCancel.Location = new System.Drawing.Point(178, 290);
+            this.buttonCancel.Location = new System.Drawing.Point(171, 262);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(78, 31);
-            this.buttonCancel.TabIndex = 54;
+            this.buttonCancel.TabIndex = 55;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
@@ -220,10 +201,10 @@
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(43, 290);
+            this.buttonOK.Location = new System.Drawing.Point(36, 262);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(76, 31);
-            this.buttonOK.TabIndex = 53;
+            this.buttonOK.TabIndex = 54;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             // 
@@ -231,9 +212,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gridControlRelatives);
+            this.Controls.Add(this.lookUpEditGender);
             this.Controls.Add(this.dateEditDOB);
-            this.Controls.Add(this.comboBoxEditGndr);
             this.Controls.Add(this.labelControlGndr);
             this.Controls.Add(this.labelControlSSN);
             this.Controls.Add(this.textEditSSN);
@@ -247,12 +227,10 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Name = "PatientDetail";
-            this.Size = new System.Drawing.Size(778, 360);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlRelatives)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.Size = new System.Drawing.Size(274, 307);
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEditGndr.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditFnm.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).EndInit();
@@ -264,10 +242,8 @@
 
         #endregion
 
-        public DevExpress.XtraGrid.GridControl gridControlRelatives;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        public DevExpress.XtraEditors.LookUpEdit lookUpEditGender;
         public DevExpress.XtraEditors.DateEdit dateEditDOB;
-        public DevExpress.XtraEditors.ComboBoxEdit comboBoxEditGndr;
         private DevExpress.XtraEditors.LabelControl labelControlGndr;
         private DevExpress.XtraEditors.LabelControl labelControlSSN;
         public DevExpress.XtraEditors.TextEdit textEditSSN;

@@ -1,59 +1,32 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
-using ClientHospitalApp.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
+using ClientHospitalApp.Views;
 
 namespace ClientHospitalApp
 {
-    //[PatientValidation]
-    public partial class PatientSearchForm : Form, IPatient
+    public partial class PatientDetail : UserControl
     {
         Patient patientData;
-        public PatientSearchForm()
+        public Patient PatientData
+        {
+            get { return getPatientData(); }
+            set { setPatientData(value); }
+        }
+        public event EventHandler GetDataPatientEvent;
+        public PatientDetail()
         {
             InitializeComponent();
             patientData = new Patient();
         }
-
-        /*      public string ID_PatientText
-              {
-                  get { return textEditIdPatient.Text; }
-                  set { textEditIdPatient.Text = value; }
-              }
-
-              public string LastnameText 
-              {
-                  get { return textEditLnm.Text; }
-                  set { textEditLnm.Text = value; } 
-              }
-
-              public string FirstnameText
-              {
-                  get { return textEditFnm.Text; }
-                  set { textEditFnm.Text = value; }
-              }
-
-              public string DOBText 
-              {
-                  get { return dateEditDOB.Text; }
-                  set { dateEditDOB.Text = value; }
-              }
-
-              public string SSNText
-              {
-                  get { return textEditSSN.Text; }
-                  set { textEditSSN.Text = value; }
-              }*/
-              //public string ID_GenderText { get; set; }
-
+     
         void setPatientData(Patient patientData)
         {
             textEditIdPatient.Text = patientData.ID_Patient.ToString();
@@ -62,32 +35,25 @@ namespace ClientHospitalApp
             dateEditDOB.Text = patientData.DOB.ToString();
             textEditSSN.Text = patientData.SSN.ToString();
             //comboBoxEditGndr.Properties.Items.Add(patientData.Gender);
-           // lookUpEditGender
-
-
+            // lookUpEditGender
         }
 
         Patient getPatientData()
         {
-            if(textEditIdPatient.Text!="")
+            if (textEditIdPatient.Text != "")
             {
                 patientData.ID_Patient = Convert.ToInt32(textEditIdPatient.Text);
-            }          
+            }
             patientData.Lastname = textEditLnm.Text;
             patientData.Firstname = textEditFnm.Text;
             patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
             patientData.SSN = Convert.ToInt32(textEditSSN.Text);
             //patientData.Gender= (Gender)comboBoxEditGndr.SelectedItem;
             //MessageBox.Show(lookUpEditGender.Text);
-            patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };           
+            patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
+            GetDataPatientEvent(this, EventArgs.Empty);
 
             return patientData;
-        }
-
-        public Patient PatientData 
-        {
-            get { return getPatientData(); }
-            set { setPatientData(value); } 
         }
 
         private void textEditLnm_KeyPress(object sender, KeyPressEventArgs e)
@@ -109,7 +75,5 @@ namespace ClientHospitalApp
                 e.Handled = true;
             }
         }
-
-       
     }
 }

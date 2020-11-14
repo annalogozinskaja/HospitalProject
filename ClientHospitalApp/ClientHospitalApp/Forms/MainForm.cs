@@ -23,7 +23,7 @@ namespace ClientHospitalApp
         {
             ListOfPatientsForm lpForm = new ListOfPatientsForm();
             PatientPresenter patientPresenter = new PatientPresenter(lpForm, new PatientModel());
-           
+
             lpForm.Show();
             //Hide();
         }

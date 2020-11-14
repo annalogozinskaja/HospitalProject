@@ -25,6 +25,7 @@ namespace ClientHospitalApp.Presenters
             set { patientModel.List= value; }
         }
         public string strGender = "--choose gender--";
+      
 
         public PatientPresenter(IPatient patientSearchView, IPatientModel model)
         {
@@ -38,7 +39,7 @@ namespace ClientHospitalApp.Presenters
             this.patientModel = model;
             patientsListView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
             patientsListView.AddPatientEvent += AddPatientEventHandler;
-
+            patientsListView.EditPatientEvent += EditPatientEventHandler;
         }
 
         public void GetPatientFromModel(int IdPatient)
@@ -57,6 +58,7 @@ namespace ClientHospitalApp.Presenters
         private void GetAllPatientsFromModelEventHandler(object sender, EventArgs args)
         {
             GetAllPatientsFromModel();
+            CreateGridControl();
         }
 
         public void GetAllPatientsFromModel()
@@ -64,7 +66,6 @@ namespace ClientHospitalApp.Presenters
             PatientList.Clear();
             patientModel.GetAllPatients();
             PatientList = this.patientModel.List;
-            CreateGridControl();
         }
         private void CreateGridControl()
         {
@@ -98,7 +99,8 @@ namespace ClientHospitalApp.Presenters
         private void RefreshData()
         {
             GetAllPatientsFromModel();
-            patientsListView.gridControl1.RefreshDataSource();
+            this.patientsListView.gridControl1.DataSource = PatientList;
+            //this.patientsListView.gridControl1.RefreshDataSource();
             this.patientsListView.gridView1.Columns[1].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
         }
 
@@ -109,22 +111,23 @@ namespace ClientHospitalApp.Presenters
 
             //psForm.comboBoxEditGndr.EditValue = "--choose gender--";
 
-            //bool flag=false;
+            //bool flag = false;
             //foreach (Patient itemP in PatientList)
             //{
             //    flag = false;
             //    foreach (var itemG in psForm.comboBoxEditGndr.Properties.Items)
-            //    {                 
-            //        if(itemG.ToString()== itemP.Gender.GenderName)
+            //    {
+            //        if (itemG.ToString() == itemP.Gender.GenderName)
             //        {
             //            flag = true;
-            //        }                      
+            //        }
             //    }
-            //    if(!flag)
+            //    if (!flag)
             //    {
             //        psForm.comboBoxEditGndr.Properties.Items.Add(itemP.Gender);
             //    }
             //}
+          
 
             ////////////////////////////////////
             List <Gender> gl = new List <Gender>();
@@ -154,9 +157,8 @@ namespace ClientHospitalApp.Presenters
             psForm.lookUpEditGender.Properties.Columns.Add(col);
             psForm.lookUpEditGender.Properties.NullText= "--choose gender--";
 
-            psForm.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
             psForm.gridControlRelatives.Hide();
-            psForm.Size = new Size(350, 355);
+            //psForm.Size = new Size(350, 355);
 
             DialogResult res = psForm.ShowDialog();
 
@@ -173,6 +175,11 @@ namespace ClientHospitalApp.Presenters
                 }
                 RefreshData();
             }
+        }
+
+        private void EditPatientEventHandler(object sender, EventArgs args)
+        {
+
         }
 
         private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
