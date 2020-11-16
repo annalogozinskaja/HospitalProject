@@ -58,6 +58,7 @@
             this.lookUpEditGender.Properties.AutoHeight = false;
             this.lookUpEditGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditGender.Properties.NullText = "";
             this.lookUpEditGender.Size = new System.Drawing.Size(155, 25);
             this.lookUpEditGender.TabIndex = 69;
             // 

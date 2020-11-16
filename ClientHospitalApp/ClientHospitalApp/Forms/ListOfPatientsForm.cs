@@ -28,17 +28,9 @@ namespace ClientHospitalApp
 {
     public partial class ListOfPatientsForm : Form
     {
-        public string strGender = "--choose gender--";
         public GridControl gridControl1;
         public GridView gridView1;
-       // public PatientPresenter presenter;
-        public GridColumn colID;
-        public GridColumn colLastname;
-        public GridColumn colFirstname;
-        public GridColumn colDOB;
-        public GridColumn colSSN;
-        public GridColumn colGender;
-
+      
         public ListOfPatientsForm()
         {
             InitializeComponent();
@@ -57,45 +49,7 @@ namespace ClientHospitalApp
         public event EventHandler LoadDataDataEvent;
         private void Form1_Load(object sender, EventArgs e)
         {
-            //presenter = new PatientPresenter();
-            // presenter.GetAllPatientsFromModel();
             LoadDataDataEvent(this, EventArgs.Empty);
-
-            //gridControl1 = new GridControl();
-            //gridControl1.Parent = this;
-            //gridControl1.Location = new Point(0, 170);
-            //gridControl1.Size = new Size(785, 485);
-            //gridControl1.Dock = DockStyle.Fill;
-            //gridControl1.DataSource =  presenter.PatientViewList;
-
-            //gridView1 = gridControl1.MainView as GridView;
-            //colID = gridView1.Columns["ID_PatientText"];
-            //colLastname = gridView1.Columns["LastnameText"];
-            //colFirstname = gridView1.Columns["FirstnameText"];
-            //colDOB = gridView1.Columns["DOBText"];
-            //colSSN = gridView1.Columns["SSNText"];
-            //colGender = gridView1.Columns["ID_GenderText"];
-
-            //gridView1.Columns[1].Caption = "Lastname";
-            //gridView1.Columns[2].Caption = "Firstname";
-            //gridView1.Columns[3].Caption = "Data of birth";
-            //gridView1.Columns[4].Caption = "SSN";
-
-            //colID.Visible = false;
-            //colGender.Visible = false;
-
-            //colLastname.SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
-            //gridView1.OptionsView.ShowGroupedColumns = true;
-            //gridView1.ExpandAllGroups();
-            //gridView1.OptionsBehavior.Editable = false;
-            //gridView1.OptionsSelection.MultiSelect = false;
-            //gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
-
-            ////gridView1.FocusedRowHandle = 0;
-            ////gridView1.FocusedColumn = colID;
-
-            //colLastname.BestFit();
-            //colGender.BestFit();
         }
 
 
@@ -118,123 +72,18 @@ namespace ClientHospitalApp
         private void barButtonItemAdd_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             AddPatientEvent(this, EventArgs.Empty);
-            //Form2 F = new Form2();
-            //F.Text = "Add patient";
-
-            //GenderPresenter genderPresenter = new GenderPresenter(F);
-            //genderPresenter.GetListGenderFromModel();
-
-            //F.comboBoxEditGndr.EditValue = "--choose gender--";
-            //foreach (Gender item in genderPresenter.genderModel.list)
-            //{
-            //    F.comboBoxEditGndr.Properties.Items.Add(item.GenderName);
-            //}
-
-            //F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
-            //F.gridControlRelatives.Hide();
-            //F.Size = new Size(350, 355);
-
-            //DialogResult res = F.ShowDialog();
-
-            //if (res == DialogResult.OK)
-            //{
-            //    try
-            //    {
-            //        bool flagGender = false;
-            //        foreach (Gender item in genderPresenter.genderModel.list)
-            //        {
-            //            if (strGender.CompareTo(item.GenderName) == 0)
-            //            {
-            //                F.ID_GenderText = Convert.ToString(item.ID_Gender);
-            //                flagGender = true;
-            //            }
-            //        }
-
-            //        if(!flagGender)
-            //        {
-            //            F.ID_GenderText = strGender;
-            //        }
-
-            //        PatientPresenter patientPresenter = new PatientPresenter(F);
-            //        patientPresenter.SavePatientInModel();
-            //    }
-            //    catch (Exception s)
-            //    {
-            //        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-            //    }
-
-            //    RefreshData();
-            //}
         }
 
         public event EventHandler EditPatientEvent;
         private void barButtonItemEdit_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             EditPatientEvent(this, EventArgs.Empty);
-            //int[] selectedRowHandles = gridView1.GetSelectedRows();
-            //if (selectedRowHandles.Length == 1)
-            //{
-            //    Form2 F = new Form2();
-            //    F.Text = "Update patient";
+        }
 
-            //    GenderPresenter genderPresenter = new GenderPresenter(F);
-            //    genderPresenter.GetListGenderFromModel();
-
-            //    F.comboBoxEditGndr.EditValue = "--choose gender--";
-            //    foreach (Gender item in genderPresenter.genderModel.list)
-            //    {
-            //        F.comboBoxEditGndr.Properties.Items.Add(item.GenderName);
-            //    }
-
-            //    F.comboBoxEditGndr.SelectedIndexChanged += new System.EventHandler(comboBoxEditGndr_SelectedIndexChanged);
-
-            //    F.textEditIdPatient.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID);
-            //    F.textEditLnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colLastname);
-            //    F.textEditFnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colFirstname);
-            //    F.dateEditDOB.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colDOB);
-            //    F.textEditSSN.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colSSN);
-
-            //    foreach (Gender item in genderPresenter.genderModel.list)
-            //    {
-            //        if (gridView1.GetRowCellDisplayText(selectedRowHandles[0], colGender).CompareTo(Convert.ToString(item.ID_Gender)) == 0)
-            //        {
-            //            F.comboBoxEditGndr.EditValue = item.GenderName;
-            //        }
-            //    }
-
-            //    F.gridControlRelatives.Hide();
-            //    F.Size = new Size(350, 355);
-
-            //    DialogResult res = F.ShowDialog();
-
-            //    if (res == DialogResult.OK)
-            //    {
-            //        try
-            //        {
-            //            foreach (Gender item in genderPresenter.genderModel.list)
-            //            {
-            //                if (strGender.CompareTo(item.GenderName) == 0)
-            //                {
-            //                    F.ID_GenderText = Convert.ToString(item.ID_Gender);
-            //                }
-            //            }
-
-            //            PatientPresenter patientPresenter = new PatientPresenter(F);
-            //            patientPresenter.UpdatePatientInModel();
-            //        }
-            //        catch (Exception s)
-            //        {
-            //            Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-            //        }
-
-            //        RefreshData();
-            //    }
-
-            //}
-            //else if (selectedRowHandles.Length == 0)
-            //{
-            //    MessageBox.Show("Choose the patient");
-            //}
+        public event EventHandler DeletePatientEvent;
+        private void barButtonItemDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DeletePatientEvent(this, EventArgs.Empty);
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -291,45 +140,6 @@ namespace ClientHospitalApp
             //}
         }
 
-        private void barButtonItemDelete_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            //int[] selectedRowHandles = gridView1.GetSelectedRows();
-            //if (selectedRowHandles.Length == 1)
-            //{
-            //    DialogResult res = MessageBox.Show("Delete " + gridView1.GetRowCellDisplayText(selectedRowHandles[0], colLastname) +
-            //                        " "+ gridView1.GetRowCellDisplayText(selectedRowHandles[0], colFirstname)+"?", "Deleting patient", MessageBoxButtons.YesNo);
-
-            //    if (res == DialogResult.Yes)
-
-            //    {
-            //        try
-            //        {
-            //            int idPatient = Convert.ToInt32(gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID));
-                        
-            //            Form2 F = new Form2();
-
-            //            F.textEditIdPatient.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colID);
-            //            F.textEditLnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colLastname);
-            //            F.textEditFnm.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colFirstname);
-            //            F.dateEditDOB.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colDOB);
-            //            F.textEditSSN.Text = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colSSN);
-            //            F.ID_GenderText = gridView1.GetRowCellDisplayText(selectedRowHandles[0], colGender);
-
-            //            PatientPresenter patientPresenter = new PatientPresenter(F);
-            //            patientPresenter.DeletePatientInModel();
-            //            RefreshData();
-            //        }
-            //        catch (Exception s)
-            //        {
-            //            Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-            //        }
-            //    }
-            //}
-            //else if (selectedRowHandles.Length == 0)
-            //{
-            //    MessageBox.Show("Choose the patient");
-            //}
-        }
 
 
        

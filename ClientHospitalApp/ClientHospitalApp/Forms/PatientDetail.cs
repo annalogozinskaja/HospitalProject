@@ -20,7 +20,7 @@ namespace ClientHospitalApp
             get { return getPatientData(); }
             set { setPatientData(value); }
         }
-        public event EventHandler GetDataPatientEvent;
+      
         public PatientDetail()
         {
             InitializeComponent();
@@ -35,7 +35,8 @@ namespace ClientHospitalApp
             dateEditDOB.Text = patientData.DOB.ToString();
             textEditSSN.Text = patientData.SSN.ToString();
             //comboBoxEditGndr.Properties.Items.Add(patientData.Gender);
-            // lookUpEditGender
+            lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
+            //lookUpEditGender.Text = patientData.Gender.GenderName;
         }
 
         Patient getPatientData()
@@ -51,7 +52,6 @@ namespace ClientHospitalApp
             //patientData.Gender= (Gender)comboBoxEditGndr.SelectedItem;
             //MessageBox.Show(lookUpEditGender.Text);
             patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
-            GetDataPatientEvent(this, EventArgs.Empty);
 
             return patientData;
         }

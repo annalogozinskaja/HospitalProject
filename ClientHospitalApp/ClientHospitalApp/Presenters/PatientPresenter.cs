@@ -24,8 +24,7 @@ namespace ClientHospitalApp.Presenters
             get { return patientModel.List; }
             set { patientModel.List= value; }
         }
-        public string strGender = "--choose gender--";
-      
+        private PatientSearchForm psForm;
 
         public PatientPresenter(IPatient patientSearchView, IPatientModel model)
         {
@@ -40,6 +39,7 @@ namespace ClientHospitalApp.Presenters
             patientsListView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
             patientsListView.AddPatientEvent += AddPatientEventHandler;
             patientsListView.EditPatientEvent += EditPatientEventHandler;
+            patientsListView.DeletePatientEvent += DeletePatientEventHandler;
         }
 
         public void GetPatientFromModel(int IdPatient)
@@ -52,7 +52,7 @@ namespace ClientHospitalApp.Presenters
             patientSearchView.DOBText = Convert.ToString(patientModel.patient.DOB);
             patientSearchView.SSNText = Convert.ToString(patientModel.patient.SSN);
             patientSearchView.ID_GenderText = Convert.ToString(patientModel.patient.ID_Gender);*/
-            patientSearchView.PatientData = patientModel.Patient;
+            patientSearchView.DataPatient = patientModel.Patient;
         }
 
         private void GetAllPatientsFromModelEventHandler(object sender, EventArgs args)
@@ -103,11 +103,42 @@ namespace ClientHospitalApp.Presenters
             //this.patientsListView.gridControl1.RefreshDataSource();
             this.patientsListView.gridView1.Columns[1].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
         }
+        private void FillLookUpEditGender(PatientSearchForm form)
+        {
+            List<Gender> gl = new List<Gender>();
+            bool flag = false;
+
+            foreach (Patient itemP in PatientList)
+            {
+                flag = false;
+                foreach (Gender itemG in gl)
+                {
+                    if (itemG.GenderName == itemP.Gender.GenderName)
+                    {
+                        flag = true;
+                    }
+                }
+                if (!flag)
+                {
+                    gl.Add(itemP.Gender);
+                }
+            }
+
+            form.patientDetail1.lookUpEditGender.Properties.DataSource = gl;
+            form.patientDetail1.lookUpEditGender.Properties.DisplayMember = "GenderName";
+            form.patientDetail1.lookUpEditGender.Properties.ValueMember = "ID_Gender";
+            DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
+            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
+            form.patientDetail1.lookUpEditGender.Properties.Columns.Add(col);
+            form.patientDetail1.lookUpEditGender.Properties.NullText = "--choose gender--";
+        }
 
         private void AddPatientEventHandler(object sender, EventArgs args)
         {
-            PatientSearchForm psForm = new PatientSearchForm();
+            psForm = new PatientSearchForm();
             psForm.Text = "Add patient";
+            psForm.gridControlRelatives.Hide();
+            psForm.Size = new Size(340, 355);
 
             //psForm.comboBoxEditGndr.EditValue = "--choose gender--";
 
@@ -127,39 +158,11 @@ namespace ClientHospitalApp.Presenters
             //        psForm.comboBoxEditGndr.Properties.Items.Add(itemP.Gender);
             //    }
             //}
-          
+
 
             ////////////////////////////////////
-            List <Gender> gl = new List <Gender>();
-            bool flag = false;
 
-            foreach (Patient itemP in PatientList)
-            {
-                flag = false;
-                foreach (Gender itemG in gl)
-                {
-                    if (itemG.GenderName == itemP.Gender.GenderName)
-                    {
-                        flag = true;
-                    }
-                }
-                if (!flag)
-                {
-                    gl.Add(itemP.Gender);
-                }               
-            }
-
-            psForm.lookUpEditGender.Properties.DataSource = gl;
-            psForm.lookUpEditGender.Properties.DisplayMember = "GenderName";
-            psForm.lookUpEditGender.Properties.ValueMember ="ID_Gender";
-            DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
-            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
-            psForm.lookUpEditGender.Properties.Columns.Add(col);
-            psForm.lookUpEditGender.Properties.NullText= "--choose gender--";
-
-            psForm.gridControlRelatives.Hide();
-            //psForm.Size = new Size(350, 355);
-
+            FillLookUpEditGender(psForm);
             DialogResult res = psForm.ShowDialog();
 
             if (res == DialogResult.OK)
@@ -179,7 +182,85 @@ namespace ClientHospitalApp.Presenters
 
         private void EditPatientEventHandler(object sender, EventArgs args)
         {
+            int[] selectedRowHandles = this.patientsListView.gridView1.GetSelectedRows();
+            if (selectedRowHandles.Length == 1)
+            {
+                psForm = new PatientSearchForm();
+                psForm.Text = "Update patient";
+                psForm.gridControlRelatives.Hide();
+                psForm.Size = new Size(340, 355);
 
+                FillLookUpEditGender(psForm);
+                int idPatient = Convert.ToInt32(this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[0]));
+
+                foreach (Patient item in PatientList)
+                {
+                    if(item.ID_Patient==idPatient)
+                    {
+                        psForm.patientDetail1.PatientData = item;
+                    }
+                }
+               
+                DialogResult res = psForm.ShowDialog();
+
+                if (res == DialogResult.OK)
+                {
+                    try
+                    {
+                        patientSearchView = psForm;
+                        UpdatePatientInModel();
+                    }
+                    catch (Exception s)
+                    {
+                        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+                    }
+                    RefreshData();
+                }
+
+            }
+            else if (selectedRowHandles.Length == 0)
+            {
+                MessageBox.Show("Choose the patient");
+            }
+        }
+
+        private void DeletePatientEventHandler(object sender, EventArgs args)
+        {
+            int[] selectedRowHandles = this.patientsListView.gridView1.GetSelectedRows();
+            if (selectedRowHandles.Length == 1)
+            {
+                DialogResult res = MessageBox.Show("Delete " + 
+                        this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[1]) +
+                        " " + this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[2]) + 
+                        "?", "Deleting patient", MessageBoxButtons.YesNo);
+
+                if (res == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int idPatient = Convert.ToInt32(this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[0]));
+
+                        foreach (Patient item in PatientList)
+                        {
+                            if (item.ID_Patient == idPatient)
+                            {
+                                patientModel.Patient = item;
+                            }
+                        }
+
+                        DeletePatientInModel();
+                        RefreshData();
+                    }
+                    catch (Exception s)
+                    {
+                        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+                    }
+                }
+            }
+            else if (selectedRowHandles.Length == 0)
+            {
+                MessageBox.Show("Choose the patient");
+            }
         }
 
         private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
@@ -195,7 +276,7 @@ namespace ClientHospitalApp.Presenters
             if (flag)
             {
                 //TransformDataPatientFromViewToModel(1);
-                patientModel.Patient=patientSearchView.PatientData;
+                patientModel.Patient=patientSearchView.DataPatient;
                 patientModel.SavePatient();
             }
         }
@@ -207,7 +288,7 @@ namespace ClientHospitalApp.Presenters
             if (flag)
             {
                 //TransformDataPatientFromViewToModel(2);
-                patientModel.Patient = patientSearchView.PatientData;
+                patientModel.Patient = patientSearchView.DataPatient;
                 patientModel.UpdatePatient();
             }
         }
@@ -215,7 +296,7 @@ namespace ClientHospitalApp.Presenters
         public void DeletePatientInModel()
         {
             //TransformDataPatientFromViewToModel(2);
-            patientModel.Patient = patientSearchView.PatientData;
+            //patientModel.Patient = patientSearchView.DataPatient;
             patientModel.DeletePatient();
         }
 

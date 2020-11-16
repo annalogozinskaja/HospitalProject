@@ -30,30 +30,9 @@
         {
             this.gridControlRelatives = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.lookUpEditGender = new DevExpress.XtraEditors.LookUpEdit();
-            this.dateEditDOB = new DevExpress.XtraEditors.DateEdit();
-            this.labelControlGndr = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlSSN = new DevExpress.XtraEditors.LabelControl();
-            this.textEditSSN = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlDOB = new DevExpress.XtraEditors.LabelControl();
-            this.labelControlFnm = new DevExpress.XtraEditors.LabelControl();
-            this.textEditFnm = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlLnm = new DevExpress.XtraEditors.LabelControl();
-            this.textEditLnm = new DevExpress.XtraEditors.TextEdit();
-            this.labelControlID = new DevExpress.XtraEditors.LabelControl();
-            this.textEditIdPatient = new DevExpress.XtraEditors.TextEdit();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonOK = new System.Windows.Forms.Button();
             this.patientDetail1 = new ClientHospitalApp.PatientDetail();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlRelatives)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditFnm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditIdPatient.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlRelatives
@@ -71,164 +50,9 @@
             this.gridView1.GridControl = this.gridControlRelatives;
             this.gridView1.Name = "gridView1";
             // 
-            // lookUpEditGender
-            // 
-            this.lookUpEditGender.Location = new System.Drawing.Point(114, 214);
-            this.lookUpEditGender.Name = "lookUpEditGender";
-            this.lookUpEditGender.Properties.AutoHeight = false;
-            this.lookUpEditGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditGender.Size = new System.Drawing.Size(155, 25);
-            this.lookUpEditGender.TabIndex = 83;
-            // 
-            // dateEditDOB
-            // 
-            this.dateEditDOB.EditValue = null;
-            this.dateEditDOB.Location = new System.Drawing.Point(114, 134);
-            this.dateEditDOB.Name = "dateEditDOB";
-            this.dateEditDOB.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.dateEditDOB.Properties.Appearance.Options.UseFont = true;
-            this.dateEditDOB.Properties.AutoHeight = false;
-            this.dateEditDOB.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditDOB.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEditDOB.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
-            this.dateEditDOB.Properties.DisplayFormat.FormatString = "dd/MM/yy";
-            this.dateEditDOB.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEditDOB.Properties.EditFormat.FormatString = "dd/MM/yyyy";
-            this.dateEditDOB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dateEditDOB.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dateEditDOB.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dateEditDOB.Size = new System.Drawing.Size(155, 25);
-            this.dateEditDOB.TabIndex = 82;
-            // 
-            // labelControlGndr
-            // 
-            this.labelControlGndr.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelControlGndr.Appearance.Options.UseFont = true;
-            this.labelControlGndr.Location = new System.Drawing.Point(25, 218);
-            this.labelControlGndr.Name = "labelControlGndr";
-            this.labelControlGndr.Size = new System.Drawing.Size(41, 16);
-            this.labelControlGndr.TabIndex = 81;
-            this.labelControlGndr.Text = "Gender";
-            // 
-            // labelControlSSN
-            // 
-            this.labelControlSSN.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelControlSSN.Appearance.Options.UseFont = true;
-            this.labelControlSSN.Location = new System.Drawing.Point(25, 178);
-            this.labelControlSSN.Name = "labelControlSSN";
-            this.labelControlSSN.Size = new System.Drawing.Size(24, 16);
-            this.labelControlSSN.TabIndex = 80;
-            this.labelControlSSN.Text = "SSN";
-            // 
-            // textEditSSN
-            // 
-            this.textEditSSN.Location = new System.Drawing.Point(114, 174);
-            this.textEditSSN.Name = "textEditSSN";
-            this.textEditSSN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textEditSSN.Properties.Appearance.Options.UseFont = true;
-            this.textEditSSN.Properties.AutoHeight = false;
-            this.textEditSSN.Size = new System.Drawing.Size(155, 25);
-            this.textEditSSN.TabIndex = 79;
-            // 
-            // labelControlDOB
-            // 
-            this.labelControlDOB.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelControlDOB.Appearance.Options.UseFont = true;
-            this.labelControlDOB.Location = new System.Drawing.Point(25, 138);
-            this.labelControlDOB.Name = "labelControlDOB";
-            this.labelControlDOB.Size = new System.Drawing.Size(71, 16);
-            this.labelControlDOB.TabIndex = 78;
-            this.labelControlDOB.Text = "Data of birth";
-            // 
-            // labelControlFnm
-            // 
-            this.labelControlFnm.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelControlFnm.Appearance.Options.UseFont = true;
-            this.labelControlFnm.Location = new System.Drawing.Point(25, 98);
-            this.labelControlFnm.Name = "labelControlFnm";
-            this.labelControlFnm.Size = new System.Drawing.Size(57, 16);
-            this.labelControlFnm.TabIndex = 77;
-            this.labelControlFnm.Text = "Firstname";
-            // 
-            // textEditFnm
-            // 
-            this.textEditFnm.Location = new System.Drawing.Point(114, 94);
-            this.textEditFnm.Name = "textEditFnm";
-            this.textEditFnm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textEditFnm.Properties.Appearance.Options.UseFont = true;
-            this.textEditFnm.Properties.AutoHeight = false;
-            this.textEditFnm.Size = new System.Drawing.Size(155, 25);
-            this.textEditFnm.TabIndex = 76;
-            // 
-            // labelControlLnm
-            // 
-            this.labelControlLnm.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelControlLnm.Appearance.Options.UseFont = true;
-            this.labelControlLnm.Location = new System.Drawing.Point(25, 58);
-            this.labelControlLnm.Name = "labelControlLnm";
-            this.labelControlLnm.Size = new System.Drawing.Size(55, 16);
-            this.labelControlLnm.TabIndex = 75;
-            this.labelControlLnm.Text = "Lastname";
-            // 
-            // textEditLnm
-            // 
-            this.textEditLnm.Location = new System.Drawing.Point(114, 54);
-            this.textEditLnm.Name = "textEditLnm";
-            this.textEditLnm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textEditLnm.Properties.Appearance.Options.UseFont = true;
-            this.textEditLnm.Properties.AutoHeight = false;
-            this.textEditLnm.Size = new System.Drawing.Size(155, 25);
-            this.textEditLnm.TabIndex = 74;
-            // 
-            // labelControlID
-            // 
-            this.labelControlID.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelControlID.Appearance.Options.UseFont = true;
-            this.labelControlID.Location = new System.Drawing.Point(25, 18);
-            this.labelControlID.Name = "labelControlID";
-            this.labelControlID.Size = new System.Drawing.Size(70, 16);
-            this.labelControlID.TabIndex = 73;
-            this.labelControlID.Text = "ID of Patient";
-            // 
-            // textEditIdPatient
-            // 
-            this.textEditIdPatient.Enabled = false;
-            this.textEditIdPatient.Location = new System.Drawing.Point(114, 14);
-            this.textEditIdPatient.Name = "textEditIdPatient";
-            this.textEditIdPatient.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textEditIdPatient.Properties.Appearance.Options.UseFont = true;
-            this.textEditIdPatient.Properties.AutoHeight = false;
-            this.textEditIdPatient.Size = new System.Drawing.Size(155, 25);
-            this.textEditIdPatient.TabIndex = 72;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCancel.Location = new System.Drawing.Point(182, 261);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(78, 31);
-            this.buttonCancel.TabIndex = 71;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(47, 261);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(76, 31);
-            this.buttonOK.TabIndex = 70;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.UseVisualStyleBackColor = true;
-            // 
             // patientDetail1
             // 
-            this.patientDetail1.Location = new System.Drawing.Point(331, 155);
+            this.patientDetail1.Location = new System.Drawing.Point(12, 12);
             this.patientDetail1.Name = "patientDetail1";
             this.patientDetail1.Size = new System.Drawing.Size(274, 307);
             this.patientDetail1.TabIndex = 84;
@@ -237,56 +61,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 531);
+            this.ClientSize = new System.Drawing.Size(802, 327);
             this.Controls.Add(this.patientDetail1);
-            this.Controls.Add(this.lookUpEditGender);
-            this.Controls.Add(this.dateEditDOB);
-            this.Controls.Add(this.labelControlGndr);
-            this.Controls.Add(this.labelControlSSN);
-            this.Controls.Add(this.textEditSSN);
-            this.Controls.Add(this.labelControlDOB);
-            this.Controls.Add(this.labelControlFnm);
-            this.Controls.Add(this.textEditFnm);
-            this.Controls.Add(this.labelControlLnm);
-            this.Controls.Add(this.textEditLnm);
-            this.Controls.Add(this.labelControlID);
-            this.Controls.Add(this.textEditIdPatient);
-            this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.gridControlRelatives);
             this.Name = "PatientSearchForm";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.gridControlRelatives)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditFnm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEditIdPatient.Properties)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         public DevExpress.XtraGrid.GridControl gridControlRelatives;
-        public DevExpress.XtraEditors.LookUpEdit lookUpEditGender;
-        public DevExpress.XtraEditors.DateEdit dateEditDOB;
-        private DevExpress.XtraEditors.LabelControl labelControlGndr;
-        private DevExpress.XtraEditors.LabelControl labelControlSSN;
-        public DevExpress.XtraEditors.TextEdit textEditSSN;
-        private DevExpress.XtraEditors.LabelControl labelControlDOB;
-        private DevExpress.XtraEditors.LabelControl labelControlFnm;
-        public DevExpress.XtraEditors.TextEdit textEditFnm;
-        private DevExpress.XtraEditors.LabelControl labelControlLnm;
-        public DevExpress.XtraEditors.TextEdit textEditLnm;
-        private DevExpress.XtraEditors.LabelControl labelControlID;
-        public DevExpress.XtraEditors.TextEdit textEditIdPatient;
-        public System.Windows.Forms.Button buttonCancel;
-        public System.Windows.Forms.Button buttonOK;
-        private PatientDetail patientDetail1;
+        public PatientDetail patientDetail1;
     }
 }

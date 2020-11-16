@@ -15,6 +15,6 @@ namespace ClientHospitalApp.Views
            string DOBText { get; set; }
            string SSNText { get; set; }
            string ID_GenderText { get; set; }*/
-        Patient PatientData {get; set;}
+        Patient DataPatient {get; set;}
     }
 }
