@@ -12,6 +12,7 @@ namespace ClientHospitalApp.Models
         private Patient patient;
         private List<Patient> list;
         private WebServiceHospitalSoapClient obj;
+        private List<Relative> listRelatives;
         public Patient Patient 
         { 
             get => patient; 
@@ -22,11 +23,17 @@ namespace ClientHospitalApp.Models
             get => list;
             set => list = value; 
         }
+        public List<Relative> ListRelative
+        {
+            get => listRelatives;
+            set => listRelatives = value;
+        }
 
         public PatientModel()
         {
             Patient = new Patient();
             List = new List<Patient>();
+            ListRelative = new List<Relative>();
             obj = new WebServiceHospitalSoapClient();
         }
 
@@ -53,6 +60,10 @@ namespace ClientHospitalApp.Models
         public void DeletePatient()
         {
             obj.DeletePatient(Patient);
+        }
+        public void GetRelativesOfPatient(int IdPatient)
+        {
+            ListRelative=obj.GetRelativesOfPatient(IdPatient).ToList();
         }
 
     }

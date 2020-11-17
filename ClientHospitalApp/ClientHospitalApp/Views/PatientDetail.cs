@@ -34,9 +34,7 @@ namespace ClientHospitalApp
             textEditFnm.Text = patientData.Firstname;
             dateEditDOB.Text = patientData.DOB.ToString();
             textEditSSN.Text = patientData.SSN.ToString();
-            //comboBoxEditGndr.Properties.Items.Add(patientData.Gender);
             lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
-            //lookUpEditGender.Text = patientData.Gender.GenderName;
         }
 
         Patient getPatientData()
@@ -49,8 +47,6 @@ namespace ClientHospitalApp
             patientData.Firstname = textEditFnm.Text;
             patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
             patientData.SSN = Convert.ToInt32(textEditSSN.Text);
-            //patientData.Gender= (Gender)comboBoxEditGndr.SelectedItem;
-            //MessageBox.Show(lookUpEditGender.Text);
             patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
 
             return patientData;

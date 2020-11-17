@@ -10,8 +10,10 @@ namespace ClientHospitalApp.Models
         void GetPatient(int IdPatient);
         void SavePatient();
         void UpdatePatient();
+        void GetRelativesOfPatient(int IdPatient);
 
         Patient Patient { get; set; }
         List<Patient> List { get; set; }
+        List<Relative> ListRelative { get; set; }
     }
 }

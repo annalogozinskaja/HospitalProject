@@ -11,6 +11,10 @@ using DevExpress.XtraGrid;
 using System.Drawing;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid.Columns;
+using ClientHospitalApp.Reports;
 
 namespace ClientHospitalApp.Presenters
 {
@@ -40,18 +44,12 @@ namespace ClientHospitalApp.Presenters
             patientsListView.AddPatientEvent += AddPatientEventHandler;
             patientsListView.EditPatientEvent += EditPatientEventHandler;
             patientsListView.DeletePatientEvent += DeletePatientEventHandler;
+            patientsListView.ShowOrdersEvent += ShowOrdersEventHandler;
         }
 
         public void GetPatientFromModel(int IdPatient)
         {
             patientModel.GetPatient(IdPatient);
-
-            /*patientSearchView.ID_PatientText = Convert.ToString(patientModel.patient.ID_Patient);
-            patientSearchView.LastnameText = patientModel.patient.Lastname;
-            patientSearchView.FirstnameText = patientModel.patient.Firstname;
-            patientSearchView.DOBText = Convert.ToString(patientModel.patient.DOB);
-            patientSearchView.SSNText = Convert.ToString(patientModel.patient.SSN);
-            patientSearchView.ID_GenderText = Convert.ToString(patientModel.patient.ID_Gender);*/
             patientSearchView.DataPatient = patientModel.Patient;
         }
 
@@ -90,7 +88,7 @@ namespace ClientHospitalApp.Presenters
             this.patientsListView.gridView1.ExpandAllGroups();
             this.patientsListView.gridView1.OptionsBehavior.Editable = false;
             this.patientsListView.gridView1.OptionsSelection.MultiSelect = false;
-            //this.patientsListView.gridView1.DoubleClick += new System.EventHandler(this.patientsListView.gridView1_DoubleClick);
+            this.patientsListView.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
 
             this.patientsListView.gridView1.Columns[1].BestFit();
             this.patientsListView.gridView1.Columns[5].BestFit();
@@ -100,7 +98,6 @@ namespace ClientHospitalApp.Presenters
         {
             GetAllPatientsFromModel();
             this.patientsListView.gridControl1.DataSource = PatientList;
-            //this.patientsListView.gridControl1.RefreshDataSource();
             this.patientsListView.gridView1.Columns[1].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
         }
         private void FillLookUpEditGender(PatientSearchForm form)
@@ -139,28 +136,6 @@ namespace ClientHospitalApp.Presenters
             psForm.Text = "Add patient";
             psForm.gridControlRelatives.Hide();
             psForm.Size = new Size(340, 355);
-
-            //psForm.comboBoxEditGndr.EditValue = "--choose gender--";
-
-            //bool flag = false;
-            //foreach (Patient itemP in PatientList)
-            //{
-            //    flag = false;
-            //    foreach (var itemG in psForm.comboBoxEditGndr.Properties.Items)
-            //    {
-            //        if (itemG.ToString() == itemP.Gender.GenderName)
-            //        {
-            //            flag = true;
-            //        }
-            //    }
-            //    if (!flag)
-            //    {
-            //        psForm.comboBoxEditGndr.Properties.Items.Add(itemP.Gender);
-            //    }
-            //}
-
-
-            ////////////////////////////////////
 
             FillLookUpEditGender(psForm);
             DialogResult res = psForm.ShowDialog();
@@ -247,7 +222,6 @@ namespace ClientHospitalApp.Presenters
                                 patientModel.Patient = item;
                             }
                         }
-
                         DeletePatientInModel();
                         RefreshData();
                     }
@@ -262,11 +236,43 @@ namespace ClientHospitalApp.Presenters
                 MessageBox.Show("Choose the patient");
             }
         }
-
-        private void comboBoxEditGndr_SelectedIndexChanged(object sender, EventArgs e)
+        private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            //ComboBoxEdit combo = sender as ComboBoxEdit;
-            //strGender = combo.SelectedItem.ToString();
+            DXMouseEventArgs ea = e as DXMouseEventArgs;
+            GridView view = sender as GridView;
+            GridHitInfo info = view.CalcHitInfo(ea.Location);
+            if (info.InRow || info.InRowCell)
+            {
+                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
+                GridColumn colID = this.patientsListView.gridView1.Columns[0];
+                int valID = Convert.ToInt32(view.GetRowCellValue(info.RowHandle, colID));
+
+                psForm = new PatientSearchForm();
+                psForm.Text = "Detailed data of patient";
+                psForm.patientDetail1.buttonCancel.Hide();
+                psForm.patientDetail1.buttonOK.Hide();
+
+                foreach (Patient item in PatientList)
+                {
+                    if (item.ID_Patient == valID)
+                    {
+                        psForm.patientDetail1.PatientData = item;
+                    }
+                }
+
+                FillLookUpEditGender(psForm);
+                GetRelativesOfPatientFromModel(valID);
+                psForm.gridControlRelatives.DataSource = patientModel.ListRelative;
+                GridView gridViewRelatives = psForm.gridControlRelatives.MainView as GridView;
+                gridViewRelatives.OptionsView.ShowViewCaption = true;
+                gridViewRelatives.ViewCaption = "Relatives";
+                gridViewRelatives.Columns["ID_Relative"].Visible = false;
+                gridViewRelatives.Columns["ID_Patient"].Visible = false;
+                gridViewRelatives.Columns["ID_Gender"].Visible = false;
+                gridViewRelatives.Columns["Status"].Visible = false;
+
+                DialogResult res = psForm.ShowDialog();
+            }
         }
 
         private void SavePatientInModel()
@@ -275,7 +281,6 @@ namespace ClientHospitalApp.Presenters
 
             if (flag)
             {
-                //TransformDataPatientFromViewToModel(1);
                 patientModel.Patient=patientSearchView.DataPatient;
                 patientModel.SavePatient();
             }
@@ -287,7 +292,6 @@ namespace ClientHospitalApp.Presenters
 
             if (flag)
             {
-                //TransformDataPatientFromViewToModel(2);
                 patientModel.Patient = patientSearchView.DataPatient;
                 patientModel.UpdatePatient();
             }
@@ -295,22 +299,21 @@ namespace ClientHospitalApp.Presenters
 
         public void DeletePatientInModel()
         {
-            //TransformDataPatientFromViewToModel(2);
-            //patientModel.Patient = patientSearchView.DataPatient;
             patientModel.DeletePatient();
         }
 
-        /*public void TransformDataPatientFromViewToModel(int methodNumber)
+        private void GetRelativesOfPatientFromModel(int IdPatient)
         {
-            if (methodNumber == 2)
-            {
-                patientModel.patient.ID_Patient = Convert.ToInt32(patientSearchView.ID_PatientText);
-            }
-            patientModel.patient.Lastname = patientSearchView.LastnameText;
-            patientModel.patient.Firstname = patientSearchView.FirstnameText;
-            patientModel.patient.DOB = Convert.ToDateTime(patientSearchView.DOBText);
-            patientModel.patient.SSN = Convert.ToInt32(patientSearchView.SSNText);
-            patientModel.patient.ID_Gender = Convert.ToInt32(patientSearchView.ID_GenderText);
-        }*/
+            patientModel.GetRelativesOfPatient(IdPatient);
+        }
+
+        private void ShowOrdersEventHandler(object sender, EventArgs args)
+        {
+            OrdersReport OrdRep = new OrdersReport();
+            OrdRep.Text = "Orders of the patient";
+
+            OrdRep.ShowDialog();
+        }
+
     }
 }

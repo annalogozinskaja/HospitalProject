@@ -172,9 +172,9 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemDelete;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         public DevExpress.XtraBars.BarButtonItem barButtonItemAdd;
+        public DevExpress.XtraBars.BarButtonItem barButtonItem1;
     }
 }
 
