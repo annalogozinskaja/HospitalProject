@@ -228,7 +228,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Name = "PatientDetail";
-            this.Size = new System.Drawing.Size(274, 307);
+            this.Size = new System.Drawing.Size(283, 307);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).EndInit();

@@ -16,7 +16,7 @@ namespace ClientHospitalApp
         /// The main entry point for the application.
         /// </summary>
         /// 
-        public static bool Validate(IPatient patientView)
+        public static bool Validate(IPatientView patientView)
         {
             List<ValidationResult> results = new List<ValidationResult>();
             ValidationContext context = new ValidationContext(patientView);

@@ -11,10 +11,10 @@ namespace ClientHospitalApp.Presenters
 {
     public class OrderOfPatientPresenter
     {
-        public IPatient patientView;
+        public IPatientView patientView;
         public OrderOfPatientModel orderModel;
 
-        public OrderOfPatientPresenter(IPatient patientView)
+        public OrderOfPatientPresenter(IPatientView patientView)
         {
             this.patientView = patientView;
             this.orderModel = new OrderOfPatientModel();

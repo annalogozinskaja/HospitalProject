@@ -20,11 +20,18 @@ namespace ClientHospitalApp
             get { return getPatientData(); }
             set { setPatientData(value); }
         }
-      
+        public List<Gender> DataSourceGender
+        {
+            set { lookUpEditGender.Properties.DataSource = value; }
+            get { return (List<Gender>)lookUpEditGender.Properties.DataSource; }
+        }
+
+
         public PatientDetail()
         {
             InitializeComponent();
             patientData = new Patient();
+            FillLookUpEditGender();
         }
      
         void setPatientData(Patient patientData)
@@ -50,6 +57,18 @@ namespace ClientHospitalApp
             patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
 
             return patientData;
+        }
+
+
+        private void FillLookUpEditGender()
+        {
+            //lookUpEditGender.Properties.DataSource = gl;
+            lookUpEditGender.Properties.DisplayMember = "GenderName";
+            lookUpEditGender.Properties.ValueMember = "ID_Gender";
+            DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
+            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
+            lookUpEditGender.Properties.Columns.Add(col);
+            lookUpEditGender.Properties.NullText = "--choose gender--";
         }
 
         private void textEditLnm_KeyPress(object sender, KeyPressEventArgs e)

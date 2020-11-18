@@ -14,7 +14,7 @@ using System.Windows.Forms;
 namespace ClientHospitalApp
 {
     //[PatientValidation]
-    public partial class PatientSearchForm : Form, IPatient
+    public partial class PatientSearchForm : Form, IPatientView
     {
         Patient dataPatient;
         public Patient DataPatient

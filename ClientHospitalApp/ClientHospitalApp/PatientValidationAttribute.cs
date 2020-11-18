@@ -18,7 +18,7 @@ namespace ClientHospitalApp
 
         public override bool IsValid(object value)
         {
-            //IPatient patient = value as IPatient;
+            //IPatientView patient = value as IPatientView;
             //if (patient.FirstnameText.CompareTo("")==0 || patient.LastnameText.CompareTo("") == 0 
             //    || patient.DOBText.CompareTo("") == 0 || patient.SSNText.CompareTo("")==0 ||
             //    patient.ID_GenderText.CompareTo("")==0)

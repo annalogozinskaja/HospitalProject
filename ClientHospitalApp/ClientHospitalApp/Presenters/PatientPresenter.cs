@@ -20,31 +20,29 @@ namespace ClientHospitalApp.Presenters
 {
     public class PatientPresenter
     {
-        public IPatient patientSearchView;
+        public IPatientView patientSearchView;
         private IPatientModel patientModel;
-        ListOfPatientsForm patientsListView;
+        IListOfPatientsForm patientsListView;
         public List<Patient> PatientList 
         { 
             get { return patientModel.List; }
             set { patientModel.List= value; }
         }
         private PatientSearchForm psForm;
+        public List<Gender> gl;
 
-        public PatientPresenter(IPatient patientSearchView, IPatientModel model)
-        {
-            this.patientSearchView = patientSearchView;
-            this.patientModel = model;
-        }
 
-        public PatientPresenter(ListOfPatientsForm patientsListView, IPatientModel model)
+        public PatientPresenter(IListOfPatientsForm patientsListView, IPatientModel model)
         {
             this.patientsListView = patientsListView;
             this.patientModel = model;
-            patientsListView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
-            patientsListView.AddPatientEvent += AddPatientEventHandler;
-            patientsListView.EditPatientEvent += EditPatientEventHandler;
-            patientsListView.DeletePatientEvent += DeletePatientEventHandler;
-            patientsListView.ShowOrdersEvent += ShowOrdersEventHandler;
+            this.gl = new List<Gender>();
+            this.patientsListView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
+            this.patientsListView.AddPatientEvent += AddPatientEventHandler;
+            this.patientsListView.EditPatientEvent += EditPatientEventHandler;
+            this.patientsListView.DeletePatientEvent += DeletePatientEventHandler;
+            this.patientsListView.ShowPatientDataEvent += ShowPatientDataEventHandler;
+            this.patientsListView.ShowOrdersEvent += ShowOrdersEventHandler;          
         }
 
         public void GetPatientFromModel(int IdPatient)
@@ -56,53 +54,26 @@ namespace ClientHospitalApp.Presenters
         private void GetAllPatientsFromModelEventHandler(object sender, EventArgs args)
         {
             GetAllPatientsFromModel();
-            CreateGridControl();
+            GetGender();
         }
 
         public void GetAllPatientsFromModel()
         {
             PatientList.Clear();
             patientModel.GetAllPatients();
-            PatientList = this.patientModel.List;
+            PatientList = patientModel.List;
+            this.patientsListView.DataSource = PatientList;
         }
-        private void CreateGridControl()
-        {
-            this.patientsListView.gridControl1 = new GridControl();
-            this.patientsListView.gridControl1.Parent = this.patientsListView;
-            this.patientsListView.gridControl1.Location = new Point(0, 170);
-            this.patientsListView.gridControl1.Size = new Size(785, 485);
-            this.patientsListView.gridControl1.DataSource = PatientList;
-            
-            this.patientsListView.gridView1 = this.patientsListView.gridControl1.MainView as GridView;
-            this.patientsListView.gridView1.Columns[1].Caption = "Lastname";
-            this.patientsListView.gridView1.Columns[2].Caption = "Firstname";
-            this.patientsListView.gridView1.Columns[3].Caption = "Data of birth";
-            this.patientsListView.gridView1.Columns[4].Caption = "SSN";
-
-            this.patientsListView.gridView1.Columns[0].Visible = false;
-            this.patientsListView.gridView1.Columns[5].Visible = false;
-            this.patientsListView.gridView1.Columns[6].Visible = false;
-
-            this.patientsListView.gridView1.Columns[1].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
-            this.patientsListView.gridView1.OptionsView.ShowGroupedColumns = true;
-            this.patientsListView.gridView1.ExpandAllGroups();
-            this.patientsListView.gridView1.OptionsBehavior.Editable = false;
-            this.patientsListView.gridView1.OptionsSelection.MultiSelect = false;
-            this.patientsListView.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
-
-            this.patientsListView.gridView1.Columns[1].BestFit();
-            this.patientsListView.gridView1.Columns[5].BestFit();
-        }
+     
 
         private void RefreshData()
         {
             GetAllPatientsFromModel();
-            this.patientsListView.gridControl1.DataSource = PatientList;
-            this.patientsListView.gridView1.Columns[1].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
+            this.patientsListView.DataSource = PatientList;
         }
-        private void FillLookUpEditGender(PatientSearchForm form)
+
+        private void GetGender()
         {
-            List<Gender> gl = new List<Gender>();
             bool flag = false;
 
             foreach (Patient itemP in PatientList)
@@ -120,14 +91,6 @@ namespace ClientHospitalApp.Presenters
                     gl.Add(itemP.Gender);
                 }
             }
-
-            form.patientDetail1.lookUpEditGender.Properties.DataSource = gl;
-            form.patientDetail1.lookUpEditGender.Properties.DisplayMember = "GenderName";
-            form.patientDetail1.lookUpEditGender.Properties.ValueMember = "ID_Gender";
-            DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
-            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
-            form.patientDetail1.lookUpEditGender.Properties.Columns.Add(col);
-            form.patientDetail1.lookUpEditGender.Properties.NullText = "--choose gender--";
         }
 
         private void AddPatientEventHandler(object sender, EventArgs args)
@@ -137,7 +100,7 @@ namespace ClientHospitalApp.Presenters
             psForm.gridControlRelatives.Hide();
             psForm.Size = new Size(340, 355);
 
-            FillLookUpEditGender(psForm);
+            psForm.patientDetail1.DataSourceGender = gl;
             DialogResult res = psForm.ShowDialog();
 
             if (res == DialogResult.OK)
@@ -165,7 +128,7 @@ namespace ClientHospitalApp.Presenters
                 psForm.gridControlRelatives.Hide();
                 psForm.Size = new Size(340, 355);
 
-                FillLookUpEditGender(psForm);
+                psForm.patientDetail1.DataSourceGender = gl;
                 int idPatient = Convert.ToInt32(this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[0]));
 
                 foreach (Patient item in PatientList)
@@ -236,44 +199,40 @@ namespace ClientHospitalApp.Presenters
                 MessageBox.Show("Choose the patient");
             }
         }
-        private void gridView1_DoubleClick(object sender, EventArgs e)
+
+        private void ShowPatientDataEventHandler(object sender, EventArgs args)
         {
-            DXMouseEventArgs ea = e as DXMouseEventArgs;
-            GridView view = sender as GridView;
-            GridHitInfo info = view.CalcHitInfo(ea.Location);
-            if (info.InRow || info.InRowCell)
+            PatientSearchForm psForm = new PatientSearchForm();
+            psForm.Text = "Detailed data of patient";
+            psForm.patientDetail1.buttonCancel.Hide();
+            psForm.patientDetail1.buttonOK.Hide();
+
+            foreach (Patient item in PatientList)
             {
-                string colCaption = info.Column == null ? "N/A" : info.Column.GetCaption();
-                GridColumn colID = this.patientsListView.gridView1.Columns[0];
-                int valID = Convert.ToInt32(view.GetRowCellValue(info.RowHandle, colID));
-
-                psForm = new PatientSearchForm();
-                psForm.Text = "Detailed data of patient";
-                psForm.patientDetail1.buttonCancel.Hide();
-                psForm.patientDetail1.buttonOK.Hide();
-
-                foreach (Patient item in PatientList)
+                if (item.ID_Patient == this.patientsListView.selectedIdPatient)
                 {
-                    if (item.ID_Patient == valID)
-                    {
-                        psForm.patientDetail1.PatientData = item;
-                    }
+                    psForm.patientDetail1.PatientData = item;
                 }
-
-                FillLookUpEditGender(psForm);
-                GetRelativesOfPatientFromModel(valID);
-                psForm.gridControlRelatives.DataSource = patientModel.ListRelative;
-                GridView gridViewRelatives = psForm.gridControlRelatives.MainView as GridView;
-                gridViewRelatives.OptionsView.ShowViewCaption = true;
-                gridViewRelatives.ViewCaption = "Relatives";
-                gridViewRelatives.Columns["ID_Relative"].Visible = false;
-                gridViewRelatives.Columns["ID_Patient"].Visible = false;
-                gridViewRelatives.Columns["ID_Gender"].Visible = false;
-                gridViewRelatives.Columns["Status"].Visible = false;
-
-                DialogResult res = psForm.ShowDialog();
             }
+
+            psForm.patientDetail1.DataSourceGender = gl;
+            GetRelativesOfPatientFromModel(this.patientsListView.selectedIdPatient);
+
+            ///////////////////////////////////////////////////////////
+            psForm.gridControlRelatives.DataSource = patientModel.ListRelative;
+
+            GridView gridViewRelatives = psForm.gridControlRelatives.MainView as GridView;
+            gridViewRelatives.OptionsView.ShowViewCaption = true;
+            gridViewRelatives.ViewCaption = "Relatives";
+            gridViewRelatives.Columns["ID_Relative"].Visible = false;
+            gridViewRelatives.Columns["ID_Patient"].Visible = false;
+            gridViewRelatives.Columns["ID_Gender"].Visible = false;
+            gridViewRelatives.Columns["Status"].Visible = false;
+
+            DialogResult res = psForm.ShowDialog();
         }
+
+
 
         private void SavePatientInModel()
         {

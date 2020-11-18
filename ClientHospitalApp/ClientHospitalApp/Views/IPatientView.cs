@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.Views
 {
-    public interface IPatient
+    public interface IPatientView
     {
         Patient DataPatient {get; set;}
     }
