@@ -9,6 +9,6 @@ namespace ClientHospitalApp.Views
 {
     public interface IPatientView
     {
-        Patient DataPatient {get; set;}
+        Patient PatientData {get; set;}
     }
 }

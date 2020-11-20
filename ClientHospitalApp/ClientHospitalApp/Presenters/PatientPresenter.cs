@@ -97,7 +97,7 @@ namespace ClientHospitalApp.Presenters
         {
             psForm = new PatientSearchForm();
             psForm.Text = "Add patient";
-            psForm.gridControlRelatives.Hide();
+            //psForm.gridControlRelatives.Hide();
             psForm.Size = new Size(340, 355);
 
             psForm.patientDetail1.DataSourceGender = gl;
@@ -125,7 +125,7 @@ namespace ClientHospitalApp.Presenters
             {
                 psForm = new PatientSearchForm();
                 psForm.Text = "Update patient";
-                psForm.gridControlRelatives.Hide();
+                //psForm.gridControlRelatives.Hide();
                 psForm.Size = new Size(340, 355);
 
                 psForm.patientDetail1.DataSourceGender = gl;
@@ -202,34 +202,50 @@ namespace ClientHospitalApp.Presenters
 
         private void ShowPatientDataEventHandler(object sender, EventArgs args)
         {
-            PatientSearchForm psForm = new PatientSearchForm();
-            psForm.Text = "Detailed data of patient";
-            psForm.patientDetail1.buttonCancel.Hide();
-            psForm.patientDetail1.buttonOK.Hide();
+            PatientDataInfoForm pdiForm = new PatientDataInfoForm();
+            pdiForm.Text= "Detailed data of patient";
 
+            MessageBox.Show(this.patientsListView.selectedIdPatient.ToString());
             foreach (Patient item in PatientList)
             {
                 if (item.ID_Patient == this.patientsListView.selectedIdPatient)
                 {
-                    psForm.patientDetail1.PatientData = item;
+                    //pdiForm.patientDetail1.PatientData = item;
                 }
             }
 
-            psForm.patientDetail1.DataSourceGender = gl;
-            GetRelativesOfPatientFromModel(this.patientsListView.selectedIdPatient);
+            //pdiForm.patientDetail1.DataSourceGender = gl;
+            DialogResult res =pdiForm.ShowDialog();
+
+            //PatientSearchForm psForm = new PatientSearchForm();
+            // psForm.Text = "Detailed data of patient";
+            // psForm.patientDetail1.buttonCancel.Hide();
+            // psForm.patientDetail1.buttonOK.Hide();
+
+            // foreach (Patient item in PatientList)
+            // {
+            //     if (item.ID_Patient == this.patientsListView.selectedIdPatient)
+            //     {
+            //         psForm.patientDetail1.PatientData = item;
+            //     }
+            // }
+
+            // psForm.patientDetail1.DataSourceGender = gl;
+            // GetRelativesOfPatientFromModel(this.patientsListView.selectedIdPatient);
 
             ///////////////////////////////////////////////////////////
-            psForm.gridControlRelatives.DataSource = patientModel.ListRelative;
 
-            GridView gridViewRelatives = psForm.gridControlRelatives.MainView as GridView;
-            gridViewRelatives.OptionsView.ShowViewCaption = true;
-            gridViewRelatives.ViewCaption = "Relatives";
-            gridViewRelatives.Columns["ID_Relative"].Visible = false;
-            gridViewRelatives.Columns["ID_Patient"].Visible = false;
-            gridViewRelatives.Columns["ID_Gender"].Visible = false;
-            gridViewRelatives.Columns["Status"].Visible = false;
+            //psForm.gridControlRelatives.DataSource = patientModel.ListRelative;
 
-            DialogResult res = psForm.ShowDialog();
+            //GridView gridViewRelatives = psForm.gridControlRelatives.MainView as GridView;
+            //gridViewRelatives.OptionsView.ShowViewCaption = true;
+            //gridViewRelatives.ViewCaption = "Relatives";
+            //gridViewRelatives.Columns["ID_Relative"].Visible = false;
+            //gridViewRelatives.Columns["ID_Patient"].Visible = false;
+            //gridViewRelatives.Columns["ID_Gender"].Visible = false;
+            //gridViewRelatives.Columns["Status"].Visible = false;
+
+            //DialogResult res = psForm.ShowDialog();
         }
 
 

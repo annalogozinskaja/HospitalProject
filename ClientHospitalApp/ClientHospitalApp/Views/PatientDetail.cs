@@ -12,7 +12,7 @@ using ClientHospitalApp.Views;
 
 namespace ClientHospitalApp
 {
-    public partial class PatientDetail : UserControl
+    public partial class PatientDetail : UserControl,IPatientView
     {
         Patient patientData;
         public Patient PatientData
@@ -31,30 +31,48 @@ namespace ClientHospitalApp
         {
             InitializeComponent();
             patientData = new Patient();
+            //patientData.ID_Patient = -1;
+            //patientData.Lastname = string.Empty;
+            //patientData.Firstname = string.Empty;
+            //patientData.DOB = new DateTime();
+            //patientData.SSN = -1;
             FillLookUpEditGender();
         }
      
         void setPatientData(Patient patientData)
         {
-            textEditIdPatient.Text = patientData.ID_Patient.ToString();
-            textEditLnm.Text = patientData.Lastname;
-            textEditFnm.Text = patientData.Firstname;
-            dateEditDOB.Text = patientData.DOB.ToString();
-            textEditSSN.Text = patientData.SSN.ToString();
-            lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
+            try
+            {
+                if (patientData != null)
+                { 
+                    textEditIdPatient.Text = Convert.ToString(patientData.ID_Patient);
+                    textEditLnm.Text = patientData.Lastname;
+                    textEditFnm.Text = patientData.Firstname;
+                    dateEditDOB.Text = Convert.ToString(patientData.DOB);
+                    textEditSSN.Text = patientData.SSN.ToString();
+                    lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
+                }              
+            }
+            catch(Exception e) {}
         }
 
         Patient getPatientData()
         {
-            if (textEditIdPatient.Text != "")
+            try
             {
-                patientData.ID_Patient = Convert.ToInt32(textEditIdPatient.Text);
+                if (textEditIdPatient.Text != "")
+                {
+                    patientData.ID_Patient = Convert.ToInt32(textEditIdPatient.Text);
+                }
+                patientData.Lastname = textEditLnm.Text;
+                patientData.Firstname = textEditFnm.Text;
+                //patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
+                patientData.DOB = DateTime.ParseExact(dateEditDOB.Text, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                patientData.SSN = Int32.Parse(textEditSSN.Text);
+                patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
+
             }
-            patientData.Lastname = textEditLnm.Text;
-            patientData.Firstname = textEditFnm.Text;
-            patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
-            patientData.SSN = Convert.ToInt32(textEditSSN.Text);
-            patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
+            catch (Exception e) { }
 
             return patientData;
         }
@@ -62,7 +80,6 @@ namespace ClientHospitalApp
 
         private void FillLookUpEditGender()
         {
-            //lookUpEditGender.Properties.DataSource = gl;
             lookUpEditGender.Properties.DisplayMember = "GenderName";
             lookUpEditGender.Properties.ValueMember = "ID_Gender";
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col;

@@ -172,11 +172,17 @@
     <Compile Include="Views\ListOfPatientsForm.Designer.cs">
       <DependentUpon>ListOfPatientsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\PatientSearchForm.cs">
+    <Compile Include="Views\PatientDataInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\PatientSearchForm.Designer.cs">
-      <DependentUpon>PatientSearchForm.cs</DependentUpon>
+    <Compile Include="Views\PatientDataInfoForm.Designer.cs">
+      <DependentUpon>PatientDataInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientSearchExtendForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PatientSearchExtendForm.Designer.cs">
+      <DependentUpon>PatientSearchExtendForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
@@ -205,11 +211,20 @@
       <DependentUpon>OrdersReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\IPatientView.cs" />
+    <Compile Include="Views\PatientSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PatientSearchForm.Designer.cs">
+      <DependentUpon>PatientSearchForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\ListOfPatientsForm.resx">
       <DependentUpon>ListOfPatientsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\PatientSearchForm.resx">
-      <DependentUpon>PatientSearchForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\PatientDataInfoForm.resx">
+      <DependentUpon>PatientDataInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PatientSearchExtendForm.resx">
+      <DependentUpon>PatientSearchExtendForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -229,6 +244,10 @@
     </Compile>
     <EmbeddedResource Include="Reports\OrdersReport.resx">
       <DependentUpon>OrdersReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PatientSearchForm.resx">
+      <DependentUpon>PatientSearchForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -314,6 +333,5 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
