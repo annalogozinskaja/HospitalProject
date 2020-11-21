@@ -1,5 +1,6 @@
 ﻿using ClientHospitalApp.Models;
 using ClientHospitalApp.Presenters;
+using ClientHospitalApp.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,12 +22,11 @@ namespace ClientHospitalApp
 
         private void barButtonPatients_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            ListOfPatientsForm lpForm = new ListOfPatientsForm();
-            PatientPresenter patientPresenter = new PatientPresenter(lpForm, new PatientModel());
+            PatientSearchForm patientSearchForm = new PatientSearchForm();
+            //PatientPresenter patientPresenter = new PatientPresenter(patientSearchForm, new PatientModel());
 
-            lpForm.MdiParent = this;
-            lpForm.Show();
-            //Hide();
+            patientSearchForm.MdiParent = this;
+            patientSearchForm.Show();
         }
 
         private void barButtonOrders_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

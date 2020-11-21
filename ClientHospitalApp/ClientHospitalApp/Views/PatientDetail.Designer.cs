@@ -53,21 +53,21 @@
             // 
             // lookUpEditGender
             // 
-            this.lookUpEditGender.Location = new System.Drawing.Point(103, 215);
+            this.lookUpEditGender.Location = new System.Drawing.Point(94, 215);
             this.lookUpEditGender.Name = "lookUpEditGender";
             this.lookUpEditGender.Properties.AutoHeight = false;
             this.lookUpEditGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEditGender.Properties.NullText = "";
-            this.lookUpEditGender.Size = new System.Drawing.Size(155, 25);
+            this.lookUpEditGender.Size = new System.Drawing.Size(145, 22);
             this.lookUpEditGender.TabIndex = 69;
             // 
             // dateEditDOB
             // 
             this.dateEditDOB.EditValue = null;
-            this.dateEditDOB.Location = new System.Drawing.Point(103, 135);
+            this.dateEditDOB.Location = new System.Drawing.Point(94, 135);
             this.dateEditDOB.Name = "dateEditDOB";
-            this.dateEditDOB.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.dateEditDOB.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.dateEditDOB.Properties.Appearance.Options.UseFont = true;
             this.dateEditDOB.Properties.AutoHeight = false;
             this.dateEditDOB.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -81,119 +81,119 @@
             this.dateEditDOB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEditDOB.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateEditDOB.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dateEditDOB.Size = new System.Drawing.Size(155, 25);
+            this.dateEditDOB.Size = new System.Drawing.Size(145, 22);
             this.dateEditDOB.TabIndex = 67;
             // 
             // labelControlGndr
             // 
-            this.labelControlGndr.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelControlGndr.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlGndr.Appearance.Options.UseFont = true;
             this.labelControlGndr.Location = new System.Drawing.Point(14, 219);
             this.labelControlGndr.Name = "labelControlGndr";
-            this.labelControlGndr.Size = new System.Drawing.Size(41, 16);
+            this.labelControlGndr.Size = new System.Drawing.Size(40, 14);
             this.labelControlGndr.TabIndex = 65;
             this.labelControlGndr.Text = "Gender";
             // 
             // labelControlSSN
             // 
-            this.labelControlSSN.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelControlSSN.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlSSN.Appearance.Options.UseFont = true;
             this.labelControlSSN.Location = new System.Drawing.Point(14, 179);
             this.labelControlSSN.Name = "labelControlSSN";
-            this.labelControlSSN.Size = new System.Drawing.Size(24, 16);
+            this.labelControlSSN.Size = new System.Drawing.Size(22, 14);
             this.labelControlSSN.TabIndex = 64;
             this.labelControlSSN.Text = "SSN";
             // 
             // textEditSSN
             // 
-            this.textEditSSN.Location = new System.Drawing.Point(103, 175);
+            this.textEditSSN.Location = new System.Drawing.Point(94, 175);
             this.textEditSSN.Name = "textEditSSN";
-            this.textEditSSN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textEditSSN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textEditSSN.Properties.Appearance.Options.UseFont = true;
             this.textEditSSN.Properties.AutoHeight = false;
-            this.textEditSSN.Size = new System.Drawing.Size(155, 25);
+            this.textEditSSN.Size = new System.Drawing.Size(145, 22);
             this.textEditSSN.TabIndex = 63;
             this.textEditSSN.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditSSN_KeyPress);
             // 
             // labelControlDOB
             // 
-            this.labelControlDOB.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelControlDOB.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlDOB.Appearance.Options.UseFont = true;
             this.labelControlDOB.Location = new System.Drawing.Point(14, 139);
             this.labelControlDOB.Name = "labelControlDOB";
-            this.labelControlDOB.Size = new System.Drawing.Size(71, 16);
+            this.labelControlDOB.Size = new System.Drawing.Size(69, 14);
             this.labelControlDOB.TabIndex = 62;
             this.labelControlDOB.Text = "Data of birth";
             // 
             // labelControlFnm
             // 
-            this.labelControlFnm.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelControlFnm.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlFnm.Appearance.Options.UseFont = true;
             this.labelControlFnm.Location = new System.Drawing.Point(14, 99);
             this.labelControlFnm.Name = "labelControlFnm";
-            this.labelControlFnm.Size = new System.Drawing.Size(57, 16);
+            this.labelControlFnm.Size = new System.Drawing.Size(52, 14);
             this.labelControlFnm.TabIndex = 61;
             this.labelControlFnm.Text = "Firstname";
             // 
             // textEditFnm
             // 
-            this.textEditFnm.Location = new System.Drawing.Point(103, 95);
+            this.textEditFnm.Location = new System.Drawing.Point(94, 95);
             this.textEditFnm.Name = "textEditFnm";
-            this.textEditFnm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textEditFnm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textEditFnm.Properties.Appearance.Options.UseFont = true;
             this.textEditFnm.Properties.AutoHeight = false;
-            this.textEditFnm.Size = new System.Drawing.Size(155, 25);
+            this.textEditFnm.Size = new System.Drawing.Size(145, 22);
             this.textEditFnm.TabIndex = 60;
             // 
             // labelControlLnm
             // 
-            this.labelControlLnm.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelControlLnm.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlLnm.Appearance.Options.UseFont = true;
             this.labelControlLnm.Location = new System.Drawing.Point(14, 59);
             this.labelControlLnm.Name = "labelControlLnm";
-            this.labelControlLnm.Size = new System.Drawing.Size(55, 16);
+            this.labelControlLnm.Size = new System.Drawing.Size(52, 14);
             this.labelControlLnm.TabIndex = 59;
             this.labelControlLnm.Text = "Lastname";
             // 
             // textEditLnm
             // 
-            this.textEditLnm.Location = new System.Drawing.Point(103, 55);
+            this.textEditLnm.Location = new System.Drawing.Point(94, 55);
             this.textEditLnm.Name = "textEditLnm";
-            this.textEditLnm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textEditLnm.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textEditLnm.Properties.Appearance.Options.UseFont = true;
             this.textEditLnm.Properties.AutoHeight = false;
-            this.textEditLnm.Size = new System.Drawing.Size(155, 25);
+            this.textEditLnm.Size = new System.Drawing.Size(145, 22);
             this.textEditLnm.TabIndex = 58;
             this.textEditLnm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditLnm_KeyPress);
             // 
             // labelControlID
             // 
-            this.labelControlID.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelControlID.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlID.Appearance.Options.UseFont = true;
             this.labelControlID.Location = new System.Drawing.Point(14, 19);
             this.labelControlID.Name = "labelControlID";
-            this.labelControlID.Size = new System.Drawing.Size(70, 16);
+            this.labelControlID.Size = new System.Drawing.Size(70, 14);
             this.labelControlID.TabIndex = 57;
             this.labelControlID.Text = "ID of Patient";
             // 
             // textEditIdPatient
             // 
             this.textEditIdPatient.Enabled = false;
-            this.textEditIdPatient.Location = new System.Drawing.Point(103, 15);
+            this.textEditIdPatient.Location = new System.Drawing.Point(94, 15);
             this.textEditIdPatient.Name = "textEditIdPatient";
-            this.textEditIdPatient.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textEditIdPatient.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textEditIdPatient.Properties.Appearance.Options.UseFont = true;
             this.textEditIdPatient.Properties.AutoHeight = false;
-            this.textEditIdPatient.Size = new System.Drawing.Size(155, 25);
+            this.textEditIdPatient.Size = new System.Drawing.Size(145, 22);
             this.textEditIdPatient.TabIndex = 56;
             // 
             // buttonCancel
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCancel.Location = new System.Drawing.Point(171, 262);
+            this.buttonCancel.Location = new System.Drawing.Point(167, 262);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(78, 31);
+            this.buttonCancel.Size = new System.Drawing.Size(70, 28);
             this.buttonCancel.TabIndex = 55;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
@@ -202,9 +202,9 @@
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(36, 262);
+            this.buttonOK.Location = new System.Drawing.Point(45, 262);
             this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(76, 31);
+            this.buttonOK.Size = new System.Drawing.Size(70, 28);
             this.buttonOK.TabIndex = 54;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
@@ -228,7 +228,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Name = "PatientDetail";
-            this.Size = new System.Drawing.Size(283, 307);
+            this.Size = new System.Drawing.Size(267, 304);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).EndInit();

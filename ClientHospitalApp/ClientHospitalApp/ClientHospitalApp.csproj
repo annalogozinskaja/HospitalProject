@@ -166,6 +166,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Views\IListOfPatientsForm.cs" />
+    <Compile Include="Views\IPatientSearchForm.cs" />
     <Compile Include="Views\ListOfPatientsForm.cs">
       <SubType>Form</SubType>
     </Compile>

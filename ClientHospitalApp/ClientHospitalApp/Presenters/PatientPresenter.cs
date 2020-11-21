@@ -48,7 +48,7 @@ namespace ClientHospitalApp.Presenters
         public void GetPatientFromModel(int IdPatient)
         {
             patientModel.GetPatient(IdPatient);
-            patientSearchView.DataPatient = patientModel.Patient;
+            //patientSearchView.DataPatient = patientModel.Patient;
         }
 
         private void GetAllPatientsFromModelEventHandler(object sender, EventArgs args)
@@ -107,7 +107,7 @@ namespace ClientHospitalApp.Presenters
             {
                 try
                 {
-                    patientSearchView = psForm;
+                    //patientSearchView = psForm;
                     SavePatientInModel();
                 }
                 catch (Exception s)
@@ -145,7 +145,7 @@ namespace ClientHospitalApp.Presenters
                 {
                     try
                     {
-                        patientSearchView = psForm;
+                        //patientSearchView = psForm;
                         UpdatePatientInModel();
                     }
                     catch (Exception s)
@@ -256,7 +256,7 @@ namespace ClientHospitalApp.Presenters
 
             if (flag)
             {
-                patientModel.Patient=patientSearchView.DataPatient;
+                //patientModel.Patient=patientSearchView.DataPatient;
                 patientModel.SavePatient();
             }
         }
@@ -267,7 +267,7 @@ namespace ClientHospitalApp.Presenters
 
             if (flag)
             {
-                patientModel.Patient = patientSearchView.DataPatient;
+               // patientModel.Patient = patientSearchView.DataPatient;
                 patientModel.UpdatePatient();
             }
         }
