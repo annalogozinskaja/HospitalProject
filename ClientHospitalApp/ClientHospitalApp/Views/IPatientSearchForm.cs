@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.Views
 {
-    interface IPatientSearchForm
+    public interface IPatientSearchForm
     {
-        List<Patient> DataSource { get; set; }
+        List<Patient> DataSourcePatients { get; set; }
+        List<Gender> DataSourceGender { get; set; }
         int selectedIdPatient { get; set; }
 
         event EventHandler AddPatientEvent;

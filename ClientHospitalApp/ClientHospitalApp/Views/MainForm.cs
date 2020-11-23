@@ -23,7 +23,7 @@ namespace ClientHospitalApp
         private void barButtonPatients_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             PatientSearchForm patientSearchForm = new PatientSearchForm();
-            //PatientPresenter patientPresenter = new PatientPresenter(patientSearchForm, new PatientModel());
+            PatientPresenter patientPresenter = new PatientPresenter(patientSearchForm, new PatientModel());
 
             patientSearchForm.MdiParent = this;
             patientSearchForm.Show();

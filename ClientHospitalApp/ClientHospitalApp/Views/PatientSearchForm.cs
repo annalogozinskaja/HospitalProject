@@ -15,10 +15,20 @@ namespace ClientHospitalApp.Views
     //[PatientValidation]
     public partial class PatientSearchForm : Form,IPatientSearchForm
     {
-        public List<Patient> DataSource
+    //    public PatientDetail patientDetailData
+    //    {
+    //        set { gridControl1.DataSource = value; }
+    //        get { return patientDetailData; }
+    //    }
+        public List<Patient> DataSourcePatients
         {
             set { gridControl1.DataSource = value; }
             get { return (List<Patient>)gridControl1.DataSource; }
+        }
+        public List<Gender> DataSourceGender
+        {
+            set { patientDetailData.GenderDataSource = value; }
+            get { return (List<Gender>)patientDetailData.GenderDataSource; }
         }
 
         public int selectedIdPatient { get; set; }
@@ -61,6 +71,7 @@ namespace ClientHospitalApp.Views
 
             this.gridView1.Columns[1].BestFit();
             this.gridView1.Columns[5].BestFit();
+          
         }
 
         private void PatientSearchForm_Load(object sender, EventArgs e)

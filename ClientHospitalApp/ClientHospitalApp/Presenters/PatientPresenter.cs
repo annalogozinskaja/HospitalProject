@@ -20,9 +20,9 @@ namespace ClientHospitalApp.Presenters
 {
     public class PatientPresenter
     {
-        public IPatientView patientSearchView;
+        //public IPatientView patientSearchView;
         private IPatientModel patientModel;
-        IListOfPatientsForm patientsListView;
+        IPatientSearchForm patientSearchView;
         public List<Patient> PatientList 
         { 
             get { return patientModel.List; }
@@ -32,17 +32,17 @@ namespace ClientHospitalApp.Presenters
         public List<Gender> gl;
 
 
-        public PatientPresenter(IListOfPatientsForm patientsListView, IPatientModel model)
+        public PatientPresenter(IPatientSearchForm patientSearchView, IPatientModel model)
         {
-            this.patientsListView = patientsListView;
+            this.patientSearchView = patientSearchView;
             this.patientModel = model;
             this.gl = new List<Gender>();
-            this.patientsListView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
-            this.patientsListView.AddPatientEvent += AddPatientEventHandler;
-            this.patientsListView.EditPatientEvent += EditPatientEventHandler;
-            this.patientsListView.DeletePatientEvent += DeletePatientEventHandler;
-            this.patientsListView.ShowPatientDataEvent += ShowPatientDataEventHandler;
-            this.patientsListView.ShowOrdersEvent += ShowOrdersEventHandler;          
+            this.patientSearchView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
+            this.patientSearchView.AddPatientEvent += AddPatientEventHandler;
+            this.patientSearchView.EditPatientEvent += EditPatientEventHandler;
+            this.patientSearchView.DeletePatientEvent += DeletePatientEventHandler;
+            this.patientSearchView.ShowPatientDataEvent += ShowPatientDataEventHandler;
+            this.patientSearchView.ShowOrdersEvent += ShowOrdersEventHandler;
         }
 
         public void GetPatientFromModel(int IdPatient)
@@ -62,14 +62,14 @@ namespace ClientHospitalApp.Presenters
             PatientList.Clear();
             patientModel.GetAllPatients();
             PatientList = patientModel.List;
-            this.patientsListView.DataSource = PatientList;
+            this.patientSearchView.DataSourcePatients = PatientList;
         }
      
 
         private void RefreshData()
         {
             GetAllPatientsFromModel();
-            this.patientsListView.DataSource = PatientList;
+            this.patientSearchView.DataSourcePatients = PatientList;
         }
 
         private void GetGender()
@@ -91,113 +91,115 @@ namespace ClientHospitalApp.Presenters
                     gl.Add(itemP.Gender);
                 }
             }
+           // psForm.patientDetail1.DataSourceGender = gl;
+            this.patientSearchView.DataSourceGender= gl;
         }
 
         private void AddPatientEventHandler(object sender, EventArgs args)
         {
-            psForm = new PatientSearchForm();
-            psForm.Text = "Add patient";
-            //psForm.gridControlRelatives.Hide();
-            psForm.Size = new Size(340, 355);
+            //psForm = new PatientSearchForm();
+            //psForm.Text = "Add patient";
+            ////psForm.gridControlRelatives.Hide();
+            //psForm.Size = new Size(340, 355);
 
-            psForm.patientDetail1.DataSourceGender = gl;
-            DialogResult res = psForm.ShowDialog();
+            //psForm.patientDetail1.DataSourceGender = gl;
+            //DialogResult res = psForm.ShowDialog();
 
-            if (res == DialogResult.OK)
-            {
-                try
-                {
-                    //patientSearchView = psForm;
-                    SavePatientInModel();
-                }
-                catch (Exception s)
-                {
-                    Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-                }
-                RefreshData();
-            }
+            //if (res == DialogResult.OK)
+            //{
+            //    try
+            //    {
+            //        //patientSearchView = psForm;
+            //        SavePatientInModel();
+            //    }
+            //    catch (Exception s)
+            //    {
+            //        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+            //    }
+            //    RefreshData();
+            //}
         }
 
         private void EditPatientEventHandler(object sender, EventArgs args)
         {
-            int[] selectedRowHandles = this.patientsListView.gridView1.GetSelectedRows();
-            if (selectedRowHandles.Length == 1)
-            {
-                psForm = new PatientSearchForm();
-                psForm.Text = "Update patient";
-                //psForm.gridControlRelatives.Hide();
-                psForm.Size = new Size(340, 355);
+            //int[] selectedRowHandles = this.patientSearchView.gridView1.GetSelectedRows();
+            //if (selectedRowHandles.Length == 1)
+            //{
+            //    psForm = new PatientSearchForm();
+            //    psForm.Text = "Update patient";
+            //    //psForm.gridControlRelatives.Hide();
+            //    psForm.Size = new Size(340, 355);
 
-                psForm.patientDetail1.DataSourceGender = gl;
-                int idPatient = Convert.ToInt32(this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[0]));
+            //    psForm.patientDetail1.DataSourceGender = gl;
+            //    int idPatient = Convert.ToInt32(this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[0]));
 
-                foreach (Patient item in PatientList)
-                {
-                    if(item.ID_Patient==idPatient)
-                    {
-                        psForm.patientDetail1.PatientData = item;
-                    }
-                }
+            //    foreach (Patient item in PatientList)
+            //    {
+            //        if(item.ID_Patient==idPatient)
+            //        {
+            //            psForm.patientDetail1.PatientData = item;
+            //        }
+            //    }
                
-                DialogResult res = psForm.ShowDialog();
+            //    DialogResult res = psForm.ShowDialog();
 
-                if (res == DialogResult.OK)
-                {
-                    try
-                    {
-                        //patientSearchView = psForm;
-                        UpdatePatientInModel();
-                    }
-                    catch (Exception s)
-                    {
-                        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-                    }
-                    RefreshData();
-                }
+            //    if (res == DialogResult.OK)
+            //    {
+            //        try
+            //        {
+            //            //patientSearchView = psForm;
+            //            UpdatePatientInModel();
+            //        }
+            //        catch (Exception s)
+            //        {
+            //            Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+            //        }
+            //        RefreshData();
+            //    }
 
-            }
-            else if (selectedRowHandles.Length == 0)
-            {
-                MessageBox.Show("Choose the patient");
-            }
+            //}
+            //else if (selectedRowHandles.Length == 0)
+            //{
+            //    MessageBox.Show("Choose the patient");
+            //}
         }
 
         private void DeletePatientEventHandler(object sender, EventArgs args)
         {
-            int[] selectedRowHandles = this.patientsListView.gridView1.GetSelectedRows();
-            if (selectedRowHandles.Length == 1)
-            {
-                DialogResult res = MessageBox.Show("Delete " + 
-                        this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[1]) +
-                        " " + this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[2]) + 
-                        "?", "Deleting patient", MessageBoxButtons.YesNo);
+            //int[] selectedRowHandles = this.patientSearchView.gridView1.GetSelectedRows();
+            //if (selectedRowHandles.Length == 1)
+            //{
+            //    DialogResult res = MessageBox.Show("Delete " + 
+            //            this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[1]) +
+            //            " " + this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[2]) + 
+            //            "?", "Deleting patient", MessageBoxButtons.YesNo);
 
-                if (res == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int idPatient = Convert.ToInt32(this.patientsListView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientsListView.gridView1.Columns[0]));
+            //    if (res == DialogResult.Yes)
+            //    {
+            //        try
+            //        {
+            //            int idPatient = Convert.ToInt32(this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[0]));
 
-                        foreach (Patient item in PatientList)
-                        {
-                            if (item.ID_Patient == idPatient)
-                            {
-                                patientModel.Patient = item;
-                            }
-                        }
-                        DeletePatientInModel();
-                        RefreshData();
-                    }
-                    catch (Exception s)
-                    {
-                        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-                    }
-                }
-            }
-            else if (selectedRowHandles.Length == 0)
-            {
-                MessageBox.Show("Choose the patient");
-            }
+            //            foreach (Patient item in PatientList)
+            //            {
+            //                if (item.ID_Patient == idPatient)
+            //                {
+            //                    patientModel.Patient = item;
+            //                }
+            //            }
+            //            DeletePatientInModel();
+            //            RefreshData();
+            //        }
+            //        catch (Exception s)
+            //        {
+            //            Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+            //        }
+            //    }
+            //}
+            //else if (selectedRowHandles.Length == 0)
+            //{
+            //    MessageBox.Show("Choose the patient");
+            //}
         }
 
         private void ShowPatientDataEventHandler(object sender, EventArgs args)
@@ -205,10 +207,10 @@ namespace ClientHospitalApp.Presenters
             PatientDataInfoForm pdiForm = new PatientDataInfoForm();
             pdiForm.Text= "Detailed data of patient";
 
-            MessageBox.Show(this.patientsListView.selectedIdPatient.ToString());
+            MessageBox.Show(this.patientSearchView.selectedIdPatient.ToString());
             foreach (Patient item in PatientList)
             {
-                if (item.ID_Patient == this.patientsListView.selectedIdPatient)
+                if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
                 {
                     //pdiForm.patientDetail1.PatientData = item;
                 }
@@ -224,14 +226,14 @@ namespace ClientHospitalApp.Presenters
 
             // foreach (Patient item in PatientList)
             // {
-            //     if (item.ID_Patient == this.patientsListView.selectedIdPatient)
+            //     if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
             //     {
             //         psForm.patientDetail1.PatientData = item;
             //     }
             // }
 
             // psForm.patientDetail1.DataSourceGender = gl;
-            // GetRelativesOfPatientFromModel(this.patientsListView.selectedIdPatient);
+            // GetRelativesOfPatientFromModel(this.patientSearchView.selectedIdPatient);
 
             ///////////////////////////////////////////////////////////
 
@@ -252,24 +254,24 @@ namespace ClientHospitalApp.Presenters
 
         private void SavePatientInModel()
         {
-            bool flag=Program.Validate(patientSearchView);
+            //bool flag=Program.Validate(patientSearchView);
 
-            if (flag)
-            {
-                //patientModel.Patient=patientSearchView.DataPatient;
-                patientModel.SavePatient();
-            }
+            //if (flag)
+            //{
+            //    //patientModel.Patient=patientSearchView.DataPatient;
+            //    patientModel.SavePatient();
+            //}
         }
 
         public void UpdatePatientInModel()
         {
-            bool flag = Program.Validate(patientSearchView);
+            //bool flag = Program.Validate(patientSearchView);
 
-            if (flag)
-            {
-               // patientModel.Patient = patientSearchView.DataPatient;
-                patientModel.UpdatePatient();
-            }
+            //if (flag)
+            //{
+            //   // patientModel.Patient = patientSearchView.DataPatient;
+            //    patientModel.UpdatePatient();
+            //}
         }
 
         public void DeletePatientInModel()

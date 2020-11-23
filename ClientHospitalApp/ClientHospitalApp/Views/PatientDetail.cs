@@ -20,7 +20,7 @@ namespace ClientHospitalApp
             get { return getPatientData(); }
             set { setPatientData(value); }
         }
-        public List<Gender> DataSourceGender
+        public List<Gender> GenderDataSource
         {
             set { lookUpEditGender.Properties.DataSource = value; }
             get { return (List<Gender>)lookUpEditGender.Properties.DataSource; }
@@ -31,11 +31,6 @@ namespace ClientHospitalApp
         {
             InitializeComponent();
             patientData = new Patient();
-            //patientData.ID_Patient = -1;
-            //patientData.Lastname = string.Empty;
-            //patientData.Firstname = string.Empty;
-            //patientData.DOB = new DateTime();
-            //patientData.SSN = -1;
             FillLookUpEditGender();
         }
      

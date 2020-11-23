@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientSearchForm));
             this.patientDetail1 = new ClientHospitalApp.PatientDetail();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.patientDetail2 = new ClientHospitalApp.PatientDetail();
+            this.patientDetailData = new ClientHospitalApp.PatientDetail();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -48,7 +48,7 @@
             // 
             // patientDetail1
             // 
-            this.patientDetail1.DataSourceGender = null;
+            this.patientDetail1.GenderDataSource = null;
             this.patientDetail1.Location = new System.Drawing.Point(2, 2);
             this.patientDetail1.Name = "patientDetail1";
             this.patientDetail1.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetail1.PatientData")));
@@ -57,30 +57,31 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.patientDetail2);
+            this.layoutControl1.Controls.Add(this.patientDetailData);
             this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Location = new System.Drawing.Point(4, -1);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(876, 420);
+            this.layoutControl1.Size = new System.Drawing.Size(944, 434);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // patientDetail2
+            // patientDetailData
             // 
-            this.patientDetail2.DataSourceGender = null;
-            this.patientDetail2.Location = new System.Drawing.Point(12, 12);
-            this.patientDetail2.Name = "patientDetail2";
-            this.patientDetail2.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetail2.PatientData")));
-            this.patientDetail2.Size = new System.Drawing.Size(251, 396);
-            this.patientDetail2.TabIndex = 5;
+            this.patientDetailData.GenderDataSource = null;
+            this.patientDetailData.Location = new System.Drawing.Point(12, 12);
+            this.patientDetailData.Name = "patientDetailData";
+            this.patientDetailData.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetailData.PatientData")));
+            this.patientDetailData.Size = new System.Drawing.Size(363, 410);
+            this.patientDetailData.TabIndex = 5;
             // 
             // gridControl1
             // 
-            this.gridControl1.Location = new System.Drawing.Point(317, 12);
+            this.gridControl1.Location = new System.Drawing.Point(412, 12);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.MaximumSize = new System.Drawing.Size(520, 410);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(547, 396);
+            this.gridControl1.Size = new System.Drawing.Size(520, 410);
             this.gridControl1.TabIndex = 4;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -98,33 +99,33 @@
             this.layoutControlItem1,
             this.layoutControlItem2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(876, 420);
+            this.Root.Size = new System.Drawing.Size(944, 434);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(305, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(400, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(551, 400);
+            this.layoutControlItem1.Size = new System.Drawing.Size(524, 414);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.patientDetail2;
+            this.layoutControlItem2.Control = this.patientDetailData;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(305, 400);
-            this.layoutControlItem2.Text = "layoutCI2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(400, 414);
+            this.layoutControlItem2.Text = "          ";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Right;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(47, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(30, 13);
             // 
             // PatientSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 417);
+            this.ClientSize = new System.Drawing.Size(939, 425);
             this.Controls.Add(this.layoutControl1);
             this.Name = "PatientSearchForm";
             this.Text = "PatientSearchForm";
@@ -144,12 +145,12 @@
 
         public PatientDetail patientDetail1;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private PatientDetail patientDetail2;
         private DevExpress.XtraGrid.GridControl gridControl1;
        // private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private PatientDetail patientDetailData;
     }
 }
