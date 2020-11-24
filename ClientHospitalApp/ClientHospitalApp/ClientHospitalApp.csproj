@@ -165,6 +165,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Views\GenericModelImpl.cs" />
+    <Compile Include="Views\IGenericModel.cs" />
     <Compile Include="Views\IListOfPatientsForm.cs" />
     <Compile Include="Views\IPatientSearchForm.cs" />
     <Compile Include="Views\ListOfPatientsForm.cs">

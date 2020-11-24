@@ -25,6 +25,7 @@ namespace ClientHospitalApp
             set { lookUpEditGender.Properties.DataSource = value; }
             get { return (List<Gender>)lookUpEditGender.Properties.DataSource; }
         }
+        public event EventHandler AddPatientEvent;
 
 
         public PatientDetail()
@@ -61,8 +62,8 @@ namespace ClientHospitalApp
                 }
                 patientData.Lastname = textEditLnm.Text;
                 patientData.Firstname = textEditFnm.Text;
-                //patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
-                patientData.DOB = DateTime.ParseExact(dateEditDOB.Text, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
+                //patientData.DOB = DateTime.ParseExact(dateEditDOB.Text, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 patientData.SSN = Int32.Parse(textEditSSN.Text);
                 patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
 
@@ -83,6 +84,16 @@ namespace ClientHospitalApp
             lookUpEditGender.Properties.NullText = "--choose gender--";
         }
 
+        public void ClearAllData()
+        {
+            patientData.ID_Patient = -1;           
+            patientData.Lastname = "";
+            patientData.Firstname = "";
+            patientData.DOB = new DateTime();
+            patientData.SSN = -1;
+            patientData.Gender = new Gender();
+        }
+
         private void textEditLnm_KeyPress(object sender, KeyPressEventArgs e)
         {
             char number = e.KeyChar;
@@ -101,6 +112,11 @@ namespace ClientHospitalApp
             {
                 e.Handled = true;
             }
+        }
+
+        private void buttonOK_Click(object sender, EventArgs e)
+        {
+            AddPatientEvent(this, EventArgs.Empty);
         }
     }
 }

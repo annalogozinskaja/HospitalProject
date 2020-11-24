@@ -10,5 +10,7 @@ namespace ClientHospitalApp.Views
     public interface IPatientView
     {
         Patient PatientData {get; set;}
+        event EventHandler AddPatientEvent;
+        void ClearAllData();
     }
 }

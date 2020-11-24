@@ -195,7 +195,7 @@
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(70, 28);
             this.buttonCancel.TabIndex = 55;
-            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.Text = "Clear";
             this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // buttonOK
@@ -206,8 +206,9 @@
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(70, 28);
             this.buttonOK.TabIndex = 54;
-            this.buttonOK.Text = "OK";
+            this.buttonOK.Text = "Add";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // PatientDetail
             // 

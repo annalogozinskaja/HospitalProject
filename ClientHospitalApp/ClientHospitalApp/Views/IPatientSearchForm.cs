@@ -13,8 +13,9 @@ namespace ClientHospitalApp.Views
         List<Patient> DataSourcePatients { get; set; }
         List<Gender> DataSourceGender { get; set; }
         int selectedIdPatient { get; set; }
+        PatientDetail PatientDetailData { get; set; }
 
-        event EventHandler AddPatientEvent;
+        //event EventHandler AddPatientEvent;
         event EventHandler DeletePatientEvent;
         event EventHandler EditPatientEvent;
         event EventHandler LoadDataDataEvent;

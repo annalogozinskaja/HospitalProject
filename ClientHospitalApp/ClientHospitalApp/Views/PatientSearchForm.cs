@@ -34,20 +34,21 @@ namespace ClientHospitalApp.Views
         public int selectedIdPatient { get; set; }
 
         public event EventHandler LoadDataDataEvent;
-        public event EventHandler AddPatientEvent;
+        //public event EventHandler AddPatientEvent;
         public event EventHandler EditPatientEvent;
         public event EventHandler DeletePatientEvent;
         public event EventHandler ShowPatientDataEvent;
         public event EventHandler ShowOrdersEvent;
         //Patient dataPatient;
-        //public Patient DataPatient
-        //{
-        //    get { return getPatientData(); }
-        //    set { setPatientData(); }
-        //}
+        public PatientDetail PatientDetailData
+        {
+            set { patientDetailData = value; }
+            get { return patientDetailData; }
+        }
         public PatientSearchForm()
         {
             InitializeComponent();
+            //this.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
             //dataPatient = new Patient();
         }
 

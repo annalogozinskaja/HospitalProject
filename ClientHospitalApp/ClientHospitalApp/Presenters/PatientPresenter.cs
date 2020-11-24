@@ -30,6 +30,7 @@ namespace ClientHospitalApp.Presenters
         }
         private PatientSearchForm psForm;
         public List<Gender> gl;
+        private GenericModelImpl<Patient> modelPatientsToDB;
 
 
         public PatientPresenter(IPatientSearchForm patientSearchView, IPatientModel model)
@@ -37,8 +38,10 @@ namespace ClientHospitalApp.Presenters
             this.patientSearchView = patientSearchView;
             this.patientModel = model;
             this.gl = new List<Gender>();
+            this.modelPatientsToDB = new GenericModelImpl<Patient>();
+
             this.patientSearchView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
-            this.patientSearchView.AddPatientEvent += AddPatientEventHandler;
+            this.patientSearchView.PatientDetailData.AddPatientEvent += AddPatientEventHandler;
             this.patientSearchView.EditPatientEvent += EditPatientEventHandler;
             this.patientSearchView.DeletePatientEvent += DeletePatientEventHandler;
             this.patientSearchView.ShowPatientDataEvent += ShowPatientDataEventHandler;
@@ -97,6 +100,22 @@ namespace ClientHospitalApp.Presenters
 
         private void AddPatientEventHandler(object sender, EventArgs args)
         {
+            modelPatientsToDB.ListToAddInDB.Add(this.patientSearchView.PatientDetailData.PatientData);
+
+            //MessageBox.Show(this.patientSearchView.PatientDetailData.PatientData.Lastname);
+            foreach (var item in modelPatientsToDB.ListToAddInDB)
+            {
+                MessageBox.Show(item.Lastname);
+            }
+
+            this.patientSearchView.PatientDetailData.ClearAllData();
+
+
+
+
+
+
+            ////////////////////////////////////////////////////////
             //psForm = new PatientSearchForm();
             //psForm.Text = "Add patient";
             ////psForm.gridControlRelatives.Hide();
