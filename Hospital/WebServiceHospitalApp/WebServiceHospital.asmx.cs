@@ -52,16 +52,20 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
-        public void SavePatient(Patient patient)
+        public void AddPatient(List<Patient> listPatients)
         {
             SessionFactory SF = new SessionFactory();
             SF.Init();
             SF.OpenSession();
 
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
-            patient.Status = 1;
-            patientDao.Save(patient);
-           
+
+            foreach (Patient item in listPatients)
+            {
+                item.Status = 1;
+                patientDao.Save(item);
+            }
+                    
             SF.CloseSession();
         }
 

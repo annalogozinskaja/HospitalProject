@@ -144,6 +144,7 @@
             this.textEditFnm.Properties.AutoHeight = false;
             this.textEditFnm.Size = new System.Drawing.Size(145, 22);
             this.textEditFnm.TabIndex = 60;
+            this.textEditFnm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditLnm_KeyPress);
             // 
             // labelControlLnm
             // 

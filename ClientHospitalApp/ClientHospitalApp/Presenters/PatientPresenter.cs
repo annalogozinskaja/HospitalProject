@@ -26,12 +26,12 @@ namespace ClientHospitalApp.Presenters
         public List<Patient> PatientList 
         { 
             get { return patientModel.List; }
-            set { patientModel.List= value; }
+            set { patientModel.List=value; }
         }
+        MainForm mainForm;
         private PatientSearchForm psForm;
         public List<Gender> gl;
         private GenericModelImpl<Patient> modelPatientsToDB;
-
 
         public PatientPresenter(IPatientSearchForm patientSearchView, IPatientModel model)
         {
@@ -39,11 +39,13 @@ namespace ClientHospitalApp.Presenters
             this.patientModel = model;
             this.gl = new List<Gender>();
             this.modelPatientsToDB = new GenericModelImpl<Patient>();
+            this.mainForm = ((PatientSearchForm)(patientSearchView)).MdiParent as MainForm;
 
             this.patientSearchView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
             this.patientSearchView.PatientDetailData.AddPatientEvent += AddPatientEventHandler;
             this.patientSearchView.EditPatientEvent += EditPatientEventHandler;
             this.patientSearchView.DeletePatientEvent += DeletePatientEventHandler;
+            this.mainForm.SaveDataEvent += SaveDataEventHandler;
             this.patientSearchView.ShowPatientDataEvent += ShowPatientDataEventHandler;
             this.patientSearchView.ShowOrdersEvent += ShowOrdersEventHandler;
         }
@@ -100,15 +102,39 @@ namespace ClientHospitalApp.Presenters
 
         private void AddPatientEventHandler(object sender, EventArgs args)
         {
-            modelPatientsToDB.ListToAddInDB.Add(this.patientSearchView.PatientDetailData.PatientData);
+          
+            if (modelPatientsToDB.ListToAddInDB.Count > 0)
+            {
+                MessageBox.Show("ListToAddInDB before ADD");
+                foreach (Patient item in modelPatientsToDB.ListToAddInDB)
+                {
+                    MessageBox.Show(item.Lastname);
+                }
+            }
+            
+            Patient tempPatient = new Patient();
+            tempPatient.Lastname = this.patientSearchView.PatientDetailData.PatientData.Lastname;
+            tempPatient.Firstname = this.patientSearchView.PatientDetailData.PatientData.Firstname;
+            tempPatient.DOB = this.patientSearchView.PatientDetailData.PatientData.DOB;
+            tempPatient.SSN = this.patientSearchView.PatientDetailData.PatientData.SSN;
+            tempPatient.Gender = this.patientSearchView.PatientDetailData.PatientData.Gender;
 
-            //MessageBox.Show(this.patientSearchView.PatientDetailData.PatientData.Lastname);
-            foreach (var item in modelPatientsToDB.ListToAddInDB)
+            modelPatientsToDB.ListToAddInDB.Add(tempPatient);
+
+            MessageBox.Show("ListToAddInDB after ADD");
+            foreach (Patient item in modelPatientsToDB.ListToAddInDB)
             {
                 MessageBox.Show(item.Lastname);
             }
-
+            
             this.patientSearchView.PatientDetailData.ClearAllData();
+         
+            PatientList.Add(modelPatientsToDB.ListToAddInDB[modelPatientsToDB.ListToAddInDB.Count-1]);          
+            this.patientSearchView.DataSourcePatients = PatientList;
+
+
+
+
 
 
 
@@ -221,7 +247,17 @@ namespace ClientHospitalApp.Presenters
             //}
         }
 
-        private void ShowPatientDataEventHandler(object sender, EventArgs args)
+        private void SaveDataEventHandler(object sender, EventArgs args)
+        {
+           if(modelPatientsToDB.ListToAddInDB.Count>0)
+            {
+                patientModel.ListToAdd = modelPatientsToDB.ListToAddInDB;
+                patientModel.AddPatient();
+                modelPatientsToDB.ListToAddInDB.Clear();
+            }
+        }
+
+            private void ShowPatientDataEventHandler(object sender, EventArgs args)
         {
             PatientDataInfoForm pdiForm = new PatientDataInfoForm();
             pdiForm.Text= "Detailed data of patient";

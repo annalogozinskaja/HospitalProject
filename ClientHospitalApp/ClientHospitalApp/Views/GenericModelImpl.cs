@@ -1,4 +1,5 @@
 ﻿using System;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,7 @@ namespace ClientHospitalApp.Views
         public List<T> ListToAddInDB 
         {
             get { return listToAddInDB; }
-            set { listToAddInDB = value; }
+            set { listToAddInDB=value; }
         }
         public List<T> ListToUpdateInDB
         {

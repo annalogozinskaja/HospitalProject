@@ -15,6 +15,7 @@ namespace ClientHospitalApp
 {
     public partial class MainForm : Form
     {
+        public event EventHandler SaveDataEvent;
         public MainForm()
         {
             InitializeComponent();
@@ -23,15 +24,21 @@ namespace ClientHospitalApp
         private void barButtonPatients_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             PatientSearchForm patientSearchForm = new PatientSearchForm();
+            patientSearchForm.MdiParent = this;
             PatientPresenter patientPresenter = new PatientPresenter(patientSearchForm, new PatientModel());
 
-            patientSearchForm.MdiParent = this;
+           
             patientSearchForm.Show();
         }
 
         private void barButtonOrders_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
+        }
+
+        private void barButtonSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveDataEvent(this, EventArgs.Empty);
         }
     }
 }

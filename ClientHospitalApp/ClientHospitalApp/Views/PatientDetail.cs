@@ -86,17 +86,23 @@ namespace ClientHospitalApp
 
         public void ClearAllData()
         {
-            patientData.ID_Patient = -1;           
+            patientData.ID_Patient = -1;
             patientData.Lastname = "";
             patientData.Firstname = "";
             patientData.DOB = new DateTime();
             patientData.SSN = -1;
             patientData.Gender = new Gender();
+
+            textEditIdPatient.Text = "";
+            textEditLnm.Text = "";
+            textEditFnm.Text = "";
+            dateEditDOB.Text = "";
+            textEditSSN.Text = "";
+            lookUpEditGender.EditValue =0;
         }
 
         private void textEditLnm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
+        {            char number = e.KeyChar;
 
             if (!Char.IsLetter(number) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.OemMinus)
             {

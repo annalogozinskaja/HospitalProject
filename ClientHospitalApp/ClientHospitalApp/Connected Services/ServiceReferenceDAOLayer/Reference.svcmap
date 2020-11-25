@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f7b53f27-efe3-4206-9316-51a68ddc88ad" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="63b74913-bece-40b9-97df-b0120dce02e5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,8 +22,8 @@
     <MetadataSource Address="https://localhost:44332/WebServiceHospital.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WebServiceHospital.disco" MetadataType="Disco" ID="3997d949-48bd-4427-9f19-a94307f678f7" SourceId="1" SourceUrl="https://localhost:44332/WebServiceHospital.asmx?disco" />
-    <MetadataFile FileName="WebServiceHospital.wsdl" MetadataType="Wsdl" ID="2b4558c3-69b7-4cc2-b1e0-6afc09c3941a" SourceId="1" SourceUrl="https://localhost:44332/WebServiceHospital.asmx?wsdl" />
+    <MetadataFile FileName="WebServiceHospital.disco" MetadataType="Disco" ID="5a97c030-9b3f-4d05-9120-ee0536789a98" SourceId="1" SourceUrl="https://localhost:44332/WebServiceHospital.asmx?disco" />
+    <MetadataFile FileName="WebServiceHospital.wsdl" MetadataType="Wsdl" ID="09923051-621f-493b-89b0-005fd70db1b8" SourceId="1" SourceUrl="https://localhost:44332/WebServiceHospital.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

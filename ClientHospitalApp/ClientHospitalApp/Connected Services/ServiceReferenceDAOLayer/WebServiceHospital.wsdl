@@ -50,14 +50,19 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
         </s:sequence>
       </s:complexType>
-      <s:element name="SavePatient">
+      <s:element name="AddPatient">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="patient" type="tns:Patient" />
+            <s:element minOccurs="0" maxOccurs="1" name="listPatients" type="tns:ArrayOfPatient" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="SavePatientResponse">
+      <s:complexType name="ArrayOfPatient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Patient" nillable="true" type="tns:Patient" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddPatientResponse">
         <s:complexType />
       </s:element>
       <s:element name="UpdatePatient">
@@ -150,11 +155,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfPatient">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Patient" nillable="true" type="tns:Patient" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetDataOrder">
         <s:complexType />
       </s:element>
@@ -213,11 +213,11 @@
   <wsdl:message name="GetDataPatientSoapOut">
     <wsdl:part name="parameters" element="tns:GetDataPatientResponse" />
   </wsdl:message>
-  <wsdl:message name="SavePatientSoapIn">
-    <wsdl:part name="parameters" element="tns:SavePatient" />
+  <wsdl:message name="AddPatientSoapIn">
+    <wsdl:part name="parameters" element="tns:AddPatient" />
   </wsdl:message>
-  <wsdl:message name="SavePatientSoapOut">
-    <wsdl:part name="parameters" element="tns:SavePatientResponse" />
+  <wsdl:message name="AddPatientSoapOut">
+    <wsdl:part name="parameters" element="tns:AddPatientResponse" />
   </wsdl:message>
   <wsdl:message name="UpdatePatientSoapIn">
     <wsdl:part name="parameters" element="tns:UpdatePatient" />
@@ -276,9 +276,9 @@
       <wsdl:input message="tns:GetDataPatientSoapIn" />
       <wsdl:output message="tns:GetDataPatientSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="SavePatient">
-      <wsdl:input message="tns:SavePatientSoapIn" />
-      <wsdl:output message="tns:SavePatientSoapOut" />
+    <wsdl:operation name="AddPatient">
+      <wsdl:input message="tns:AddPatientSoapIn" />
+      <wsdl:output message="tns:AddPatientSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="UpdatePatient">
       <wsdl:input message="tns:UpdatePatientSoapIn" />
@@ -333,8 +333,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SavePatient">
-      <soap:operation soapAction="http://tempuri.org/SavePatient" style="document" />
+    <wsdl:operation name="AddPatient">
+      <soap:operation soapAction="http://tempuri.org/AddPatient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -435,8 +435,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SavePatient">
-      <soap12:operation soapAction="http://tempuri.org/SavePatient" style="document" />
+    <wsdl:operation name="AddPatient">
+      <soap12:operation soapAction="http://tempuri.org/AddPatient" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

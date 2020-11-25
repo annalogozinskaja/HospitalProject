@@ -22,7 +22,9 @@ namespace ClientHospitalApp.Views
     //    }
         public List<Patient> DataSourcePatients
         {
-            set { gridControl1.DataSource = value; }
+            set { gridControl1.DataSource = value;
+                gridControl1.RefreshDataSource();
+            }
             get { return (List<Patient>)gridControl1.DataSource; }
         }
         public List<Gender> DataSourceGender
