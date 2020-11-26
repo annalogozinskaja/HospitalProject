@@ -59,9 +59,21 @@ namespace WebServiceHospitalApp
             SF.OpenSession();
 
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>(SF.GetSession());
+
+            Gender male = genderDao.Get(1);
+            Gender female = genderDao.Get(2);
 
             foreach (Patient item in listPatients)
             {
+                if(item.Gender.ID_Gender== male.ID_Gender)
+                {
+                    item.Gender = male;
+                }
+                else if(item.Gender.ID_Gender == female.ID_Gender)
+                {
+                    item.Gender = female;
+                }
                 item.Status = 1;
                 patientDao.Save(item);
             }

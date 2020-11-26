@@ -63,7 +63,8 @@ namespace ClientHospitalApp.Models
         public void AddPatient()
         {
             //obj.AddPatient(Patient);
-            obj.AddPatient(ListToAdd);
+            List<Patient> p = ListToAdd;
+            obj.AddPatient(p.ToArray());
         }
 
         public void GetAllPatients()

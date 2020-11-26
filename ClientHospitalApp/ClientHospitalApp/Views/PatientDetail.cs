@@ -63,7 +63,6 @@ namespace ClientHospitalApp
                 patientData.Lastname = textEditLnm.Text;
                 patientData.Firstname = textEditFnm.Text;
                 patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
-                //patientData.DOB = DateTime.ParseExact(dateEditDOB.Text, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 patientData.SSN = Int32.Parse(textEditSSN.Text);
                 patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
 

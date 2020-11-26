@@ -102,16 +102,6 @@ namespace ClientHospitalApp.Presenters
 
         private void AddPatientEventHandler(object sender, EventArgs args)
         {
-          
-            if (modelPatientsToDB.ListToAddInDB.Count > 0)
-            {
-                MessageBox.Show("ListToAddInDB before ADD");
-                foreach (Patient item in modelPatientsToDB.ListToAddInDB)
-                {
-                    MessageBox.Show(item.Lastname);
-                }
-            }
-            
             Patient tempPatient = new Patient();
             tempPatient.Lastname = this.patientSearchView.PatientDetailData.PatientData.Lastname;
             tempPatient.Firstname = this.patientSearchView.PatientDetailData.PatientData.Firstname;
@@ -120,13 +110,6 @@ namespace ClientHospitalApp.Presenters
             tempPatient.Gender = this.patientSearchView.PatientDetailData.PatientData.Gender;
 
             modelPatientsToDB.ListToAddInDB.Add(tempPatient);
-
-            MessageBox.Show("ListToAddInDB after ADD");
-            foreach (Patient item in modelPatientsToDB.ListToAddInDB)
-            {
-                MessageBox.Show(item.Lastname);
-            }
-            
             this.patientSearchView.PatientDetailData.ClearAllData();
          
             PatientList.Add(modelPatientsToDB.ListToAddInDB[modelPatientsToDB.ListToAddInDB.Count-1]);          
@@ -254,6 +237,8 @@ namespace ClientHospitalApp.Presenters
                 patientModel.ListToAdd = modelPatientsToDB.ListToAddInDB;
                 patientModel.AddPatient();
                 modelPatientsToDB.ListToAddInDB.Clear();
+
+                MessageBox.Show("Data saved");
             }
         }
 
