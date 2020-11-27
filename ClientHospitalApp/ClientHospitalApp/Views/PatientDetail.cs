@@ -25,7 +25,7 @@ namespace ClientHospitalApp
             set { lookUpEditGender.Properties.DataSource = value; }
             get { return (List<Gender>)lookUpEditGender.Properties.DataSource; }
         }
-        public event EventHandler AddPatientEvent;
+        public event EventHandler AddOrUpdatePatientEvent;
 
 
         public PatientDetail()
@@ -121,7 +121,7 @@ namespace ClientHospitalApp
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            AddPatientEvent(this, EventArgs.Empty);
+            AddOrUpdatePatientEvent(this, EventArgs.Empty);
         }
     }
 }

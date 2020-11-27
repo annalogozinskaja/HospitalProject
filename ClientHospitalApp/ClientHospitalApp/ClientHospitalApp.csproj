@@ -244,6 +244,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\OrdersReport.resx">
       <DependentUpon>OrdersReport.cs</DependentUpon>
@@ -335,6 +336,24 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editcontact_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editcontact_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveall_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveall_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

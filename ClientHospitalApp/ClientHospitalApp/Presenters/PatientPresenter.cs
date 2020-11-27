@@ -32,6 +32,7 @@ namespace ClientHospitalApp.Presenters
         private PatientSearchForm psForm;
         public List<Gender> gl;
         private GenericModelImpl<Patient> modelPatientsToDB;
+        bool EditClicked = false;
 
         public PatientPresenter(IPatientSearchForm patientSearchView, IPatientModel model)
         {
@@ -42,7 +43,7 @@ namespace ClientHospitalApp.Presenters
             this.mainForm = ((PatientSearchForm)(patientSearchView)).MdiParent as MainForm;
 
             this.patientSearchView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
-            this.patientSearchView.PatientDetailData.AddPatientEvent += AddPatientEventHandler;
+            this.patientSearchView.PatientDetailData.AddOrUpdatePatientEvent += AddOrUpdatePatientEventHandler;
             this.patientSearchView.EditPatientEvent += EditPatientEventHandler;
             this.patientSearchView.DeletePatientEvent += DeletePatientEventHandler;
             this.mainForm.SaveDataEvent += SaveDataEventHandler;
@@ -100,7 +101,7 @@ namespace ClientHospitalApp.Presenters
             this.patientSearchView.DataSourceGender= gl;
         }
 
-        private void AddPatientEventHandler(object sender, EventArgs args)
+        private void AddOrUpdatePatientEventHandler(object sender, EventArgs args)
         {
             Patient tempPatient = new Patient();
             tempPatient.Lastname = this.patientSearchView.PatientDetailData.PatientData.Lastname;
@@ -109,12 +110,38 @@ namespace ClientHospitalApp.Presenters
             tempPatient.SSN = this.patientSearchView.PatientDetailData.PatientData.SSN;
             tempPatient.Gender = this.patientSearchView.PatientDetailData.PatientData.Gender;
 
-            modelPatientsToDB.ListToAddInDB.Add(tempPatient);
-            this.patientSearchView.PatientDetailData.ClearAllData();
-         
-            PatientList.Add(modelPatientsToDB.ListToAddInDB[modelPatientsToDB.ListToAddInDB.Count-1]);          
-            this.patientSearchView.DataSourcePatients = PatientList;
+            if (!EditClicked)
+            {
+                modelPatientsToDB.ListToAddInDB.Add(tempPatient);
+                this.patientSearchView.PatientDetailData.ClearAllData();
 
+                PatientList.Add(modelPatientsToDB.ListToAddInDB[modelPatientsToDB.ListToAddInDB.Count - 1]);
+               
+            }
+            else if(EditClicked)
+            {
+                if (this.patientSearchView.selectedIdPatient > 0)
+                {
+                    tempPatient.ID_Patient = this.patientSearchView.PatientDetailData.PatientData.ID_Patient;
+                    modelPatientsToDB.ListToUpdateInDB.Add(tempPatient);
+                    
+                    for (int i=0;i<PatientList.Count;i++)
+                    {
+                        if (PatientList[i].ID_Patient == tempPatient.ID_Patient)
+                        {
+                            PatientList[i] = tempPatient;
+                        }
+                    }
+                }
+                else if(this.patientSearchView.selectedIdPatient==0)
+                {
+                    //значит мы решили отредачить нового пациента(еще не внесенного в базу,те у него нет ид пока) кот нах-ся в гридвью
+
+                }
+                this.patientSearchView.PatientDetailData.ClearAllData();
+                EditClicked = false;
+            }
+            this.patientSearchView.DataSourcePatients = PatientList;
 
 
 
@@ -150,6 +177,18 @@ namespace ClientHospitalApp.Presenters
 
         private void EditPatientEventHandler(object sender, EventArgs args)
         {
+            EditClicked = true;
+            MessageBox.Show(this.patientSearchView.selectedIdPatient.ToString());
+            foreach (Patient item in PatientList)
+            {
+                if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
+                {
+                    this.patientSearchView.PatientDetailData.PatientData = item;
+                }
+            }
+
+           
+
             //int[] selectedRowHandles = this.patientSearchView.gridView1.GetSelectedRows();
             //if (selectedRowHandles.Length == 1)
             //{
@@ -159,7 +198,7 @@ namespace ClientHospitalApp.Presenters
             //    psForm.Size = new Size(340, 355);
 
             //    psForm.patientDetail1.DataSourceGender = gl;
-            //    int idPatient = Convert.ToInt32(this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[0]));
+            //int idPatient = Convert.ToInt32(this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[0]));
 
             //    foreach (Patient item in PatientList)
             //    {
@@ -168,7 +207,7 @@ namespace ClientHospitalApp.Presenters
             //            psForm.patientDetail1.PatientData = item;
             //        }
             //    }
-               
+
             //    DialogResult res = psForm.ShowDialog();
 
             //    if (res == DialogResult.OK)
