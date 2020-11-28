@@ -82,95 +82,124 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
-        public void UpdatePatient(Patient patient)
+        public void UpdatePatient(List<Patient> listPatients)
         {
             SessionFactory SF = new SessionFactory();
             SF.Init();
             SF.OpenSession();
 
             GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>(SF.GetSession());
 
-            Patient p = patientDao.Get(patient.ID_Patient);
-            p.Lastname = patient.Lastname;
-            p.Firstname = patient.Firstname;
-            p.DOB = patient.DOB;
-            p.SSN = patient.SSN;
-            p.Gender = patient.Gender;
-            patientDao.SaveOrUpdate(p);
-          
+            Gender male = genderDao.Get(1);
+            Gender female = genderDao.Get(2);
+
+            foreach (Patient item in listPatients)
+            {
+                Patient p = patientDao.Get(item.ID_Patient);
+                p.Lastname = item.Lastname;
+                p.Firstname = item.Firstname;
+                p.DOB = item.DOB;
+                p.SSN = item.SSN;
+
+                if (item.Gender.ID_Gender == male.ID_Gender)
+                {
+                    item.Gender = male;
+                }
+                else if (item.Gender.ID_Gender == female.ID_Gender)
+                {
+                    item.Gender = female;
+                }
+                patientDao.SaveOrUpdate(p);             
+            }
             SF.CloseSession();
         }
 
         [WebMethod]
-        public void DeletePatient(Patient patient)
+        public void DeletePatient(List<Patient> listPatients)
         {
             SessionFactory SF = new SessionFactory();
             SF.Init();
             SF.OpenSession();
 
-            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
-           
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());         
             RelativeDaoImpl relativeDao = new RelativeDaoImpl(SF.GetSession());
-            List<Relative> listRel = relativeDao.GetListRelativesOfPatient(patient.ID_Patient).ToList();
-
             OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
-            List<OrderOfPatient> listOrd = orderDao.GetOrdersOfPatient(patient.ID_Patient).ToList();
-
             SpecimentsInOrderDaoImpl specimentDao = new SpecimentsInOrderDaoImpl(SF.GetSession());
-            List<SpecimentsInOrder> listSpec;
-
             TestsInOrderDaoImpl testDao = new TestsInOrderDaoImpl(SF.GetSession());
+            GenericDaoImpl<Gender, int> genderDao = new GenericDaoImpl<Gender, int>(SF.GetSession());
+
+            List<Relative> listRel;          
+            List<OrderOfPatient> listOrd;          
+            List<SpecimentsInOrder> listSpec;           
             List<TestsInOrder> listTest;
 
-            if (listRel.Count == 0 && listOrd.Count == 0)
+            Gender male = genderDao.Get(1);
+            Gender female = genderDao.Get(2);
+
+            foreach (Patient patient in listPatients)
             {
-                patientDao.Delete(patient);
-            }
-            else if(listRel.Count > 0 || listOrd.Count>0)
-            {
-                if(listRel.Count > 0)
+                if (patient.Gender.ID_Gender == male.ID_Gender)
                 {
-                    foreach (Relative item in listRel)
-                    {
-                        item.Status = 0;
-                        relativeDao.SaveOrUpdate(item);
-                    }                 
+                    patient.Gender = male;
                 }
-                if(listOrd.Count > 0)
+                else if (patient.Gender.ID_Gender == female.ID_Gender)
                 {
-                    foreach (OrderOfPatient item in listOrd)
+                    patient.Gender = female;
+                }
+
+                listRel = relativeDao.GetListRelativesOfPatient(patient.ID_Patient).ToList();
+                listOrd = orderDao.GetOrdersOfPatient(patient.ID_Patient).ToList();
+
+                if (listRel.Count == 0 && listOrd.Count == 0)
+                {
+                    patientDao.Delete(patient);
+                }
+                else if (listRel.Count > 0 || listOrd.Count > 0)
+                {
+                    if (listRel.Count > 0)
                     {
-                        item.Status = 0;
-                        orderDao.SaveOrUpdate(item);
-
-                        listSpec = specimentDao.GetSpecimentsOfOrder(item.ID_Order).ToList();
-
-                        if (listSpec.Count > 0)
+                        foreach (Relative item in listRel)
                         {
-                            foreach (SpecimentsInOrder itemSpec in listSpec)
+                            item.Status = 0;
+                            relativeDao.SaveOrUpdate(item);
+                        }
+                    }
+                    if (listOrd.Count > 0)
+                    {
+                        foreach (OrderOfPatient item in listOrd)
+                        {
+                            item.Status = 0;
+                            orderDao.SaveOrUpdate(item);
+
+                            listSpec = specimentDao.GetSpecimentsOfOrder(item.ID_Order).ToList();
+
+                            if (listSpec.Count > 0)
                             {
-                                itemSpec.Status = 0;
-                                specimentDao.SaveOrUpdate(itemSpec);
-
-                                listTest = testDao.GetTestsOfSpeciment(itemSpec.ID_SpecimentOrder).ToList();
-
-                                if (listTest.Count > 0)
+                                foreach (SpecimentsInOrder itemSpec in listSpec)
                                 {
-                                    foreach (TestsInOrder itemTest in listTest)
+                                    itemSpec.Status = 0;
+                                    specimentDao.SaveOrUpdate(itemSpec);
+
+                                    listTest = testDao.GetTestsOfSpeciment(itemSpec.ID_SpecimentOrder).ToList();
+
+                                    if (listTest.Count > 0)
                                     {
-                                        itemTest.Status = 0;
-                                        testDao.SaveOrUpdate(itemTest);
+                                        foreach (TestsInOrder itemTest in listTest)
+                                        {
+                                            itemTest.Status = 0;
+                                            testDao.SaveOrUpdate(itemTest);
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+
+                    patient.Status = 0;
+                    patientDao.SaveOrUpdate(patient);
                 }
-
-                patient.Status = 0;
-                patientDao.SaveOrUpdate(patient);
             }
-
             SF.CloseSession();
         }
 

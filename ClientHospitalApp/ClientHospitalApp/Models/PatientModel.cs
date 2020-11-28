@@ -62,9 +62,7 @@ namespace ClientHospitalApp.Models
 
         public void AddPatient()
         {
-            //obj.AddPatient(Patient);
-            List<Patient> p = ListToAdd;
-            obj.AddPatient(p.ToArray());
+            obj.AddPatient(ListToAdd.ToArray());
         }
 
         public void GetAllPatients()
@@ -74,12 +72,12 @@ namespace ClientHospitalApp.Models
 
         public void UpdatePatient()
         {
-            obj.UpdatePatient(Patient);
+            obj.UpdatePatient(ListToUpdate.ToArray());
         }
 
         public void DeletePatient()
         {
-            obj.DeletePatient(Patient);
+            obj.DeletePatient(ListToDelete.ToArray());
         }
         public void GetRelativesOfPatient(int IdPatient)
         {

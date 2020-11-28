@@ -41,7 +41,7 @@ namespace ClientHospitalApp
             //    this.ErrorMessage = "Data of birth must be in format dd/mm/yyyy";
             //    return false;
             //}
-            //else if (!Regex.IsMatch(patient.SSNText, patternSSN))
+            //else if (!Regex.IsMatch(patient.SSNText, patternSSN)) + добавить поверку на уникальность SSN
             //{
             //    this.ErrorMessage = "SSN must contain 9 numbers";
             //    return false;

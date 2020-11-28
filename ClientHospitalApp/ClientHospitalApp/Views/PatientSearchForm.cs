@@ -36,6 +36,7 @@ namespace ClientHospitalApp.Views
         }
 
         public int selectedIdPatient { get; set; }
+        public int selectedSSN { get; set; }
 
         public event EventHandler LoadDataDataEvent;
         //public event EventHandler AddPatientEvent;
@@ -108,17 +109,36 @@ namespace ClientHospitalApp.Views
 
         private void edit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            int[] selectedRowHandles = this.gridView1.GetSelectedRows();
-            if (selectedRowHandles.Length == 1)
-            {              
-                selectedIdPatient = Convert.ToInt32(this.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.gridView1.Columns[0]));
-                EditPatientEvent(this, EventArgs.Empty);
-            }
+            GetSelectedIdPatient(1);
+            PatientDetailData.buttonOK.Text = "Update";
         }
 
         void delete_ButtonClick(object sender, EventArgs args)
         {
-            MessageBox.Show("The button from the " + gridView1.FocusedRowHandle + " row has been clicked!");
+            GetSelectedIdPatient(2);
+        }
+
+        private void GetSelectedIdPatient(int numberOfMethod)
+        {
+            int[] selectedRowHandles = this.gridView1.GetSelectedRows();
+            if (selectedRowHandles.Length == 1)
+            {
+                selectedIdPatient = Convert.ToInt32(this.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.gridView1.Columns[0]));
+                selectedSSN= Convert.ToInt32(this.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.gridView1.Columns[4]));
+
+                if (numberOfMethod == 1)
+                {
+                    EditPatientEvent(this, EventArgs.Empty);
+                }
+                else if(numberOfMethod==2)
+                {
+                    DeletePatientEvent(this, EventArgs.Empty);
+                }
+            }
+            else if (selectedRowHandles.Length == 0)
+            {
+                MessageBox.Show("Choose the patient");
+            }
         }
 
         private void PatientSearchForm_Load(object sender, EventArgs e)

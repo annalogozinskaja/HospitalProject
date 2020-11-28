@@ -68,7 +68,7 @@
       <s:element name="UpdatePatient">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="patient" type="tns:Patient" />
+            <s:element minOccurs="0" maxOccurs="1" name="listPatients" type="tns:ArrayOfPatient" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -78,7 +78,7 @@
       <s:element name="DeletePatient">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="patient" type="tns:Patient" />
+            <s:element minOccurs="0" maxOccurs="1" name="listPatients" type="tns:ArrayOfPatient" />
           </s:sequence>
         </s:complexType>
       </s:element>

@@ -728,14 +728,14 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddPatient", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.AddPatientResponse> AddPatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.AddPatientRequest request);
         
-        // CODEGEN: Generating message contract since element name patient from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name listPatients from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePatient", ReplyAction="*")]
         ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse UpdatePatient(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdatePatient", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse> UpdatePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest request);
         
-        // CODEGEN: Generating message contract since element name patient from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name listPatients from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeletePatient", ReplyAction="*")]
         ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse DeletePatient(ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest request);
         
@@ -999,13 +999,13 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     public partial class UpdatePatientRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient;
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient[] listPatients;
         
         public UpdatePatientRequestBody() {
         }
         
-        public UpdatePatientRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
-            this.patient = patient;
+        public UpdatePatientRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.Patient[] listPatients) {
+            this.listPatients = listPatients;
         }
     }
     
@@ -1060,13 +1060,13 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     public partial class DeletePatientRequestBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient;
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient[] listPatients;
         
         public DeletePatientRequestBody() {
         }
         
-        public DeletePatientRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
-            this.patient = patient;
+        public DeletePatientRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.Patient[] listPatients) {
+            this.listPatients = listPatients;
         }
     }
     
@@ -1581,10 +1581,10 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             return base.Channel.UpdatePatient(request);
         }
         
-        public void UpdatePatient(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+        public void UpdatePatient(ClientHospitalApp.ServiceReferenceDAOLayer.Patient[] listPatients) {
             ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequestBody();
-            inValue.Body.patient = patient;
+            inValue.Body.listPatients = listPatients;
             ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdatePatient(inValue);
         }
         
@@ -1593,10 +1593,10 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             return base.Channel.UpdatePatientAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse> UpdatePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse> UpdatePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.Patient[] listPatients) {
             ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientRequestBody();
-            inValue.Body.patient = patient;
+            inValue.Body.listPatients = listPatients;
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdatePatientAsync(inValue);
         }
         
@@ -1605,10 +1605,10 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             return base.Channel.DeletePatient(request);
         }
         
-        public void DeletePatient(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+        public void DeletePatient(ClientHospitalApp.ServiceReferenceDAOLayer.Patient[] listPatients) {
             ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequestBody();
-            inValue.Body.patient = patient;
+            inValue.Body.listPatients = listPatients;
             ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeletePatient(inValue);
         }
         
@@ -1617,10 +1617,10 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             return base.Channel.DeletePatientAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse> DeletePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse> DeletePatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.Patient[] listPatients) {
             ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientRequestBody();
-            inValue.Body.patient = patient;
+            inValue.Body.listPatients = listPatients;
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeletePatientAsync(inValue);
         }
         

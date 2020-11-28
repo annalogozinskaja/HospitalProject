@@ -97,7 +97,6 @@ namespace ClientHospitalApp.Presenters
                     gl.Add(itemP.Gender);
                 }
             }
-           // psForm.patientDetail1.DataSourceGender = gl;
             this.patientSearchView.DataSourceGender= gl;
         }
 
@@ -136,10 +135,28 @@ namespace ClientHospitalApp.Presenters
                 else if(this.patientSearchView.selectedIdPatient==0)
                 {
                     //значит мы решили отредачить нового пациента(еще не внесенного в базу,те у него нет ид пока) кот нах-ся в гридвью
+                    if(modelPatientsToDB.ListToAddInDB.Count>0)
+                    {
+                        for (int i = 0; i < modelPatientsToDB.ListToAddInDB.Count; i++)
+                        {
+                            if (modelPatientsToDB.ListToAddInDB[i].SSN == this.patientSearchView.selectedSSN)
+                            {
+                                modelPatientsToDB.ListToAddInDB[i] = tempPatient;
+                            }
+                        }
 
+                        for (int i = 0; i < PatientList.Count; i++)
+                        {
+                            if (PatientList[i].SSN == this.patientSearchView.selectedSSN)
+                            {
+                                PatientList[i] = tempPatient;
+                            }
+                        }
+                    }
                 }
                 this.patientSearchView.PatientDetailData.ClearAllData();
                 EditClicked = false;
+                this.patientSearchView.PatientDetailData.buttonOK.Text = "Add";
             }
             this.patientSearchView.DataSourcePatients = PatientList;
 
@@ -178,7 +195,7 @@ namespace ClientHospitalApp.Presenters
         private void EditPatientEventHandler(object sender, EventArgs args)
         {
             EditClicked = true;
-            MessageBox.Show(this.patientSearchView.selectedIdPatient.ToString());
+            
             foreach (Patient item in PatientList)
             {
                 if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
@@ -233,51 +250,83 @@ namespace ClientHospitalApp.Presenters
 
         private void DeletePatientEventHandler(object sender, EventArgs args)
         {
-            //int[] selectedRowHandles = this.patientSearchView.gridView1.GetSelectedRows();
-            //if (selectedRowHandles.Length == 1)
-            //{
-            //    DialogResult res = MessageBox.Show("Delete " + 
-            //            this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[1]) +
-            //            " " + this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[2]) + 
-            //            "?", "Deleting patient", MessageBoxButtons.YesNo);
+            if (this.patientSearchView.selectedIdPatient > 0)
+            {
+                Patient p = new Patient();
+                foreach (Patient item in PatientList)
+                {
+                    if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
+                    {
+                        p = item;
+                    }
+                }
 
-            //    if (res == DialogResult.Yes)
-            //    {
-            //        try
-            //        {
-            //            int idPatient = Convert.ToInt32(this.patientSearchView.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.patientSearchView.gridView1.Columns[0]));
+                DialogResult res = MessageBox.Show("Delete " + p.Lastname + " " + p.Firstname +
+                                   "?", "Deleting patient", MessageBoxButtons.YesNo);
 
-            //            foreach (Patient item in PatientList)
-            //            {
-            //                if (item.ID_Patient == idPatient)
-            //                {
-            //                    patientModel.Patient = item;
-            //                }
-            //            }
-            //            DeletePatientInModel();
-            //            RefreshData();
-            //        }
-            //        catch (Exception s)
-            //        {
-            //            Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-            //        }
-            //    }
-            //}
-            //else if (selectedRowHandles.Length == 0)
-            //{
-            //    MessageBox.Show("Choose the patient");
-            //}
+                if (res == DialogResult.Yes)
+                {
+                    try
+                    {
+                        modelPatientsToDB.ListToDeleteInDB.Add(p);
+                        PatientList.Remove(p);
+                        this.patientSearchView.DataSourcePatients = PatientList;
+                    }
+                    catch (Exception s)
+                    {
+                        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
+                    }
+                }
+            }
+            else if(this.patientSearchView.selectedIdPatient == 0)  //значит мы решили удалить нового пациента,который добавлен в гридвью но еще не в базу
+            {
+                for (int i = 0; i < modelPatientsToDB.ListToAddInDB.Count; i++)
+                {
+                    if (modelPatientsToDB.ListToAddInDB[i].SSN == this.patientSearchView.selectedSSN)
+                    {
+                        modelPatientsToDB.ListToAddInDB.Remove(modelPatientsToDB.ListToAddInDB[i]);
+                    }
+                }
+
+                for (int i = 0; i < PatientList.Count; i++)
+                {
+                    if (PatientList[i].SSN == this.patientSearchView.selectedSSN)
+                    {
+                        PatientList.Remove(PatientList[i]);
+                    }
+                }
+                this.patientSearchView.DataSourcePatients = PatientList;
+            }
         }
 
-        private void SaveDataEventHandler(object sender, EventArgs args)
+
+    private void SaveDataEventHandler(object sender, EventArgs args)
         {
            if(modelPatientsToDB.ListToAddInDB.Count>0)
-            {
+           {
                 patientModel.ListToAdd = modelPatientsToDB.ListToAddInDB;
                 patientModel.AddPatient();
                 modelPatientsToDB.ListToAddInDB.Clear();
 
                 MessageBox.Show("Data saved");
+           }
+
+            if (modelPatientsToDB.ListToUpdateInDB.Count > 0)
+            {
+                patientModel.ListToUpdate = modelPatientsToDB.ListToUpdateInDB;
+                patientModel.UpdatePatient();
+                modelPatientsToDB.ListToUpdateInDB.Clear();
+
+                MessageBox.Show("Data updated");
+            }
+
+            if (modelPatientsToDB.ListToDeleteInDB.Count > 0)
+            {
+                patientModel.ListToDelete = modelPatientsToDB.ListToDeleteInDB;
+                patientModel.DeletePatient();
+                modelPatientsToDB.ListToDeleteInDB.Clear();
+
+                MessageBox.Show("Data deleted");
             }
         }
 
