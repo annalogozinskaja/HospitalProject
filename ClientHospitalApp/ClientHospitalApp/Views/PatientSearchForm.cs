@@ -77,7 +77,7 @@ namespace ClientHospitalApp.Views
             this.gridView1.Columns[2].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[3].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[4].OptionsColumn.AllowEdit = false;
-            //this.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
+            this.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
 
             this.gridView1.Columns[1].BestFit();
             this.gridView1.Columns[5].BestFit();
@@ -118,6 +118,11 @@ namespace ClientHospitalApp.Views
             GetSelectedIdPatient(2);
         }
 
+        void gridView1_DoubleClick(object sender, EventArgs args)
+        {
+            GetSelectedIdPatient(3);
+        }
+
         private void GetSelectedIdPatient(int numberOfMethod)
         {
             int[] selectedRowHandles = this.gridView1.GetSelectedRows();
@@ -133,6 +138,10 @@ namespace ClientHospitalApp.Views
                 else if(numberOfMethod==2)
                 {
                     DeletePatientEvent(this, EventArgs.Empty);
+                }
+                else if (numberOfMethod == 3)
+                {
+                    ShowPatientDataEvent(this, EventArgs.Empty);
                 }
             }
             else if (selectedRowHandles.Length == 0)

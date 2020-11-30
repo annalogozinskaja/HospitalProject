@@ -11,7 +11,7 @@ using ClientHospitalApp.Views;
 
 namespace ClientHospitalApp.Views
 {
-    public partial class PatientSearchExtendForm : Form
+    public partial class PatientSearchExtendForm :PatientDetail
     {
         public PatientSearchExtendForm()
         {

@@ -54,8 +54,8 @@ namespace ClientHospitalApp
 
         Patient getPatientData()
         {
-            try
-            {
+          //  try
+           // {
                 if (textEditIdPatient.Text != "")
                 {
                     patientData.ID_Patient = Convert.ToInt32(textEditIdPatient.Text);
@@ -63,11 +63,13 @@ namespace ClientHospitalApp
                 patientData.Lastname = textEditLnm.Text;
                 patientData.Firstname = textEditFnm.Text;
                 patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
-                patientData.SSN = Int32.Parse(textEditSSN.Text);
+                int ssn = -1;
+                Int32.TryParse(textEditSSN.Text,out ssn);
+                patientData.SSN = ssn;
                 patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
 
-            }
-            catch (Exception e) { }
+          //  }
+            //catch (Exception e) { }
 
             return patientData;
         }
@@ -85,12 +87,13 @@ namespace ClientHospitalApp
 
         public void ClearAllData()
         {
-            patientData.ID_Patient = -1;
-            patientData.Lastname = "";
-            patientData.Firstname = "";
-            patientData.DOB = new DateTime();
-            patientData.SSN = -1;
-            patientData.Gender = new Gender();
+            /*   patientData.ID_Patient = -1;
+               patientData.Lastname = "";
+               patientData.Firstname = "";
+               patientData.DOB = new DateTime();
+               patientData.SSN = -1;
+               patientData.Gender = new Gender();*/
+            patientData = new Patient();
 
             textEditIdPatient.Text = "";
             textEditLnm.Text = "";
@@ -122,6 +125,11 @@ namespace ClientHospitalApp
         private void buttonOK_Click(object sender, EventArgs e)
         {
             AddOrUpdatePatientEvent(this, EventArgs.Empty);
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            ClearAllData();
         }
     }
 }

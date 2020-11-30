@@ -53,11 +53,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 269);
+            this.ClientSize = new System.Drawing.Size(779, 306);
             this.Controls.Add(this.gridControl1);
             this.Name = "PatientSearchExtendForm";
             this.Text = "PatientSearchExtendForm";
-            this.Controls.SetChildIndex(this.gridControl1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
