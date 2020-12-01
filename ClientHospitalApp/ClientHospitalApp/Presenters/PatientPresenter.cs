@@ -21,6 +21,7 @@ namespace ClientHospitalApp.Presenters
     public class PatientPresenter
     {
         private IPatientModel patientModel;
+        private IGenderModel genderModel;
         IPatientSearchForm patientSearchView;
         public List<Patient> PatientList 
         { 
@@ -28,18 +29,20 @@ namespace ClientHospitalApp.Presenters
             set { patientModel.List=value; }
         }
         MainForm mainForm;
-        private PatientSearchForm psForm;
-        public List<Gender> gl;
+       // public List<Gender> gl;
         private GenericModelImpl<Patient> modelPatientsToDB;
         bool EditClicked = false;
 
-        public PatientPresenter(IPatientSearchForm patientSearchView, IPatientModel model)
+        public PatientPresenter(IPatientSearchForm patientSearchView, IPatientModel model,IGenderModel modelGender)
         {
             this.patientSearchView = patientSearchView;
             this.patientModel = model;
-            this.gl = new List<Gender>();
+            this.genderModel = modelGender;
+            //this.gl = new List<Gender>();
             this.modelPatientsToDB = new GenericModelImpl<Patient>();
             this.mainForm = ((PatientSearchForm)(patientSearchView)).MdiParent as MainForm;
+            genderModel.GetGender();
+            this.patientSearchView.DataSourceGender=genderModel.ListGender;
 
             this.patientSearchView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
             this.patientSearchView.PatientDetailData.AddOrUpdatePatientEvent += AddOrUpdatePatientEventHandler;
@@ -59,7 +62,6 @@ namespace ClientHospitalApp.Presenters
         private void GetAllPatientsFromModelEventHandler(object sender, EventArgs args)
         {
             GetAllPatientsFromModel();
-            GetGender();
         }
 
         public void GetAllPatientsFromModel()
@@ -107,6 +109,7 @@ namespace ClientHospitalApp.Presenters
         private void AddOrUpdatePatientEventHandler(object sender, EventArgs args)
         {
             Patient tempPatient = this.patientSearchView.PatientDetailData.PatientData;
+            MessageBox.Show(this.patientSearchView.PatientDetailData.PatientData.Gender.ToString());
 
             if (!EditClicked)
             {

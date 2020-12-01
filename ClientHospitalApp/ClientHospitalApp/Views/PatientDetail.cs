@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClientHospitalApp.ServiceReferenceDAOLayer;
 using ClientHospitalApp.Views;
+using ClientHospitalApp.ClientEntities;
 
 namespace ClientHospitalApp
 {
@@ -20,10 +21,10 @@ namespace ClientHospitalApp
             get { return getPatientData(); }
             set { setPatientData(value); }
         }
-        public List<Gender> GenderDataSource
+        public List<GenderClient> GenderDataSource
         {
             set { lookUpEditGender.Properties.DataSource = value; }
-            get { return (List<Gender>)lookUpEditGender.Properties.DataSource; }
+            get { return (List<GenderClient>)lookUpEditGender.Properties.DataSource; }
         }
         public event EventHandler AddOrUpdatePatientEvent;
 
@@ -46,7 +47,7 @@ namespace ClientHospitalApp
                     textEditFnm.Text = patientData.Firstname;
                     dateEditDOB.Text = Convert.ToString(patientData.DOB);
                     textEditSSN.Text = patientData.SSN.ToString();
-                    lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
+                    lookUpEditGender.EditValue = patientData.Gender;
                 }              
             }
             catch(Exception e) {}
@@ -54,35 +55,32 @@ namespace ClientHospitalApp
 
         Patient getPatientData()
         {
-          //  try
-           // {
                 if (textEditIdPatient.Text != "")
                 {
                     patientData.ID_Patient = Convert.ToInt32(textEditIdPatient.Text);
                 }
                 patientData.Lastname = textEditLnm.Text;
                 patientData.Firstname = textEditFnm.Text;
-                patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
+                //patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
                 int ssn = -1;
                 Int32.TryParse(textEditSSN.Text,out ssn);
                 patientData.SSN = ssn;
-                patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
+            //patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
+            //patientData.Gender = (Gender)lookUpEditGender.EditValue;
+                patientData.Gender = (Gender)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
 
-          //  }
-            //catch (Exception e) { }
-
-            return patientData;
+                return patientData;
         }
 
 
         private void FillLookUpEditGender()
         {
-            lookUpEditGender.Properties.DisplayMember = "GenderName";
-            lookUpEditGender.Properties.ValueMember = "ID_Gender";
+            lookUpEditGender.Properties.DisplayMember = "GenderClient";
+            lookUpEditGender.Properties.ValueMember = "GenderClient";
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
-            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
+            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderClient", "GenderClient", 100);
             lookUpEditGender.Properties.Columns.Add(col);
-            lookUpEditGender.Properties.NullText = "--choose gender--";
+            //lookUpEditGender.Properties.NullText = "--choose gender--";
         }
 
         public void ClearAllData()

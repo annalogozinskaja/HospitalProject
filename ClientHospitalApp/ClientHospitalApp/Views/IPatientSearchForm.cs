@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace ClientHospitalApp.Views
     public interface IPatientSearchForm
     {
         List<Patient> DataSourcePatients { get; set; }
-        List<Gender> DataSourceGender { get; set; }
+        List<GenderClient> DataSourceGender { get; set; }
         int selectedIdPatient { get; set; }
         int selectedSSN { get; set; }
         PatientDetail PatientDetailData { get; set; }

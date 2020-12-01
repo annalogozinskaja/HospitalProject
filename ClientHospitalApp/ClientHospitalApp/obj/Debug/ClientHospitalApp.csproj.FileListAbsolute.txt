@@ -248,3 +248,5 @@ C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\o
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.exe
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.pdb
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.csprojAssemblyReference.cache
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\AutoMapper.dll
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\bin\Debug\AutoMapper.xml

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClientHospitalApp.ClientEntities;
 using ClientHospitalApp.ServiceReferenceDAOLayer;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
@@ -17,11 +18,6 @@ namespace ClientHospitalApp.Views
     //[PatientValidation]
     public partial class PatientSearchForm : Form,IPatientSearchForm
     {
-    //    public PatientDetail patientDetailData
-    //    {
-    //        set { gridControl1.DataSource = value; }
-    //        get { return patientDetailData; }
-    //    }
         public List<Patient> DataSourcePatients
         {
             set { gridControl1.DataSource = value;
@@ -29,10 +25,10 @@ namespace ClientHospitalApp.Views
             }
             get { return (List<Patient>)gridControl1.DataSource; }
         }
-        public List<Gender> DataSourceGender
+        public List<GenderClient> DataSourceGender
         {
             set { patientDetailData.GenderDataSource = value; }
-            get { return (List<Gender>)patientDetailData.GenderDataSource; }
+            get { return (List<GenderClient>)patientDetailData.GenderDataSource; }
         }
 
         public int selectedIdPatient { get; set; }
@@ -44,7 +40,7 @@ namespace ClientHospitalApp.Views
         public event EventHandler DeletePatientEvent;
         public event EventHandler ShowPatientDataEvent;
         public event EventHandler ShowOrdersEvent;
-        //Patient dataPatient;
+       
         public PatientDetail PatientDetailData
         {
             set { patientDetailData = value; }
@@ -53,8 +49,6 @@ namespace ClientHospitalApp.Views
         public PatientSearchForm()
         {
             InitializeComponent();
-            //this.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
-            //dataPatient = new Patient();
         }
 
         private void CreateGridControl()
@@ -156,17 +150,6 @@ namespace ClientHospitalApp.Views
             CreateGridControl();
         }
 
-        //void setPatientData()
-        //{
-        //    dataPatient = patientDetail1.PatientData;
-        //    //dataPatient = patientData;
-        //}
-
-        //Patient getPatientData()
-        //{
-        //    patientDetail1.PatientData = dataPatient;
-        //    return dataPatient;
-        //}
 
     }
 }

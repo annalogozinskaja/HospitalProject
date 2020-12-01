@@ -25,9 +25,8 @@ namespace ClientHospitalApp
         {
             PatientSearchForm patientSearchForm = new PatientSearchForm();
             patientSearchForm.MdiParent = this;
-            PatientPresenter patientPresenter = new PatientPresenter(patientSearchForm, new PatientModel());
-
-           
+            PatientPresenter patientPresenter = new PatientPresenter(patientSearchForm, new PatientModel(),new GenderModel());
+          
             patientSearchForm.Show();
         }
 
