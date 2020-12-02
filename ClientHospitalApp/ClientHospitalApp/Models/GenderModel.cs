@@ -28,8 +28,8 @@ namespace ClientHospitalApp.Models
 
         public void GetGender()
         {
-            //ListGender = obj.GetDataGender().ToList();
-            
+            List<Gender> lg = new List<Gender>();
+            lg= obj.GetDataGender().ToList();
 
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
@@ -37,13 +37,13 @@ namespace ClientHospitalApp.Models
             });
 
             IMapper iMapper = config.CreateMapper();
-            GenderClient newObjMale = iMapper.Map<Gender, GenderClient>(obj.GetDataGender().ToList()[0]);
-            GenderClient newObjFemale = iMapper.Map<Gender, GenderClient>(obj.GetDataGender().ToList()[1]);
-
-            ListGender.Add(newObjMale);
-            ListGender.Add(newObjFemale);
+            foreach (Gender item in lg)
+            {
+                GenderClient newGender = iMapper.Map<Gender, GenderClient>(item);
+                ListGender.Add(newGender);
+            }
+            
         }
-
-
+       
     }
 }

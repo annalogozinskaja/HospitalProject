@@ -56,7 +56,7 @@
             this.patientDetail1.GenderDataSource = null;
             this.patientDetail1.Location = new System.Drawing.Point(2, 2);
             this.patientDetail1.Name = "patientDetail1";
-            this.patientDetail1.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetail1.PatientData")));
+            //this.patientDetail1.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetail1.PatientData")));
             this.patientDetail1.Size = new System.Drawing.Size(283, 307);
             this.patientDetail1.TabIndex = 0;
             // 
@@ -76,7 +76,7 @@
             this.patientDetailData.GenderDataSource = null;
             this.patientDetailData.Location = new System.Drawing.Point(12, 12);
             this.patientDetailData.Name = "patientDetailData";
-            this.patientDetailData.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetailData.PatientData")));
+            //this.patientDetailData.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetailData.PatientData")));
             this.patientDetailData.Size = new System.Drawing.Size(363, 410);
             this.patientDetailData.TabIndex = 5;
             // 

@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ClientHospitalApp.Views
 {
     public interface IPatientView
     {
-        Patient PatientData {get; set;}
+        PatientClient PatientData {get; set;}
         event EventHandler AddOrUpdatePatientEvent;
         void ClearAllData();
     }

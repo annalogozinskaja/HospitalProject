@@ -15,6 +15,7 @@ using DevExpress.Utils;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Columns;
 using ClientHospitalApp.Reports;
+using ClientHospitalApp.ClientEntities;
 
 namespace ClientHospitalApp.Presenters
 {
@@ -23,14 +24,14 @@ namespace ClientHospitalApp.Presenters
         private IPatientModel patientModel;
         private IGenderModel genderModel;
         IPatientSearchForm patientSearchView;
-        public List<Patient> PatientList 
+        public List<PatientClient> PatientList 
         { 
             get { return patientModel.List; }
             set { patientModel.List=value; }
         }
         MainForm mainForm;
        // public List<Gender> gl;
-        private GenericModelImpl<Patient> modelPatientsToDB;
+        private GenericModelImpl<PatientClient> modelPatientsToDB;
         bool EditClicked = false;
 
         public PatientPresenter(IPatientSearchForm patientSearchView, IPatientModel model,IGenderModel modelGender)
@@ -39,10 +40,12 @@ namespace ClientHospitalApp.Presenters
             this.patientModel = model;
             this.genderModel = modelGender;
             //this.gl = new List<Gender>();
-            this.modelPatientsToDB = new GenericModelImpl<Patient>();
+            this.modelPatientsToDB = new GenericModelImpl<PatientClient>();
             this.mainForm = ((PatientSearchForm)(patientSearchView)).MdiParent as MainForm;
             genderModel.GetGender();
-            this.patientSearchView.DataSourceGender=genderModel.ListGender;
+            //this.patientSearchView.DataSourceGender = genderModel.ListGender;
+            RecordsGender recordsGender = new RecordsGender(genderModel.ListGender);
+            this.patientSearchView.DataSourceGender = recordsGender.GenderList;
 
             this.patientSearchView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
             this.patientSearchView.PatientDetailData.AddOrUpdatePatientEvent += AddOrUpdatePatientEventHandler;
@@ -108,7 +111,7 @@ namespace ClientHospitalApp.Presenters
 
         private void AddOrUpdatePatientEventHandler(object sender, EventArgs args)
         {
-            Patient tempPatient = this.patientSearchView.PatientDetailData.PatientData;
+            PatientClient tempPatient = this.patientSearchView.PatientDetailData.PatientData;
             MessageBox.Show(this.patientSearchView.PatientDetailData.PatientData.Gender.ToString());
 
             if (!EditClicked)
@@ -168,7 +171,7 @@ namespace ClientHospitalApp.Presenters
         {
             EditClicked = true;
             
-            foreach (Patient item in PatientList)
+            foreach (PatientClient item in PatientList)
             {
                 if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
                 {
@@ -181,8 +184,8 @@ namespace ClientHospitalApp.Presenters
         {
             if (this.patientSearchView.selectedIdPatient > 0)
             {
-                Patient p = new Patient();
-                foreach (Patient item in PatientList)
+                PatientClient p = new PatientClient();
+                foreach (PatientClient item in PatientList)
                 {
                     if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
                     {
@@ -265,7 +268,7 @@ namespace ClientHospitalApp.Presenters
             pdiForm.Text= "Detailed data of patient";
 
             //MessageBox.Show(this.patientSearchView.selectedIdPatient.ToString());
-            foreach (Patient item in PatientList)
+            foreach (PatientClient item in PatientList)
             {
                 if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
                 {

@@ -15,8 +15,8 @@ namespace ClientHospitalApp
 {
     public partial class PatientDetail : UserControl,IPatientView
     {
-        Patient patientData;
-        public Patient PatientData
+        PatientClient patientData;
+        public PatientClient PatientData
         {
             get { return getPatientData(); }
             set { setPatientData(value); }
@@ -32,11 +32,11 @@ namespace ClientHospitalApp
         public PatientDetail()
         {
             InitializeComponent();
-            patientData = new Patient();
+            patientData = new PatientClient();
             FillLookUpEditGender();
         }
      
-        void setPatientData(Patient patientData)
+        void setPatientData(PatientClient patientData)
         {
             try
             {
@@ -47,13 +47,13 @@ namespace ClientHospitalApp
                     textEditFnm.Text = patientData.Firstname;
                     dateEditDOB.Text = Convert.ToString(patientData.DOB);
                     textEditSSN.Text = patientData.SSN.ToString();
-                    lookUpEditGender.EditValue = patientData.Gender;
+                    lookUpEditGender.EditValue = patientData.GenderClient;
                 }              
             }
             catch(Exception e) {}
         }
 
-        Patient getPatientData()
+        PatientClient getPatientData()
         {
                 if (textEditIdPatient.Text != "")
                 {
@@ -66,8 +66,8 @@ namespace ClientHospitalApp
                 Int32.TryParse(textEditSSN.Text,out ssn);
                 patientData.SSN = ssn;
             //patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
-            //patientData.Gender = (Gender)lookUpEditGender.EditValue;
-                patientData.Gender = (Gender)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
+            //patientData.GenderClient = (GenderClient)lookUpEditGender.EditValue;
+                patientData.GenderClient = (GenderClient)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
 
                 return patientData;
         }
@@ -75,10 +75,10 @@ namespace ClientHospitalApp
 
         private void FillLookUpEditGender()
         {
-            lookUpEditGender.Properties.DisplayMember = "GenderClient";
-            lookUpEditGender.Properties.ValueMember = "GenderClient";
+            lookUpEditGender.Properties.DisplayMember = "GenderList";
+            lookUpEditGender.Properties.ValueMember = "GenderList";
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
-            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderClient", "GenderClient", 100);
+            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderList", "GenderList", 100);
             lookUpEditGender.Properties.Columns.Add(col);
             //lookUpEditGender.Properties.NullText = "--choose gender--";
         }
@@ -91,7 +91,7 @@ namespace ClientHospitalApp
                patientData.DOB = new DateTime();
                patientData.SSN = -1;
                patientData.Gender = new Gender();*/
-            patientData = new Patient();
+            patientData = new PatientClient();
 
             textEditIdPatient.Text = "";
             textEditLnm.Text = "";
@@ -122,7 +122,9 @@ namespace ClientHospitalApp
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            AddOrUpdatePatientEvent(this, EventArgs.Empty);
+           // AddOrUpdatePatientEvent(this, EventArgs.Empty);
+            MessageBox.Show(patientData.GenderClient.GenderName+" "+ patientData.GenderClient.ID_Gender+".");
+            MessageBox.Show(lookUpEditGender.EditValue.ToString());
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

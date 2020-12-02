@@ -37,7 +37,7 @@
             this.patientSearchExtendForm1.GenderDataSource = null;
             this.patientSearchExtendForm1.Location = new System.Drawing.Point(12, 12);
             this.patientSearchExtendForm1.Name = "patientSearchExtendForm1";
-            this.patientSearchExtendForm1.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientSearchExtendForm1.PatientData")));
+           // this.patientSearchExtendForm1.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientSearchExtendForm1.PatientData")));
             this.patientSearchExtendForm1.Size = new System.Drawing.Size(779, 306);
             this.patientSearchExtendForm1.TabIndex = 0;
             // 

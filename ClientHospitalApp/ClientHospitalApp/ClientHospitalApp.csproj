@@ -164,6 +164,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClientEntities\GenderClient.cs" />
+    <Compile Include="ClientEntities\PatientClient.cs" />
+    <Compile Include="ClientEntities\RecordsGender.cs" />
     <Compile Include="Connected Services\ServiceReferenceDAOLayer\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

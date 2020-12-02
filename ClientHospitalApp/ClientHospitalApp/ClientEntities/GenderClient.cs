@@ -14,6 +14,7 @@ namespace ClientHospitalApp.ClientEntities
         public override string ToString()
         {
             return GenderName.ToString();
-        }
+        }      
     }
+    
 }

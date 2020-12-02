@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System.Collections.Generic;
 
 namespace ClientHospitalApp.Models
@@ -12,12 +13,12 @@ namespace ClientHospitalApp.Models
         void DeletePatient();
         void GetRelativesOfPatient(int IdPatient);
 
-        Patient Patient { get; set; }
-        List<Patient> List { get; set; }
+        PatientClient Patient { get; set; }
+        List<PatientClient> List { get; set; }
         List<Relative> ListRelative { get; set; }
-        List<Patient> ListToAdd { get; set; }
-        List<Patient> ListToUpdate { get; set; }
-        List<Patient> ListToDelete { get; set; }
+        List<PatientClient> ListToAdd { get; set; }
+        List<PatientClient> ListToUpdate { get; set; }
+        List<PatientClient> ListToDelete { get; set; }
 
     }
 }
