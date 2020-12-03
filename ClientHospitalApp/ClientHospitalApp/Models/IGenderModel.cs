@@ -10,7 +10,7 @@ namespace ClientHospitalApp.Models
 {
     public interface IGenderModel
     {
-        List<GenderClient> ListGender { get; set; }
+        List<Gender> ListGender { get; set; }
         void GetGender();
     }
 }

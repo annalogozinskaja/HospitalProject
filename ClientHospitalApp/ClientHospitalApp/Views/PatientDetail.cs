@@ -21,10 +21,10 @@ namespace ClientHospitalApp
             get { return getPatientData(); }
             set { setPatientData(value); }
         }
-        public List<GenderClient> GenderDataSource
+        public List<Gender> GenderDataSource
         {
             set { lookUpEditGender.Properties.DataSource = value; }
-            get { return (List<GenderClient>)lookUpEditGender.Properties.DataSource; }
+            get { return (List<Gender>)lookUpEditGender.Properties.DataSource; }
         }
         public event EventHandler AddOrUpdatePatientEvent;
 
@@ -47,10 +47,13 @@ namespace ClientHospitalApp
                     textEditFnm.Text = patientData.Firstname;
                     dateEditDOB.Text = Convert.ToString(patientData.DOB);
                     textEditSSN.Text = patientData.SSN.ToString();
-                    lookUpEditGender.EditValue = patientData.GenderClient;
+                    lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
                 }              
             }
-            catch(Exception e) {}
+            catch(Exception e) 
+            {
+                MessageBox.Show("Patient is null");
+            }
         }
 
         PatientClient getPatientData()
@@ -61,36 +64,30 @@ namespace ClientHospitalApp
                 }
                 patientData.Lastname = textEditLnm.Text;
                 patientData.Firstname = textEditFnm.Text;
-                //patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
                 int ssn = -1;
                 Int32.TryParse(textEditSSN.Text,out ssn);
                 patientData.SSN = ssn;
-            //patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
-            //patientData.GenderClient = (GenderClient)lookUpEditGender.EditValue;
-                patientData.GenderClient = (GenderClient)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
+                patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
+                //patientData.GenderClient = (GenderClient)lookUpEditGender.EditValue;
+                //patientData.Gender = (Gender)lookUpEditGender.EditValue;
+                //patientData.GenderClient = (GenderClient)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
 
-                return patientData;
+            return patientData;
         }
 
 
         private void FillLookUpEditGender()
         {
-            lookUpEditGender.Properties.DisplayMember = "GenderList";
-            lookUpEditGender.Properties.ValueMember = "GenderList";
+            lookUpEditGender.Properties.DisplayMember = "GenderName";
+            lookUpEditGender.Properties.ValueMember = "ID_Gender";
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
-            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderList", "GenderList", 100);
+            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
             lookUpEditGender.Properties.Columns.Add(col);
             //lookUpEditGender.Properties.NullText = "--choose gender--";
         }
 
         public void ClearAllData()
         {
-            /*   patientData.ID_Patient = -1;
-               patientData.Lastname = "";
-               patientData.Firstname = "";
-               patientData.DOB = new DateTime();
-               patientData.SSN = -1;
-               patientData.Gender = new Gender();*/
             patientData = new PatientClient();
 
             textEditIdPatient.Text = "";
@@ -123,7 +120,7 @@ namespace ClientHospitalApp
         private void buttonOK_Click(object sender, EventArgs e)
         {
            // AddOrUpdatePatientEvent(this, EventArgs.Empty);
-            MessageBox.Show(patientData.GenderClient.GenderName+" "+ patientData.GenderClient.ID_Gender+".");
+            MessageBox.Show(patientData.Gender.GenderName+" "+ patientData.Gender.ID_Gender+".");
             MessageBox.Show(lookUpEditGender.EditValue.ToString());
         }
 

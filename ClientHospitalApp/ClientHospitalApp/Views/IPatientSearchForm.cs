@@ -12,7 +12,7 @@ namespace ClientHospitalApp.Views
     public interface IPatientSearchForm
     {
         List<PatientClient> DataSourcePatients { get; set; }
-        List<GenderClient> DataSourceGender { get; set; }
+        List<Gender> DataSourceGender { get; set; }
         int selectedIdPatient { get; set; }
         int selectedSSN { get; set; }
         PatientDetail PatientDetailData { get; set; }

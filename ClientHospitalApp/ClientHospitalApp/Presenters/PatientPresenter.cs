@@ -30,7 +30,6 @@ namespace ClientHospitalApp.Presenters
             set { patientModel.List=value; }
         }
         MainForm mainForm;
-       // public List<Gender> gl;
         private GenericModelImpl<PatientClient> modelPatientsToDB;
         bool EditClicked = false;
 
@@ -39,13 +38,13 @@ namespace ClientHospitalApp.Presenters
             this.patientSearchView = patientSearchView;
             this.patientModel = model;
             this.genderModel = modelGender;
-            //this.gl = new List<Gender>();
+            
             this.modelPatientsToDB = new GenericModelImpl<PatientClient>();
             this.mainForm = ((PatientSearchForm)(patientSearchView)).MdiParent as MainForm;
             genderModel.GetGender();
-            //this.patientSearchView.DataSourceGender = genderModel.ListGender;
-            RecordsGender recordsGender = new RecordsGender(genderModel.ListGender);
-            this.patientSearchView.DataSourceGender = recordsGender.GenderList;
+            this.patientSearchView.DataSourceGender = genderModel.ListGender;
+            //RecordsGender recordsGender = new RecordsGender(genderModel.ListGender);
+            //this.patientSearchView.DataSourceGender = recordsGender.GenderList;
 
             this.patientSearchView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
             this.patientSearchView.PatientDetailData.AddOrUpdatePatientEvent += AddOrUpdatePatientEventHandler;

@@ -16,24 +16,6 @@ namespace ClientHospitalApp.ClientEntities
         public DateTime DOB { get; set; }
         public int SSN { get; set; }
         public Gender Gender { get; set; }
-        private GenderClient genderClient;
-        public GenderClient GenderClient 
-        {
-            get { return genderClient; } 
-            set 
-            {
-                MapperConfiguration config = new MapperConfiguration(cfg =>
-                {
-                    cfg.CreateMap<Gender, GenderClient>();
-                });
-
-                IMapper iMapper = config.CreateMapper();
-
-                genderClient = iMapper.Map<Gender, GenderClient>(Gender);
-                   
-                
-            } 
-        }
        
         public PatientClient()
         {
@@ -43,7 +25,6 @@ namespace ClientHospitalApp.ClientEntities
             this.DOB = new DateTime();
             this.SSN = -1;
             Gender = new Gender();
-            GenderClient = new GenderClient();
            
         }
 

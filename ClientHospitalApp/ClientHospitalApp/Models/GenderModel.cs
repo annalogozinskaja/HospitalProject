@@ -11,10 +11,10 @@ namespace ClientHospitalApp.Models
 {
     public class GenderModel: IGenderModel
     {
-        private List<GenderClient> listGender;
+        private List<Gender> listGender;
         private WebServiceHospitalSoapClient obj;
        
-        public List<GenderClient> ListGender
+        public List<Gender> ListGender
         {
             get => listGender;
             set => listGender = value;
@@ -22,27 +22,13 @@ namespace ClientHospitalApp.Models
        
         public GenderModel()
         {
-            ListGender = new List<GenderClient>();
+            ListGender = new List<Gender>();
             obj = new WebServiceHospitalSoapClient();
         }
 
         public void GetGender()
         {
-            List<Gender> lg = new List<Gender>();
-            lg= obj.GetDataGender().ToList();
-
-            MapperConfiguration config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Gender, GenderClient>();
-            });
-
-            IMapper iMapper = config.CreateMapper();
-            foreach (Gender item in lg)
-            {
-                GenderClient newGender = iMapper.Map<Gender, GenderClient>(item);
-                ListGender.Add(newGender);
-            }
-            
+            ListGender = obj.GetDataGender().ToList();
         }
        
     }

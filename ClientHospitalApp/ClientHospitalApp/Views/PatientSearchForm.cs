@@ -25,10 +25,10 @@ namespace ClientHospitalApp.Views
             }
             get { return (List<PatientClient>)gridControl1.DataSource; }
         }
-        public List<GenderClient> DataSourceGender
+        public List<Gender> DataSourceGender
         {
             set { patientDetailData.GenderDataSource = value; }
-            get { return (List<GenderClient>)patientDetailData.GenderDataSource; }
+            get { return (List<Gender>)patientDetailData.GenderDataSource; }
         }
 
         public int selectedIdPatient { get; set; }
