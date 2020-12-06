@@ -16,7 +16,13 @@ namespace ClientHospitalApp.ClientEntities
         public DateTime DOB { get; set; }
         public int SSN { get; set; }
         public Gender Gender { get; set; }
-       
+
+        private List<Relative> relativeList { get; set; }
+        public List<Relative> RelativeList
+        {
+            get { return relativeList; }
+            set { relativeList = value; }
+        }
         public PatientClient()
         {
             this.ID_Patient = -1;
@@ -25,7 +31,9 @@ namespace ClientHospitalApp.ClientEntities
             this.DOB = new DateTime();
             this.SSN = -1;
             Gender = new Gender();
-           
+            relativeList = new List<Relative>();
+
+
         }
 
     }

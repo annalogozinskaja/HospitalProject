@@ -749,7 +749,7 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataGender", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderResponse> GetDataGenderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataGenderRequest request);
         
-        // CODEGEN: Generating message contract since element name GetRelativesOfPatientResult from namespace http://tempuri.org/ is not marked nillable
+        // CODEGEN: Generating message contract since element name patient from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetRelativesOfPatient", ReplyAction="*")]
         ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse GetRelativesOfPatient(ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest request);
         
@@ -1181,14 +1181,14 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class GetRelativesOfPatientRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int IdPatient;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient;
         
         public GetRelativesOfPatientRequestBody() {
         }
         
-        public GetRelativesOfPatientRequestBody(int IdPatient) {
-            this.IdPatient = IdPatient;
+        public GetRelativesOfPatientRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
+            this.patient = patient;
         }
     }
     
@@ -1652,10 +1652,10 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             return base.Channel.GetRelativesOfPatient(request);
         }
         
-        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetRelativesOfPatient(int IdPatient) {
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Relative[] GetRelativesOfPatient(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
             ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequestBody();
-            inValue.Body.IdPatient = IdPatient;
+            inValue.Body.patient = patient;
             ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetRelativesOfPatient(inValue);
             return retVal.Body.GetRelativesOfPatientResult;
         }
@@ -1665,10 +1665,10 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             return base.Channel.GetRelativesOfPatientAsync(request);
         }
         
-        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse> GetRelativesOfPatientAsync(int IdPatient) {
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse> GetRelativesOfPatientAsync(ClientHospitalApp.ServiceReferenceDAOLayer.Patient patient) {
             ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientRequestBody();
-            inValue.Body.IdPatient = IdPatient;
+            inValue.Body.patient = patient;
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetRelativesOfPatientAsync(inValue);
         }
         

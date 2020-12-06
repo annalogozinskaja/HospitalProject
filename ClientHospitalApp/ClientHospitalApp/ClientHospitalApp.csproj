@@ -176,6 +176,7 @@
     <Compile Include="Views\GenericModelImpl.cs" />
     <Compile Include="Views\IGenericModel.cs" />
     <Compile Include="Views\IListOfPatientsForm.cs" />
+    <Compile Include="Views\IPatientSearchExtendForm.cs" />
     <Compile Include="Views\IPatientSearchForm.cs" />
     <Compile Include="Views\ListOfPatientsForm.cs">
       <SubType>Form</SubType>

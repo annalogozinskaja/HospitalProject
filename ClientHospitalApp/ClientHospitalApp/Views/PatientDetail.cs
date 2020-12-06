@@ -48,11 +48,21 @@ namespace ClientHospitalApp
                     dateEditDOB.Text = Convert.ToString(patientData.DOB);
                     textEditSSN.Text = patientData.SSN.ToString();
                     lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
-                }              
+                }
+                else
+                {
+                   
+                }
             }
             catch(Exception e) 
-            {
-                MessageBox.Show("Patient is null");
+            {             
+                patientData.ID_Patient = -1;
+                patientData.Lastname = string.Empty;
+                patientData.Firstname = string.Empty;
+                patientData.DOB = new DateTime();
+                patientData.SSN = -1;
+                patientData.Gender = new Gender();
+                patientData.RelativeList = new List<Relative>();
             }
         }
 

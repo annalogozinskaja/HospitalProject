@@ -14,6 +14,7 @@ namespace ClientHospitalApp.Views
         List<PatientClient> DataSourcePatients { get; set; }
         List<Gender> DataSourceGender { get; set; }
         int selectedIdPatient { get; set; }
+        PatientClient selectedPatient { get; set; }
         int selectedSSN { get; set; }
         PatientDetail PatientDetailData { get; set; }
 

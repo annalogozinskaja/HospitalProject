@@ -81,33 +81,6 @@ namespace ClientHospitalApp.Presenters
             this.patientSearchView.DataSourcePatients = PatientList;
         }
 
-
-        private void GetGender()
-        {
-            //Get data from Gender model. try to use custom lookup. 
-        }
-        /*    private void GetGender()
-            {
-                bool flag = false;
-
-                foreach (Patient itemP in PatientList)
-                {
-                    flag = false;
-                    foreach (Gender itemG in gl)
-                    {
-                        if (itemG.GenderName == itemP.Gender.GenderName)
-                        {
-                            flag = true;
-                        }
-                    }
-                    if (!flag)
-                    {
-                        gl.Add(itemP.Gender);
-                    }
-                }
-                this.patientSearchView.DataSourceGender= gl;
-            }*/
-
         private void AddOrUpdatePatientEventHandler(object sender, EventArgs args)
         {
             PatientClient tempPatient = this.patientSearchView.PatientDetailData.PatientData;
@@ -266,16 +239,23 @@ namespace ClientHospitalApp.Presenters
             PatientDataInfoForm pdiForm = new PatientDataInfoForm();
             pdiForm.Text= "Detailed data of patient";
 
-            //MessageBox.Show(this.patientSearchView.selectedIdPatient.ToString());
-            foreach (PatientClient item in PatientList)
-            {
-                if (item.ID_Patient == this.patientSearchView.selectedIdPatient)
-                {
-                    //pdiForm.patientDetail1.PatientData = item;
-                }
-            }
+            pdiForm.patientSearchExtendForm1.PatientData = this.patientSearchView.selectedPatient;
+            pdiForm.patientSearchExtendForm1.GenderDataSource = genderModel.ListGender;
 
-            //pdiForm.patientDetail1.DataSourceGender = gl;
+            GetRelativesOfPatientFromModel(this.patientSearchView.selectedPatient);
+            pdiForm.patientSearchExtendForm1.RelativeDataSource = patientModel.Patient.RelativeList;
+
+            GridView gridViewRelatives = pdiForm.patientSearchExtendForm1.gridControl1.MainView as GridView;
+            gridViewRelatives.OptionsView.ShowViewCaption = true;
+            gridViewRelatives.ViewCaption = "Relatives";
+            gridViewRelatives.Columns["ID_Relative"].Visible = false;
+            gridViewRelatives.Columns["ID_Patient"].Visible = false;
+            gridViewRelatives.Columns["ID_Gender"].Visible = false;
+            gridViewRelatives.Columns["Status"].Visible = false;
+
+            pdiForm.patientSearchExtendForm1.buttonCancel.Hide();
+            pdiForm.patientSearchExtendForm1.buttonOK.Hide();
+
             DialogResult res =pdiForm.ShowDialog();
 
             //PatientSearchForm psForm = new PatientSearchForm();
@@ -338,9 +318,9 @@ namespace ClientHospitalApp.Presenters
             patientModel.DeletePatient();
         }
 
-        private void GetRelativesOfPatientFromModel(int IdPatient)
+        private void GetRelativesOfPatientFromModel(PatientClient ptnt)
         {
-            patientModel.GetRelativesOfPatient(IdPatient);
+            patientModel.GetRelativesOfPatient(ptnt);
         }
 
         private void ShowOrdersEventHandler(object sender, EventArgs args)

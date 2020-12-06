@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ClientHospitalApp.ClientEntities.PatientClient patientClient1 = new ClientHospitalApp.ClientEntities.PatientClient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientDataInfoForm));
             this.patientSearchExtendForm1 = new ClientHospitalApp.Views.PatientSearchExtendForm();
             this.SuspendLayout();
@@ -37,7 +38,14 @@
             this.patientSearchExtendForm1.GenderDataSource = null;
             this.patientSearchExtendForm1.Location = new System.Drawing.Point(12, 12);
             this.patientSearchExtendForm1.Name = "patientSearchExtendForm1";
-           // this.patientSearchExtendForm1.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientSearchExtendForm1.PatientData")));
+            patientClient1.DOB = new System.DateTime(((long)(0)));
+            patientClient1.Firstname = "";
+            patientClient1.Gender = ((ClientHospitalApp.ServiceReferenceDAOLayer.Gender)(resources.GetObject("patientClient1.Gender")));
+            patientClient1.ID_Patient = -1;
+            patientClient1.Lastname = "";
+            patientClient1.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient1.RelativeList")));
+            patientClient1.SSN = 0;
+            this.patientSearchExtendForm1.PatientData = patientClient1;
             this.patientSearchExtendForm1.Size = new System.Drawing.Size(779, 306);
             this.patientSearchExtendForm1.TabIndex = 0;
             // 
@@ -55,6 +63,6 @@
 
         #endregion
 
-        private PatientSearchExtendForm patientSearchExtendForm1;
+        public PatientSearchExtendForm patientSearchExtendForm1;
     }
 }

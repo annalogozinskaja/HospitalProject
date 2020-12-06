@@ -11,11 +11,10 @@ namespace ClientHospitalApp.Models
         void AddPatient();
         void UpdatePatient();
         void DeletePatient();
-        void GetRelativesOfPatient(int IdPatient);
+        void GetRelativesOfPatient(PatientClient ptnt);
 
         PatientClient Patient { get; set; }
         List<PatientClient> List { get; set; }
-        List<Relative> ListRelative { get; set; }
         List<PatientClient> ListToAdd { get; set; }
         List<PatientClient> ListToUpdate { get; set; }
         List<PatientClient> ListToDelete { get; set; }

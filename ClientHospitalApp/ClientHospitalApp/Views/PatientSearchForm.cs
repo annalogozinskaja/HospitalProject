@@ -32,6 +32,7 @@ namespace ClientHospitalApp.Views
         }
 
         public int selectedIdPatient { get; set; }
+        public PatientClient selectedPatient { get; set; }
         public int selectedSSN { get; set; }
 
         public event EventHandler LoadDataDataEvent;
@@ -60,7 +61,6 @@ namespace ClientHospitalApp.Views
 
             this.gridView1.Columns[0].Visible = false;
             this.gridView1.Columns[5].Visible = false;
-            this.gridView1.Columns[6].Visible = false;
 
             this.gridView1.Columns[1].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             this.gridView1.OptionsView.ShowGroupedColumns = true;
@@ -125,11 +125,21 @@ namespace ClientHospitalApp.Views
                 selectedIdPatient = Convert.ToInt32(this.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.gridView1.Columns[0]));
                 selectedSSN= Convert.ToInt32(this.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.gridView1.Columns[4]));
 
+                PatientClient patient = gridView1.GetRow(selectedRowHandles[0]) as PatientClient;
+                if (patient == null)
+                {
+                    MessageBox.Show("Selected patient is null");
+                }
+                else
+                {
+                    selectedPatient = patient;
+                }
+
                 if (numberOfMethod == 1)
                 {
                     EditPatientEvent(this, EventArgs.Empty);
                 }
-                else if(numberOfMethod==2)
+                else if (numberOfMethod == 2)
                 {
                     DeletePatientEvent(this, EventArgs.Empty);
                 }
