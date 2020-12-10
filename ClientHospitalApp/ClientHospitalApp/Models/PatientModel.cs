@@ -48,6 +48,9 @@ namespace ClientHospitalApp.Models
             Patient = new PatientClient();
             List = new List<PatientClient>();
             obj = new WebServiceHospitalSoapClient();
+            ListToAdd = new List<PatientClient>();
+            ListToUpdate = new List<PatientClient>();
+            ListToDelete = new List<PatientClient>();
         }
         public PatientClient ConvertPatientToPatientClient(Patient patient)
         {
@@ -78,6 +81,37 @@ namespace ClientHospitalApp.Models
             return List;
         }
 
+        public Patient ConvertPatientClientToPatient(PatientClient patient)
+        {
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<PatientClient, Patient>();
+            });
+
+            IMapper iMapper = config.CreateMapper();
+            Patient newPatient = iMapper.Map<PatientClient, Patient>(patient);
+
+            return newPatient;
+        }
+        public List<Patient> ConvertPatientClientToPatient(List<PatientClient> patientList)
+        {
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<PatientClient, Patient>();
+            });
+
+            IMapper iMapper = config.CreateMapper();
+
+            List<Patient> listPatients = new List<Patient>();
+            foreach (PatientClient item in patientList)
+            {
+                Patient newPatient = iMapper.Map<PatientClient, Patient>(item);
+                listPatients.Add(newPatient);
+            }
+
+            return listPatients;         
+        }
+
         public void GetPatient(int IdPatient)
         {
             Patient p = new Patient();
@@ -88,7 +122,7 @@ namespace ClientHospitalApp.Models
 
         public void AddPatient()
         {
-            //obj.AddPatient(ListToAdd.ToArray());
+            obj.AddPatient(ConvertPatientClientToPatient(ListToAdd).ToArray());
         }
 
         public void GetAllPatients()
@@ -114,18 +148,33 @@ namespace ClientHospitalApp.Models
             patient.RelativeList= obj.GetRelativesOfPatient(temp).ToList();
         }
 
-        public Patient ConvertPatientClientToPatient(PatientClient p)
+       public string SaveDataOfPatient()
         {
-            MapperConfiguration config = new MapperConfiguration(cfg =>
+            String result = "";
+            if (ListToAdd.Count > 0)
+            {            
+                AddPatient();
+                ListToAdd.Clear();
+                result="Data saved";
+            }
+
+            if (ListToUpdate.Count > 0)
             {
-                cfg.CreateMap<PatientClient, Patient>();
-            });
+                UpdatePatient();
+                ListToUpdate.Clear();
+                result = "Data updated";
+            }
 
-            IMapper iMapper = config.CreateMapper();
-            Patient newPatient = iMapper.Map<PatientClient, Patient>(p);
-
-            return newPatient;
+            if (ListToDelete.Count > 0)
+            {
+                DeletePatient();
+                ListToDelete.Clear();
+                result = "Data deleted";
+            }
+            return result;
         }
+
+
 
     }
 }

@@ -129,9 +129,9 @@ namespace ClientHospitalApp
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-           // AddOrUpdatePatientEvent(this, EventArgs.Empty);
-            MessageBox.Show(patientData.Gender.GenderName+" "+ patientData.Gender.ID_Gender+".");
-            MessageBox.Show(lookUpEditGender.EditValue.ToString());
+            AddOrUpdatePatientEvent(this, EventArgs.Empty);
+           // MessageBox.Show(patientData.Gender.GenderName+" "+ patientData.Gender.ID_Gender+".");
+           // MessageBox.Show(lookUpEditGender.EditValue.ToString());
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

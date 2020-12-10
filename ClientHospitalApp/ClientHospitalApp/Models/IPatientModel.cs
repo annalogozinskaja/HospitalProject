@@ -12,6 +12,7 @@ namespace ClientHospitalApp.Models
         void UpdatePatient();
         void DeletePatient();
         void GetRelativesOfPatient(PatientClient ptnt);
+        string SaveDataOfPatient();
 
         PatientClient Patient { get; set; }
         List<PatientClient> List { get; set; }
