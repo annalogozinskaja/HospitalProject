@@ -135,12 +135,12 @@ namespace ClientHospitalApp.Models
 
         public void UpdatePatient()
         {
-            //obj.UpdatePatient(ListToUpdate.ToArray());
+            obj.UpdatePatient(ConvertPatientClientToPatient(ListToUpdate).ToArray());
         }
 
         public void DeletePatient()
         {
-            //obj.DeletePatient(ListToDelete.ToArray());
+            obj.DeletePatient(ConvertPatientClientToPatient(ListToDelete).ToArray());
         }
         public void GetRelativesOfPatient(PatientClient ptnt)
         {
@@ -148,30 +148,25 @@ namespace ClientHospitalApp.Models
             patient.RelativeList= obj.GetRelativesOfPatient(temp).ToList();
         }
 
-       public string SaveDataOfPatient()
+       public void SaveDataOfPatient()
         {
-            String result = "";
             if (ListToAdd.Count > 0)
             {            
                 AddPatient();
                 ListToAdd.Clear();
-                result="Data saved";
             }
 
             if (ListToUpdate.Count > 0)
             {
                 UpdatePatient();
                 ListToUpdate.Clear();
-                result = "Data updated";
             }
 
             if (ListToDelete.Count > 0)
             {
                 DeletePatient();
                 ListToDelete.Clear();
-                result = "Data deleted";
             }
-            return result;
         }
 
 

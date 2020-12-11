@@ -49,10 +49,6 @@ namespace ClientHospitalApp
                     textEditSSN.Text = patientData.SSN.ToString();
                     lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
                 }
-                else
-                {
-                   
-                }
             }
             catch(Exception e) 
             {             
@@ -74,6 +70,7 @@ namespace ClientHospitalApp
                 }
                 patientData.Lastname = textEditLnm.Text;
                 patientData.Firstname = textEditFnm.Text;
+                patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
                 int ssn = -1;
                 Int32.TryParse(textEditSSN.Text,out ssn);
                 patientData.SSN = ssn;
@@ -93,7 +90,7 @@ namespace ClientHospitalApp
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
             col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
             lookUpEditGender.Properties.Columns.Add(col);
-            //lookUpEditGender.Properties.NullText = "--choose gender--";
+            lookUpEditGender.Properties.NullText = "--choose gender--";
         }
 
         public void ClearAllData()
@@ -130,8 +127,6 @@ namespace ClientHospitalApp
         private void buttonOK_Click(object sender, EventArgs e)
         {
             AddOrUpdatePatientEvent(this, EventArgs.Empty);
-           // MessageBox.Show(patientData.Gender.GenderName+" "+ patientData.Gender.ID_Gender+".");
-           // MessageBox.Show(lookUpEditGender.EditValue.ToString());
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

@@ -30,13 +30,10 @@ namespace ClientHospitalApp.Views
             set { patientDetailData.GenderDataSource = value; }
             get { return (List<Gender>)patientDetailData.GenderDataSource; }
         }
-
-        public int selectedIdPatient { get; set; }
+    
         public PatientClient selectedPatient { get; set; }
-        public int selectedSSN { get; set; }
 
         public event EventHandler LoadDataDataEvent;
-        //public event EventHandler AddPatientEvent;
         public event EventHandler EditPatientEvent;
         public event EventHandler DeletePatientEvent;
         public event EventHandler ShowPatientDataEvent;
@@ -103,28 +100,25 @@ namespace ClientHospitalApp.Views
 
         private void edit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
-            GetSelectedIdPatient(1);
+            GetSelectedPatient(1);
             PatientDetailData.buttonOK.Text = "Update";
         }
 
         void delete_ButtonClick(object sender, EventArgs args)
         {
-            GetSelectedIdPatient(2);
+            GetSelectedPatient(2);
         }
 
         void gridView1_DoubleClick(object sender, EventArgs args)
         {
-            GetSelectedIdPatient(3);
+            GetSelectedPatient(3);
         }
 
-        private void GetSelectedIdPatient(int numberOfMethod)
+        private void GetSelectedPatient(int numberOfMethod)
         {
             int[] selectedRowHandles = this.gridView1.GetSelectedRows();
             if (selectedRowHandles.Length == 1)
             {
-                selectedIdPatient = Convert.ToInt32(this.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.gridView1.Columns[0]));
-                selectedSSN= Convert.ToInt32(this.gridView1.GetRowCellDisplayText(selectedRowHandles[0], this.gridView1.Columns[4]));
-
                 PatientClient patient = gridView1.GetRow(selectedRowHandles[0]) as PatientClient;
                 if (patient == null)
                 {
