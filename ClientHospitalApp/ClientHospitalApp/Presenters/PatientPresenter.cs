@@ -37,11 +37,10 @@ namespace ClientHospitalApp.Presenters
             this.patientSearchView = patientSearchView;
             this.patientModel = model;
             this.genderModel = modelGender;
+            //:(
             this.mainForm = ((PatientSearchForm)(patientSearchView)).MdiParent as MainForm;
             genderModel.GetGender();
             this.patientSearchView.DataSourceGender = genderModel.ListGender;
-            //RecordsGender recordsGender = new RecordsGender(genderModel.ListGender);
-            //this.patientSearchView.DataSourceGender = recordsGender.GenderList;
 
             this.patientSearchView.LoadDataDataEvent += GetAllPatientsFromModelEventHandler;
             this.patientSearchView.PatientDetailData.AddOrUpdatePatientEvent += AddOrUpdatePatientEventHandler;
@@ -195,29 +194,32 @@ namespace ClientHospitalApp.Presenters
             MessageBox.Show("Data saved");
         }
 
-        private void ShowPatientDataEventHandler(object sender, EventArgs args)
+        private void ShowPatientDataEventHandler(object sender, PatientDataInfoEventArgs args)
         {
-            PatientDataInfoForm pdiForm = new PatientDataInfoForm();
-            pdiForm.Text= "Detailed data of patient";
 
-            pdiForm.patientSearchExtendForm1.PatientData = this.patientSearchView.selectedPatient;
-            pdiForm.patientSearchExtendForm1.GenderDataSource = genderModel.ListGender;
+            //прямое обращение из презентера к контролам формы и их методам
+            //презентер связан с класом формы - нужно развязать интерфейсом (как вариант расширить EventArgs и передать форму через них)
+            //PatientDataInfoForm pdiForm = new PatientDataInfoForm();
+            //pdiForm.Text= "Detailed data of patient";
 
-            GetRelativesOfPatientFromModel(this.patientSearchView.selectedPatient);
-            pdiForm.patientSearchExtendForm1.RelativeDataSource = patientModel.Patient.RelativeList;
+            //pdiForm.patientSearchExtendForm1.PatientData = this.patientSearchView.selectedPatient;
+            //pdiForm.patientSearchExtendForm1.GenderDataSource = genderModel.ListGender;
 
-            GridView gridViewRelatives = pdiForm.patientSearchExtendForm1.gridControl1.MainView as GridView;
-            gridViewRelatives.OptionsView.ShowViewCaption = true;
-            gridViewRelatives.ViewCaption = "Relatives";
-            gridViewRelatives.Columns["ID_Relative"].Visible = false;
-            gridViewRelatives.Columns["ID_Patient"].Visible = false;
-            gridViewRelatives.Columns["ID_Gender"].Visible = false;
-            gridViewRelatives.Columns["Status"].Visible = false;
+            //GetRelativesOfPatientFromModel(this.patientSearchView.selectedPatient);
+            //pdiForm.patientSearchExtendForm1.RelativeDataSource = patientModel.Patient.RelativeList;
+            //// :(
+            //GridView gridViewRelatives = pdiForm.patientSearchExtendForm1.gridControl1.MainView as GridView;
+            //gridViewRelatives.OptionsView.ShowViewCaption = true;
+            //gridViewRelatives.ViewCaption = "Relatives";
+            //gridViewRelatives.Columns["ID_Relative"].Visible = false;
+            //gridViewRelatives.Columns["ID_Patient"].Visible = false;
+            //gridViewRelatives.Columns["ID_Gender"].Visible = false;
+            //gridViewRelatives.Columns["Status"].Visible = false;
 
-            pdiForm.patientSearchExtendForm1.buttonCancel.Hide();
-            pdiForm.patientSearchExtendForm1.buttonOK.Hide();
+            //pdiForm.patientSearchExtendForm1.buttonCancel.Hide();
+            //pdiForm.patientSearchExtendForm1.buttonOK.Hide();
 
-            DialogResult res =pdiForm.ShowDialog();
+            //DialogResult res =pdiForm.ShowDialog();
         }
 
 
@@ -246,7 +248,7 @@ namespace ClientHospitalApp.Presenters
 
         public void DeletePatientInModel()
         {
-            patientModel.DeletePatient();
+            //patientModel.DeletePatient();
         }
 
         private void GetRelativesOfPatientFromModel(PatientClient ptnt)

@@ -38,8 +38,8 @@ namespace ClientHospitalApp
      
         void setPatientData(PatientClient patientData)
         {
-            try
-            {
+        //    try
+        //    {
                 if (patientData != null)
                 { 
                     textEditIdPatient.Text = Convert.ToString(patientData.ID_Patient);
@@ -49,17 +49,17 @@ namespace ClientHospitalApp
                     textEditSSN.Text = patientData.SSN.ToString();
                     lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
                 }
-            }
-            catch(Exception e) 
-            {             
-                patientData.ID_Patient = -1;
-                patientData.Lastname = string.Empty;
-                patientData.Firstname = string.Empty;
-                patientData.DOB = new DateTime();
-                patientData.SSN = -1;
-                patientData.Gender = new Gender();
-                patientData.RelativeList = new List<Relative>();
-            }
+       //     }
+       //     catch(Exception e) 
+        //    {             
+        //        patientData.ID_Patient = -1;
+        //        patientData.Lastname = string.Empty;
+        //        patientData.Firstname = string.Empty;
+        //        patientData.DOB = new DateTime();
+       //         patientData.SSN = -1;
+        //        patientData.Gender = new Gender();
+        //        patientData.RelativeList = new List<Relative>();
+       //     }
         }
 
         PatientClient getPatientData()
@@ -74,9 +74,9 @@ namespace ClientHospitalApp
                 int ssn = -1;
                 Int32.TryParse(textEditSSN.Text,out ssn);
                 patientData.SSN = ssn;
-                patientData.Gender = new Gender { ID_Gender = Convert.ToInt32(lookUpEditGender.EditValue), GenderName = lookUpEditGender.Text };
+                patientData.Gender = (Gender)lookUpEditGender.GetSelectedDataRow() ;
                 //patientData.GenderClient = (GenderClient)lookUpEditGender.EditValue;
-                //patientData.Gender = (Gender)lookUpEditGender.EditValue;
+                //patientData.Gender = lookUpEditGender.EditValue as Gender;
                 //patientData.GenderClient = (GenderClient)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
 
             return patientData;

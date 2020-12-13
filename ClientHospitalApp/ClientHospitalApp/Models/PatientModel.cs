@@ -3,6 +3,7 @@ using ClientHospitalApp.ClientEntities;
 using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,8 @@ namespace ClientHospitalApp.Models
             set => listToDelete = value;
         }
 
+        IPatientModel patientModel;
+
         public PatientModel()
         {
             Patient = new PatientClient();
@@ -51,8 +54,10 @@ namespace ClientHospitalApp.Models
             ListToAdd = new List<PatientClient>();
             ListToUpdate = new List<PatientClient>();
             ListToDelete = new List<PatientClient>();
+            patientModel = this;
+            
         }
-        public PatientClient ConvertPatientToPatientClient(Patient patient)
+        private PatientClient ConvertPatientToPatientClient(Patient patient)
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
@@ -65,7 +70,7 @@ namespace ClientHospitalApp.Models
             return newPatient;            
         }
 
-        public List <PatientClient> ConvertPatientToPatientClient(List<Patient> patientList)
+        private List <PatientClient> ConvertPatientToPatientClient(List<Patient> patientList)
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
@@ -81,7 +86,7 @@ namespace ClientHospitalApp.Models
             return List;
         }
 
-        public Patient ConvertPatientClientToPatient(PatientClient patient)
+        private Patient ConvertPatientClientToPatient(PatientClient patient)
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
@@ -93,7 +98,7 @@ namespace ClientHospitalApp.Models
 
             return newPatient;
         }
-        public List<Patient> ConvertPatientClientToPatient(List<PatientClient> patientList)
+        private List<Patient> ConvertPatientClientToPatient(List<PatientClient> patientList)
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
             {
@@ -120,7 +125,7 @@ namespace ClientHospitalApp.Models
             Patient=ConvertPatientToPatientClient(p);
         }
 
-        public void AddPatient()
+        void IPatientModel.AddPatient()
         {
             obj.AddPatient(ConvertPatientClientToPatient(ListToAdd).ToArray());
         }
@@ -133,12 +138,12 @@ namespace ClientHospitalApp.Models
             List = ConvertPatientToPatientClient(lp);
         }
 
-        public void UpdatePatient()
+         void IPatientModel.UpdatePatient()
         {
             obj.UpdatePatient(ConvertPatientClientToPatient(ListToUpdate).ToArray());
         }
 
-        public void DeletePatient()
+        void IPatientModel.DeletePatient()
         {
             obj.DeletePatient(ConvertPatientClientToPatient(ListToDelete).ToArray());
         }
@@ -151,20 +156,20 @@ namespace ClientHospitalApp.Models
        public void SaveDataOfPatient()
         {
             if (ListToAdd.Count > 0)
-            {            
-                AddPatient();
+            {
+                patientModel.AddPatient();
                 ListToAdd.Clear();
             }
 
             if (ListToUpdate.Count > 0)
             {
-                UpdatePatient();
+                patientModel.UpdatePatient();
                 ListToUpdate.Clear();
             }
 
             if (ListToDelete.Count > 0)
             {
-                DeletePatient();
+                patientModel.DeletePatient();
                 ListToDelete.Clear();
             }
         }

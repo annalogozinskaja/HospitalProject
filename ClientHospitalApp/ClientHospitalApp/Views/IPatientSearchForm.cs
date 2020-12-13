@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ClientHospitalApp.Views.PatientSearchForm;
 
 namespace ClientHospitalApp.Views
 {
@@ -19,7 +20,7 @@ namespace ClientHospitalApp.Views
         event EventHandler DeletePatientEvent;
         event EventHandler EditPatientEvent;
         event EventHandler LoadDataDataEvent;
-        event EventHandler ShowPatientDataEvent;
+        event PatientSearchFormHandler ShowPatientDataEvent;
         event EventHandler ShowOrdersEvent;
     }
 }

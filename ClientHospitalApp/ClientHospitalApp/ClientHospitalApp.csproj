@@ -165,7 +165,6 @@
   <ItemGroup>
     <Compile Include="ClientEntities\GenderClient.cs" />
     <Compile Include="ClientEntities\PatientClient.cs" />
-    <Compile Include="ClientEntities\RecordsGender.cs" />
     <Compile Include="Connected Services\ServiceReferenceDAOLayer\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,9 +172,11 @@
     </Compile>
     <Compile Include="Models\GenderModel.cs" />
     <Compile Include="Models\IGenderModel.cs" />
+    <Compile Include="PatientDataInfoEventArgs.cs" />
     <Compile Include="Views\GenericModelImpl.cs" />
     <Compile Include="Views\IGenericModel.cs" />
     <Compile Include="Views\IListOfPatientsForm.cs" />
+    <Compile Include="Views\IPatientDataInfoForm.cs" />
     <Compile Include="Views\IPatientSearchExtendForm.cs" />
     <Compile Include="Views\IPatientSearchForm.cs" />
     <Compile Include="Views\ListOfPatientsForm.cs">

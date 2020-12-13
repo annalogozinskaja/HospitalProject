@@ -36,7 +36,8 @@ namespace ClientHospitalApp.Views
         public event EventHandler LoadDataDataEvent;
         public event EventHandler EditPatientEvent;
         public event EventHandler DeletePatientEvent;
-        public event EventHandler ShowPatientDataEvent;
+        public delegate void PatientSearchFormHandler(object sender, PatientDataInfoEventArgs e);
+        public event PatientSearchFormHandler ShowPatientDataEvent;
         public event EventHandler ShowOrdersEvent;
        
         public PatientDetail PatientDetailData
@@ -139,7 +140,8 @@ namespace ClientHospitalApp.Views
                 }
                 else if (numberOfMethod == 3)
                 {
-                    ShowPatientDataEvent(this, EventArgs.Empty);
+                    PatientDataInfoForm pdiForm = new PatientDataInfoForm();
+                    ShowPatientDataEvent(this, new PatientDataInfoEventArgs(pdiForm));
                 }
             }
             else if (selectedRowHandles.Length == 0)

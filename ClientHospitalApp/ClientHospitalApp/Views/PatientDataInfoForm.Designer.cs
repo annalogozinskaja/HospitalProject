@@ -40,7 +40,7 @@
             this.patientSearchExtendForm1.Name = "patientSearchExtendForm1";
             patientClient1.DOB = new System.DateTime(((long)(0)));
             patientClient1.Firstname = "";
-            patientClient1.Gender = ((ClientHospitalApp.ServiceReferenceDAOLayer.Gender)(resources.GetObject("patientClient1.Gender")));
+            patientClient1.Gender = new ServiceReferenceDAOLayer.Gender();
             patientClient1.ID_Patient = -1;
             patientClient1.Lastname = "";
             patientClient1.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient1.RelativeList")));
