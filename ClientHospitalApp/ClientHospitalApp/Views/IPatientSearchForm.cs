@@ -20,6 +20,7 @@ namespace ClientHospitalApp.Views
         event EventHandler DeletePatientEvent;
         event EventHandler EditPatientEvent;
         event EventHandler LoadDataDataEvent;
+        event EventHandler SaveDataToModelEvent;
         event PatientSearchFormHandler ShowPatientDataEvent;
         event EventHandler ShowOrdersEvent;
     }

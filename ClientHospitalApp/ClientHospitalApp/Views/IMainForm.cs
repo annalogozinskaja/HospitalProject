@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.Views
 {
-    public interface IPatientDataInfoForm
+    public interface IMainForm
     {
-        PatientSearchExtendForm patientSearchExtendForm { get; set; }
-        void ApplyOptionsForGridViewRelatives();
+        event EventHandler SaveDataEvent;
     }
 }

@@ -36,16 +36,17 @@
             // patientSearchExtendForm1
             // 
             this.patientSearchExtendForm1.GenderDataSource = null;
-            this.patientSearchExtendForm1.Location = new System.Drawing.Point(12, 12);
+            this.patientSearchExtendForm1.Location = new System.Drawing.Point(1, 12);
             this.patientSearchExtendForm1.Name = "patientSearchExtendForm1";
             patientClient1.DOB = new System.DateTime(((long)(0)));
             patientClient1.Firstname = "";
-            patientClient1.Gender = new ServiceReferenceDAOLayer.Gender();
+            patientClient1.Gender = null;
             patientClient1.ID_Patient = -1;
             patientClient1.Lastname = "";
             patientClient1.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient1.RelativeList")));
             patientClient1.SSN = 0;
             this.patientSearchExtendForm1.PatientData = patientClient1;
+            this.patientSearchExtendForm1.RelativeDataSource = null;
             this.patientSearchExtendForm1.Size = new System.Drawing.Size(779, 306);
             this.patientSearchExtendForm1.TabIndex = 0;
             // 
@@ -63,6 +64,6 @@
 
         #endregion
 
-        public PatientSearchExtendForm patientSearchExtendForm1;
+        private PatientSearchExtendForm patientSearchExtendForm1;
     }
 }

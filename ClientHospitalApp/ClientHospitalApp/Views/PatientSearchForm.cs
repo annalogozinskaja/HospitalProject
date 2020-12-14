@@ -30,12 +30,13 @@ namespace ClientHospitalApp.Views
             set { patientDetailData.GenderDataSource = value; }
             get { return (List<Gender>)patientDetailData.GenderDataSource; }
         }
-    
+        MainForm mainForm;
         public PatientClient selectedPatient { get; set; }
 
         public event EventHandler LoadDataDataEvent;
         public event EventHandler EditPatientEvent;
         public event EventHandler DeletePatientEvent;
+        public event EventHandler SaveDataToModelEvent;
         public delegate void PatientSearchFormHandler(object sender, PatientDataInfoEventArgs e);
         public event PatientSearchFormHandler ShowPatientDataEvent;
         public event EventHandler ShowOrdersEvent;
@@ -98,6 +99,10 @@ namespace ClientHospitalApp.Views
             delete.Buttons[0].ImageOptions.Image = ClientHospitalApp.Properties.Resources.cancel_16x16;
             this.gridView1.Columns["Delete"].ColumnEdit = delete;
         }
+        private void SaveDataEventHandler(object sender, EventArgs args)
+        {
+            SaveDataToModelEvent(this, EventArgs.Empty);
+        }
 
         private void edit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
@@ -142,6 +147,7 @@ namespace ClientHospitalApp.Views
                 {
                     PatientDataInfoForm pdiForm = new PatientDataInfoForm();
                     ShowPatientDataEvent(this, new PatientDataInfoEventArgs(pdiForm));
+                    DialogResult res = pdiForm.ShowDialog();
                 }
             }
             else if (selectedRowHandles.Length == 0)
@@ -153,6 +159,8 @@ namespace ClientHospitalApp.Views
         private void PatientSearchForm_Load(object sender, EventArgs e)
         {
             LoadDataDataEvent(this, EventArgs.Empty);
+            this.mainForm = ((PatientSearchForm)(this)).MdiParent as MainForm;
+            this.mainForm.SaveDataEvent += SaveDataEventHandler;
             CreateGridControl();
         }
 

@@ -38,46 +38,40 @@ namespace ClientHospitalApp
      
         void setPatientData(PatientClient patientData)
         {
-        //    try
-        //    {
-                if (patientData != null)
-                { 
-                    textEditIdPatient.Text = Convert.ToString(patientData.ID_Patient);
-                    textEditLnm.Text = patientData.Lastname;
-                    textEditFnm.Text = patientData.Firstname;
-                    dateEditDOB.Text = Convert.ToString(patientData.DOB);
-                    textEditSSN.Text = patientData.SSN.ToString();
+            if (patientData != null)
+            {
+                textEditIdPatient.Text = Convert.ToString(patientData.ID_Patient);
+                textEditLnm.Text = patientData.Lastname;
+                textEditFnm.Text = patientData.Firstname;
+                dateEditDOB.Text = Convert.ToString(patientData.DOB);
+                textEditSSN.Text = patientData.SSN.ToString();
+
+                if (patientData.Gender != null)
+                {
                     lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
                 }
-       //     }
-       //     catch(Exception e) 
-        //    {             
-        //        patientData.ID_Patient = -1;
-        //        patientData.Lastname = string.Empty;
-        //        patientData.Firstname = string.Empty;
-        //        patientData.DOB = new DateTime();
-       //         patientData.SSN = -1;
-        //        patientData.Gender = new Gender();
-        //        patientData.RelativeList = new List<Relative>();
-       //     }
+
+                }
         }
 
         PatientClient getPatientData()
         {
-                if (textEditIdPatient.Text != "")
-                {
-                    patientData.ID_Patient = Convert.ToInt32(textEditIdPatient.Text);
-                }
-                patientData.Lastname = textEditLnm.Text;
-                patientData.Firstname = textEditFnm.Text;
-                patientData.DOB = Convert.ToDateTime(dateEditDOB.Text);
-                int ssn = -1;
-                Int32.TryParse(textEditSSN.Text,out ssn);
-                patientData.SSN = ssn;
-                patientData.Gender = (Gender)lookUpEditGender.GetSelectedDataRow() ;
-                //patientData.GenderClient = (GenderClient)lookUpEditGender.EditValue;
-                //patientData.Gender = lookUpEditGender.EditValue as Gender;
-                //patientData.GenderClient = (GenderClient)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
+            if (textEditIdPatient.Text != "")
+            {
+                patientData.ID_Patient = Convert.ToInt32(textEditIdPatient.Text);
+            }
+            patientData.Lastname = textEditLnm.Text;
+            patientData.Firstname = textEditFnm.Text;
+            DateTime dob = new DateTime();
+            DateTime.TryParse(dateEditDOB.Text,out dob);
+            patientData.DOB = dob;
+            int ssn = -1;
+            Int32.TryParse(textEditSSN.Text,out ssn);
+            patientData.SSN = ssn;
+            patientData.Gender = (Gender)lookUpEditGender.GetSelectedDataRow() ;
+            //patientData.GenderClient = (GenderClient)lookUpEditGender.EditValue;
+            //patientData.Gender = lookUpEditGender.EditValue as Gender;
+            //patientData.GenderClient = (GenderClient)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
 
             return patientData;
         }

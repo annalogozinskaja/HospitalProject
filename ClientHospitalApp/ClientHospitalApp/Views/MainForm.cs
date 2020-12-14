@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 namespace ClientHospitalApp
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainForm
     {
         public event EventHandler SaveDataEvent;
         public MainForm()

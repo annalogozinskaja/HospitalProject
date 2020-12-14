@@ -13,8 +13,9 @@ namespace ClientHospitalApp.Models
     public class PatientModel : IPatientModel
     {
         private PatientClient patient;
-        private List<PatientClient> list;
+        private List<PatientClient> listPatients;
         private WebServiceHospitalSoapClient obj;
+        BindingList<PatientClient> patientList;
         private List<PatientClient> listToAdd;
         private List<PatientClient> listToUpdate;
         private List<PatientClient> listToDelete;
@@ -23,10 +24,15 @@ namespace ClientHospitalApp.Models
             get => patient; 
             set => patient = value; 
         }
-        public List<PatientClient> List 
+        public List<PatientClient> ListPatients 
         { 
-            get => list;
-            set => list = value; 
+            get => listPatients;
+            set => listPatients = value; 
+        }
+        public BindingList<PatientClient> PatientList
+        {
+            get => patientList;
+            set => patientList = value;
         }
         public List<PatientClient> ListToAdd
         {
@@ -49,12 +55,13 @@ namespace ClientHospitalApp.Models
         public PatientModel()
         {
             Patient = new PatientClient();
-            List = new List<PatientClient>();
-            obj = new WebServiceHospitalSoapClient();
+            ListPatients = new List<PatientClient>();
+            obj = new WebServiceHospitalSoapClient();          
             ListToAdd = new List<PatientClient>();
             ListToUpdate = new List<PatientClient>();
             ListToDelete = new List<PatientClient>();
             patientModel = this;
+
             
         }
         private PatientClient ConvertPatientToPatientClient(Patient patient)
@@ -81,9 +88,9 @@ namespace ClientHospitalApp.Models
             foreach (Patient item in patientList)
             {
                 PatientClient newPatient = iMapper.Map<Patient, PatientClient>(item);
-                List.Add(newPatient);
+                ListPatients.Add(newPatient);
             }
-            return List;
+            return ListPatients;
         }
 
         private Patient ConvertPatientClientToPatient(PatientClient patient)
@@ -107,14 +114,14 @@ namespace ClientHospitalApp.Models
 
             IMapper iMapper = config.CreateMapper();
 
-            List<Patient> listPatients = new List<Patient>();
+            List<Patient> lstPtnts = new List<Patient>();
             foreach (PatientClient item in patientList)
             {
                 Patient newPatient = iMapper.Map<PatientClient, Patient>(item);
-                listPatients.Add(newPatient);
+                lstPtnts.Add(newPatient);
             }
 
-            return listPatients;         
+            return lstPtnts;         
         }
 
         public void GetPatient(int IdPatient)
@@ -135,7 +142,13 @@ namespace ClientHospitalApp.Models
             List<Patient> lp = new List<Patient>();
             lp= obj.GetDataAllPatients().ToList();
 
-            List = ConvertPatientToPatientClient(lp);
+            ListPatients = ConvertPatientToPatientClient(lp);
+
+            PatientList = new BindingList<PatientClient>(ListPatients);
+            PatientList.AllowNew = true;
+            PatientList.AllowEdit = true;
+            PatientList.AllowRemove = true;
+            PatientList.RaiseListChangedEvents = true;
         }
 
          void IPatientModel.UpdatePatient()
