@@ -18,12 +18,12 @@ namespace ClientHospitalApp.Views
     //[PatientValidation]
     public partial class PatientSearchForm : Form,IPatientSearchForm
     {
-        public List<PatientClient> DataSourcePatients
+        public BindingList<PatientClient> DataSourcePatients
         {
             set { gridControl1.DataSource = value;
                 gridControl1.RefreshDataSource();
             }
-            get { return (List<PatientClient>)gridControl1.DataSource; }
+            get { return (BindingList<PatientClient>)gridControl1.DataSource; }
         }
         public List<Gender> DataSourceGender
         {

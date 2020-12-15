@@ -3,6 +3,7 @@ using ClientHospitalApp.ServiceReferenceDAOLayer;
 using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,7 @@ namespace ClientHospitalApp.Views
 {
     public interface IPatientSearchForm
     {
-        List<PatientClient> DataSourcePatients { get; set; }
+        BindingList<PatientClient> DataSourcePatients { get; set; }
         List<Gender> DataSourceGender { get; set; }
         PatientClient selectedPatient { get; set; }
         PatientDetail PatientDetailData { get; set; }

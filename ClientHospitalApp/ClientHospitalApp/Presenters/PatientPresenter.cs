@@ -24,12 +24,6 @@ namespace ClientHospitalApp.Presenters
         private IPatientModel patientModel;
         private IGenderModel genderModel;
         IPatientSearchForm patientSearchView;
-        public List<PatientClient> PatientList 
-        { 
-            get { return patientModel.ListPatients; }
-            set { patientModel.ListPatients = value; }
-        }
-        //MainForm mainForm;
         bool EditClicked = false;
 
         public PatientPresenter(IPatientSearchForm patientSearchView, IPatientModel model,IGenderModel modelGender)
@@ -37,8 +31,6 @@ namespace ClientHospitalApp.Presenters
             this.patientSearchView = patientSearchView;
             this.patientModel = model;
             this.genderModel = modelGender;
-            //:(
-            //this.mainForm = ((PatientSearchForm)(patientSearchView)).MdiParent as MainForm;
             genderModel.GetGender();
             this.patientSearchView.DataSourceGender = genderModel.ListGender;
 
@@ -63,79 +55,43 @@ namespace ClientHospitalApp.Presenters
 
         public void GetAllPatientsFromModel()
         {
-            PatientList.Clear();
-            patientModel.GetAllPatients();
-            PatientList = patientModel.ListPatients;
-            this.patientSearchView.DataSourcePatients = PatientList;
+            this.patientModel.GetAllPatients();
+            this.patientSearchView.DataSourcePatients = this.patientModel.PatientList;
         }
      
-
-        private void RefreshData()
-        {
-            GetAllPatientsFromModel();
-            this.patientSearchView.DataSourcePatients = PatientList;
-        }
-
         private void AddOrUpdatePatientEventHandler(object sender, EventArgs args)
         {
             PatientClient tempPatient = this.patientSearchView.PatientDetailData.PatientData;
 
             if (!EditClicked)
             {
-                patientModel.ListToAdd.Add(tempPatient);
-                PatientList.Add(tempPatient);
+                this.patientModel.PatientList.Add(tempPatient);
                 this.patientSearchView.PatientDetailData.ClearAllData();
-
             }
             else
             {
-                if (this.patientSearchView.selectedPatient.ID_Patient > 0)
+                if (this.patientSearchView.selectedPatient.ID_Patient <= 0)
                 {
-                    tempPatient.ID_Patient = this.patientSearchView.PatientDetailData.PatientData.ID_Patient;
-                    patientModel.ListToUpdate.Add(tempPatient);
-                    
-                    for (int i=0;i<PatientList.Count;i++)
+                    this.patientModel.Patient = this.patientSearchView.selectedPatient;
+                }
+                for (int i = 0; i < this.patientModel.PatientList.Count; i++)
+                {
+                    if (this.patientModel.PatientList[i].Equals(this.patientSearchView.selectedPatient))
                     {
-                        if (PatientList[i].ID_Patient == tempPatient.ID_Patient)
-                        {
-                            PatientList[i] = tempPatient;
-                        }
+                        this.patientModel.PatientList[i] = tempPatient;
                     }
                 }
-                else 
-                {
-                    //значит мы решили отредачить нового пациента(еще не внесенного в базу,те у него нет ид пока) кот нах-ся в гридвью
-                    if(patientModel.ListToAdd.Count>0)
-                    {
-                        for (int i = 0; i < patientModel.ListToAdd.Count; i++)
-                        {
-                            if (patientModel.ListToAdd[i].Equals(this.patientSearchView.selectedPatient))
-                            {
-                                patientModel.ListToAdd[i] = tempPatient;
-                            }
-                        }
 
-                        for (int i = 0; i < PatientList.Count; i++)
-                        {
-                            if (PatientList[i] == this.patientSearchView.selectedPatient)
-                            {
-                                PatientList[i] = tempPatient;
-                            }
-                        }
-                    }
-                }
                 this.patientSearchView.PatientDetailData.ClearAllData();
                 EditClicked = false;
-                this.patientSearchView.PatientDetailData.buttonOK.Text = "Add";
             }
-            this.patientSearchView.DataSourcePatients = PatientList;
         }
 
         private void EditPatientEventHandler(object sender, EventArgs args)
         {
             EditClicked = true;
             
-            foreach (PatientClient item in PatientList)
+            foreach (PatientClient item in this.patientModel.PatientList)
             {
                 if (item.ID_Patient == this.patientSearchView.selectedPatient.ID_Patient)
                 {
@@ -151,39 +107,8 @@ namespace ClientHospitalApp.Presenters
 
             if (res == DialogResult.Yes)
             {
-                if (this.patientSearchView.selectedPatient.ID_Patient > 0)
-                {
-                    try
-                    {
-                        patientModel.ListToDelete.Add(this.patientSearchView.selectedPatient);
-                        PatientList.Remove(this.patientSearchView.selectedPatient);
-                        this.patientSearchView.DataSourcePatients = PatientList;
-                    }
-                    catch (Exception s)
-                    {
-                        Console.WriteLine("Error ({0} : {1}", s.GetType().Name, s.Message);
-                    }
-
-                }
-                else         //значит мы решили удалить нового пациента,который добавлен в гридвью но еще не в базу
-                {
-                    for (int i = 0; i < patientModel.ListToAdd.Count; i++)
-                    {
-                        if (patientModel.ListToAdd[i].Equals(this.patientSearchView.selectedPatient))
-                        {
-                            patientModel.ListToAdd.Remove(patientModel.ListToAdd[i]);
-                        }
-                    }
-
-                    for (int i = 0; i < PatientList.Count; i++)
-                    {
-                        if (PatientList[i].Equals(this.patientSearchView.selectedPatient))
-                        {
-                            PatientList.Remove(PatientList[i]);
-                        }
-                    }
-                    this.patientSearchView.DataSourcePatients = PatientList;
-                }
+                this.patientModel.Patient = this.patientSearchView.selectedPatient;
+                this.patientModel.PatientList.Remove(this.patientSearchView.selectedPatient);
             }
         }
 
@@ -203,34 +128,6 @@ namespace ClientHospitalApp.Presenters
             args.patientDataInfoForm.ApplyOptionsForGridViewRelatives();
         }
 
-
-
-        private void SavePatientInModel()
-        {
-            //bool flag=Program.Validate(patientSearchView);
-
-            //if (flag)
-            //{
-            //    //patientModel.Patient=patientSearchView.DataPatient;
-            //    patientModel.SavePatient();
-            //}
-        }
-
-        public void UpdatePatientInModel()
-        {
-            //bool flag = Program.Validate(patientSearchView);
-
-            //if (flag)
-            //{
-            //   // patientModel.Patient = patientSearchView.DataPatient;
-            //    patientModel.UpdatePatient();
-            //}
-        }
-
-        public void DeletePatientInModel()
-        {
-            //patientModel.DeletePatient();
-        }
 
         private void GetRelativesOfPatientFromModel(PatientClient ptnt)
         {

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace ClientHospitalApp.Models
 {
@@ -143,12 +144,17 @@ namespace ClientHospitalApp.Models
             lp= obj.GetDataAllPatients().ToList();
 
             ListPatients = ConvertPatientToPatientClient(lp);
+            FillPatientList();
+        }
 
+        public void FillPatientList()
+        {
             PatientList = new BindingList<PatientClient>(ListPatients);
             PatientList.AllowNew = true;
             PatientList.AllowEdit = true;
             PatientList.AllowRemove = true;
             PatientList.RaiseListChangedEvents = true;
+            PatientList.ListChanged += new ListChangedEventHandler(PatientList_ListChanged);
         }
 
          void IPatientModel.UpdatePatient()
@@ -187,7 +193,43 @@ namespace ClientHospitalApp.Models
             }
         }
 
-
+        void PatientList_ListChanged(object sender, ListChangedEventArgs e)
+        {
+            if (ListChangedType.ItemAdded == e.ListChangedType)
+            {
+                ListToAdd.Add(PatientList[e.NewIndex]);
+            }
+            else if (ListChangedType.ItemChanged == e.ListChangedType)
+            {
+                if (PatientList[e.NewIndex].ID_Patient > 0)  //это пациент из базы
+                { 
+                    patientModel.ListToUpdate.Add(PatientList[e.NewIndex]);
+                }
+                else //это пациент из грида,он еще не сохранен в базе
+                {
+                    for (int i = 0; i < ListToAdd.Count; i++)
+                    {
+                        if (ListToAdd[i].Equals(Patient))
+                        {
+                            ListToAdd[i] = PatientList[e.NewIndex];
+                        }
+                    }
+                    Patient = null;
+                }
+            }
+            else if (ListChangedType.ItemDeleted == e.ListChangedType)
+            {              
+                if (ListPatients.Contains(Patient))  
+                {
+                    ListToDelete.Add(Patient);
+                }
+                else 
+                {
+                    ListToAdd.Remove(Patient);                       
+                }
+                Patient = null;
+            }
+        }
 
     }
 }

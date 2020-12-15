@@ -175,17 +175,10 @@
     <Compile Include="PatientDataInfoEventArgs.cs" />
     <Compile Include="Views\GenericModelImpl.cs" />
     <Compile Include="Views\IGenericModel.cs" />
-    <Compile Include="Views\IListOfPatientsForm.cs" />
     <Compile Include="Views\IMainForm.cs" />
     <Compile Include="Views\IPatientDataInfoForm.cs" />
     <Compile Include="Views\IPatientSearchExtendForm.cs" />
     <Compile Include="Views\IPatientSearchForm.cs" />
-    <Compile Include="Views\ListOfPatientsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\ListOfPatientsForm.Designer.cs">
-      <DependentUpon>ListOfPatientsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\PatientDataInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,9 +224,6 @@
     <Compile Include="Views\PatientSearchForm.Designer.cs">
       <DependentUpon>PatientSearchForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\ListOfPatientsForm.resx">
-      <DependentUpon>ListOfPatientsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Views\PatientDataInfoForm.resx">
       <DependentUpon>PatientDataInfoForm.cs</DependentUpon>
     </EmbeddedResource>

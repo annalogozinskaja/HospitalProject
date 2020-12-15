@@ -97,6 +97,7 @@ namespace ClientHospitalApp
             dateEditDOB.Text = "";
             textEditSSN.Text = "";
             lookUpEditGender.EditValue =0;
+            buttonOK.Text = "Add";
         }
 
         private void textEditLnm_KeyPress(object sender, KeyPressEventArgs e)
@@ -121,6 +122,7 @@ namespace ClientHospitalApp
         private void buttonOK_Click(object sender, EventArgs e)
         {
             AddOrUpdatePatientEvent(this, EventArgs.Empty);
+            buttonOK.Text = "Add";
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
