@@ -170,10 +170,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="GenderLookUpEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GenderLookUpEdit.Designer.cs">
+      <DependentUpon>GenderLookUpEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\GenderModel.cs" />
     <Compile Include="Models\IGenderModel.cs" />
     <Compile Include="PatientDataInfoEventArgs.cs" />
     <Compile Include="Views\GenericModelImpl.cs" />
+    <Compile Include="Views\IGenderView.cs" />
     <Compile Include="Views\IGenericModel.cs" />
     <Compile Include="Views\IMainForm.cs" />
     <Compile Include="Views\IPatientDataInfoForm.cs" />
@@ -224,6 +231,9 @@
     <Compile Include="Views\PatientSearchForm.Designer.cs">
       <DependentUpon>PatientSearchForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="GenderLookUpEdit.resx">
+      <DependentUpon>GenderLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PatientDataInfoForm.resx">
       <DependentUpon>PatientDataInfoForm.cs</DependentUpon>
     </EmbeddedResource>

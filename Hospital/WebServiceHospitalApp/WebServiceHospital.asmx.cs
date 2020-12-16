@@ -104,11 +104,11 @@ namespace WebServiceHospitalApp
 
                 if (item.Gender.ID_Gender == male.ID_Gender)
                 {
-                    item.Gender = male;
+                    p.Gender = male;
                 }
                 else if (item.Gender.ID_Gender == female.ID_Gender)
                 {
-                    item.Gender = female;
+                    p.Gender = female;
                 }
                 patientDao.SaveOrUpdate(p);             
             }

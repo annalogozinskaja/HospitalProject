@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lookUpEditGender = new DevExpress.XtraEditors.LookUpEdit();
             this.dateEditDOB = new DevExpress.XtraEditors.DateEdit();
-            this.labelControlGndr = new DevExpress.XtraEditors.LabelControl();
             this.labelControlSSN = new DevExpress.XtraEditors.LabelControl();
             this.textEditSSN = new DevExpress.XtraEditors.TextEdit();
             this.labelControlDOB = new DevExpress.XtraEditors.LabelControl();
@@ -42,7 +40,7 @@
             this.textEditIdPatient = new DevExpress.XtraEditors.TextEdit();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).BeginInit();
+            this.genderLookUpEdit1 = new ClientHospitalApp.GenderLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).BeginInit();
@@ -50,17 +48,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.textEditLnm.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditIdPatient.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lookUpEditGender
-            // 
-            this.lookUpEditGender.Location = new System.Drawing.Point(94, 215);
-            this.lookUpEditGender.Name = "lookUpEditGender";
-            this.lookUpEditGender.Properties.AutoHeight = false;
-            this.lookUpEditGender.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditGender.Properties.NullText = "";
-            this.lookUpEditGender.Size = new System.Drawing.Size(145, 22);
-            this.lookUpEditGender.TabIndex = 69;
             // 
             // dateEditDOB
             // 
@@ -83,16 +70,6 @@
             this.dateEditDOB.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
             this.dateEditDOB.Size = new System.Drawing.Size(145, 22);
             this.dateEditDOB.TabIndex = 67;
-            // 
-            // labelControlGndr
-            // 
-            this.labelControlGndr.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelControlGndr.Appearance.Options.UseFont = true;
-            this.labelControlGndr.Location = new System.Drawing.Point(14, 219);
-            this.labelControlGndr.Name = "labelControlGndr";
-            this.labelControlGndr.Size = new System.Drawing.Size(40, 14);
-            this.labelControlGndr.TabIndex = 65;
-            this.labelControlGndr.Text = "Gender";
             // 
             // labelControlSSN
             // 
@@ -192,7 +169,7 @@
             // 
             this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCancel.Location = new System.Drawing.Point(167, 262);
+            this.buttonCancel.Location = new System.Drawing.Point(157, 270);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(70, 28);
             this.buttonCancel.TabIndex = 55;
@@ -204,7 +181,7 @@
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(45, 262);
+            this.buttonOK.Location = new System.Drawing.Point(35, 270);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(70, 28);
             this.buttonOK.TabIndex = 54;
@@ -212,13 +189,21 @@
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
+            // genderLookUpEdit1
+            // 
+            this.genderLookUpEdit1.GenderData = null;
+            this.genderLookUpEdit1.GenderDataSource = null;
+            this.genderLookUpEdit1.Location = new System.Drawing.Point(3, 214);
+            this.genderLookUpEdit1.Name = "genderLookUpEdit1";
+            this.genderLookUpEdit1.Size = new System.Drawing.Size(251, 39);
+            this.genderLookUpEdit1.TabIndex = 70;
+            // 
             // PatientDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lookUpEditGender);
+            this.Controls.Add(this.genderLookUpEdit1);
             this.Controls.Add(this.dateEditDOB);
-            this.Controls.Add(this.labelControlGndr);
             this.Controls.Add(this.labelControlSSN);
             this.Controls.Add(this.textEditSSN);
             this.Controls.Add(this.labelControlDOB);
@@ -231,8 +216,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Name = "PatientDetail";
-            this.Size = new System.Drawing.Size(267, 304);
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
+            this.Size = new System.Drawing.Size(267, 310);
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).EndInit();
@@ -245,10 +229,7 @@
         }
 
         #endregion
-
-        public DevExpress.XtraEditors.LookUpEdit lookUpEditGender;
         public DevExpress.XtraEditors.DateEdit dateEditDOB;
-        private DevExpress.XtraEditors.LabelControl labelControlGndr;
         private DevExpress.XtraEditors.LabelControl labelControlSSN;
         public DevExpress.XtraEditors.TextEdit textEditSSN;
         private DevExpress.XtraEditors.LabelControl labelControlDOB;
@@ -260,5 +241,7 @@
         public DevExpress.XtraEditors.TextEdit textEditIdPatient;
         public System.Windows.Forms.Button buttonCancel;
         public System.Windows.Forms.Button buttonOK;
+        private GenderLookUpEdit genderLookUpEdit1;
+        //private Views.GenderLookUpEdit genderLookUpEdit1;
     }
 }

@@ -35,7 +35,7 @@
             // 
             // patientSearchExtendForm1
             // 
-            this.patientSearchExtendForm1.GenderDataSource = null;
+           // this.patientSearchExtendForm1.GenderDataSource = null;
             this.patientSearchExtendForm1.Location = new System.Drawing.Point(1, 12);
             this.patientSearchExtendForm1.Name = "patientSearchExtendForm1";
             patientClient1.DOB = new System.DateTime(((long)(0)));

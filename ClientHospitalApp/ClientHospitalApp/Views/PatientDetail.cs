@@ -21,10 +21,16 @@ namespace ClientHospitalApp
             get { return getPatientData(); }
             set { setPatientData(value); }
         }
-        public List<Gender> GenderDataSource
+        Gender dataGender;
+        public Gender DataGender
         {
-            set { lookUpEditGender.Properties.DataSource = value; }
-            get { return (List<Gender>)lookUpEditGender.Properties.DataSource; }
+            set { genderLookUpEdit1.GenderData = value; }
+            get { return genderLookUpEdit1.GenderData; }
+        }
+        public List<Gender> DataSourceGender
+        {
+            set { genderLookUpEdit1.GenderDataSource = value; }
+            get { return (List<Gender>)genderLookUpEdit1.GenderDataSource; }
         }
         public event EventHandler AddOrUpdatePatientEvent;
 
@@ -33,7 +39,7 @@ namespace ClientHospitalApp
         {
             InitializeComponent();
             patientData = new PatientClient();
-            FillLookUpEditGender();
+           
         }
      
         void setPatientData(PatientClient patientData)
@@ -48,7 +54,7 @@ namespace ClientHospitalApp
 
                 if (patientData.Gender != null)
                 {
-                    lookUpEditGender.EditValue = patientData.Gender.ID_Gender;
+                    DataGender = patientData.Gender;
                 }
 
                 }
@@ -68,24 +74,11 @@ namespace ClientHospitalApp
             int ssn = -1;
             Int32.TryParse(textEditSSN.Text,out ssn);
             patientData.SSN = ssn;
-            patientData.Gender = (Gender)lookUpEditGender.GetSelectedDataRow() ;
-            //patientData.GenderClient = (GenderClient)lookUpEditGender.EditValue;
-            //patientData.Gender = lookUpEditGender.EditValue as Gender;
-            //patientData.GenderClient = (GenderClient)lookUpEditGender.Properties.GetDataSourceRowByKeyValue(lookUpEditGender.EditValue);
-
+            patientData.Gender = DataGender;
+            
             return patientData;
         }
 
-
-        private void FillLookUpEditGender()
-        {
-            lookUpEditGender.Properties.DisplayMember = "GenderName";
-            lookUpEditGender.Properties.ValueMember = "ID_Gender";
-            DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
-            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("GenderName", "Gender", 100);
-            lookUpEditGender.Properties.Columns.Add(col);
-            lookUpEditGender.Properties.NullText = "--choose gender--";
-        }
 
         public void ClearAllData()
         {
@@ -96,7 +89,7 @@ namespace ClientHospitalApp
             textEditFnm.Text = "";
             dateEditDOB.Text = "";
             textEditSSN.Text = "";
-            lookUpEditGender.EditValue =0;
+            genderLookUpEdit1.lookUpEditGender.EditValue = 0;
             buttonOK.Text = "Add";
         }
 

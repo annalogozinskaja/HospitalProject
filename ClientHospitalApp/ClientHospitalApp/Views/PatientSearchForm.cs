@@ -27,8 +27,8 @@ namespace ClientHospitalApp.Views
         }
         public List<Gender> DataSourceGender
         {
-            set { patientDetailData.GenderDataSource = value; }
-            get { return (List<Gender>)patientDetailData.GenderDataSource; }
+            set { patientDetailData.DataSourceGender = value; }
+            get { return (List<Gender>)patientDetailData.DataSourceGender; }
         }
         MainForm mainForm;
         public PatientClient selectedPatient { get; set; }

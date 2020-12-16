@@ -122,7 +122,7 @@ namespace ClientHospitalApp.Presenters
         private void ShowPatientDataEventHandler(object sender, PatientDataInfoEventArgs args)
         {
             args.patientDataInfoForm.patientSearchExtendForm.PatientData = this.patientSearchView.selectedPatient;
-            args.patientDataInfoForm.patientSearchExtendForm.GenderDataSource = genderModel.ListGender;
+            args.patientDataInfoForm.patientSearchExtendForm.DataSourceGender = genderModel.ListGender;
             GetRelativesOfPatientFromModel(this.patientSearchView.selectedPatient);
             args.patientDataInfoForm.patientSearchExtendForm.RelativeDataSource = patientModel.Patient.RelativeList;
             args.patientDataInfoForm.ApplyOptionsForGridViewRelatives();

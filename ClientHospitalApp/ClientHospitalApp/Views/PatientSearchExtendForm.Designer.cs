@@ -30,7 +30,7 @@
         {
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).BeginInit();
@@ -105,8 +105,8 @@
             this.Controls.SetChildIndex(this.textEditFnm, 0);
             this.Controls.SetChildIndex(this.textEditSSN, 0);
             this.Controls.SetChildIndex(this.dateEditDOB, 0);
-            this.Controls.SetChildIndex(this.lookUpEditGender, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
+            //this.Controls.SetChildIndex(this.lookUpEditGender, 0);
+            //((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDOB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSSN.Properties)).EndInit();
