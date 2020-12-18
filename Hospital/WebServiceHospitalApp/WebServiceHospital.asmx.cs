@@ -336,6 +336,75 @@ namespace WebServiceHospitalApp
             SF.CloseSession();
             return spec;
         }
-       
+
+        [WebMethod]
+        public List<SpecimentsInOrder> GetDataAllSpeciments()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            SpecimentsInOrderDaoImpl specimentDao = new SpecimentsInOrderDaoImpl(SF.GetSession());
+            List<SpecimentsInOrder> list = new List<SpecimentsInOrder>();
+            list = specimentDao.GetListOfSpecimentsWithActiveStatus().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
+        [WebMethod]
+        public void AddSpeciment(List<SpecimentsInOrder> listSpeciments)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<SpecimentsInOrder, int> specimentDao = new GenericDaoImpl<SpecimentsInOrder, int>(SF.GetSession());
+            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(SF.GetSession());
+            GenericDaoImpl<Speciment, int> specimentNameDao = new GenericDaoImpl<Speciment, int>(SF.GetSession());
+            GenericDaoImpl<SpecimentStatus, int> specimentStatusDao = new GenericDaoImpl<SpecimentStatus, int>(SF.GetSession());
+
+            //Gender male = genderDao.Get(1);
+            //Gender female = genderDao.Get(2);
+
+            foreach (SpecimentsInOrder item in listSpeciments)
+            {
+                //if (item.Gender.ID_Gender == male.ID_Gender)
+                //{
+                //    item.Gender = male;
+                //}
+                //else if (item.Gender.ID_Gender == female.ID_Gender)
+                //{
+                //    item.Gender = female;
+                //}
+                item.Status = 1;
+                specimentDao.Save(item);
+            }
+
+            SF.CloseSession();
+        }
+
+        [WebMethod]
+        public void UpdateSpeciment(List<SpecimentsInOrder> listSpeciments)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            
+            SF.CloseSession();
+        }
+
+        [WebMethod]
+        public void DeleteSpeciment(List<SpecimentsInOrder> listSpeciments)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+           
+            SF.CloseSession();
+        }
+
     }
 }

@@ -22,5 +22,13 @@ namespace DAOLayer.DAO
 
             return list;
         }
+
+        public List<SpecimentsInOrder> GetListOfSpecimentsWithActiveStatus()
+        {
+            IQueryable<SpecimentsInOrder> result = session.Query<SpecimentsInOrder>().Where(s => s.Status == 1);
+            List<SpecimentsInOrder> list = result.ToList();
+
+            return list;
+        }
     }
 }

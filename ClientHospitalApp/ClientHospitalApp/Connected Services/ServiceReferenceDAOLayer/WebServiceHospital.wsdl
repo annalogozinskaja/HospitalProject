@@ -199,6 +199,51 @@
           <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetDataAllSpeciments">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataAllSpecimentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataAllSpecimentsResult" type="tns:ArrayOfSpecimentsInOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSpecimentsInOrder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecimentsInOrder" nillable="true" type="tns:SpecimentsInOrder" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddSpeciment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listSpeciments" type="tns:ArrayOfSpecimentsInOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddSpecimentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateSpeciment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listSpeciments" type="tns:ArrayOfSpecimentsInOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSpecimentResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DeleteSpeciment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="listSpeciments" type="tns:ArrayOfSpecimentsInOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteSpecimentResponse">
+        <s:complexType />
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -267,6 +312,30 @@
   <wsdl:message name="GetDataSpecimentSoapOut">
     <wsdl:part name="parameters" element="tns:GetDataSpecimentResponse" />
   </wsdl:message>
+  <wsdl:message name="GetDataAllSpecimentsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataAllSpeciments" />
+  </wsdl:message>
+  <wsdl:message name="GetDataAllSpecimentsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataAllSpecimentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSpecimentSoapIn">
+    <wsdl:part name="parameters" element="tns:AddSpeciment" />
+  </wsdl:message>
+  <wsdl:message name="AddSpecimentSoapOut">
+    <wsdl:part name="parameters" element="tns:AddSpecimentResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSpecimentSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSpeciment" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSpecimentSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSpecimentResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSpecimentSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteSpeciment" />
+  </wsdl:message>
+  <wsdl:message name="DeleteSpecimentSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteSpecimentResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceHospitalSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -311,6 +380,22 @@
     <wsdl:operation name="GetDataSpeciment">
       <wsdl:input message="tns:GetDataSpecimentSoapIn" />
       <wsdl:output message="tns:GetDataSpecimentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllSpeciments">
+      <wsdl:input message="tns:GetDataAllSpecimentsSoapIn" />
+      <wsdl:output message="tns:GetDataAllSpecimentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSpeciment">
+      <wsdl:input message="tns:AddSpecimentSoapIn" />
+      <wsdl:output message="tns:AddSpecimentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeciment">
+      <wsdl:input message="tns:UpdateSpecimentSoapIn" />
+      <wsdl:output message="tns:UpdateSpecimentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpeciment">
+      <wsdl:input message="tns:DeleteSpecimentSoapIn" />
+      <wsdl:output message="tns:DeleteSpecimentSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceHospitalSoap" type="tns:WebServiceHospitalSoap">
@@ -414,6 +499,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDataAllSpeciments">
+      <soap:operation soapAction="http://tempuri.org/GetDataAllSpeciments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSpeciment">
+      <soap:operation soapAction="http://tempuri.org/AddSpeciment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeciment">
+      <soap:operation soapAction="http://tempuri.org/UpdateSpeciment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpeciment">
+      <soap:operation soapAction="http://tempuri.org/DeleteSpeciment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceHospitalSoap12" type="tns:WebServiceHospitalSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -509,6 +630,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetDataSpeciment">
       <soap12:operation soapAction="http://tempuri.org/GetDataSpeciment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllSpeciments">
+      <soap12:operation soapAction="http://tempuri.org/GetDataAllSpeciments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSpeciment">
+      <soap12:operation soapAction="http://tempuri.org/AddSpeciment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSpeciment">
+      <soap12:operation soapAction="http://tempuri.org/UpdateSpeciment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSpeciment">
+      <soap12:operation soapAction="http://tempuri.org/DeleteSpeciment" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
