@@ -83,85 +83,82 @@ namespace ClientHospitalApp.Models
 
         public void GetAllSpeciments()
         {
-            List<Patient> lp = new List<Patient>();
-            lp = obj.GetDataAllPatients().ToList();
-
-            ListPatients = ConvertPatientToPatientClient(lp);
+            ListSpeciments = obj.GetDataAllSpeciments().ToList();
             FillPatientList();
         }
 
         public void FillPatientList()
         {
-            PatientList = new BindingList<PatientClient>(ListPatients);
-            PatientList.AllowNew = true;
-            PatientList.AllowEdit = true;
-            PatientList.AllowRemove = true;
-            PatientList.RaiseListChangedEvents = true;
-            PatientList.ListChanged += new ListChangedEventHandler(PatientList_ListChanged);
+            SpecimentList = new BindingList<SpecimentsInOrder>(ListSpeciments);
+            SpecimentList.AllowNew = true;
+            SpecimentList.AllowEdit = true;
+            SpecimentList.AllowRemove = true;
+            SpecimentList.RaiseListChangedEvents = true;
+            SpecimentList.ListChanged += new ListChangedEventHandler(SpecimentList_ListChanged);
         }
 
-        public void GetRelativesOfPatient(PatientClient ptnt)
-        {
-            Patient temp = ConvertPatientClientToPatient(ptnt);
-            patient.RelativeList = obj.GetRelativesOfPatient(temp).ToList();
-        }
+        //public void GetRelativesOfPatient(PatientClient ptnt)
+        //{
+        //    Patient temp = ConvertPatientClientToPatient(ptnt);
+        //    patient.RelativeList = obj.GetRelativesOfPatient(temp).ToList();
+        //}
 
-        public void SaveDataOfPatient()
+        public void SaveDataOfSpeciment()
         {
             if (ListToAdd.Count > 0)
             {
-                patientModel.AddPatient();
+                specimentModel.AddSpeciment();
                 ListToAdd.Clear();
             }
 
             if (ListToUpdate.Count > 0)
             {
-                patientModel.UpdatePatient();
+                specimentModel.UpdateSpeciment();
                 ListToUpdate.Clear();
             }
 
             if (ListToDelete.Count > 0)
             {
-                patientModel.DeletePatient();
+                specimentModel.DeleteSpeciment();
                 ListToDelete.Clear();
             }
         }
 
-        void PatientList_ListChanged(object sender, ListChangedEventArgs e)
+        void SpecimentList_ListChanged(object sender, ListChangedEventArgs e)
         {
             if (ListChangedType.ItemAdded == e.ListChangedType)
             {
-                ListToAdd.Add(PatientList[e.NewIndex]);
+                ListToAdd.Add(SpecimentList[e.NewIndex]);
             }
             else if (ListChangedType.ItemChanged == e.ListChangedType)
             {
-                if (PatientList[e.NewIndex].ID_Patient > 0)  //это пациент из базы
+                if (SpecimentList[e.NewIndex].ID_SpecimentOrder > 0)  //это спесимент из базы
                 {
-                    patientModel.ListToUpdate.Add(PatientList[e.NewIndex]);
+                    ListToUpdate.Add(SpecimentList[e.NewIndex]);
                 }
-                else //это пациент из грида,он еще не сохранен в базе
+                else //это спесимент из грида,он еще не сохранен в базе
                 {
                     for (int i = 0; i < ListToAdd.Count; i++)
                     {
-                        if (ListToAdd[i].Equals(Patient))
+                        if (ListToAdd[i].Equals(Speciment))
                         {
-                            ListToAdd[i] = PatientList[e.NewIndex];
+                            ListToAdd[i] = SpecimentList[e.NewIndex];
                         }
                     }
-                    Patient = null;
+                    Speciment = null;
                 }
             }
             else if (ListChangedType.ItemDeleted == e.ListChangedType)
             {
-                if (ListPatients.Contains(Patient))
+                if (ListSpeciments.Contains(Speciment))
                 {
-                    ListToDelete.Add(Patient);
+                    ListToDelete.Add(Speciment);
                 }
                 else
                 {
-                    ListToAdd.Remove(Patient);
+                    ListToAdd.Remove(Speciment);
                 }
-                Patient = null;
+                Speciment = null;
             }
         }
     }

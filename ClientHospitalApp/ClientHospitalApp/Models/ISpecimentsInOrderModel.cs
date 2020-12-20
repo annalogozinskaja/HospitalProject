@@ -11,7 +11,7 @@ namespace ClientHospitalApp.Models
     public interface ISpecimentsInOrderModel
     {
         void GetAllSpeciments();
-        void GetSpeciment(int IdPatient);
+        //void GetSpeciment(int IdPatient);
         void AddSpeciment();
         void UpdateSpeciment();
         void DeleteSpeciment();

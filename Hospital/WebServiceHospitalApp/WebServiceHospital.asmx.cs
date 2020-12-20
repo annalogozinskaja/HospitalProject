@@ -406,5 +406,20 @@ namespace WebServiceHospitalApp
             SF.CloseSession();
         }
 
+        [WebMethod]
+        public List<Speciment> GetDataSpecimentName()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Speciment, int> specimentNameDao = new GenericDaoImpl<Speciment, int>(SF.GetSession());
+            List<Speciment> list = new List<Speciment>();
+            list = specimentNameDao.GetAll().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
     }
 }

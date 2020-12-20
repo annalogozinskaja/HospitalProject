@@ -703,6 +703,82 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Speciment", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Speciment : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ID_SpecimentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SpecimentNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderListField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ID_Speciment {
+            get {
+                return this.ID_SpecimentField;
+            }
+            set {
+                if ((this.ID_SpecimentField.Equals(value) != true)) {
+                    this.ID_SpecimentField = value;
+                    this.RaisePropertyChanged("ID_Speciment");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string SpecimentName {
+            get {
+                return this.SpecimentNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SpecimentNameField, value) != true)) {
+                    this.SpecimentNameField = value;
+                    this.RaisePropertyChanged("SpecimentName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderList {
+            get {
+                return this.specimentsInOrderListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.specimentsInOrderListField, value) != true)) {
+                    this.specimentsInOrderListField = value;
+                    this.RaisePropertyChanged("specimentsInOrderList");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceDAOLayer.WebServiceHospitalSoap")]
     public interface WebServiceHospitalSoap {
@@ -811,6 +887,13 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteSpeciment", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeleteSpecimentResponse> DeleteSpecimentAsync(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteSpecimentRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetDataSpecimentNameResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataSpecimentName", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameResponse GetDataSpecimentName(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataSpecimentName", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameResponse> GetDataSpecimentNameAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1749,6 +1832,67 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataSpecimentNameRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataSpecimentName", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequestBody Body;
+        
+        public GetDataSpecimentNameRequest() {
+        }
+        
+        public GetDataSpecimentNameRequest(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetDataSpecimentNameRequestBody {
+        
+        public GetDataSpecimentNameRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataSpecimentNameResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataSpecimentNameResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameResponseBody Body;
+        
+        public GetDataSpecimentNameResponse() {
+        }
+        
+        public GetDataSpecimentNameResponse(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataSpecimentNameResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Speciment[] GetDataSpecimentNameResult;
+        
+        public GetDataSpecimentNameResponseBody() {
+        }
+        
+        public GetDataSpecimentNameResponseBody(ClientHospitalApp.ServiceReferenceDAOLayer.Speciment[] GetDataSpecimentNameResult) {
+            this.GetDataSpecimentNameResult = GetDataSpecimentNameResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebServiceHospitalSoapChannel : ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap, System.ServiceModel.IClientChannel {
     }
@@ -2131,6 +2275,29 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteSpecimentRequestBody();
             inValue.Body.listSpeciments = listSpeciments;
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeleteSpecimentAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataSpecimentName(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequest request) {
+            return base.Channel.GetDataSpecimentName(request);
+        }
+        
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Speciment[] GetDataSpecimentName() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequestBody();
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataSpecimentName(inValue);
+            return retVal.Body.GetDataSpecimentNameResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataSpecimentNameAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequest request) {
+            return base.Channel.GetDataSpecimentNameAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameResponse> GetDataSpecimentNameAsync() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentNameRequestBody();
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataSpecimentNameAsync(inValue);
         }
     }
 }

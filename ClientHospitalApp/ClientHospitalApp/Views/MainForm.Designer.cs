@@ -103,6 +103,7 @@
             this.barButtonSpeciments.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonSpeciments.ImageOptions.Image")));
             this.barButtonSpeciments.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonSpeciments.ImageOptions.LargeImage")));
             this.barButtonSpeciments.Name = "barButtonSpeciments";
+            this.barButtonSpeciments.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonSpeciments_ItemClick);
             // 
             // barButtonTests
             // 

@@ -39,5 +39,14 @@ namespace ClientHospitalApp
         {
             SaveDataEvent(this, EventArgs.Empty);
         }
+
+        private void barButtonSpeciments_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SpecimentSearchForm specimentSearchForm = new SpecimentSearchForm();
+            specimentSearchForm.MdiParent = this;
+            SpecimentsInOrderPresenter specimentPresenter = new SpecimentsInOrderPresenter(specimentSearchForm, new SpecimentsInOrderModel(), new SpecimentNameModel());
+
+            patientSearchForm.Show();
+        }
     }
 }
