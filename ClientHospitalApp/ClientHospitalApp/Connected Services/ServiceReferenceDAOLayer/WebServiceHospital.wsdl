@@ -266,6 +266,43 @@
           <s:element minOccurs="0" maxOccurs="1" name="specimentsInOrderList" type="tns:ArrayOfInt" />
         </s:sequence>
       </s:complexType>
+      <s:element name="GetDataSpecimentStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataSpecimentStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataSpecimentStatusResult" type="tns:ArrayOfSpecimentStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSpecimentStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SpecimentStatus" nillable="true" type="tns:SpecimentStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecimentStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_SpecimentStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecimentStatusName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="specimentsInOrderList" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDataAllOrders">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataAllOrdersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataAllOrdersResult" type="tns:ArrayOfOrderOfPatient" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrderOfPatient">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderOfPatient" nillable="true" type="tns:OrderOfPatient" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -364,6 +401,18 @@
   <wsdl:message name="GetDataSpecimentNameSoapOut">
     <wsdl:part name="parameters" element="tns:GetDataSpecimentNameResponse" />
   </wsdl:message>
+  <wsdl:message name="GetDataSpecimentStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataSpecimentStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetDataSpecimentStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataSpecimentStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataAllOrdersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataAllOrders" />
+  </wsdl:message>
+  <wsdl:message name="GetDataAllOrdersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataAllOrdersResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceHospitalSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -428,6 +477,14 @@
     <wsdl:operation name="GetDataSpecimentName">
       <wsdl:input message="tns:GetDataSpecimentNameSoapIn" />
       <wsdl:output message="tns:GetDataSpecimentNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSpecimentStatus">
+      <wsdl:input message="tns:GetDataSpecimentStatusSoapIn" />
+      <wsdl:output message="tns:GetDataSpecimentStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllOrders">
+      <wsdl:input message="tns:GetDataAllOrdersSoapIn" />
+      <wsdl:output message="tns:GetDataAllOrdersSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceHospitalSoap" type="tns:WebServiceHospitalSoap">
@@ -576,6 +633,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetDataSpecimentStatus">
+      <soap:operation soapAction="http://tempuri.org/GetDataSpecimentStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllOrders">
+      <soap:operation soapAction="http://tempuri.org/GetDataAllOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceHospitalSoap12" type="tns:WebServiceHospitalSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -716,6 +791,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetDataSpecimentName">
       <soap12:operation soapAction="http://tempuri.org/GetDataSpecimentName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataSpecimentStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetDataSpecimentStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllOrders">
+      <soap12:operation soapAction="http://tempuri.org/GetDataAllOrders" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

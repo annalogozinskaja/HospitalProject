@@ -7,17 +7,26 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.Models
 {
-    public class OrderOfPatientModel
+    public class OrderOfPatientModel: IOrderOfPatientModel
     {
-        public OrderOfPatient order;
-        public List<OrderOfPatient> list;
+        private List<OrderOfPatient> listOrders;
         private WebServiceHospitalSoapClient obj;
+
+        public List<OrderOfPatient> ListOrders
+        {
+            get => listOrders;
+            set => listOrders = value;
+        }
 
         public OrderOfPatientModel()
         {
-            order = new OrderOfPatient();
-            list = new List<OrderOfPatient>();
+            ListOrders = new List<OrderOfPatient>();
             obj = new WebServiceHospitalSoapClient();
+        }
+
+        public void GetOrders()
+        {
+            ListOrders = obj.GetDataAllOrders().ToList();
         }
 
     }

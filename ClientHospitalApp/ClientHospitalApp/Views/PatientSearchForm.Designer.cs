@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            ClientHospitalApp.ClientEntities.PatientClient patientClient15 = new ClientHospitalApp.ClientEntities.PatientClient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientSearchForm));
+            ClientHospitalApp.ClientEntities.PatientClient patientClient16 = new ClientHospitalApp.ClientEntities.PatientClient();
             this.patientDetail1 = new ClientHospitalApp.PatientDetail();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.patientDetailData = new ClientHospitalApp.PatientDetail();
@@ -53,10 +55,18 @@
             // 
             // patientDetail1
             // 
-            //this.patientDetail1.GenderDataSource = null;
+            this.patientDetail1.DataGender = null;
+            this.patientDetail1.DataSourceGender = null;
             this.patientDetail1.Location = new System.Drawing.Point(2, 2);
             this.patientDetail1.Name = "patientDetail1";
-            //this.patientDetail1.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetail1.PatientData")));
+            patientClient15.DOB = new System.DateTime(((long)(0)));
+            patientClient15.Firstname = "";
+            patientClient15.Gender = null;
+            patientClient15.ID_Patient = -1;
+            patientClient15.Lastname = "";
+            patientClient15.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient15.RelativeList")));
+            patientClient15.SSN = 0;
+            this.patientDetail1.PatientData = patientClient15;
             this.patientDetail1.Size = new System.Drawing.Size(283, 307);
             this.patientDetail1.TabIndex = 0;
             // 
@@ -66,6 +76,7 @@
             this.layoutControl1.Controls.Add(this.gridControl1);
             this.layoutControl1.Location = new System.Drawing.Point(4, -1);
             this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(950, 113, 650, 400);
             this.layoutControl1.Root = this.Root;
             this.layoutControl1.Size = new System.Drawing.Size(944, 434);
             this.layoutControl1.TabIndex = 0;
@@ -73,10 +84,18 @@
             // 
             // patientDetailData
             // 
-           // this.patientDetailData.GenderDataSource = null;
+            this.patientDetailData.DataGender = null;
+            this.patientDetailData.DataSourceGender = null;
             this.patientDetailData.Location = new System.Drawing.Point(12, 12);
             this.patientDetailData.Name = "patientDetailData";
-            //this.patientDetailData.PatientData = ((ClientHospitalApp.ServiceReferenceDAOLayer.Patient)(resources.GetObject("patientDetailData.PatientData")));
+            patientClient16.DOB = new System.DateTime(((long)(0)));
+            patientClient16.Firstname = "";
+            patientClient16.Gender = null;
+            patientClient16.ID_Patient = -1;
+            patientClient16.Lastname = "";
+            patientClient16.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient16.RelativeList")));
+            patientClient16.SSN = 0;
+            this.patientDetailData.PatientData = patientClient16;
             this.patientDetailData.Size = new System.Drawing.Size(363, 410);
             this.patientDetailData.TabIndex = 5;
             // 
@@ -84,6 +103,7 @@
             // 
             this.gridControl1.Location = new System.Drawing.Point(412, 12);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 3, 30, 3);
             this.gridControl1.MaximumSize = new System.Drawing.Size(520, 410);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -139,8 +159,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 425);
+            this.ClientSize = new System.Drawing.Size(956, 438);
             this.Controls.Add(this.layoutControl1);
+            this.MinimumSize = new System.Drawing.Size(972, 477);
             this.Name = "PatientSearchForm";
             this.Text = "PatientSearchForm";
             this.Load += new System.EventHandler(this.PatientSearchForm_Load);

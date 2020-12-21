@@ -178,20 +178,31 @@
     </Compile>
     <Compile Include="Models\GenderModel.cs" />
     <Compile Include="Models\IGenderModel.cs" />
+    <Compile Include="Models\IOrderOfPatientModel.cs" />
     <Compile Include="Models\ISpecimentNameModel.cs" />
     <Compile Include="Models\ISpecimentsInOrderModel.cs" />
+    <Compile Include="Models\ISpecimentStatusModel.cs" />
     <Compile Include="Models\SpecimentNameModel.cs" />
     <Compile Include="Models\SpecimentsInOrderModel.cs" />
+    <Compile Include="Models\SpecimentStatusModel.cs" />
     <Compile Include="PatientDataInfoEventArgs.cs" />
     <Compile Include="Presenters\SpecimentsInOrderPresenter.cs" />
     <Compile Include="Views\GenericModelImpl.cs" />
     <Compile Include="Views\IGenderView.cs" />
     <Compile Include="Views\IGenericModel.cs" />
     <Compile Include="Views\IMainForm.cs" />
+    <Compile Include="Views\IOrderView.cs" />
     <Compile Include="Views\IPatientDataInfoForm.cs" />
     <Compile Include="Views\IPatientSearchExtendForm.cs" />
     <Compile Include="Views\IPatientSearchForm.cs" />
     <Compile Include="Views\ISpecimentNameView.cs" />
+    <Compile Include="Views\ISpecimentStatusView.cs" />
+    <Compile Include="Views\OrderLookUpEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\OrderLookUpEdit.Designer.cs">
+      <DependentUpon>OrderLookUpEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PatientDataInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,8 +260,17 @@
     <Compile Include="Views\SpecimentNameLookUpEdit.Designer.cs">
       <DependentUpon>SpecimentNameLookUpEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\SpecimentStatusLookUpEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SpecimentStatusLookUpEdit.Designer.cs">
+      <DependentUpon>SpecimentStatusLookUpEdit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GenderLookUpEdit.resx">
       <DependentUpon>GenderLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderLookUpEdit.resx">
+      <DependentUpon>OrderLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PatientDataInfoForm.resx">
       <DependentUpon>PatientDataInfoForm.cs</DependentUpon>
@@ -288,6 +308,9 @@
     <EmbeddedResource Include="Views\SpecimentNameLookUpEdit.resx">
       <DependentUpon>SpecimentNameLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpecimentStatusLookUpEdit.resx">
+      <DependentUpon>SpecimentStatusLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.AddPatientResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -301,6 +324,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.Gender.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllPatientsResponse.datasource">
@@ -322,6 +348,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataSpecimentStatusResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetRelativesOfPatientResponse.datasource">
@@ -346,6 +375,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentsInOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentStatus.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse.datasource">

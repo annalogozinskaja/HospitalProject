@@ -20,10 +20,10 @@ namespace ClientHospitalApp.Views
             set { setSpecimentName(value); }
         }
 
-        public List<Gender> SpecimentNameDataSource
+        public List<Speciment> SpecimentNameDataSource
         {
             set { lookUpEditSpecimentName.Properties.DataSource = value; }
-            get { return (List<Gender>)lookUpEditSpecimentName.Properties.DataSource; }
+            get { return (List<Speciment>)lookUpEditSpecimentName.Properties.DataSource; }
         }
         public SpecimentNameLookUpEdit()
         {

@@ -42,11 +42,11 @@ namespace ClientHospitalApp
 
         private void barButtonSpeciments_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            SpecimentSearchForm specimentSearchForm = new SpecimentSearchForm();
-            specimentSearchForm.MdiParent = this;
-            SpecimentsInOrderPresenter specimentPresenter = new SpecimentsInOrderPresenter(specimentSearchForm, new SpecimentsInOrderModel(), new SpecimentNameModel());
+            //SpecimentSearchForm specimentSearchForm = new SpecimentSearchForm();
+            //specimentSearchForm.MdiParent = this;
+            //SpecimentsInOrderPresenter specimentPresenter = new SpecimentsInOrderPresenter(specimentSearchForm, new SpecimentsInOrderModel(), new SpecimentNameModel(), new SpecimentStatusModel(),new OrderOfPatientModel());
 
-            patientSearchForm.Show();
+            //specimentSearchForm.Show();
         }
     }
 }

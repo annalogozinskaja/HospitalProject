@@ -35,30 +35,32 @@
             // 
             // labelControlSpecimentName
             // 
-            this.labelControlSpecimentName.Location = new System.Drawing.Point(13, 13);
+            this.labelControlSpecimentName.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelControlSpecimentName.Appearance.Options.UseFont = true;
+            this.labelControlSpecimentName.Location = new System.Drawing.Point(5, 13);
             this.labelControlSpecimentName.Name = "labelControlSpecimentName";
-            this.labelControlSpecimentName.Size = new System.Drawing.Size(89, 13);
+            this.labelControlSpecimentName.Size = new System.Drawing.Size(105, 14);
             this.labelControlSpecimentName.TabIndex = 0;
             this.labelControlSpecimentName.Text = "Type of Speciment";
             // 
             // lookUpEditSpecimentName
             // 
-            this.lookUpEditSpecimentName.Location = new System.Drawing.Point(136, 13);
+            this.lookUpEditSpecimentName.Location = new System.Drawing.Point(118, 9);
             this.lookUpEditSpecimentName.Name = "lookUpEditSpecimentName";
+            this.lookUpEditSpecimentName.Properties.AutoHeight = false;
             this.lookUpEditSpecimentName.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditSpecimentName.Size = new System.Drawing.Size(100, 20);
+            this.lookUpEditSpecimentName.Size = new System.Drawing.Size(145, 22);
             this.lookUpEditSpecimentName.TabIndex = 1;
             // 
             // SpecimentNameLookUpEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 59);
             this.Controls.Add(this.lookUpEditSpecimentName);
             this.Controls.Add(this.labelControlSpecimentName);
             this.Name = "SpecimentNameLookUpEdit";
-            this.Text = "SpecimentNameLookUpEdit";
+            this.Size = new System.Drawing.Size(269, 40);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditSpecimentName.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
