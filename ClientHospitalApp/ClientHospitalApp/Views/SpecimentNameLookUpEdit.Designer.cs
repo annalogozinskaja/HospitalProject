@@ -70,6 +70,6 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControlSpecimentName;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEditSpecimentName;
+        public DevExpress.XtraEditors.LookUpEdit lookUpEditSpecimentName;
     }
 }

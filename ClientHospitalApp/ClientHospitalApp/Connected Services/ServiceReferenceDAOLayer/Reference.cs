@@ -563,11 +563,14 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         private int ID_SpecimentOrderField;
         
-        private int ID_OrderField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient OrderField;
         
-        private int ID_SpecimentField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.Speciment SpecimentField;
         
-        private int ID_SpecimentStatusField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentStatus SpecimentStatusField;
         
         private System.DateTime DateOfTakingField;
         
@@ -602,41 +605,41 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
-        public int ID_Order {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient Order {
             get {
-                return this.ID_OrderField;
+                return this.OrderField;
             }
             set {
-                if ((this.ID_OrderField.Equals(value) != true)) {
-                    this.ID_OrderField = value;
-                    this.RaisePropertyChanged("ID_Order");
+                if ((object.ReferenceEquals(this.OrderField, value) != true)) {
+                    this.OrderField = value;
+                    this.RaisePropertyChanged("Order");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
-        public int ID_Speciment {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Speciment Speciment {
             get {
-                return this.ID_SpecimentField;
+                return this.SpecimentField;
             }
             set {
-                if ((this.ID_SpecimentField.Equals(value) != true)) {
-                    this.ID_SpecimentField = value;
-                    this.RaisePropertyChanged("ID_Speciment");
+                if ((object.ReferenceEquals(this.SpecimentField, value) != true)) {
+                    this.SpecimentField = value;
+                    this.RaisePropertyChanged("Speciment");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public int ID_SpecimentStatus {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentStatus SpecimentStatus {
             get {
-                return this.ID_SpecimentStatusField;
+                return this.SpecimentStatusField;
             }
             set {
-                if ((this.ID_SpecimentStatusField.Equals(value) != true)) {
-                    this.ID_SpecimentStatusField = value;
-                    this.RaisePropertyChanged("ID_SpecimentStatus");
+                if ((object.ReferenceEquals(this.SpecimentStatusField, value) != true)) {
+                    this.SpecimentStatusField = value;
+                    this.RaisePropertyChanged("SpecimentStatus");
                 }
             }
         }
@@ -717,9 +720,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SpecimentNameField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderListField;
-        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -756,19 +756,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderList {
-            get {
-                return this.specimentsInOrderListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.specimentsInOrderListField, value) != true)) {
-                    this.specimentsInOrderListField = value;
-                    this.RaisePropertyChanged("specimentsInOrderList");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -792,9 +779,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SpecimentStatusNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderListField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -828,19 +812,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
                 if ((object.ReferenceEquals(this.SpecimentStatusNameField, value) != true)) {
                     this.SpecimentStatusNameField = value;
                     this.RaisePropertyChanged("SpecimentStatusName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderList {
-            get {
-                return this.specimentsInOrderListField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.specimentsInOrderListField, value) != true)) {
-                    this.specimentsInOrderListField = value;
-                    this.RaisePropertyChanged("specimentsInOrderList");
                 }
             }
         }

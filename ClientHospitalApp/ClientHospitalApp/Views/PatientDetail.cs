@@ -21,7 +21,7 @@ namespace ClientHospitalApp
             get { return getPatientData(); }
             set { setPatientData(value); }
         }
-        Gender dataGender;
+        
         public Gender DataGender
         {
             set { genderLookUpEdit1.GenderData = value; }
@@ -38,8 +38,7 @@ namespace ClientHospitalApp
         public PatientDetail()
         {
             InitializeComponent();
-            patientData = new PatientClient();
-           
+            patientData = new PatientClient();          
         }
      
         void setPatientData(PatientClient patientData)
@@ -56,8 +55,7 @@ namespace ClientHospitalApp
                 {
                     DataGender = patientData.Gender;
                 }
-
-                }
+             }
         }
 
         PatientClient getPatientData()

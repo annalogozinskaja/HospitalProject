@@ -74,7 +74,7 @@
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageData,
             this.ribbonPageReports});
-            this.ribbonControl1.Size = new System.Drawing.Size(939, 150);
+            this.ribbonControl1.Size = new System.Drawing.Size(954, 150);
             // 
             // barButtonPatients
             // 
@@ -209,7 +209,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 611);
+            this.ClientSize = new System.Drawing.Size(954, 611);
             this.Controls.Add(this.ribbonControl1);
             this.IsMdiContainer = true;
             this.Name = "MainForm";

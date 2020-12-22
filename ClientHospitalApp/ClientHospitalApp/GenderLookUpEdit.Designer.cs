@@ -43,6 +43,7 @@
             this.lookUpEditGender.Properties.NullText = "";
             this.lookUpEditGender.Size = new System.Drawing.Size(145, 22);
             this.lookUpEditGender.TabIndex = 71;
+            this.lookUpEditGender.EditValueChanged += new System.EventHandler(this.lookUpEditGender_EditValueChanged);
             // 
             // labelControlGndr
             // 
@@ -58,11 +59,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(251, 39);
             this.Controls.Add(this.lookUpEditGender);
             this.Controls.Add(this.labelControlGndr);
             this.Name = "GenderLookUpEdit";
-            this.Text = "GenderLookUpEdit";
+            this.Size = new System.Drawing.Size(251, 39);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditGender.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

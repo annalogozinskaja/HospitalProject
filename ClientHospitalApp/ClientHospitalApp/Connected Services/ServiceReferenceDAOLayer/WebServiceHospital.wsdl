@@ -190,13 +190,25 @@
       <s:complexType name="SpecimentsInOrder">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="ID_SpecimentOrder" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="ID_Order" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="ID_Speciment" type="s:int" />
-          <s:element minOccurs="1" maxOccurs="1" name="ID_SpecimentStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Order" type="tns:OrderOfPatient" />
+          <s:element minOccurs="0" maxOccurs="1" name="Speciment" type="tns:Speciment" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecimentStatus" type="tns:SpecimentStatus" />
           <s:element minOccurs="1" maxOccurs="1" name="DateOfTaking" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="Nurse" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="testsInOrderList" type="tns:ArrayOfInt" />
           <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Speciment">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_Speciment" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecimentName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SpecimentStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID_SpecimentStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecimentStatusName" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetDataAllSpeciments">
@@ -259,13 +271,6 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Speciment" nillable="true" type="tns:Speciment" />
         </s:sequence>
       </s:complexType>
-      <s:complexType name="Speciment">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="ID_Speciment" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="SpecimentName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="specimentsInOrderList" type="tns:ArrayOfInt" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetDataSpecimentStatus">
         <s:complexType />
       </s:element>
@@ -279,13 +284,6 @@
       <s:complexType name="ArrayOfSpecimentStatus">
         <s:sequence>
           <s:element minOccurs="0" maxOccurs="unbounded" name="SpecimentStatus" nillable="true" type="tns:SpecimentStatus" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="SpecimentStatus">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="ID_SpecimentStatus" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="SpecimentStatusName" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="specimentsInOrderList" type="tns:ArrayOfInt" />
         </s:sequence>
       </s:complexType>
       <s:element name="GetDataAllOrders">

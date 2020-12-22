@@ -5,9 +5,9 @@
 		<id name="ID_SpecimentOrder" column="ID_SpecimentOrder">
 			<generator class="native"/>
 		</id>
-		<property name="ID_Order" column="ID_Order"  />
-		<property name="ID_Speciment" column="ID_Speciment"  />
-		<property name="ID_SpecimentStatus" column="ID_SpecimentStatus"  />
+		<many-to-one name = "Order" class="OrderOfPatient" column = "ID_Order" lazy="false" cascade = "save-update"/>
+		<many-to-one name = "Speciment" class="Speciment" column = "ID_Speciment" lazy="false" cascade = "save-update"/>
+		<many-to-one name = "SpecimentStatus" class="SpecimentStatus" column = "ID_SpecimentStatus" lazy="false" cascade = "save-update"/>
 		<property name="DateOfTaking" column="DateOfTaking"  />
 		<property name="Nurse" column="Nurse"  />
 		<property name="Status" column="Status"  />

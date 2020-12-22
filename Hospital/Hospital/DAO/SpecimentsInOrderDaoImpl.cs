@@ -17,7 +17,7 @@ namespace DAOLayer.DAO
 
         public List<SpecimentsInOrder> GetSpecimentsOfOrder(int OrderId)
         {
-            IQueryable<SpecimentsInOrder> result = session.Query<SpecimentsInOrder>().Where(spec => spec.ID_Order == OrderId);
+            IQueryable<SpecimentsInOrder> result = session.Query<SpecimentsInOrder>().Where(spec => spec.Order.ID_Order == OrderId);
             List<SpecimentsInOrder> list = result.ToList();
 
             return list;

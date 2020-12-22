@@ -33,14 +33,16 @@
             this.labelControlDate = new DevExpress.XtraEditors.LabelControl();
             this.dateEditDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControlNurse = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.textEditNurse = new DevExpress.XtraEditors.TextEdit();
             this.orderLookUpEdit = new ClientHospitalApp.Views.OrderLookUpEdit();
             this.specimentNameLookUpEdit = new ClientHospitalApp.Views.SpecimentNameLookUpEdit();
             this.specimentStatusLookUpEdit = new ClientHospitalApp.Views.SpecimentStatusLookUpEdit();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.buttonClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.textEditIdSpeciment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNurse.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControlID
@@ -94,13 +96,14 @@
             this.labelControlNurse.TabIndex = 6;
             this.labelControlNurse.Text = "Nurse";
             // 
-            // textEdit1
+            // textEditNurse
             // 
-            this.textEdit1.Location = new System.Drawing.Point(119, 121);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.AutoHeight = false;
-            this.textEdit1.Size = new System.Drawing.Size(145, 22);
-            this.textEdit1.TabIndex = 7;
+            this.textEditNurse.Location = new System.Drawing.Point(119, 121);
+            this.textEditNurse.Name = "textEditNurse";
+            this.textEditNurse.Properties.AutoHeight = false;
+            this.textEditNurse.Size = new System.Drawing.Size(145, 22);
+            this.textEditNurse.TabIndex = 7;
+            this.textEditNurse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditNurse_KeyPress);
             // 
             // orderLookUpEdit
             // 
@@ -129,14 +132,37 @@
             this.specimentStatusLookUpEdit.SpecimentStatus = null;
             this.specimentStatusLookUpEdit.TabIndex = 9;
             // 
+            // buttonOK
+            // 
+            this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonOK.Location = new System.Drawing.Point(41, 241);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(70, 28);
+            this.buttonOK.TabIndex = 10;
+            this.buttonOK.Text = "Add";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // buttonClear
+            // 
+            this.buttonClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonClear.Location = new System.Drawing.Point(168, 241);
+            this.buttonClear.Name = "buttonClear";
+            this.buttonClear.Size = new System.Drawing.Size(70, 28);
+            this.buttonClear.TabIndex = 11;
+            this.buttonClear.Text = "Clear";
+            this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // SpecimentDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(274, 228);
+            this.Controls.Add(this.buttonClear);
+            this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.specimentStatusLookUpEdit);
             this.Controls.Add(this.orderLookUpEdit);
-            this.Controls.Add(this.textEdit1);
+            this.Controls.Add(this.textEditNurse);
             this.Controls.Add(this.labelControlNurse);
             this.Controls.Add(this.dateEditDate);
             this.Controls.Add(this.labelControlDate);
@@ -144,11 +170,11 @@
             this.Controls.Add(this.textEditIdSpeciment);
             this.Controls.Add(this.labelControlID);
             this.Name = "SpecimentDetail";
-            this.Text = "SpecimentDetail";
+            this.Size = new System.Drawing.Size(274, 281);
             ((System.ComponentModel.ISupportInitialize)(this.textEditIdSpeciment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textEditNurse.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,8 +188,10 @@
         private DevExpress.XtraEditors.LabelControl labelControlDate;
         private DevExpress.XtraEditors.DateEdit dateEditDate;
         private DevExpress.XtraEditors.LabelControl labelControlNurse;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit textEditNurse;
         private OrderLookUpEdit orderLookUpEdit;
         private SpecimentStatusLookUpEdit specimentStatusLookUpEdit;
+        public System.Windows.Forms.Button buttonOK;
+        public System.Windows.Forms.Button buttonClear;
     }
 }

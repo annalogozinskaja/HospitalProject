@@ -84,10 +84,10 @@ namespace ClientHospitalApp.Models
         public void GetAllSpeciments()
         {
             ListSpeciments = obj.GetDataAllSpeciments().ToList();
-            FillPatientList();
+            FillSpecimentList();
         }
 
-        public void FillPatientList()
+        public void FillSpecimentList()
         {
             SpecimentList = new BindingList<SpecimentsInOrder>(ListSpeciments);
             SpecimentList.AllowNew = true;

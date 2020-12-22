@@ -9,6 +9,5 @@ namespace DAOLayer
     {
         public virtual int ID_SpecimentStatus { get; set; }
         public virtual string SpecimentStatusName { get; set; }
-        public virtual List<int> specimentsInOrderList { get; set; }
     }
 }

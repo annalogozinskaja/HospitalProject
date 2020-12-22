@@ -68,8 +68,7 @@
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.LookUpEdit lookUpEditSpecimentStatus;
         private DevExpress.XtraEditors.LabelControl labelControlSpecimentStatus;
+        public DevExpress.XtraEditors.LookUpEdit lookUpEditSpecimentStatus;
     }
 }

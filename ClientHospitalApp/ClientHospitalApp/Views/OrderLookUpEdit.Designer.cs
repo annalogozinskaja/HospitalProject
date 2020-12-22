@@ -70,6 +70,6 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControlOrder;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEditOrder;
+        public DevExpress.XtraEditors.LookUpEdit lookUpEditOrder;
     }
 }

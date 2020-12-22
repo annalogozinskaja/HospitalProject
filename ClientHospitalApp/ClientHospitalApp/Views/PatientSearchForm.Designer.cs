@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            ClientHospitalApp.ClientEntities.PatientClient patientClient15 = new ClientHospitalApp.ClientEntities.PatientClient();
+            ClientHospitalApp.ClientEntities.PatientClient patientClient1 = new ClientHospitalApp.ClientEntities.PatientClient();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PatientSearchForm));
-            ClientHospitalApp.ClientEntities.PatientClient patientClient16 = new ClientHospitalApp.ClientEntities.PatientClient();
+            ClientHospitalApp.ClientEntities.PatientClient patientClient2 = new ClientHospitalApp.ClientEntities.PatientClient();
             this.patientDetail1 = new ClientHospitalApp.PatientDetail();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.patientDetailData = new ClientHospitalApp.PatientDetail();
@@ -59,14 +59,14 @@
             this.patientDetail1.DataSourceGender = null;
             this.patientDetail1.Location = new System.Drawing.Point(2, 2);
             this.patientDetail1.Name = "patientDetail1";
-            patientClient15.DOB = new System.DateTime(((long)(0)));
-            patientClient15.Firstname = "";
-            patientClient15.Gender = null;
-            patientClient15.ID_Patient = -1;
-            patientClient15.Lastname = "";
-            patientClient15.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient15.RelativeList")));
-            patientClient15.SSN = 0;
-            this.patientDetail1.PatientData = patientClient15;
+            patientClient1.DOB = new System.DateTime(((long)(0)));
+            patientClient1.Firstname = "";
+            patientClient1.Gender = null;
+            patientClient1.ID_Patient = -1;
+            patientClient1.Lastname = "";
+            patientClient1.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient1.RelativeList")));
+            patientClient1.SSN = 0;
+            this.patientDetail1.PatientData = patientClient1;
             this.patientDetail1.Size = new System.Drawing.Size(283, 307);
             this.patientDetail1.TabIndex = 0;
             // 
@@ -88,14 +88,14 @@
             this.patientDetailData.DataSourceGender = null;
             this.patientDetailData.Location = new System.Drawing.Point(12, 12);
             this.patientDetailData.Name = "patientDetailData";
-            patientClient16.DOB = new System.DateTime(((long)(0)));
-            patientClient16.Firstname = "";
-            patientClient16.Gender = null;
-            patientClient16.ID_Patient = -1;
-            patientClient16.Lastname = "";
-            patientClient16.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient16.RelativeList")));
-            patientClient16.SSN = 0;
-            this.patientDetailData.PatientData = patientClient16;
+            patientClient2.DOB = new System.DateTime(((long)(0)));
+            patientClient2.Firstname = "";
+            patientClient2.Gender = null;
+            patientClient2.ID_Patient = -1;
+            patientClient2.Lastname = "";
+            patientClient2.RelativeList = ((System.Collections.Generic.List<ClientHospitalApp.ServiceReferenceDAOLayer.Relative>)(resources.GetObject("patientClient2.RelativeList")));
+            patientClient2.SSN = 0;
+            this.patientDetailData.PatientData = patientClient2;
             this.patientDetailData.Size = new System.Drawing.Size(363, 410);
             this.patientDetailData.TabIndex = 5;
             // 

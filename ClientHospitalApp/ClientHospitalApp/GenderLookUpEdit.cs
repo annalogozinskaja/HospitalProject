@@ -55,5 +55,10 @@ namespace ClientHospitalApp
             lookUpEditGender.Properties.Columns.Add(col);
             lookUpEditGender.Properties.NullText = "--choose gender--";
         }
+
+        private void lookUpEditGender_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
