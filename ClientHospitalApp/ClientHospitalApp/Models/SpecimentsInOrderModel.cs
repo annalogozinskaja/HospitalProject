@@ -150,7 +150,7 @@ namespace ClientHospitalApp.Models
             }
             else if (ListChangedType.ItemDeleted == e.ListChangedType)
             {
-                if (ListSpeciments.Contains(Speciment))
+                if (Speciment.ID_SpecimentOrder>0)
                 {
                     ListToDelete.Add(Speciment);
                 }

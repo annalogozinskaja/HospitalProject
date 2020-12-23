@@ -364,19 +364,19 @@ namespace WebServiceHospitalApp
             GenericDaoImpl<Speciment, int> specimentNameDao = new GenericDaoImpl<Speciment, int>(SF.GetSession());
             GenericDaoImpl<SpecimentStatus, int> specimentStatusDao = new GenericDaoImpl<SpecimentStatus, int>(SF.GetSession());
 
-            //Gender male = genderDao.Get(1);
-            //Gender female = genderDao.Get(2);
+            OrderOfPatient order = new OrderOfPatient();
+            Speciment specimentName = new Speciment();
+            SpecimentStatus specimentStatus = new SpecimentStatus();
 
             foreach (SpecimentsInOrder item in listSpeciments)
             {
-                //if (item.Gender.ID_Gender == male.ID_Gender)
-                //{
-                //    item.Gender = male;
-                //}
-                //else if (item.Gender.ID_Gender == female.ID_Gender)
-                //{
-                //    item.Gender = female;
-                //}
+                order = orderDao.Get(item.Order.ID_Order);
+                specimentName = specimentNameDao.Get(item.Speciment.ID_Speciment);
+                specimentStatus = specimentStatusDao.Get(item.SpecimentStatus.ID_SpecimentStatus);
+
+                item.Order = order;
+                item.Speciment = specimentName;
+                item.SpecimentStatus = specimentStatus;
                 item.Status = 1;
                 specimentDao.Save(item);
             }
@@ -391,7 +391,31 @@ namespace WebServiceHospitalApp
             SF.Init();
             SF.OpenSession();
 
-            
+            GenericDaoImpl<SpecimentsInOrder, int> specimentDao = new GenericDaoImpl<SpecimentsInOrder, int>(SF.GetSession());
+            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(SF.GetSession());
+            GenericDaoImpl<Speciment, int> specimentNameDao = new GenericDaoImpl<Speciment, int>(SF.GetSession());
+            GenericDaoImpl<SpecimentStatus, int> specimentStatusDao = new GenericDaoImpl<SpecimentStatus, int>(SF.GetSession());
+
+            OrderOfPatient order = new OrderOfPatient();
+            Speciment specimentName = new Speciment();
+            SpecimentStatus specimentStatus = new SpecimentStatus();
+
+            foreach (SpecimentsInOrder item in listSpeciments)
+            {
+                order = orderDao.Get(item.Order.ID_Order);
+                specimentName = specimentNameDao.Get(item.Speciment.ID_Speciment);
+                specimentStatus = specimentStatusDao.Get(item.SpecimentStatus.ID_SpecimentStatus);
+
+                SpecimentsInOrder sp = specimentDao.Get(item.ID_SpecimentOrder);
+                sp.DateOfTaking = item.DateOfTaking;
+                sp.Nurse = item.Nurse;
+                sp.Order = order;
+                sp.Speciment = specimentName;
+                sp.SpecimentStatus = specimentStatus;
+                
+                specimentDao.Save(sp);
+            }
+
             SF.CloseSession();
         }
 
@@ -402,7 +426,27 @@ namespace WebServiceHospitalApp
             SF.Init();
             SF.OpenSession();
 
+            SpecimentsInOrderDaoImpl specimentDao = new SpecimentsInOrderDaoImpl(SF.GetSession());
+            TestsInOrderDaoImpl testDao = new TestsInOrderDaoImpl(SF.GetSession());           
+            List<TestsInOrder> listTest;
            
+            foreach (SpecimentsInOrder itemSpec in listSpeciments)
+            {
+                itemSpec.Status = 0;
+                specimentDao.SaveOrUpdate(itemSpec);
+
+                listTest = testDao.GetTestsOfSpeciment(itemSpec.ID_SpecimentOrder).ToList();
+
+                if (listTest.Count > 0)
+                {
+                    foreach (TestsInOrder itemTest in listTest)
+                    {
+                        itemTest.Status = 0;
+                        testDao.SaveOrUpdate(itemTest);
+                    }
+                }
+            }
+                            
             SF.CloseSession();
         }
 

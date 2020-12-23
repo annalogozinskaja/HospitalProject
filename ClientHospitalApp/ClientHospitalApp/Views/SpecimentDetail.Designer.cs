@@ -57,6 +57,7 @@
             // 
             // textEditIdSpeciment
             // 
+            this.textEditIdSpeciment.Enabled = false;
             this.textEditIdSpeciment.Location = new System.Drawing.Point(119, 12);
             this.textEditIdSpeciment.Name = "textEditIdSpeciment";
             this.textEditIdSpeciment.Properties.AutoHeight = false;

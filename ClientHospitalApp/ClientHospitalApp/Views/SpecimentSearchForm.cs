@@ -46,6 +46,13 @@ namespace ClientHospitalApp.Views
         public event EventHandler EditSpecimentEvent;
         public event EventHandler DeleteSpecimentEvent;
         public event EventHandler SaveDataToModelEvent;
+        //как вариант !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        public String DataSourceGridViewSpecimentName
+        {
+            set { this.gridView1.Columns[2].Caption = value; }
+            get { return (String)this.gridView1.Columns[2].Caption; }
+        }
+
 
         public SpecimentDetail SpecimentDetailData
         {
@@ -59,15 +66,16 @@ namespace ClientHospitalApp.Views
 
         private void CreateGridControl()
         {
-            //this.gridView1.Columns[1].Caption = "Lastname";
-            //this.gridView1.Columns[2].Caption = "Firstname";
-            //this.gridView1.Columns[3].Caption = "Data of birth";
-            //this.gridView1.Columns[4].Caption = "SSN";
+            this.gridView1.Columns[0].Caption = "ID";
+            this.gridView1.Columns[1].Caption = "Type of Speciment";
+            this.gridView1.Columns[2].Caption = "Status";
+            this.gridView1.Columns[4].Caption = "Order ID";
 
-            //this.gridView1.Columns[0].Visible = false;
-            //this.gridView1.Columns[5].Visible = false;
+            this.gridView1.Columns[1].FieldName="Speciment.SpecimentName";
+            this.gridView1.Columns[2].FieldName = "SpecimentStatus.SpecimentStatusName";
+            this.gridView1.Columns[4].FieldName = "Order.ID_Order";
+            this.gridView1.Columns[6].Visible = false;
 
-            this.gridView1.Columns[2].SortOrder = DevExpress.Data.ColumnSortOrder.Ascending;
             this.gridView1.OptionsView.ShowGroupedColumns = true;
             this.gridView1.ExpandAllGroups();
             this.gridView1.OptionsSelection.MultiSelect = false;
@@ -76,14 +84,20 @@ namespace ClientHospitalApp.Views
             this.gridView1.Columns[2].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[3].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[4].OptionsColumn.AllowEdit = false;
+            this.gridView1.Columns[5].OptionsColumn.AllowEdit = false;
             //this.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
 
-            this.gridView1.Columns[1].BestFit();
-            this.gridView1.Columns[5].BestFit();
+            this.gridView1.Columns[0].Width = 5;
+            this.gridView1.Columns[1].Width=135;
+            this.gridView1.Columns[2].Width = 120;
+            this.gridView1.Columns[3].Width = 100;
+            this.gridView1.Columns[4].Width = 70;
+            //this.gridView1.Columns[1].BestFit();
 
             GridColumn unbColumnEdit = gridView1.Columns.AddField("Edit");
             unbColumnEdit.VisibleIndex = gridView1.Columns.Count;
             unbColumnEdit.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            unbColumnEdit.Width = 45;
 
             RepositoryItemButtonEdit edit = new RepositoryItemButtonEdit();
             edit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -96,6 +110,7 @@ namespace ClientHospitalApp.Views
             GridColumn unbColumnDel = gridView1.Columns.AddField("Delete");
             unbColumnDel.VisibleIndex = gridView1.Columns.Count;
             unbColumnDel.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
+            unbColumnDel.Width = 45;
 
             RepositoryItemButtonEdit delete = new RepositoryItemButtonEdit();
             delete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;

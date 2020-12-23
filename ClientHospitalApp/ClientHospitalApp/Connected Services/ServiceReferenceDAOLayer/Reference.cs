@@ -564,15 +564,15 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         private int ID_SpecimentOrderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient OrderField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ClientHospitalApp.ServiceReferenceDAOLayer.Speciment SpecimentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentStatus SpecimentStatusField;
         
         private System.DateTime DateOfTakingField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient OrderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NurseField;
@@ -606,19 +606,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient Order {
-            get {
-                return this.OrderField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OrderField, value) != true)) {
-                    this.OrderField = value;
-                    this.RaisePropertyChanged("Order");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
         public ClientHospitalApp.ServiceReferenceDAOLayer.Speciment Speciment {
             get {
                 return this.SpecimentField;
@@ -644,7 +631,7 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
         public System.DateTime DateOfTaking {
             get {
                 return this.DateOfTakingField;
@@ -653,6 +640,19 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
                 if ((this.DateOfTakingField.Equals(value) != true)) {
                     this.DateOfTakingField = value;
                     this.RaisePropertyChanged("DateOfTaking");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient Order {
+            get {
+                return this.OrderField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderField, value) != true)) {
+                    this.OrderField = value;
+                    this.RaisePropertyChanged("Order");
                 }
             }
         }
