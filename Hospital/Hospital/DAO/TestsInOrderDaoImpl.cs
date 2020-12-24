@@ -31,5 +31,13 @@ namespace DAOLayer.DAO
 
             return list;
         }
+
+        public List<TestsInOrder> GetListOfTestsWithActiveStatus()
+        {
+            IQueryable<TestsInOrder> result = session.Query<TestsInOrder>().Where(s => s.Status == 1);
+            List<TestsInOrder> list = result.ToList();
+
+            return list;
+        }
     }
 }

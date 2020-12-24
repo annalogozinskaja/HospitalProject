@@ -495,5 +495,50 @@ namespace WebServiceHospitalApp
             return list;
         }
 
+        [WebMethod]
+        public List<TestsInOrder> GetDataAllTests()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            TestsInOrderDaoImpl testDao = new TestsInOrderDaoImpl(SF.GetSession());
+            List<TestsInOrder> list = new List<TestsInOrder>();
+            list = testDao.GetListOfTestsWithActiveStatus().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
+        [WebMethod]
+        public void AddTest(List<TestsInOrder> listTests)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            SF.CloseSession();
+        }
+
+        [WebMethod]
+        public void UpdateTest(List<TestsInOrder> listTests)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            SF.CloseSession();
+        }
+
+        [WebMethod]
+        public void DeleteTest(List<TestsInOrder> listTests)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            SF.CloseSession();
+        }
+
     }
 }

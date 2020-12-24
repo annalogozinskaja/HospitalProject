@@ -826,6 +826,157 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TestsInOrder", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class TestsInOrder : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ID_TestOrderField;
+        
+        private int ID_TestField;
+        
+        private System.DateTime DateStartField;
+        
+        private System.DateTime DateEndField;
+        
+        private int ID_TestStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ResultField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderListField;
+        
+        private int StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ID_TestOrder {
+            get {
+                return this.ID_TestOrderField;
+            }
+            set {
+                if ((this.ID_TestOrderField.Equals(value) != true)) {
+                    this.ID_TestOrderField = value;
+                    this.RaisePropertyChanged("ID_TestOrder");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        public int ID_Test {
+            get {
+                return this.ID_TestField;
+            }
+            set {
+                if ((this.ID_TestField.Equals(value) != true)) {
+                    this.ID_TestField = value;
+                    this.RaisePropertyChanged("ID_Test");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
+        public System.DateTime DateStart {
+            get {
+                return this.DateStartField;
+            }
+            set {
+                if ((this.DateStartField.Equals(value) != true)) {
+                    this.DateStartField = value;
+                    this.RaisePropertyChanged("DateStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public System.DateTime DateEnd {
+            get {
+                return this.DateEndField;
+            }
+            set {
+                if ((this.DateEndField.Equals(value) != true)) {
+                    this.DateEndField = value;
+                    this.RaisePropertyChanged("DateEnd");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public int ID_TestStatus {
+            get {
+                return this.ID_TestStatusField;
+            }
+            set {
+                if ((this.ID_TestStatusField.Equals(value) != true)) {
+                    this.ID_TestStatusField = value;
+                    this.RaisePropertyChanged("ID_TestStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string Result {
+            get {
+                return this.ResultField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResultField, value) != true)) {
+                    this.ResultField = value;
+                    this.RaisePropertyChanged("Result");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderList {
+            get {
+                return this.specimentsInOrderListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.specimentsInOrderListField, value) != true)) {
+                    this.specimentsInOrderListField = value;
+                    this.RaisePropertyChanged("specimentsInOrderList");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        public int Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceDAOLayer.WebServiceHospitalSoap")]
     public interface WebServiceHospitalSoap {
@@ -955,6 +1106,34 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllOrders", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersResponse> GetDataAllOrdersAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetDataAllTestsResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllTests", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponse GetDataAllTests(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllTests", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponse> GetDataAllTestsAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest request);
+        
+        // CODEGEN: Generating message contract since element name listTests from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddTest", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponse AddTest(ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddTest", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponse> AddTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequest request);
+        
+        // CODEGEN: Generating message contract since element name listTests from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateTest", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestResponse UpdateTest(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateTest", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestResponse> UpdateTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequest request);
+        
+        // CODEGEN: Generating message contract since element name listTests from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteTest", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponse DeleteTest(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteTest", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponse> DeleteTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2076,6 +2255,250 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataAllTestsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataAllTests", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequestBody Body;
+        
+        public GetDataAllTestsRequest() {
+        }
+        
+        public GetDataAllTestsRequest(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetDataAllTestsRequestBody {
+        
+        public GetDataAllTestsRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataAllTestsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataAllTestsResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponseBody Body;
+        
+        public GetDataAllTestsResponse() {
+        }
+        
+        public GetDataAllTestsResponse(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataAllTestsResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] GetDataAllTestsResult;
+        
+        public GetDataAllTestsResponseBody() {
+        }
+        
+        public GetDataAllTestsResponseBody(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] GetDataAllTestsResult) {
+            this.GetDataAllTestsResult = GetDataAllTestsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddTestRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddTest", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequestBody Body;
+        
+        public AddTestRequest() {
+        }
+        
+        public AddTestRequest(ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddTestRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests;
+        
+        public AddTestRequestBody() {
+        }
+        
+        public AddTestRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            this.listTests = listTests;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddTestResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddTestResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponseBody Body;
+        
+        public AddTestResponse() {
+        }
+        
+        public AddTestResponse(ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class AddTestResponseBody {
+        
+        public AddTestResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateTestRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateTest", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequestBody Body;
+        
+        public UpdateTestRequest() {
+        }
+        
+        public UpdateTestRequest(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateTestRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests;
+        
+        public UpdateTestRequestBody() {
+        }
+        
+        public UpdateTestRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            this.listTests = listTests;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateTestResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateTestResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestResponseBody Body;
+        
+        public UpdateTestResponse() {
+        }
+        
+        public UpdateTestResponse(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdateTestResponseBody {
+        
+        public UpdateTestResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteTestRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteTest", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequestBody Body;
+        
+        public DeleteTestRequest() {
+        }
+        
+        public DeleteTestRequest(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class DeleteTestRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests;
+        
+        public DeleteTestRequestBody() {
+        }
+        
+        public DeleteTestRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            this.listTests = listTests;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteTestResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteTestResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponseBody Body;
+        
+        public DeleteTestResponse() {
+        }
+        
+        public DeleteTestResponse(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class DeleteTestResponseBody {
+        
+        public DeleteTestResponseBody() {
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface WebServiceHospitalSoapChannel : ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap, System.ServiceModel.IClientChannel {
     }
@@ -2527,6 +2950,101 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersRequestBody();
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataAllOrdersAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataAllTests(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest request) {
+            return base.Channel.GetDataAllTests(request);
+        }
+        
+        public ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] GetDataAllTests() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequestBody();
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataAllTests(inValue);
+            return retVal.Body.GetDataAllTestsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataAllTestsAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest request) {
+            return base.Channel.GetDataAllTestsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponse> GetDataAllTestsAsync() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequestBody();
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataAllTestsAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.AddTest(ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequest request) {
+            return base.Channel.AddTest(request);
+        }
+        
+        public void AddTest(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequestBody();
+            inValue.Body.listTests = listTests;
+            ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).AddTest(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.AddTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequest request) {
+            return base.Channel.AddTestAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponse> AddTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.AddTestRequestBody();
+            inValue.Body.listTests = listTests;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).AddTestAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.UpdateTest(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequest request) {
+            return base.Channel.UpdateTest(request);
+        }
+        
+        public void UpdateTest(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequestBody();
+            inValue.Body.listTests = listTests;
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdateTest(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.UpdateTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequest request) {
+            return base.Channel.UpdateTestAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestResponse> UpdateTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdateTestRequestBody();
+            inValue.Body.listTests = listTests;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdateTestAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.DeleteTest(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequest request) {
+            return base.Channel.DeleteTest(request);
+        }
+        
+        public void DeleteTest(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequestBody();
+            inValue.Body.listTests = listTests;
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeleteTest(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.DeleteTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequest request) {
+            return base.Channel.DeleteTestAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponse> DeleteTestAsync(ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder[] listTests) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestRequestBody();
+            inValue.Body.listTests = listTests;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeleteTestAsync(inValue);
         }
     }
 }
