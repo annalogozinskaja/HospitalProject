@@ -517,6 +517,24 @@ namespace WebServiceHospitalApp
             SF.Init();
             SF.OpenSession();
 
+            GenericDaoImpl<TestsInOrder, int> testDao = new GenericDaoImpl<TestsInOrder, int>(SF.GetSession());
+            GenericDaoImpl<Test, int> testNameDao = new GenericDaoImpl<Test, int>(SF.GetSession());
+            GenericDaoImpl<TestStatus, int> testStatusDao = new GenericDaoImpl<TestStatus, int>(SF.GetSession());
+
+            Test testName = new Test();
+            TestStatus testStatus = new TestStatus();
+
+            foreach (TestsInOrder item in listTests)
+            {
+                testName = testNameDao.Get(item.Test.ID_Test);
+                testStatus = testStatusDao.Get(item.TestStatus.ID_TestStatus);
+
+                item.Test = testName;
+                item.TestStatus = testStatus;
+                item.Status = 1;
+                testDao.Save(item);
+            }
+
             SF.CloseSession();
         }
 
@@ -526,6 +544,26 @@ namespace WebServiceHospitalApp
             SessionFactory SF = new SessionFactory();
             SF.Init();
             SF.OpenSession();
+
+            GenericDaoImpl<TestsInOrder, int> testDao = new GenericDaoImpl<TestsInOrder, int>(SF.GetSession());
+            GenericDaoImpl<Test, int> testNameDao = new GenericDaoImpl<Test, int>(SF.GetSession());
+            GenericDaoImpl<TestStatus, int> testStatusDao = new GenericDaoImpl<TestStatus, int>(SF.GetSession());
+
+            Test testName = new Test();
+            TestStatus testStatus = new TestStatus();
+
+            foreach (TestsInOrder item in listTests)
+            {
+                testName = testNameDao.Get(item.Test.ID_Test);
+                testStatus = testStatusDao.Get(item.TestStatus.ID_TestStatus);
+
+                TestsInOrder tst = testDao.Get(item.ID_TestOrder);
+                tst.DateStart = item.DateStart;
+                tst.DateEnd = item.DateEnd;
+                tst.Test = testName;
+                tst.TestStatus = testStatus;            
+                testDao.Save(tst);
+            }
 
             SF.CloseSession();
         }
@@ -537,8 +575,47 @@ namespace WebServiceHospitalApp
             SF.Init();
             SF.OpenSession();
 
+            TestsInOrderDaoImpl testDao = new TestsInOrderDaoImpl(SF.GetSession());
+
+            foreach (TestsInOrder itemTest in listTests)
+            {
+                itemTest.Status = 0;
+                testDao.SaveOrUpdate(itemTest);
+            }
+
             SF.CloseSession();
         }
+
+        [WebMethod]
+        public List<Test> GetDataTestName()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Test, int> testNameDao = new GenericDaoImpl<Test, int>(SF.GetSession());
+            List<Test> list = new List<Test>();
+            list = testNameDao.GetAll().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
+        [WebMethod]
+        public List<TestStatus> GetDataTestStatus()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<TestStatus, int> testStatusDao = new GenericDaoImpl<TestStatus, int>(SF.GetSession());
+            List<TestStatus> list = new List<TestStatus>();
+            list = testStatusDao.GetAll().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
 
     }
 }

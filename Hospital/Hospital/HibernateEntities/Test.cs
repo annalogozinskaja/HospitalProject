@@ -9,6 +9,5 @@ namespace DAOLayer
     {
         public virtual int ID_Test { get; set; }
         public virtual string TestName { get; set; }
-        public virtual List<int> testsInOrderList { get; set; }
     }
 }
