@@ -112,6 +112,7 @@
             this.barButtonTests.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonTests.ImageOptions.Image")));
             this.barButtonTests.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonTests.ImageOptions.LargeImage")));
             this.barButtonTests.Name = "barButtonTests";
+            this.barButtonTests.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonTests_ItemClick);
             // 
             // barButtonOrderReport
             // 

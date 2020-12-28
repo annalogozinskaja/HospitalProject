@@ -254,4 +254,5 @@ C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\o
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.OrderLookUpEdit.resources
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.SpecimentStatusLookUpEdit.resources
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.SpecimentSearchForm.resources
-C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.csprojAssemblyReference.cache
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.TestNameLookUpEdit.resources
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.TestStatusLookUpEdit.resources

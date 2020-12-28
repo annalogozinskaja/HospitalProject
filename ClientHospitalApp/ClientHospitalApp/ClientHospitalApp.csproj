@@ -205,6 +205,8 @@
     <Compile Include="Views\ISpecimentSearchForm.cs" />
     <Compile Include="Views\ISpecimentStatusView.cs" />
     <Compile Include="Views\ISpecimentView.cs" />
+    <Compile Include="Views\ITestNameView.cs" />
+    <Compile Include="Views\ITestStatusView.cs" />
     <Compile Include="Views\OrderLookUpEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -280,6 +282,18 @@
     <Compile Include="Views\SpecimentStatusLookUpEdit.Designer.cs">
       <DependentUpon>SpecimentStatusLookUpEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TestNameLookUpEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TestNameLookUpEdit.Designer.cs">
+      <DependentUpon>TestNameLookUpEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestStatusLookUpEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TestStatusLookUpEdit.Designer.cs">
+      <DependentUpon>TestStatusLookUpEdit.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GenderLookUpEdit.resx">
       <DependentUpon>GenderLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,6 +342,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SpecimentStatusLookUpEdit.resx">
       <DependentUpon>SpecimentStatusLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TestNameLookUpEdit.resx">
+      <DependentUpon>TestNameLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TestStatusLookUpEdit.resx">
+      <DependentUpon>TestStatusLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.AddPatientResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
