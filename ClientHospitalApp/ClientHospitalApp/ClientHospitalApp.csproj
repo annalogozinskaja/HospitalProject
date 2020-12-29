@@ -206,7 +206,9 @@
     <Compile Include="Views\ISpecimentStatusView.cs" />
     <Compile Include="Views\ISpecimentView.cs" />
     <Compile Include="Views\ITestNameView.cs" />
+    <Compile Include="Views\ITestSearchForm.cs" />
     <Compile Include="Views\ITestStatusView.cs" />
+    <Compile Include="Views\ITestView.cs" />
     <Compile Include="Views\OrderLookUpEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -282,11 +284,23 @@
     <Compile Include="Views\SpecimentStatusLookUpEdit.Designer.cs">
       <DependentUpon>SpecimentStatusLookUpEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\TestDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\TestDetail.Designer.cs">
+      <DependentUpon>TestDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\TestNameLookUpEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\TestNameLookUpEdit.Designer.cs">
       <DependentUpon>TestNameLookUpEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TestSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\TestSearchForm.Designer.cs">
+      <DependentUpon>TestSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\TestStatusLookUpEdit.cs">
       <SubType>UserControl</SubType>
@@ -343,8 +357,14 @@
     <EmbeddedResource Include="Views\SpecimentStatusLookUpEdit.resx">
       <DependentUpon>SpecimentStatusLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\TestDetail.resx">
+      <DependentUpon>TestDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\TestNameLookUpEdit.resx">
       <DependentUpon>TestNameLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\TestSearchForm.resx">
+      <DependentUpon>TestSearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\TestStatusLookUpEdit.resx">
       <DependentUpon>TestStatusLookUpEdit.cs</DependentUpon>

@@ -52,7 +52,8 @@ namespace ClientHospitalApp
 
         private void barButtonTests_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+           
+           
         }
     }
 }

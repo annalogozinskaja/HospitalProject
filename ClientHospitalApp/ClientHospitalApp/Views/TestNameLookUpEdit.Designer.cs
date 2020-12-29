@@ -57,11 +57,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(252, 38);
             this.Controls.Add(this.lookUpEditTestName);
             this.Controls.Add(this.labelControlTestName);
             this.Name = "TestNameLookUpEdit";
-            this.Text = "TestNameLookUpEdit";
+            this.Size = new System.Drawing.Size(252, 38);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTestName.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -71,6 +70,6 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControlTestName;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEditTestName;
+        public DevExpress.XtraEditors.LookUpEdit lookUpEditTestName;
     }
 }

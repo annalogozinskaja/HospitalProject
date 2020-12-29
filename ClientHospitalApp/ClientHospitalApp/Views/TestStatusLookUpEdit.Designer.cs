@@ -37,7 +37,7 @@
             // 
             this.labelControlTestStatus.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelControlTestStatus.Appearance.Options.UseFont = true;
-            this.labelControlTestStatus.Location = new System.Drawing.Point(6, 12);
+            this.labelControlTestStatus.Location = new System.Drawing.Point(10, 11);
             this.labelControlTestStatus.Name = "labelControlTestStatus";
             this.labelControlTestStatus.Size = new System.Drawing.Size(35, 14);
             this.labelControlTestStatus.TabIndex = 0;
@@ -45,7 +45,7 @@
             // 
             // lookUpEditTestStatus
             // 
-            this.lookUpEditTestStatus.Location = new System.Drawing.Point(86, 7);
+            this.lookUpEditTestStatus.Location = new System.Drawing.Point(102, 7);
             this.lookUpEditTestStatus.Name = "lookUpEditTestStatus";
             this.lookUpEditTestStatus.Properties.AutoHeight = false;
             this.lookUpEditTestStatus.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -57,11 +57,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(238, 36);
             this.Controls.Add(this.lookUpEditTestStatus);
             this.Controls.Add(this.labelControlTestStatus);
             this.Name = "TestStatusLookUpEdit";
-            this.Text = "TestStatusLookUpEdit";
+            this.Size = new System.Drawing.Size(252, 35);
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditTestStatus.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -71,6 +70,6 @@
         #endregion
 
         private DevExpress.XtraEditors.LabelControl labelControlTestStatus;
-        private DevExpress.XtraEditors.LookUpEdit lookUpEditTestStatus;
+        public DevExpress.XtraEditors.LookUpEdit lookUpEditTestStatus;
     }
 }

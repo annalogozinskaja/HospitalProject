@@ -46,7 +46,7 @@ namespace ClientHospitalApp.Views
         public event EventHandler EditSpecimentEvent;
         public event EventHandler DeleteSpecimentEvent;
         public event EventHandler SaveDataToModelEvent;
-        //как вариант !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
         public String DataSourceGridViewSpecimentName
         {
             set { this.gridView1.Columns[2].Caption = value; }

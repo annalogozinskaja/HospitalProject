@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace ClientHospitalApp.Views
 {
-    public partial class TestStatusLookUpEdit : UserControl,ITestStatusView
+    public partial class TestStatusLookUpEdit : UserControl, ITestStatusView
     {
         TestStatus testStatus;
         public TestStatus TestStatus
