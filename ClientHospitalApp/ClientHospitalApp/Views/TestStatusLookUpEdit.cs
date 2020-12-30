@@ -33,7 +33,7 @@ namespace ClientHospitalApp.Views
 
         void setTestStatus(TestStatus testStatus)
         {
-            if (TestStatus != null)
+            if (testStatus != null)
             {
                 lookUpEditTestStatus.EditValue = testStatus.ID_TestStatus;
             }
@@ -42,7 +42,7 @@ namespace ClientHospitalApp.Views
         TestStatus getTestStatus()
         {
             testStatus = (TestStatus)lookUpEditTestStatus.GetSelectedDataRow();
-            return TestStatus;
+            return testStatus;
         }
 
         private void FillLookUpEditTestStatus()

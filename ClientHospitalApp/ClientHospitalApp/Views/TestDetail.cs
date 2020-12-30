@@ -14,6 +14,7 @@ namespace ClientHospitalApp.Views
     public partial class TestDetail : UserControl, ITestView
     {
         TestsInOrder test;
+        
         public TestsInOrder Test
         {
             get { return getTest(); }
@@ -31,16 +32,16 @@ namespace ClientHospitalApp.Views
             get { return (List<Test>)testNameLookUpEdit.TestNameDataSource; }
         }
 
-        //public TestStatus DataTestStatus
-        //{
-        //    set { testStatusLookUpEdit.TestStatus = value; }
-        //    get { return testStatusLookUpEdit.TestStatus; }
-        //}
-        //public List<TestStatus> DataSourceTestStatus
-        //{
-        //    set { testStatusLookUpEdit.TestNameDataSource = value; }
-        //    get { return (List<TestStatus>)testStatusLookUpEdit.TestNameDataSource; }
-        //}
+        public TestStatus DataTestStatus
+        {
+            set { testStatusLookUpEdit.TestStatus = value; }
+            get { return testStatusLookUpEdit.TestStatus; }
+        }
+        public List<TestStatus> DataSourceTestStatus
+        {
+            set { testStatusLookUpEdit.TestNameDataSource = value; }
+            get { return (List<TestStatus>)testStatusLookUpEdit.TestNameDataSource; }
+        }
         public event EventHandler AddOrUpdateTestEvent;
         public TestDetail()
         {
@@ -62,10 +63,10 @@ namespace ClientHospitalApp.Views
                 dateEditDateEnd.Text = Convert.ToString(test.DateEnd);
                 textEditResult.Text = test.Result;
 
-                //if (test.TestStatus != null)
-                //{
-                //    DataTestStatus = test.TestStatus;
-                //}
+                if (test.TestStatus != null)
+                {
+                    DataTestStatus = test.TestStatus;
+                }
             }
         }
 
@@ -83,7 +84,7 @@ namespace ClientHospitalApp.Views
             DateTime.TryParse(dateEditDateEnd.Text, out dateEnd);
             test.DateEnd = dateEnd;
             test.Result = textEditResult.Text;
-           // test.TestStatus = DataTestStatus;
+            test.TestStatus = DataTestStatus;
 
             return test;
         }
@@ -98,7 +99,7 @@ namespace ClientHospitalApp.Views
             dateEditDateStart.Text = "";
             dateEditDateEnd.Text = "";
             textEditResult.Text = "";
-            //testStatusLookUpEdit.lookUpEditTestStatus.EditValue = 0;
+            testStatusLookUpEdit.lookUpEditTestStatus.EditValue = 0;
 
             buttonOK.Text = "Add";
         }

@@ -67,6 +67,7 @@
             this.gridControlTests.TabIndex = 5;
             this.gridControlTests.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControlTests.Load += new System.EventHandler(this.TestSearchForm_Load);
             // 
             // gridView1
             // 

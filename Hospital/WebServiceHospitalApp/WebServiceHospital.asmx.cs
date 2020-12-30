@@ -560,6 +560,7 @@ namespace WebServiceHospitalApp
                 TestsInOrder tst = testDao.Get(item.ID_TestOrder);
                 tst.DateStart = item.DateStart;
                 tst.DateEnd = item.DateEnd;
+                tst.Result = item.Result;
                 tst.Test = testName;
                 tst.TestStatus = testStatus;            
                 testDao.Save(tst);

@@ -12,7 +12,7 @@ namespace ClientHospitalApp.Views
     {
         BindingList<TestsInOrder> DataSourceTests { get; set; }
         List<Test> DataSourceTestName { get; set; }
-        //List<TestStatus> DataSourceTestStatus { get; set; }
+        List<TestStatus> DataSourceTestStatus { get; set; }
         TestsInOrder selectedTest { get; set; }
         TestDetail TestDetailData { get; set; }
 

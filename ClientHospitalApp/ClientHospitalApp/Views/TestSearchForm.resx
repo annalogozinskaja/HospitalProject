@@ -117,22 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="testDetail.Test" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAEhDbGllbnRIb3NwaXRhbEFwcCwgVmVyc2lvbj0xLjAuMC4wLCBD
-        dWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPW51bGwMAwAAAElTeXN0ZW0sIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAA3
-        Q2xpZW50SG9zcGl0YWxBcHAuU2VydmljZVJlZmVyZW5jZURBT0xheWVyLlRlc3RzSW5PcmRlcgkAAAAR
-        SURfVGVzdE9yZGVyRmllbGQJVGVzdEZpZWxkDkRhdGVTdGFydEZpZWxkDERhdGVFbmRGaWVsZA9UZXN0
-        U3RhdHVzRmllbGQLUmVzdWx0RmllbGQac3BlY2ltZW50c0luT3JkZXJMaXN0RmllbGQLU3RhdHVzRmll
-        bGQPUHJvcGVydHlDaGFuZ2VkAAQAAAQBBAAECC9DbGllbnRIb3NwaXRhbEFwcC5TZXJ2aWNlUmVmZXJl
-        bmNlREFPTGF5ZXIuVGVzdAIAAAANDTVDbGllbnRIb3NwaXRhbEFwcC5TZXJ2aWNlUmVmZXJlbmNlREFP
-        TGF5ZXIuVGVzdFN0YXR1cwIAAAA1Q2xpZW50SG9zcGl0YWxBcHAuU2VydmljZVJlZmVyZW5jZURBT0xh
-        eWVyLkFycmF5T2ZJbnQCAAAACDFTeXN0ZW0uQ29tcG9uZW50TW9kZWwuUHJvcGVydHlDaGFuZ2VkRXZl
-        bnRIYW5kbGVyAwAAAAIAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAAKBgQAAAAACgAAAAAKCw==
-</value>
-  </data>
-  <metadata name="layoutConverter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
 </root>

@@ -39,6 +39,7 @@
             this.textEditIDTest = new DevExpress.XtraEditors.TextEdit();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.testStatusLookUpEdit = new ClientHospitalApp.Views.TestStatusLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDateStart.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDateStart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDateEnd.Properties.CalendarTimeProperties)).BeginInit();
@@ -132,6 +133,7 @@
             // 
             // textEditIDTest
             // 
+            this.textEditIDTest.Enabled = false;
             this.textEditIDTest.Location = new System.Drawing.Point(105, 6);
             this.textEditIDTest.Name = "textEditIDTest";
             this.textEditIDTest.Properties.AutoHeight = false;
@@ -141,17 +143,18 @@
             // buttonOK
             // 
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(28, 200);
+            this.buttonOK.Location = new System.Drawing.Point(28, 239);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(70, 28);
             this.buttonOK.TabIndex = 10;
             this.buttonOK.Text = "Add";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // buttonCancel
             // 
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCancel.Location = new System.Drawing.Point(150, 200);
+            this.buttonCancel.Location = new System.Drawing.Point(150, 239);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(70, 28);
             this.buttonCancel.TabIndex = 11;
@@ -159,11 +162,20 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // testStatusLookUpEdit
+            // 
+            this.testStatusLookUpEdit.Location = new System.Drawing.Point(2, 178);
+            this.testStatusLookUpEdit.Name = "testStatusLookUpEdit";
+            this.testStatusLookUpEdit.Size = new System.Drawing.Size(252, 35);
+            this.testStatusLookUpEdit.TabIndex = 12;
+            this.testStatusLookUpEdit.TestNameDataSource = null;
+            this.testStatusLookUpEdit.TestStatus = null;
+            // 
             // TestDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 241);
+            this.Controls.Add(this.testStatusLookUpEdit);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.textEditIDTest);
@@ -176,7 +188,7 @@
             this.Controls.Add(this.testNameLookUpEdit);
             this.Controls.Add(this.labelControlID);
             this.Name = "TestDetail";
-            this.Text = "TestDetail";
+            this.Size = new System.Drawing.Size(257, 276);
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDateStart.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDateStart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDateEnd.Properties.CalendarTimeProperties)).EndInit();
@@ -199,7 +211,8 @@
         private DevExpress.XtraEditors.DateEdit dateEditDateEnd;
         private DevExpress.XtraEditors.TextEdit textEditResult;
         private DevExpress.XtraEditors.TextEdit textEditIDTest;
-        private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCancel;
+        public System.Windows.Forms.Button buttonOK;
+        private TestStatusLookUpEdit testStatusLookUpEdit;
     }
 }

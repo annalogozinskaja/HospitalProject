@@ -67,14 +67,13 @@ namespace ClientHospitalApp.Views
         private void CreateGridControl()
         {
             this.gridView1.Columns[0].Caption = "ID";
-            this.gridView1.Columns[1].Caption = "Type of Speciment";
-            this.gridView1.Columns[2].Caption = "Status";
-            this.gridView1.Columns[4].Caption = "Order ID";
+            this.gridView1.Columns[1].Caption = "Type of Test";
+            this.gridView1.Columns[4].Caption = "Status";
 
-            this.gridView1.Columns[1].FieldName="Speciment.SpecimentName";
-            this.gridView1.Columns[2].FieldName = "SpecimentStatus.SpecimentStatusName";
+            this.gridView1.Columns[1].FieldName="Test.TestName";
+            this.gridView1.Columns[2].FieldName = "TestStatus.TestStatusName";
             this.gridView1.Columns[4].FieldName = "Order.ID_Order";
-            this.gridView1.Columns[6].Visible = false;
+            //this.gridView1.Columns[6].Visible = false;
 
             this.gridView1.OptionsView.ShowGroupedColumns = true;
             this.gridView1.ExpandAllGroups();

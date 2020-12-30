@@ -193,6 +193,7 @@
     <Compile Include="Models\TestStatusModel.cs" />
     <Compile Include="PatientDataInfoEventArgs.cs" />
     <Compile Include="Presenters\SpecimentsInOrderPresenter.cs" />
+    <Compile Include="Presenters\TestsInOrderPresenter.cs" />
     <Compile Include="Views\GenericModelImpl.cs" />
     <Compile Include="Views\IGenderView.cs" />
     <Compile Include="Views\IGenericModel.cs" />
