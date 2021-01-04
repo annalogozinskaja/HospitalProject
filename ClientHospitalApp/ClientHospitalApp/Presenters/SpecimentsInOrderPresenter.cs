@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.Models;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.Models;
 using ClientHospitalApp.ServiceReferenceDAOLayer;
 using ClientHospitalApp.Views;
 using System;
@@ -56,7 +57,7 @@ namespace ClientHospitalApp.Presenters
 
         private void AddOrUpdateSpecimentEventHandler(object sender, EventArgs args)
         {
-            SpecimentsInOrder tempSpeciment = this.specimentSearchView.SpecimentDetailData.Speciment;
+            SpecimentsInOrderClient tempSpeciment = this.specimentSearchView.SpecimentDetailData.Speciment;
 
             if (!EditClicked)
             {
@@ -86,7 +87,7 @@ namespace ClientHospitalApp.Presenters
         {
             EditClicked = true;
 
-            foreach (SpecimentsInOrder item in this.specimentModel.SpecimentList)
+            foreach (SpecimentsInOrderClient item in this.specimentModel.SpecimentList)
             {
                 if (item.ID_SpecimentOrder == this.specimentSearchView.selectedSpeciment.ID_SpecimentOrder)
                 {

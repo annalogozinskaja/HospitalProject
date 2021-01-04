@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,8 @@ namespace ClientHospitalApp.Views
 {
     public partial class SpecimentDetail : UserControl, ISpecimentView
     {
-        SpecimentsInOrder speciment;
-        public SpecimentsInOrder Speciment
+        SpecimentsInOrderClient speciment;
+        public SpecimentsInOrderClient Speciment
         {
             get { return getSpeciment(); }
             set { setSpeciment(value); }
@@ -57,11 +58,11 @@ namespace ClientHospitalApp.Views
         public SpecimentDetail()
         {
             InitializeComponent();
-            speciment = new SpecimentsInOrder();
+            speciment = new SpecimentsInOrderClient();
         }
 
 
-        void setSpeciment(SpecimentsInOrder speciment)
+        void setSpeciment(SpecimentsInOrderClient speciment)
         {
             if (speciment != null)
             {
@@ -86,7 +87,7 @@ namespace ClientHospitalApp.Views
             }
         }
 
-        SpecimentsInOrder getSpeciment()
+        SpecimentsInOrderClient getSpeciment()
         {
             if (textEditIdSpeciment.Text != "")
             {
@@ -106,7 +107,7 @@ namespace ClientHospitalApp.Views
 
         public void ClearAllData()
         {
-            speciment = new SpecimentsInOrder();
+            speciment = new SpecimentsInOrderClient();
 
             textEditIdSpeciment.Text = "";
             specimentNameLookUpEdit.lookUpEditSpecimentName.EditValue = 0;

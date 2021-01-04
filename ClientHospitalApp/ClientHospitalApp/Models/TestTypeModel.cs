@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.Models
 {
-    public class TestNameModel:ITestNameModel
+    public class TestTypeModel:ITestNameModel
     {
         private List<Test> listTestNames;
         private WebServiceHospitalSoapClient obj;
@@ -18,7 +18,7 @@ namespace ClientHospitalApp.Models
             set => listTestNames = value;
         }
 
-        public TestNameModel()
+        public TestTypeModel()
         {
             ListTestNames = new List<Test>();
             obj = new WebServiceHospitalSoapClient();

@@ -1,4 +1,6 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using AutoMapper;
+using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,41 +12,41 @@ namespace ClientHospitalApp.Models
 {
    public  class SpecimentsInOrderModel: ISpecimentsInOrderModel
     {
-        private SpecimentsInOrder speciment;
-        private List<SpecimentsInOrder> listSpeciments;
-        private WebServiceHospitalSoapClient obj;
-        BindingList<SpecimentsInOrder> specimentList;
-        private List<SpecimentsInOrder> listToAdd;
-        private List<SpecimentsInOrder> listToUpdate;
-        private List<SpecimentsInOrder> listToDelete;
+        private SpecimentsInOrderClient speciment;
+        private List<SpecimentsInOrderClient> listSpeciments;
+        private WebServiceHospitalSoapClient service;
+        BindingList<SpecimentsInOrderClient> specimentList;
+        private List<SpecimentsInOrderClient> listToAdd;
+        private List<SpecimentsInOrderClient> listToUpdate;
+        private List<SpecimentsInOrderClient> listToDelete;
         ISpecimentsInOrderModel specimentModel;
 
-        public SpecimentsInOrder Speciment
+        public SpecimentsInOrderClient Speciment
         {
             get => speciment;
             set => speciment = value;
         }
-        public List<SpecimentsInOrder> ListSpeciments
+        public List<SpecimentsInOrderClient> ListSpeciments
         {
             get => listSpeciments;
             set => listSpeciments = value;
         }
-        public BindingList<SpecimentsInOrder> SpecimentList
+        public BindingList<SpecimentsInOrderClient> SpecimentList
         {
             get => specimentList;
             set => specimentList = value;
         }
-        public List<SpecimentsInOrder> ListToAdd
+        public List<SpecimentsInOrderClient> ListToAdd
         {
             get => listToAdd;
             set => listToAdd = value;
         }
-        public List<SpecimentsInOrder> ListToUpdate
+        public List<SpecimentsInOrderClient> ListToUpdate
         {
             get => listToUpdate;
             set => listToUpdate = value;
         }
-        public List<SpecimentsInOrder> ListToDelete
+        public List<SpecimentsInOrderClient> ListToDelete
         {
             get => listToDelete;
             set => listToDelete = value;
@@ -52,56 +54,108 @@ namespace ClientHospitalApp.Models
 
         public SpecimentsInOrderModel()
         {
-            Speciment = new SpecimentsInOrder();
-            ListSpeciments = new List<SpecimentsInOrder>();
-            obj = new WebServiceHospitalSoapClient();
-            ListToAdd = new List<SpecimentsInOrder>();
-            ListToUpdate = new List<SpecimentsInOrder>();
-            ListToDelete = new List<SpecimentsInOrder>();
+            Speciment = new SpecimentsInOrderClient();
+            ListSpeciments = new List<SpecimentsInOrderClient>();
+            service = new WebServiceHospitalSoapClient();
+            ListToAdd = new List<SpecimentsInOrderClient>();
+            ListToUpdate = new List<SpecimentsInOrderClient>();
+            ListToDelete = new List<SpecimentsInOrderClient>();
             specimentModel = this;
         }
 
-        //public void GetSpeciment(int IdSpeciment)
-        //{          
-        //    Speciment = obj.GetDataSpeciment(IdSpeciment);
+        //private SpecimentsInOrderClient ConvertSpecimentsInOrderToSpecimentsInOrderClient(SpecimentsInOrder speciment)
+        //{
+        //    MapperConfiguration config = new MapperConfiguration(cfg =>
+        //    {
+        //        cfg.CreateMap<SpecimentsInOrder, SpecimentsInOrderClient>();
+        //    });
+
+        //    IMapper iMapper = config.CreateMapper();
+        //    SpecimentsInOrderClient newSpeciment = iMapper.Map<SpecimentsInOrder, SpecimentsInOrderClient>(speciment);
+
+        //    return newSpeciment;
         //}
+
+        private List<SpecimentsInOrderClient> ConvertSpecimentsInOrderToSpecimentsInOrderClient(List<SpecimentsInOrder> specimentList)
+        {
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<SpecimentsInOrder, SpecimentsInOrderClient>();
+            });
+
+            IMapper iMapper = config.CreateMapper();
+            foreach (SpecimentsInOrder item in specimentList)
+            {
+                SpecimentsInOrderClient newSpeciment = iMapper.Map<SpecimentsInOrder, SpecimentsInOrderClient>(item);
+                ListSpeciments.Add(newSpeciment);
+            }
+            return ListSpeciments;
+        }
+
+        //private SpecimentsInOrder ConvertSpecimentsInOrderClientToSpecimentsInOrder(SpecimentsInOrderClient speciment)
+        //{
+        //    MapperConfiguration config = new MapperConfiguration(cfg =>
+        //    {
+        //        cfg.CreateMap<SpecimentsInOrderClient, SpecimentsInOrder>();
+        //    });
+
+        //    IMapper iMapper = config.CreateMapper();
+        //    SpecimentsInOrder newSpeciment = iMapper.Map<SpecimentsInOrderClient, SpecimentsInOrder>(speciment);
+
+        //    return newSpeciment;
+        //}
+        private List<SpecimentsInOrder> ConvertSpecimentsInOrderClientToSpecimentsInOrder(List<SpecimentsInOrderClient> specimentList)
+        {
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<SpecimentsInOrderClient, SpecimentsInOrder>();
+            });
+
+            IMapper iMapper = config.CreateMapper();
+
+            List<SpecimentsInOrder> lstSpcmnts = new List<SpecimentsInOrder>();
+            foreach (SpecimentsInOrderClient item in specimentList)
+            {
+                SpecimentsInOrder newSpeciment = iMapper.Map<SpecimentsInOrderClient, SpecimentsInOrder>(item);
+                lstSpcmnts.Add(newSpeciment);
+            }
+
+            return lstSpcmnts;
+        }
 
         void ISpecimentsInOrderModel.AddSpeciment()
         {
-            obj.AddSpeciment(ListToAdd.ToArray());
+            service.AddSpeciment(ConvertSpecimentsInOrderClientToSpecimentsInOrder(ListToAdd).ToArray());
         }
 
         void ISpecimentsInOrderModel.UpdateSpeciment()
         {
-            obj.UpdateSpeciment(ListToUpdate.ToArray());
+            service.UpdateSpeciment(ConvertSpecimentsInOrderClientToSpecimentsInOrder(ListToUpdate).ToArray());
         }
 
         void ISpecimentsInOrderModel.DeleteSpeciment()
         {
-            obj.DeleteSpeciment(ListToDelete.ToArray());
+            service.DeleteSpeciment(ConvertSpecimentsInOrderClientToSpecimentsInOrder(ListToDelete).ToArray());
         }
 
         public void GetAllSpeciments()
         {
-            ListSpeciments = obj.GetDataAllSpeciments().ToList();
+            List<SpecimentsInOrder> lsp = new List<SpecimentsInOrder>();
+            lsp = service.GetDataAllSpeciments().ToList();
+
+            ListSpeciments = ConvertSpecimentsInOrderToSpecimentsInOrderClient(lsp);
             FillSpecimentList();
         }
 
         public void FillSpecimentList()
         {
-            SpecimentList = new BindingList<SpecimentsInOrder>(ListSpeciments);
+            SpecimentList = new BindingList<SpecimentsInOrderClient>(ListSpeciments);
             SpecimentList.AllowNew = true;
             SpecimentList.AllowEdit = true;
             SpecimentList.AllowRemove = true;
             SpecimentList.RaiseListChangedEvents = true;
             SpecimentList.ListChanged += new ListChangedEventHandler(SpecimentList_ListChanged);
         }
-
-        //public void GetRelativesOfPatient(PatientClient ptnt)
-        //{
-        //    Patient temp = ConvertPatientClientToPatient(ptnt);
-        //    patient.RelativeList = obj.GetRelativesOfPatient(temp).ToList();
-        //}
 
         public void SaveDataOfSpeciment()
         {

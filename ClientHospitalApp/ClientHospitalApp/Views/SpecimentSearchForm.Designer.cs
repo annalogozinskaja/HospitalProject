@@ -87,7 +87,7 @@
             this.specimentDetail.Location = new System.Drawing.Point(12, 12);
             this.specimentDetail.Name = "specimentDetail";
             this.specimentDetail.Size = new System.Drawing.Size(295, 410);
-            this.specimentDetail.Speciment = ((ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentsInOrder)(resources.GetObject("specimentDetail.Speciment")));
+           // this.specimentDetail.Speciment = ((ClientHospitalApp.ServiceReferenceDAOLayer.SpecimentsInOrder)(resources.GetObject("specimentDetail.Speciment")));
             this.specimentDetail.TabIndex = 4;
             // 
             // Root

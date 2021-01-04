@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.ClientEntities
 {
-    public class PatientClient
+    public class PatientClient : IPatientClient
     {
         public int ID_Patient { get; set; }
         public string Lastname { get; set; }
@@ -32,8 +32,6 @@ namespace ClientHospitalApp.ClientEntities
             this.SSN = -1;
             Gender = new Gender();
             relativeList = new List<Relative>();
-
-
         }
 
     }

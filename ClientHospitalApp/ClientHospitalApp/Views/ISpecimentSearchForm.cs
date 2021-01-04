@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,11 +11,11 @@ namespace ClientHospitalApp.Views
 {
     public interface ISpecimentSearchForm
     {
-        BindingList<SpecimentsInOrder> DataSourceSpeciments { get; set; }
+        BindingList<SpecimentsInOrderClient> DataSourceSpeciments { get; set; }
         List<Speciment> DataSourceSpecimentName { get; set; }
         List<SpecimentStatus> DataSourceSpecimentStatus { get; set; }
         List<OrderOfPatient> DataSourceOrder { get; set; }
-        SpecimentsInOrder selectedSpeciment { get; set; }
+        SpecimentsInOrderClient selectedSpeciment { get; set; }
         SpecimentDetail SpecimentDetailData { get; set; }
 
         event EventHandler DeleteSpecimentEvent;

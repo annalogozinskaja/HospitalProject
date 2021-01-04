@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +12,16 @@ namespace ClientHospitalApp.Models
     public interface ISpecimentsInOrderModel
     {
         void GetAllSpeciments();
-        //void GetSpeciment(int IdPatient);
         void AddSpeciment();
         void UpdateSpeciment();
         void DeleteSpeciment();
         void SaveDataOfSpeciment();
 
-        SpecimentsInOrder Speciment { get; set; }
-        List<SpecimentsInOrder> ListSpeciments { get; set; }
-        BindingList<SpecimentsInOrder> SpecimentList { get; set; }
-        List<SpecimentsInOrder> ListToAdd { get; set; }
-        List<SpecimentsInOrder> ListToUpdate { get; set; }
-        List<SpecimentsInOrder> ListToDelete { get; set; }
+        SpecimentsInOrderClient Speciment { get; set; }
+        List<SpecimentsInOrderClient> ListSpeciments { get; set; }
+        BindingList<SpecimentsInOrderClient> SpecimentList { get; set; }
+        List<SpecimentsInOrderClient> ListToAdd { get; set; }
+        List<SpecimentsInOrderClient> ListToUpdate { get; set; }
+        List<SpecimentsInOrderClient> ListToDelete { get; set; }
     }
 }

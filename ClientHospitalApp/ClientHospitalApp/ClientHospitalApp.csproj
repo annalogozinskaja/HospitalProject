@@ -163,8 +163,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClientEntities\GenderClient.cs" />
+    <Compile Include="ClientEntities\IPatientClient.cs" />
     <Compile Include="ClientEntities\PatientClient.cs" />
+    <Compile Include="ClientEntities\SpecimentsInOrderClient.cs" />
     <Compile Include="Connected Services\ServiceReferenceDAOLayer\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,7 +189,7 @@
     <Compile Include="Models\SpecimentNameModel.cs" />
     <Compile Include="Models\SpecimentsInOrderModel.cs" />
     <Compile Include="Models\SpecimentStatusModel.cs" />
-    <Compile Include="Models\TestNameModel.cs" />
+    <Compile Include="Models\TestTypeModel.cs" />
     <Compile Include="Models\TestsInOrderModel.cs" />
     <Compile Include="Models\TestStatusModel.cs" />
     <Compile Include="PatientDataInfoEventArgs.cs" />

@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using System;
@@ -15,14 +16,14 @@ namespace ClientHospitalApp.Views
 {
     public partial class SpecimentSearchForm : Form, ISpecimentSearchForm
     {
-        public BindingList<SpecimentsInOrder> DataSourceSpeciments
+        public BindingList<SpecimentsInOrderClient> DataSourceSpeciments
         {
             set
             {
                 gridControlSpeciments.DataSource = value;
                 gridControlSpeciments.RefreshDataSource();
             }
-            get { return (BindingList<SpecimentsInOrder>)gridControlSpeciments.DataSource; }
+            get { return (BindingList<SpecimentsInOrderClient>)gridControlSpeciments.DataSource; }
         }
         public List<Speciment> DataSourceSpecimentName
         {
@@ -40,7 +41,7 @@ namespace ClientHospitalApp.Views
             get { return (List<OrderOfPatient>)specimentDetail.DataSourceOrder; }
         }
         MainForm mainForm;
-        public SpecimentsInOrder selectedSpeciment { get; set; }
+        public SpecimentsInOrderClient selectedSpeciment { get; set; }
 
         public event EventHandler LoadDataDataEvent;
         public event EventHandler EditSpecimentEvent;
@@ -67,11 +68,11 @@ namespace ClientHospitalApp.Views
         private void CreateGridControl()
         {
             this.gridView1.Columns[0].Caption = "ID";
-            this.gridView1.Columns[1].Caption = "Type of Test";
-            this.gridView1.Columns[4].Caption = "Status";
+            this.gridView1.Columns[1].Caption = "Type of Speciment";
+            this.gridView1.Columns[4].Caption = "Order";
 
-            this.gridView1.Columns[1].FieldName="Test.TestName";
-            this.gridView1.Columns[2].FieldName = "TestStatus.TestStatusName";
+            this.gridView1.Columns[1].FieldName="Speciment.SpecimentName";
+            this.gridView1.Columns[2].FieldName = "SpecimentStatus.SpecimentStatusName";
             this.gridView1.Columns[4].FieldName = "Order.ID_Order";
             //this.gridView1.Columns[6].Visible = false;
 
@@ -145,7 +146,7 @@ namespace ClientHospitalApp.Views
             int[] selectedRowHandles = this.gridView1.GetSelectedRows();
             if (selectedRowHandles.Length == 1)
             {
-                SpecimentsInOrder speciment = gridView1.GetRow(selectedRowHandles[0]) as SpecimentsInOrder;
+                SpecimentsInOrderClient speciment = gridView1.GetRow(selectedRowHandles[0]) as SpecimentsInOrderClient;
                 if (speciment == null)
                 {
                     MessageBox.Show("Selected speciment is null");
