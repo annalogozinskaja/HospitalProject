@@ -82,7 +82,7 @@
             this.testDetail.Name = "testDetail";
             this.testDetail.Size = new System.Drawing.Size(289, 400);
             this.testDetail.TabIndex = 4;
-            this.testDetail.Test = ((ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder)(resources.GetObject("testDetail.Test")));
+            //this.testDetail.Test = ((ClientHospitalApp.ServiceReferenceDAOLayer.TestsInOrder)(resources.GetObject("testDetail.Test")));
             // 
             // Root
             // 

@@ -63,19 +63,6 @@ namespace ClientHospitalApp.Models
             specimentModel = this;
         }
 
-        //private SpecimentsInOrderClient ConvertSpecimentsInOrderToSpecimentsInOrderClient(SpecimentsInOrder speciment)
-        //{
-        //    MapperConfiguration config = new MapperConfiguration(cfg =>
-        //    {
-        //        cfg.CreateMap<SpecimentsInOrder, SpecimentsInOrderClient>();
-        //    });
-
-        //    IMapper iMapper = config.CreateMapper();
-        //    SpecimentsInOrderClient newSpeciment = iMapper.Map<SpecimentsInOrder, SpecimentsInOrderClient>(speciment);
-
-        //    return newSpeciment;
-        //}
-
         private List<SpecimentsInOrderClient> ConvertSpecimentsInOrderToSpecimentsInOrderClient(List<SpecimentsInOrder> specimentList)
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
@@ -92,18 +79,6 @@ namespace ClientHospitalApp.Models
             return ListSpeciments;
         }
 
-        //private SpecimentsInOrder ConvertSpecimentsInOrderClientToSpecimentsInOrder(SpecimentsInOrderClient speciment)
-        //{
-        //    MapperConfiguration config = new MapperConfiguration(cfg =>
-        //    {
-        //        cfg.CreateMap<SpecimentsInOrderClient, SpecimentsInOrder>();
-        //    });
-
-        //    IMapper iMapper = config.CreateMapper();
-        //    SpecimentsInOrder newSpeciment = iMapper.Map<SpecimentsInOrderClient, SpecimentsInOrder>(speciment);
-
-        //    return newSpeciment;
-        //}
         private List<SpecimentsInOrder> ConvertSpecimentsInOrderClientToSpecimentsInOrder(List<SpecimentsInOrderClient> specimentList)
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>

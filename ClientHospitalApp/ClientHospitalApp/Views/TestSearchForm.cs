@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using DevExpress.XtraEditors.Repository;
 using DevExpress.XtraGrid.Columns;
 using System;
@@ -15,14 +16,14 @@ namespace ClientHospitalApp.Views
 {
     public partial class TestSearchForm : Form, ITestSearchForm
     {
-        public BindingList<TestsInOrder> DataSourceTests
+        public BindingList< TestsInOrderClient> DataSourceTests
         {
             set
             {
                 gridControlTests.DataSource = value;
                 gridControlTests.RefreshDataSource();
             }
-            get { return (BindingList<TestsInOrder>)gridControlTests.DataSource; }
+            get { return (BindingList< TestsInOrderClient>)gridControlTests.DataSource; }
         }
         public List<Test> DataSourceTestName
         {
@@ -36,7 +37,7 @@ namespace ClientHospitalApp.Views
         }
 
         MainForm mainForm;
-        public TestsInOrder selectedTest { get; set; }
+        public  TestsInOrderClient selectedTest { get; set; }
 
         public event EventHandler LoadDataDataEvent;
         public event EventHandler EditTestEvent;
@@ -68,7 +69,7 @@ namespace ClientHospitalApp.Views
 
             this.gridView1.Columns[1].FieldName = "Test.TestName";
             this.gridView1.Columns[4].FieldName = "TestStatus.TestStatusName";
-            this.gridView1.Columns[6].Visible = false;
+            //this.gridView1.Columns[6].Visible = false;
 
             this.gridView1.OptionsView.ShowGroupedColumns = true;
             this.gridView1.ExpandAllGroups();
@@ -135,7 +136,7 @@ namespace ClientHospitalApp.Views
             int[] selectedRowHandles = this.gridView1.GetSelectedRows();
             if (selectedRowHandles.Length == 1)
             {
-                TestsInOrder test = gridView1.GetRow(selectedRowHandles[0]) as TestsInOrder;
+                 TestsInOrderClient test = gridView1.GetRow(selectedRowHandles[0]) as  TestsInOrderClient;
                 if (test == null)
                 {
                     MessageBox.Show("Selected test is null");

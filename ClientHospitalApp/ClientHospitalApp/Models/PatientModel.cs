@@ -15,7 +15,7 @@ namespace ClientHospitalApp.Models
     {
         private PatientClient patient;
         private List<PatientClient> listPatients;
-        private WebServiceHospitalSoapClient obj;
+        private WebServiceHospitalSoapClient service;
         BindingList<PatientClient> patientList;
         private List<PatientClient> listToAdd;
         private List<PatientClient> listToUpdate;
@@ -57,7 +57,7 @@ namespace ClientHospitalApp.Models
         {
             Patient = new PatientClient();
             ListPatients = new List<PatientClient>();
-            obj = new WebServiceHospitalSoapClient();          
+            service = new WebServiceHospitalSoapClient();          
             ListToAdd = new List<PatientClient>();
             ListToUpdate = new List<PatientClient>();
             ListToDelete = new List<PatientClient>();
@@ -128,20 +128,20 @@ namespace ClientHospitalApp.Models
         public void GetPatient(int IdPatient)
         {
             Patient p = new Patient();
-            p = obj.GetDataPatient(IdPatient);
+            p = service.GetDataPatient(IdPatient);
 
             Patient=ConvertPatientToPatientClient(p);
         }
 
         void IPatientModel.AddPatient()
         {
-            obj.AddPatient(ConvertPatientClientToPatient(ListToAdd).ToArray());
+            service.AddPatient(ConvertPatientClientToPatient(ListToAdd).ToArray());
         }
 
         public void GetAllPatients()
         {
             List<Patient> lp = new List<Patient>();
-            lp= obj.GetDataAllPatients().ToList();
+            lp= service.GetDataAllPatients().ToList();
 
             ListPatients = ConvertPatientToPatientClient(lp);
             FillPatientList();
@@ -159,17 +159,17 @@ namespace ClientHospitalApp.Models
 
          void IPatientModel.UpdatePatient()
         {
-            obj.UpdatePatient(ConvertPatientClientToPatient(ListToUpdate).ToArray());
+            service.UpdatePatient(ConvertPatientClientToPatient(ListToUpdate).ToArray());
         }
 
         void IPatientModel.DeletePatient()
         {
-            obj.DeletePatient(ConvertPatientClientToPatient(ListToDelete).ToArray());
+            service.DeletePatient(ConvertPatientClientToPatient(ListToDelete).ToArray());
         }
         public void GetRelativesOfPatient(PatientClient ptnt)
         {
             Patient temp=ConvertPatientClientToPatient(ptnt);
-            patient.RelativeList= obj.GetRelativesOfPatient(temp).ToList();
+            patient.RelativeList= service.GetRelativesOfPatient(temp).ToList();
         }
 
        public void SaveDataOfPatient()

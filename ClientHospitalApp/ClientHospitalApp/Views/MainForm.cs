@@ -30,11 +30,6 @@ namespace ClientHospitalApp
             patientSearchForm.Show();
         }
 
-        private void barButtonOrders_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-
-        }
-
         private void barButtonSave_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             SaveDataEvent(this, EventArgs.Empty);

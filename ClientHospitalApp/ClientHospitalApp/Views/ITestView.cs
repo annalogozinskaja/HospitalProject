@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace ClientHospitalApp.Views
 {
     public interface ITestView
     {
-        TestsInOrder Test { get; set; }
+        TestsInOrderClient Test { get; set; }
         event EventHandler AddOrUpdateTestEvent;
         void ClearAllData();
     }

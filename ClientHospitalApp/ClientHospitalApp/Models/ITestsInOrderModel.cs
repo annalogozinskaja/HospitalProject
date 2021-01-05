@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,11 +17,11 @@ namespace ClientHospitalApp.Models
         void DeleteTest();
         void SaveDataOfTest();
 
-        TestsInOrder Test { get; set; }
-        List<TestsInOrder> ListTests { get; set; }
-        BindingList<TestsInOrder> TestList { get; set; }
-        List<TestsInOrder> ListToAdd { get; set; }
-        List<TestsInOrder> ListToUpdate { get; set; }
-        List<TestsInOrder> ListToDelete { get; set; }
+        TestsInOrderClient Test { get; set; }
+        List<TestsInOrderClient> ListTests { get; set; }
+        BindingList<TestsInOrderClient> TestList { get; set; }
+        List<TestsInOrderClient> ListToAdd { get; set; }
+        List<TestsInOrderClient> ListToUpdate { get; set; }
+        List<TestsInOrderClient> ListToDelete { get; set; }
     }
 }

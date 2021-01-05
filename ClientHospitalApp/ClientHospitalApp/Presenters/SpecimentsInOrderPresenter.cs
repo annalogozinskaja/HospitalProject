@@ -89,7 +89,7 @@ namespace ClientHospitalApp.Presenters
 
             foreach (SpecimentsInOrderClient item in this.specimentModel.SpecimentList)
             {
-                if (item.ID_SpecimentOrder == this.specimentSearchView.selectedSpeciment.ID_SpecimentOrder)
+                if (item.Equals(this.specimentSearchView.selectedSpeciment))
                 {
                     this.specimentSearchView.SpecimentDetailData.Speciment = item;
                 }

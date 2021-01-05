@@ -1,4 +1,6 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using AutoMapper;
+using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,83 +11,121 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.Models
 {
-    public class TestsInOrderModel: ITestsInOrderModel
+    public class  TestsInOrderModel: ITestsInOrderModel
     {
-        private TestsInOrder test;
-        private List<TestsInOrder> listTests;
-        private WebServiceHospitalSoapClient obj;
-        BindingList<TestsInOrder> testList;
-        private List<TestsInOrder> listToAdd;
-        private List<TestsInOrder> listToUpdate;
-        private List<TestsInOrder> listToDelete;
+        private  TestsInOrderClient test;
+        private List< TestsInOrderClient> listTests;
+        private WebServiceHospitalSoapClient service;
+        BindingList< TestsInOrderClient> testList;
+        private List< TestsInOrderClient> listToAdd;
+        private List< TestsInOrderClient> listToUpdate;
+        private List< TestsInOrderClient> listToDelete;
         ITestsInOrderModel testModel;
 
-        public TestsInOrder Test
+        public  TestsInOrderClient Test
         {
             get => test;
             set => test = value;
         }
-        public List<TestsInOrder> ListTests
+        public List< TestsInOrderClient> ListTests
         {
             get => listTests;
             set => listTests = value;
         }
-        public BindingList<TestsInOrder> TestList
+        public BindingList< TestsInOrderClient> TestList
         {
             get => testList;
             set => testList = value;
         }
-        public List<TestsInOrder> ListToAdd
+        public List< TestsInOrderClient> ListToAdd
         {
             get => listToAdd;
             set => listToAdd = value;
         }
-        public List<TestsInOrder> ListToUpdate
+        public List< TestsInOrderClient> ListToUpdate
         {
             get => listToUpdate;
             set => listToUpdate = value;
         }
-        public List<TestsInOrder> ListToDelete
+        public List< TestsInOrderClient> ListToDelete
         {
             get => listToDelete;
             set => listToDelete = value;
         }
 
-        public TestsInOrderModel()
+        public  TestsInOrderModel()
         {
-            Test = new TestsInOrder();
-            ListTests = new List<TestsInOrder>();
-            obj = new WebServiceHospitalSoapClient();
-            ListToAdd = new List<TestsInOrder>();
-            ListToUpdate = new List<TestsInOrder>();
-            ListToDelete = new List<TestsInOrder>();
+            Test = new  TestsInOrderClient();
+            ListTests = new List< TestsInOrderClient>();
+            service = new WebServiceHospitalSoapClient();
+            ListToAdd = new List< TestsInOrderClient>();
+            ListToUpdate = new List< TestsInOrderClient>();
+            ListToDelete = new List< TestsInOrderClient>();
             testModel = this;
+        }
+
+        private List<TestsInOrderClient> ConvertTestsInOrderToTestsInOrderClient(List<TestsInOrder> testList)
+        {
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<TestsInOrder, TestsInOrderClient>();
+            });
+
+            IMapper iMapper = config.CreateMapper();
+            foreach (TestsInOrder item in testList)
+            {
+                TestsInOrderClient newTest = iMapper.Map<TestsInOrder, TestsInOrderClient>(item);
+                ListTests.Add(newTest);
+            }
+            return ListTests;
+        }
+
+        private List<TestsInOrder> ConvertTestsInOrderClientToTestsInOrder(List<TestsInOrderClient> testList)
+        {
+            MapperConfiguration config = new MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<TestsInOrderClient, TestsInOrder>();
+            });
+
+            IMapper iMapper = config.CreateMapper();
+
+            List<TestsInOrder> lstTsts = new List<TestsInOrder>();
+            foreach (TestsInOrderClient item in testList)
+            {
+                TestsInOrder newTest = iMapper.Map<TestsInOrderClient, TestsInOrder>(item);
+                lstTsts.Add(newTest);
+            }
+
+            return lstTsts;
         }
 
         void ITestsInOrderModel.AddTest()
         {
-            obj.AddTest(ListToAdd.ToArray());
+            service.AddTest(ConvertTestsInOrderClientToTestsInOrder(ListToAdd).ToArray());
         }
 
         void ITestsInOrderModel.UpdateTest()
         {
-            obj.UpdateTest(ListToUpdate.ToArray());
+            service.UpdateTest(ConvertTestsInOrderClientToTestsInOrder(ListToUpdate).ToArray());
         }
 
         void ITestsInOrderModel.DeleteTest()
         {
-            obj.DeleteTest(ListToDelete.ToArray());
+            service.DeleteTest(ConvertTestsInOrderClientToTestsInOrder(ListToDelete).ToArray());
         }
 
         public void GetAllTests()
         {
-            ListTests = obj.GetDataAllTests().ToList();
+            List<TestsInOrder> lt = new List<TestsInOrder>();
+            lt = service.GetDataAllTests().ToList();
+
+            ListTests = ConvertTestsInOrderToTestsInOrderClient(lt);
             FillTestList();
         }
 
         public void FillTestList()
         {
-            TestList = new BindingList<TestsInOrder>(ListTests);
+            TestList = new BindingList<TestsInOrderClient>(ListTests);
             TestList.AllowNew = true;
             TestList.AllowEdit = true;
             TestList.AllowRemove = true;

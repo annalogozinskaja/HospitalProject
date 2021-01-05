@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.Models;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.Models;
 using ClientHospitalApp.ServiceReferenceDAOLayer;
 using ClientHospitalApp.Views;
 using System;
@@ -52,7 +53,7 @@ namespace ClientHospitalApp.Presenters
 
         private void AddOrUpdateTestEventHandler(object sender, EventArgs args)
         {
-            TestsInOrder tempTest = this.testSearchView.TestDetailData.Test;
+            TestsInOrderClient tempTest = this.testSearchView.TestDetailData.Test;
 
             if (!EditClicked)
             {
@@ -82,9 +83,9 @@ namespace ClientHospitalApp.Presenters
         {
             EditClicked = true;
 
-            foreach (TestsInOrder item in this.testModel.TestList)
+            foreach (TestsInOrderClient item in this.testModel.TestList)
             {
-                if (item.ID_TestOrder == this.testSearchView.selectedTest.ID_TestOrder)
+                if (item.Equals(this.testSearchView.selectedTest))
                 {
                     this.testSearchView.TestDetailData.Test = item;
                 }

@@ -16,6 +16,7 @@ using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid.Columns;
 using ClientHospitalApp.Reports;
 using ClientHospitalApp.ClientEntities;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClientHospitalApp.Presenters
 {
@@ -63,27 +64,32 @@ namespace ClientHospitalApp.Presenters
         {
             PatientClient tempPatient = this.patientSearchView.PatientDetailData.PatientData;
 
-            if (!EditClicked)
-            {
-                this.patientModel.PatientList.Add(tempPatient);
-                this.patientSearchView.PatientDetailData.ClearAllData();
-            }
-            else
-            {
-                if (this.patientSearchView.selectedPatient.ID_Patient <= 0)
-                {
-                    this.patientModel.Patient = this.patientSearchView.selectedPatient;
-                }
-                for (int i = 0; i < this.patientModel.PatientList.Count; i++)
-                {
-                    if (this.patientModel.PatientList[i].Equals(this.patientSearchView.selectedPatient))
-                    {
-                        this.patientModel.PatientList[i] = tempPatient;
-                    }
-                }
+            bool flag = ValidatePatient(tempPatient);
 
-                this.patientSearchView.PatientDetailData.ClearAllData();
-                EditClicked = false;
+            if (flag)
+            {
+                if (!EditClicked)
+                {
+                    this.patientModel.PatientList.Add(tempPatient);
+                    this.patientSearchView.PatientDetailData.ClearAllData();
+                }
+                else
+                {
+                    if (this.patientSearchView.selectedPatient.ID_Patient <= 0)
+                    {
+                        this.patientModel.Patient = this.patientSearchView.selectedPatient;
+                    }
+                    for (int i = 0; i < this.patientModel.PatientList.Count; i++)
+                    {
+                        if (this.patientModel.PatientList[i].Equals(this.patientSearchView.selectedPatient))
+                        {
+                            this.patientModel.PatientList[i] = tempPatient;
+                        }
+                    }
+
+                    this.patientSearchView.PatientDetailData.ClearAllData();
+                    EditClicked = false;
+                }
             }
         }
 
@@ -93,7 +99,7 @@ namespace ClientHospitalApp.Presenters
             
             foreach (PatientClient item in this.patientModel.PatientList)
             {
-                if (item.ID_Patient == this.patientSearchView.selectedPatient.ID_Patient)
+                if (item.Equals(this.patientSearchView.selectedPatient))
                 {
                     this.patientSearchView.PatientDetailData.PatientData = item;
                 }
@@ -140,6 +146,26 @@ namespace ClientHospitalApp.Presenters
             OrdRep.Text = "Orders of the patient";
 
             OrdRep.ShowDialog();
+        }
+
+        public bool ValidatePatient(PatientClient patientForCheck)
+        {
+            List<ValidationResult> results = new List<ValidationResult>();
+            ValidationContext context = new ValidationContext(patientForCheck);
+            bool flag = Validator.TryValidateObject(patientForCheck, context, results, true);
+            if (!flag)
+            {
+                foreach (ValidationResult error in results)
+                {
+                    MessageBox.Show(error.ErrorMessage);
+                }
+            }
+            else
+            {
+                MessageBox.Show("All data patient is OK");
+            }
+
+            return flag;
         }
 
     }

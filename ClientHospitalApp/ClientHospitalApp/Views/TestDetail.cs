@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,9 @@ namespace ClientHospitalApp.Views
 {
     public partial class TestDetail : UserControl, ITestView
     {
-        TestsInOrder test;
+        TestsInOrderClient test;
         
-        public TestsInOrder Test
+        public TestsInOrderClient Test
         {
             get { return getTest(); }
             set { setTest(value); }
@@ -46,10 +47,10 @@ namespace ClientHospitalApp.Views
         public TestDetail()
         {
             InitializeComponent();
-            test = new TestsInOrder();
+            test = new TestsInOrderClient();
         }
 
-        void setTest(TestsInOrder test)
+        void setTest(TestsInOrderClient test)
         {
             if (test != null)
             {
@@ -70,7 +71,7 @@ namespace ClientHospitalApp.Views
             }
         }
 
-        TestsInOrder getTest()
+        TestsInOrderClient getTest()
         {
             if (textEditIDTest.Text != "")
             {
@@ -92,7 +93,7 @@ namespace ClientHospitalApp.Views
 
         public void ClearAllData()
         {
-            test = new TestsInOrder();
+            test = new TestsInOrderClient();
 
             textEditIDTest.Text = "";
             testNameLookUpEdit.lookUpEditTestName.EditValue = 0;

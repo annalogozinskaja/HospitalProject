@@ -41,7 +41,6 @@
             this.barButtonSave = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageData = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -94,7 +93,7 @@
             this.barButtonOrders.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonOrders.ImageOptions.LargeImage")));
             this.barButtonOrders.Name = "barButtonOrders";
             this.barButtonOrders.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.barButtonOrders.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonOrders_ItemClick);
+           // this.barButtonOrders.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonOrders_ItemClick);
             // 
             // barButtonSpeciments
             // 
@@ -145,7 +144,6 @@
             // 
             this.ribbonPageData.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup2,
             this.ribbonPageGroup3,
             this.ribbonPageGroup4,
             this.ribbonPageGroup8});
@@ -156,11 +154,6 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonPatients);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonOrders);
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
             // ribbonPageGroup3
             // 
@@ -228,7 +221,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPageData;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barButtonPatients;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem barButtonOrders;
         private DevExpress.XtraBars.BarButtonItem barButtonSpeciments;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;

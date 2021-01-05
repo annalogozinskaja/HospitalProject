@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,10 +11,10 @@ namespace ClientHospitalApp.Views
 {
     public interface ITestSearchForm
     {
-        BindingList<TestsInOrder> DataSourceTests { get; set; }
+        BindingList<TestsInOrderClient> DataSourceTests { get; set; }
         List<Test> DataSourceTestName { get; set; }
         List<TestStatus> DataSourceTestStatus { get; set; }
-        TestsInOrder selectedTest { get; set; }
+        TestsInOrderClient selectedTest { get; set; }
         TestDetail TestDetailData { get; set; }
 
         event EventHandler DeleteTestEvent;
