@@ -94,7 +94,7 @@ namespace ClientHospitalApp
         private void textEditLnm_KeyPress(object sender, KeyPressEventArgs e)
         {            char number = e.KeyChar;
 
-            if (!Char.IsLetter(number) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.OemMinus)
+            if (!Char.IsLetter(number) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
             {
                 e.Handled = true;
             }

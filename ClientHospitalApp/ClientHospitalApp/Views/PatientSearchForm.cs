@@ -58,6 +58,9 @@ namespace ClientHospitalApp.Views
             this.gridView1.Columns[3].Caption = "Data of birth";
             this.gridView1.Columns[4].Caption = "SSN";
 
+            this.gridView1.Columns[4].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridView1.Columns[4].DisplayFormat.FormatString = "{0:d9}";
+
             this.gridView1.Columns[0].Visible = false;
             this.gridView1.Columns[5].Visible = false;
 

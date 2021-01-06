@@ -44,13 +44,7 @@ namespace ClientHospitalApp.Views
         public event EventHandler DeleteTestEvent;
         public event EventHandler SaveDataToModelEvent;
        
-        public String DataSourceGridViewTestName
-        {
-            set { this.gridView1.Columns[2].Caption = value; }
-            get { return (String)this.gridView1.Columns[2].Caption; }
-        }
-
-
+       
         public TestDetail TestDetailData
         {
             set { testDetail = value; }
@@ -80,15 +74,13 @@ namespace ClientHospitalApp.Views
             this.gridView1.Columns[3].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[4].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[5].OptionsColumn.AllowEdit = false;
-            //this.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
 
             this.gridView1.Columns[0].Width = 5;
             this.gridView1.Columns[1].Width = 120;
             this.gridView1.Columns[2].Width = 100;
             this.gridView1.Columns[3].Width = 100;
             this.gridView1.Columns[4].Width = 105;
-            //this.gridView1.Columns[1].BestFit();
-
+           
             GridColumn unbColumnEdit = gridView1.Columns.AddField("Edit");
             unbColumnEdit.VisibleIndex = gridView1.Columns.Count;
             unbColumnEdit.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;

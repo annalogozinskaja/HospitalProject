@@ -159,6 +159,7 @@ namespace ClientHospitalApp.Presenters
                 {
                     MessageBox.Show(error.ErrorMessage);
                 }
+                MessageBox.Show(results.Count.ToString());
             }
             else
             {

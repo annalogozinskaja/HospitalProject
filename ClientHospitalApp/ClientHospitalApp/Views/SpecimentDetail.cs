@@ -135,7 +135,7 @@ namespace ClientHospitalApp.Views
         {
             char number = e.KeyChar;
 
-            if (!Char.IsLetter(number) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.OemMinus)
+            if (!Char.IsLetter(number) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
             {
                 e.Handled = true;
             }

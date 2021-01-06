@@ -47,13 +47,6 @@ namespace ClientHospitalApp.Views
         public event EventHandler EditSpecimentEvent;
         public event EventHandler DeleteSpecimentEvent;
         public event EventHandler SaveDataToModelEvent;
-        
-        public String DataSourceGridViewSpecimentName
-        {
-            set { this.gridView1.Columns[2].Caption = value; }
-            get { return (String)this.gridView1.Columns[2].Caption; }
-        }
-
 
         public SpecimentDetail SpecimentDetailData
         {
@@ -85,14 +78,12 @@ namespace ClientHospitalApp.Views
             this.gridView1.Columns[3].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[4].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[5].OptionsColumn.AllowEdit = false;
-            //this.gridView1.DoubleClick += new System.EventHandler(gridView1_DoubleClick);
 
             this.gridView1.Columns[0].Width = 5;
             this.gridView1.Columns[1].Width=135;
             this.gridView1.Columns[2].Width = 120;
             this.gridView1.Columns[3].Width = 100;
             this.gridView1.Columns[4].Width = 70;
-            //this.gridView1.Columns[1].BestFit();
 
             GridColumn unbColumnEdit = gridView1.Columns.AddField("Edit");
             unbColumnEdit.VisibleIndex = gridView1.Columns.Count;
@@ -136,11 +127,6 @@ namespace ClientHospitalApp.Views
             GetSelectedSpeciment(2);
         }
 
-        //void gridView1_DoubleClick(object sender, EventArgs args)
-        //{
-        //    GetSelectedSpeciment(3);
-        //}
-
         private void GetSelectedSpeciment(int numberOfMethod)
         {
             int[] selectedRowHandles = this.gridView1.GetSelectedRows();
@@ -160,15 +146,9 @@ namespace ClientHospitalApp.Views
                 {
                     EditSpecimentEvent(this, EventArgs.Empty);
                 }
-                else if (numberOfMethod == 2)
+                else 
                 {
                     DeleteSpecimentEvent(this, EventArgs.Empty);
-                }
-                else if (numberOfMethod == 3)
-                {
-                    //PatientDataInfoForm pdiForm = new PatientDataInfoForm();
-                    //ShowPatientDataEvent(this, new PatientDataInfoEventArgs(pdiForm));
-                    //DialogResult res = pdiForm.ShowDialog();
                 }
             }
             else if (selectedRowHandles.Length == 0)
