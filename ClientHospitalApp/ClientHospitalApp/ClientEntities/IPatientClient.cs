@@ -1,6 +1,7 @@
 ﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClientHospitalApp.ClientEntities
 {
@@ -13,5 +14,6 @@ namespace ClientHospitalApp.ClientEntities
         string Lastname { get; set; }
         List<Relative> RelativeList { get; set; }
         int SSN { get; set; }
+        IEnumerable<ValidationResult> Validate(ValidationContext validationContext);
     }
 }

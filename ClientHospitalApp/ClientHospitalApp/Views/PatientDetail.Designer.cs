@@ -62,7 +62,7 @@
             this.dateEditDOB.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditDOB.Properties.CalendarView = DevExpress.XtraEditors.Repository.CalendarView.Vista;
-            this.dateEditDOB.Properties.DisplayFormat.FormatString = "dd/MM/yy";
+            this.dateEditDOB.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateEditDOB.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEditDOB.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateEditDOB.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;

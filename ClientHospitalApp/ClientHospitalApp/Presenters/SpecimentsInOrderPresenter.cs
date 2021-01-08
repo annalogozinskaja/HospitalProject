@@ -4,6 +4,7 @@ using ClientHospitalApp.ServiceReferenceDAOLayer;
 using ClientHospitalApp.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,27 +60,32 @@ namespace ClientHospitalApp.Presenters
         {
             SpecimentsInOrderClient tempSpeciment = this.specimentSearchView.SpecimentDetailData.Speciment;
 
-            if (!EditClicked)
-            {
-                this.specimentModel.SpecimentList.Add(tempSpeciment);
-                this.specimentSearchView.SpecimentDetailData.ClearAllData();
-            }
-            else
-            {
-                if (this.specimentSearchView.selectedSpeciment.ID_SpecimentOrder <= 0)
-                {
-                    this.specimentModel.Speciment = this.specimentSearchView.selectedSpeciment;
-                }
-                for (int i = 0; i < this.specimentModel.SpecimentList.Count; i++)
-                {
-                    if (this.specimentModel.SpecimentList[i].Equals(this.specimentSearchView.selectedSpeciment))
-                    {
-                        this.specimentModel.SpecimentList[i] = tempSpeciment;
-                    }
-                }
+            bool flag = ValidateSpeciment(tempSpeciment);
 
-                this.specimentSearchView.SpecimentDetailData.ClearAllData();
-                EditClicked = false;
+            if (flag)
+            {
+                if (!EditClicked)
+                {
+                    this.specimentModel.SpecimentList.Add(tempSpeciment);
+                    this.specimentSearchView.SpecimentDetailData.ClearAllData();
+                }
+                else
+                {
+                    if (this.specimentSearchView.selectedSpeciment.ID_SpecimentOrder <= 0)
+                    {
+                        this.specimentModel.Speciment = this.specimentSearchView.selectedSpeciment;
+                    }
+                    for (int i = 0; i < this.specimentModel.SpecimentList.Count; i++)
+                    {
+                        if (this.specimentModel.SpecimentList[i].Equals(this.specimentSearchView.selectedSpeciment))
+                        {
+                            this.specimentModel.SpecimentList[i] = tempSpeciment;
+                        }
+                    }
+
+                    this.specimentSearchView.SpecimentDetailData.ClearAllData();
+                    EditClicked = false;
+                }
             }
         }
 
@@ -112,6 +118,26 @@ namespace ClientHospitalApp.Presenters
         {
             specimentModel.SaveDataOfSpeciment();
             MessageBox.Show("Data saved");
+        }
+
+        public bool ValidateSpeciment(SpecimentsInOrderClient specimentForCheck)
+        {
+            List<ValidationResult> results = new List<ValidationResult>();
+            ValidationContext context = new ValidationContext(specimentForCheck);
+            bool flag = Validator.TryValidateObject(specimentForCheck, context, results, true);
+            if (!flag)
+            {
+                foreach (ValidationResult error in results)
+                {
+                    MessageBox.Show(error.ErrorMessage);
+                }
+            }
+            else
+            {
+                MessageBox.Show("All data speciment is OK");
+            }
+
+            return flag;
         }
 
     }
