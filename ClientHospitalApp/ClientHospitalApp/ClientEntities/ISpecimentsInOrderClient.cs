@@ -14,6 +14,5 @@ namespace ClientHospitalApp.ClientEntities
         Speciment Speciment { get; set; }
         SpecimentStatus SpecimentStatus { get; set; }
         List<int> testsInOrderList { get; set; }
-        IEnumerable<ValidationResult> Validate(ValidationContext validationContext);
     }
 }

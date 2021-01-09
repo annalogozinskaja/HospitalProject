@@ -14,6 +14,5 @@ namespace ClientHospitalApp.ClientEntities
         string Lastname { get; set; }
         List<Relative> RelativeList { get; set; }
         int SSN { get; set; }
-        IEnumerable<ValidationResult> Validate(ValidationContext validationContext);
     }
 }

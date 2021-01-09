@@ -165,6 +165,7 @@
   <ItemGroup>
     <Compile Include="ClientEntities\IPatientClient.cs" />
     <Compile Include="ClientEntities\ISpecimentsInOrderClient.cs" />
+    <Compile Include="ClientEntities\ITestsInOrderClient.cs" />
     <Compile Include="ClientEntities\PatientClient.cs" />
     <Compile Include="ClientEntities\SpecimentsInOrderClient.cs" />
     <Compile Include="ClientEntities\TestsInOrderClient.cs" />

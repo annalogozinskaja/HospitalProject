@@ -4,6 +4,7 @@ using ClientHospitalApp.ServiceReferenceDAOLayer;
 using ClientHospitalApp.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,27 +56,32 @@ namespace ClientHospitalApp.Presenters
         {
             TestsInOrderClient tempTest = this.testSearchView.TestDetailData.Test;
 
-            if (!EditClicked)
-            {
-                this.testModel.TestList.Add(tempTest);
-                this.testSearchView.TestDetailData.ClearAllData();
-            }
-            else
-            {
-                if (this.testSearchView.selectedTest.ID_TestOrder <= 0)
-                {
-                    this.testModel.Test = this.testSearchView.selectedTest;
-                }
-                for (int i = 0; i < this.testModel.TestList.Count; i++)
-                {
-                    if (this.testModel.TestList[i].Equals(this.testSearchView.selectedTest))
-                    {
-                        this.testModel.TestList[i] = tempTest;
-                    }
-                }
+            bool flag = ValidateTest(tempTest);
 
-                this.testSearchView.TestDetailData.ClearAllData();
-                EditClicked = false;
+            if (flag)
+            {
+                if (!EditClicked)
+                {
+                    this.testModel.TestList.Add(tempTest);
+                    this.testSearchView.TestDetailData.ClearAllData();
+                }
+                else
+                {
+                    if (this.testSearchView.selectedTest.ID_TestOrder <= 0)
+                    {
+                        this.testModel.Test = this.testSearchView.selectedTest;
+                    }
+                    for (int i = 0; i < this.testModel.TestList.Count; i++)
+                    {
+                        if (this.testModel.TestList[i].Equals(this.testSearchView.selectedTest))
+                        {
+                            this.testModel.TestList[i] = tempTest;
+                        }
+                    }
+
+                    this.testSearchView.TestDetailData.ClearAllData();
+                    EditClicked = false;
+                }
             }
         }
 
@@ -108,6 +114,26 @@ namespace ClientHospitalApp.Presenters
         {
             testModel.SaveDataOfTest();
             MessageBox.Show("Data saved");
+        }
+
+        public bool ValidateTest(TestsInOrderClient testForCheck)
+        {
+            List<ValidationResult> results = new List<ValidationResult>();
+            ValidationContext context = new ValidationContext(testForCheck);
+            bool flag = Validator.TryValidateObject(testForCheck, context, results, true);
+            if (!flag)
+            {
+                foreach (ValidationResult error in results)
+                {
+                    MessageBox.Show(error.ErrorMessage);
+                }
+            }
+            else
+            {
+                MessageBox.Show("All data test is OK");
+            }
+
+            return flag;
         }
     }
 }
