@@ -50,7 +50,7 @@ namespace ClientHospitalApp
             TestSearchForm testSearchForm = new TestSearchForm();
             testSearchForm.MdiParent = this;
             TestsInOrderPresenter testPresenter = new TestsInOrderPresenter(testSearchForm,
-                new TestsInOrderModel(), new TestTypeModel(), new TestStatusModel());
+                new TestsInOrderModel(), new TestTypeModel(),new SpecimentsInOrderModel(), new TestStatusModel());
 
             testSearchForm.Show();
         }

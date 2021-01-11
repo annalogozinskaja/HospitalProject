@@ -321,7 +321,6 @@
           <s:element minOccurs="1" maxOccurs="1" name="ID_TestOrder" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Test" type="tns:Test" />
           <s:element minOccurs="1" maxOccurs="1" name="DateStart" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="DateEnd" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="TestStatus" type="tns:TestStatus" />
           <s:element minOccurs="0" maxOccurs="1" name="Result" type="s:string" />
           <s:element minOccurs="0" maxOccurs="1" name="specimentsInOrderList" type="tns:ArrayOfInt" />

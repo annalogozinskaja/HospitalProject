@@ -6,7 +6,6 @@ namespace ClientHospitalApp.ClientEntities
 {
     public interface ITestsInOrderClient
     {
-        DateTime DateEnd { get; set; }
         DateTime DateStart { get; set; }
         int ID_TestOrder { get; set; }
         string Result { get; set; }

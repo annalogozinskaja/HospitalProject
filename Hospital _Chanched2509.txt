@@ -101,7 +101,6 @@ CREATE TABLE TestsInOrder(
 	ID_TestOrder integer PRIMARY KEY DEFAULT nextval('idtestorder_sequence'::regclass),
 	ID_Test INT DEFAULT nextval('testid_sequence'::regclass),	
 	DateStart date,
-	DateEnd date,
 	ID_TestStatus INT DEFAULT nextval('teststatusid_sequence'::regclass),
 	Result VARCHAR(100),
 	Status INT	
@@ -264,18 +263,18 @@ INSERT INTO Test(TestName) VALUES
     ('infection test');
 
 
-INSERT INTO TestsInOrder(ID_Test,DateStart,DateEnd,ID_TestStatus,Result,Status) VALUES
-    (1,'28/08/20','29/08/20',6,'increased level of hormones and blood sugar',1),
-    (3,'28/08/20','29/08/20',6,'increased level of hormones and blood sugar',1),
-    (6,'28/08/20','29/08/20',6,'increased level of hormones and blood sugar',1),
-    (1,'28/08/20','29/08/20',6,'increased level of hormones and blood sugar',1),
-    (3,'28/08/20','29/08/20',6,'increased level of hormones and blood sugar',1),
-    (6,'28/08/20','29/08/20',6,'increased level of hormones and blood sugar',1),
-    (6,'15/09/20','17/09/20',4,'',1),
-    (6,'15/09/20','17/09/20',4,'',1),
-    (5,'15/09/20','17/09/20',3,'',1),
-    (6,'15/09/20','17/09/20',4,'',1),
-    (7,'15/09/20','17/09/20',3,'',1);
+INSERT INTO TestsInOrder(ID_Test,DateStart,ID_TestStatus,Result,Status) VALUES
+    (1,'28/08/20',6,'increased level of hormones and blood sugar',1),
+    (3,'28/08/20',6,'increased level of hormones and blood sugar',1),
+    (6,'28/08/20',6,'increased level of hormones and blood sugar',1),
+    (1,'28/08/20',6,'increased level of hormones and blood sugar',1),
+    (3,'28/08/20',6,'increased level of hormones and blood sugar',1),
+    (6,'28/08/20',6,'increased level of hormones and blood sugar',1),
+    (6,'15/09/20',4,'',1),
+    (6,'15/09/20',4,'',1),
+    (5,'15/09/20',3,'',1),
+    (6,'15/09/20',4,'',1),
+    (7,'15/09/20',3,'',1);
 
 
 INSERT INTO TestsOfSpeciment(ID_SpecimentOrder,ID_TestOrder) VALUES

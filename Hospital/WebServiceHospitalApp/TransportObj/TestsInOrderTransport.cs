@@ -11,7 +11,6 @@ namespace WebServiceHospitalApp.TransportObj
         public int ID_TestOrder { get; set; }
         public Test Test { get; set; }
         public DateTime DateStart { get; set; }
-        public DateTime DateEnd { get; set; }
         public TestStatus TestStatus { get; set; }
         public string Result { get; set; }
 
@@ -26,7 +25,7 @@ namespace WebServiceHospitalApp.TransportObj
         public override string ToString()
         {
             return "\nTest: " + Test.TestName + "\nDate start: " + DateStart +
-                "\nDate end: " + DateEnd + "\nResult: " + Result + "\nStatus: " + TestStatus.TestStatusName;
+                "\nResult: " + Result + "\nStatus: " + TestStatus.TestStatusName;
         }
     }
 }

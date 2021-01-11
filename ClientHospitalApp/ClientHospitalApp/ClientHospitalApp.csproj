@@ -207,6 +207,7 @@
     <Compile Include="Views\IPatientSearchExtendForm.cs" />
     <Compile Include="Views\IPatientSearchForm.cs" />
     <Compile Include="Views\ISpecimentNameView.cs" />
+    <Compile Include="Views\ISpecimentsCheckedComboBoxEdit.cs" />
     <Compile Include="Views\ISpecimentSearchForm.cs" />
     <Compile Include="Views\ISpecimentStatusView.cs" />
     <Compile Include="Views\ISpecimentView.cs" />
@@ -276,6 +277,12 @@
     </Compile>
     <Compile Include="Views\SpecimentNameLookUpEdit.Designer.cs">
       <DependentUpon>SpecimentNameLookUpEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SpecimentsCheckedComboBoxEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\SpecimentsCheckedComboBoxEdit.Designer.cs">
+      <DependentUpon>SpecimentsCheckedComboBoxEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SpecimentSearchForm.cs">
       <SubType>Form</SubType>
@@ -354,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SpecimentNameLookUpEdit.resx">
       <DependentUpon>SpecimentNameLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SpecimentsCheckedComboBoxEdit.resx">
+      <DependentUpon>SpecimentsCheckedComboBoxEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SpecimentSearchForm.resx">
       <DependentUpon>SpecimentSearchForm.cs</DependentUpon>

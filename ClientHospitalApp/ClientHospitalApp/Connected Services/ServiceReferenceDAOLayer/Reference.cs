@@ -842,8 +842,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         private System.DateTime DateStartField;
         
-        private System.DateTime DateEndField;
-        
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ClientHospitalApp.ServiceReferenceDAOLayer.TestStatus TestStatusField;
         
@@ -904,20 +902,7 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public System.DateTime DateEnd {
-            get {
-                return this.DateEndField;
-            }
-            set {
-                if ((this.DateEndField.Equals(value) != true)) {
-                    this.DateEndField = value;
-                    this.RaisePropertyChanged("DateEnd");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public ClientHospitalApp.ServiceReferenceDAOLayer.TestStatus TestStatus {
             get {
                 return this.TestStatusField;
@@ -930,7 +915,7 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
         public string Result {
             get {
                 return this.ResultField;
@@ -943,7 +928,7 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
         public ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderList {
             get {
                 return this.specimentsInOrderListField;
@@ -956,7 +941,7 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=7)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=6)]
         public int Status {
             get {
                 return this.StatusField;

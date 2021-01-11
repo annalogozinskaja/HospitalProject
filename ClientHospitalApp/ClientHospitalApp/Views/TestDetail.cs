@@ -32,7 +32,11 @@ namespace ClientHospitalApp.Views
             set { testNameLookUpEdit.TestNameDataSource = value; }
             get { return (List<Test>)testNameLookUpEdit.TestNameDataSource; }
         }
-
+        public List<SpecimentsInOrderClient> DataSourceSpeciment
+        {
+            set { specimentsCheckedComboBoxEdit.SpecimentDataSource = value; }
+            get { return (List<SpecimentsInOrderClient>)specimentsCheckedComboBoxEdit.SpecimentDataSource; }
+        }
         public TestStatus DataTestStatus
         {
             set { testStatusLookUpEdit.TestStatus = value; }
@@ -61,7 +65,6 @@ namespace ClientHospitalApp.Views
                     DataTestName = test.Test;
                 }
                 dateEditDateStart.Text = Convert.ToString(test.DateStart);
-                dateEditDateEnd.Text = Convert.ToString(test.DateEnd);
                 textEditResult.Text = test.Result;
 
                 if (test.TestStatus != null)
@@ -81,9 +84,6 @@ namespace ClientHospitalApp.Views
             DateTime dateStart = new DateTime();
             DateTime.TryParse(dateEditDateStart.Text, out dateStart);
             test.DateStart = dateStart;
-            DateTime dateEnd = new DateTime();
-            DateTime.TryParse(dateEditDateEnd.Text, out dateEnd);
-            test.DateEnd = dateEnd;
             test.Result = textEditResult.Text;
             test.TestStatus = DataTestStatus;
 
@@ -98,7 +98,6 @@ namespace ClientHospitalApp.Views
             textEditIDTest.Text = "";
             testNameLookUpEdit.lookUpEditTestName.EditValue = 0;
             dateEditDateStart.Text = "";
-            dateEditDateEnd.Text = "";
             textEditResult.Text = "";
             testStatusLookUpEdit.lookUpEditTestStatus.EditValue = 0;
 

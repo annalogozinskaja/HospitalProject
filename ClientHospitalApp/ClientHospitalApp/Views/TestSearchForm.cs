@@ -30,6 +30,11 @@ namespace ClientHospitalApp.Views
             set { testDetail.DataSourceTestName = value; }
             get { return (List<Test>)testDetail.DataSourceTestName; }
         }
+        public List<SpecimentsInOrderClient> DataSourceSpeciment
+        {
+            set { testDetail.DataSourceSpeciment = value; }
+            get { return (List<SpecimentsInOrderClient>)testDetail.DataSourceSpeciment; }
+        }
         public List<TestStatus> DataSourceTestStatus
         {
             set { testDetail.DataSourceTestStatus = value; }
@@ -59,10 +64,10 @@ namespace ClientHospitalApp.Views
         {
             this.gridView1.Columns[0].Caption = "ID";
             this.gridView1.Columns[1].Caption = "Type of Test";
-            this.gridView1.Columns[4].Caption = "Status";
+            this.gridView1.Columns[3].Caption = "Status";
 
             this.gridView1.Columns[1].FieldName = "Test.TestName";
-            this.gridView1.Columns[4].FieldName = "TestStatus.TestStatusName";
+            this.gridView1.Columns[3].FieldName = "TestStatus.TestStatusName";
             //this.gridView1.Columns[6].Visible = false;
 
             this.gridView1.OptionsView.ShowGroupedColumns = true;
@@ -73,7 +78,6 @@ namespace ClientHospitalApp.Views
             this.gridView1.Columns[2].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[3].OptionsColumn.AllowEdit = false;
             this.gridView1.Columns[4].OptionsColumn.AllowEdit = false;
-            this.gridView1.Columns[5].OptionsColumn.AllowEdit = false;
 
             this.gridView1.Columns[0].Width = 5;
             this.gridView1.Columns[1].Width = 120;

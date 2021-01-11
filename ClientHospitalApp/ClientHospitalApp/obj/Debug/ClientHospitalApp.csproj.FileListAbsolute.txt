@@ -258,4 +258,5 @@ C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\o
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.TestDetail.resources
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.TestStatusLookUpEdit.resources
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.TestSearchForm.resources
+C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.Views.SpecimentsCheckedComboBoxEdit.resources
 C:\Users\User\source\Repos\HospitalProject\ClientHospitalApp\ClientHospitalApp\obj\Debug\ClientHospitalApp.csprojAssemblyReference.cache

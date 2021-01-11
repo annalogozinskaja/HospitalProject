@@ -16,21 +16,25 @@ namespace ClientHospitalApp.Presenters
     {
         private ITestsInOrderModel testModel;
         private ITestNameModel testNameModel;
+        private ISpecimentsInOrderModel specimentModel;
         private ITestStatusModel testStatusModel;
         ITestSearchForm testSearchView;
         bool EditClicked = false;
 
         public TestsInOrderPresenter(ITestSearchForm testSearchView, ITestsInOrderModel testModel,
-            ITestNameModel testNameModel, ITestStatusModel testStatusModel)
+            ITestNameModel testNameModel,ISpecimentsInOrderModel specimentModel, ITestStatusModel testStatusModel)
         {
             this.testSearchView = testSearchView;
             this.testModel = testModel;
             this.testNameModel = testNameModel;
+            this.specimentModel = specimentModel;
             this.testStatusModel = testStatusModel;
 
             this.testNameModel.GetTestNames();
+            this.specimentModel.GetAllSpeciments();
             this.testStatusModel.GetTestStatuses();
             this.testSearchView.DataSourceTestName = this.testNameModel.ListTestNames;
+            this.testSearchView.DataSourceSpeciment = this.specimentModel.ListSpeciments;
             this.testSearchView.DataSourceTestStatus = this.testStatusModel.ListTestStatuses;
 
             this.testSearchView.LoadDataDataEvent += GetAllTestsFromModelEventHandler;

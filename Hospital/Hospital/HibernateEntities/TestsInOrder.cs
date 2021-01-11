@@ -10,7 +10,6 @@ namespace DAOLayer
         public virtual int ID_TestOrder { get; set; }
         public virtual Test Test { get; set; }
         public virtual DateTime DateStart { get; set; }
-        public virtual DateTime DateEnd { get; set; }
         public virtual TestStatus TestStatus { get; set; }
         public virtual string Result { get; set; }
         public virtual List<int> specimentsInOrderList { get; set; }
@@ -19,7 +18,7 @@ namespace DAOLayer
         public override string ToString()
         {
             return "\nDate start: " + DateStart+
-                "\nDate end: " + DateEnd + "\nResult: " + Result;
+                "\nResult: " + Result;
         }
     }
 }
