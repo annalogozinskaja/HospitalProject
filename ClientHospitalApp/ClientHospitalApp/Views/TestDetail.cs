@@ -32,6 +32,11 @@ namespace ClientHospitalApp.Views
             set { testNameLookUpEdit.TestNameDataSource = value; }
             get { return (List<Test>)testNameLookUpEdit.TestNameDataSource; }
         }
+        public List<int> DataSpeciments
+        {
+            set { specimentsCheckedComboBoxEdit.Speciments = value; }
+            get { return specimentsCheckedComboBoxEdit.Speciments; }
+        }
         public List<SpecimentsInOrderClient> DataSourceSpeciment
         {
             set { specimentsCheckedComboBoxEdit.SpecimentDataSource = value; }
@@ -85,6 +90,7 @@ namespace ClientHospitalApp.Views
             DateTime.TryParse(dateEditDateStart.Text, out dateStart);
             test.DateStart = dateStart;
             test.Result = textEditResult.Text;
+            test.specimentsInOrderList= DataSpeciments;
             test.TestStatus = DataTestStatus;
 
             return test;

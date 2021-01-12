@@ -6,7 +6,7 @@ namespace ClientHospitalApp.Views
 {
     public interface ISpecimentsCheckedComboBoxEdit
     {
-        SpecimentsInOrderClient Speciment { get; set; }
+        List<int> Speciments { get; set; }
         List<SpecimentsInOrderClient> SpecimentDataSource { get; set; }
     }
 }

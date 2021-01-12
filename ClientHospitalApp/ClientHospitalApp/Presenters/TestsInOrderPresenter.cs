@@ -60,6 +60,11 @@ namespace ClientHospitalApp.Presenters
         {
             TestsInOrderClient tempTest = this.testSearchView.TestDetailData.Test;
 
+            foreach (var item in tempTest.specimentsInOrderList)
+            {
+                MessageBox.Show("In Presenter "+item.ToString());
+            }
+            
             bool flag = ValidateTest(tempTest);
 
             if (flag)

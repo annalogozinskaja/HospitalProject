@@ -1,5 +1,6 @@
 ﻿using ClientHospitalApp.ClientEntities;
 using ClientHospitalApp.ServiceReferenceDAOLayer;
+using DevExpress.XtraEditors.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,11 @@ namespace ClientHospitalApp.Views
 {
     public partial class SpecimentsCheckedComboBoxEdit : UserControl, ISpecimentsCheckedComboBoxEdit
     {
-        SpecimentsInOrderClient speciment;
-        public SpecimentsInOrderClient Speciment
+        List<int> speciments;
+        public List<int> Speciments
         {
-            get { return getSpeciment(); }
-            set { setSpeciment(value); }
+            get { return getSpeciments(); }
+            set { setSpeciments(value); }
         }
 
         public List<SpecimentsInOrderClient> SpecimentDataSource
@@ -30,21 +31,31 @@ namespace ClientHospitalApp.Views
         public SpecimentsCheckedComboBoxEdit()
         {
             InitializeComponent();
+            speciments = new List<int>();
             FillCheckedComboBoxEditSpeciment();
         }
 
-        void setSpeciment(SpecimentsInOrderClient speciment)
+        void setSpeciments(List<int> speciments)
         {
-            if (speciment != null)
+            if (speciments != null)
             {
-                //checkedComboBoxEditSpeciment.EditValue = speciment.ID_SpecimentOrder;
+                checkedComboBoxEditSpeciment.EditValue = speciments;
             }
         }
 
-        SpecimentsInOrderClient getSpeciment()
+        List<int> getSpeciments()
         {
-           // speciment = (SpecimentsInOrder)checkedComboBoxEditSpeciment.Properties.GetCheckedItems();
-            return speciment;
+            foreach (CheckedListBoxItem item in checkedComboBoxEditSpeciment.Properties.GetItems())
+            {
+                if (item.CheckState == CheckState.Checked)
+                {
+                    speciments.Add((int)item.Value);                  
+                }
+            }
+           
+            MessageBox.Show("GetCheckedItems:" + checkedComboBoxEditSpeciment.Properties.GetCheckedItems().ToString());
+           
+            return speciments;
         }
 
         private void FillCheckedComboBoxEditSpeciment()
