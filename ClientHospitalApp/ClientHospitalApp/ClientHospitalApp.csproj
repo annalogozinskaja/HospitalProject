@@ -163,9 +163,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientEntities\IOrderOfPatientClient.cs" />
     <Compile Include="ClientEntities\IPatientClient.cs" />
     <Compile Include="ClientEntities\ISpecimentsInOrderClient.cs" />
     <Compile Include="ClientEntities\ITestsInOrderClient.cs" />
+    <Compile Include="ClientEntities\OrderOfPatientClient.cs" />
     <Compile Include="ClientEntities\PatientClient.cs" />
     <Compile Include="ClientEntities\SpecimentsInOrderClient.cs" />
     <Compile Include="ClientEntities\TestsInOrderClient.cs" />
@@ -384,6 +386,9 @@
     <EmbeddedResource Include="Views\TestStatusLookUpEdit.resx">
       <DependentUpon>TestStatusLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.AddPatientResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -391,6 +396,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.AddTestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.DeletePatientResponse.datasource">
@@ -475,6 +483,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.TestStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.UpdatePatientResponse.datasource">

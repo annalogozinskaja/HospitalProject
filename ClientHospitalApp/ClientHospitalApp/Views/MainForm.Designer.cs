@@ -49,6 +49,8 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonOrder = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -66,9 +68,10 @@
             this.barButtonOrderReport,
             this.barButtonSpecimentReport,
             this.barButtonTestReport,
-            this.barButtonSave});
+            this.barButtonSave,
+            this.barButtonOrder});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 24;
+            this.ribbonControl1.MaxItemId = 25;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPageData,
@@ -93,7 +96,6 @@
             this.barButtonOrders.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonOrders.ImageOptions.LargeImage")));
             this.barButtonOrders.Name = "barButtonOrders";
             this.barButtonOrders.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-           // this.barButtonOrders.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonOrders_ItemClick);
             // 
             // barButtonSpeciments
             // 
@@ -146,7 +148,8 @@
             this.ribbonPageGroup1,
             this.ribbonPageGroup3,
             this.ribbonPageGroup4,
-            this.ribbonPageGroup8});
+            this.ribbonPageGroup8,
+            this.ribbonPageGroup2});
             this.ribbonPageData.Name = "ribbonPageData";
             this.ribbonPageData.Text = "Laboratory\'s Data";
             // 
@@ -199,6 +202,20 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonOrder);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            // 
+            // barButtonOrder
+            // 
+            this.barButtonOrder.Caption = "Orders";
+            this.barButtonOrder.Id = 24;
+            this.barButtonOrder.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonOrder.ImageOptions.Image")));
+            this.barButtonOrder.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonOrder.ImageOptions.LargeImage")));
+            this.barButtonOrder.Name = "barButtonOrder";
+            this.barButtonOrder.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonOrder_ItemClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,5 +253,7 @@
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.BarButtonItem barButtonSave;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem barButtonOrder;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
     }
 }

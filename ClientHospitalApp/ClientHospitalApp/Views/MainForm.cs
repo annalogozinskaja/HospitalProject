@@ -54,5 +54,15 @@ namespace ClientHospitalApp
 
             testSearchForm.Show();
         }
+
+        private void barButtonOrder_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            TestSearchForm testSearchForm = new TestSearchForm();
+            testSearchForm.MdiParent = this;
+            TestsInOrderPresenter testPresenter = new TestsInOrderPresenter(testSearchForm,
+                new TestsInOrderModel(), new TestTypeModel(), new SpecimentsInOrderModel(), new TestStatusModel());
+
+            testSearchForm.Show();
+        }
     }
 }

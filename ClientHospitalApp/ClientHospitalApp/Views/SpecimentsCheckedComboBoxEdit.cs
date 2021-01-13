@@ -47,12 +47,15 @@ namespace ClientHospitalApp.Views
         {
             foreach (CheckedListBoxItem item in checkedComboBoxEditSpeciment.Properties.GetItems())
             {
-                if (item.CheckState == CheckState.Checked)
+                if (item.CheckState == CheckState.Checked) 
                 {
-                    speciments.Add((int)item.Value);                  
+                    speciments.Add((int)item.Value); 
                 }
             }
-           
+
+            List<SpecimentsInOrderClient> lsp = new List<SpecimentsInOrderClient>();
+
+            checkedComboBoxEditSpeciment.Properties.GetItems().GetCheckedValues().ForEach( n=> lsp.Add((SpecimentsInOrderClient)n ));
             MessageBox.Show("GetCheckedItems:" + checkedComboBoxEditSpeciment.Properties.GetCheckedItems().ToString());
            
             return speciments;

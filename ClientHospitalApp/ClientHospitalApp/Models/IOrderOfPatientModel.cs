@@ -10,6 +10,6 @@ namespace ClientHospitalApp.Models
     public interface IOrderOfPatientModel
     {
         List<OrderOfPatient> ListOrders { get; set; }
-        void GetOrders();
+        void GetAllOrders();
     }
 }

@@ -61,9 +61,7 @@ namespace ClientHospitalApp.Models
             ListToAdd = new List<PatientClient>();
             ListToUpdate = new List<PatientClient>();
             ListToDelete = new List<PatientClient>();
-            patientModel = this;
-
-            
+            patientModel = this;         
         }
         private PatientClient ConvertPatientToPatientClient(Patient patient)
         {

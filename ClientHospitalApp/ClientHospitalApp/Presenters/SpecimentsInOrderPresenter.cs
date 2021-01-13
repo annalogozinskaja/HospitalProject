@@ -32,7 +32,7 @@ namespace ClientHospitalApp.Presenters
 
             this.specimentNameModel.GetSpecimentNames();
             this.specimentStatusModel.GetSpecimentStatuses();
-            this.orderModel.GetOrders();
+            this.orderModel.GetAllOrders();
             this.specimentSearchView.DataSourceSpecimentName = this.specimentNameModel.ListSpecimentNames;
             this.specimentSearchView.DataSourceSpecimentStatus = this.specimentStatusModel.ListSpecimentStatuses;
             this.specimentSearchView.DataSourceOrder = this.orderModel.ListOrders;

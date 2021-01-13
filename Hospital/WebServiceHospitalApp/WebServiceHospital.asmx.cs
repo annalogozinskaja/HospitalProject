@@ -519,6 +519,83 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
+        public void AddOrder(List<OrderOfPatient> listOrders)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+           
+            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(SF.GetSession());
+            GenericDaoImpl<OrderStatus, int> orderStatusDao = new GenericDaoImpl<OrderStatus, int>(SF.GetSession());
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            GenericDaoImpl<Doctor, int> doctorDao = new GenericDaoImpl<Doctor, int>(SF.GetSession());
+
+            OrderStatus orderStatus = new OrderStatus();
+            Patient patient = new Patient();
+            Doctor doctor = new Doctor();
+
+            foreach (OrderOfPatient item in listOrders)
+            {
+                orderStatus = orderStatusDao.Get(item.OrderStatus.ID_OrderStatus);
+                patient = patientDao.Get(item.Patient.ID_Patient);
+                doctor = doctorDao.Get(item.Doctor.ID_Doctor);
+
+                item.OrderStatus = orderStatus;
+                item.Patient = patient;
+                item.Doctor = doctor;
+                item.Status = 1;
+                orderDao.Save(item);
+            }
+
+            SF.CloseSession();
+        }
+
+        [WebMethod]
+        public void UpdateOrder(List<OrderOfPatient> listOrders)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<OrderOfPatient, int> orderDao = new GenericDaoImpl<OrderOfPatient, int>(SF.GetSession());
+            GenericDaoImpl<OrderStatus, int> orderStatusDao = new GenericDaoImpl<OrderStatus, int>(SF.GetSession());
+            GenericDaoImpl<Patient, int> patientDao = new GenericDaoImpl<Patient, int>(SF.GetSession());
+            GenericDaoImpl<Doctor, int> doctorDao = new GenericDaoImpl<Doctor, int>(SF.GetSession());
+
+            OrderStatus orderStatus = new OrderStatus();
+            Patient patient = new Patient();
+            Doctor doctor = new Doctor();
+
+            foreach (OrderOfPatient item in listOrders)
+            {
+                orderStatus = orderStatusDao.Get(item.OrderStatus.ID_OrderStatus);
+                patient = patientDao.Get(item.Patient.ID_Patient);
+                doctor = doctorDao.Get(item.Doctor.ID_Doctor);
+
+                OrderOfPatient ord = orderDao.Get(item.ID_Order);
+                ord.DateOrder = item.DateOrder;
+                ord.Symptoms = item.Symptoms;
+                ord.Patient = patient;
+                ord.Doctor = doctor;
+                ord.OrderStatus = orderStatus;
+
+                orderDao.Save(ord);
+            }
+
+            SF.CloseSession();
+        }
+
+        [WebMethod]
+        public void DeleteOrder(List<OrderOfPatient> listOrders)
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            SF.CloseSession();
+        }
+
+        [WebMethod]
         public List<TestsInOrder> GetDataAllTests()
         {
             SessionFactory SF = new SessionFactory();

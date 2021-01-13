@@ -417,11 +417,14 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SymptomsField;
         
-        private int ID_PatientField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.Patient PatientField;
         
-        private int ID_DoctorField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.Doctor DoctorField;
         
-        private int ID_OrderStatusField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.OrderStatus OrderStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt specimentsInOrderListField;
@@ -477,41 +480,41 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
-        public int ID_Patient {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient Patient {
             get {
-                return this.ID_PatientField;
+                return this.PatientField;
             }
             set {
-                if ((this.ID_PatientField.Equals(value) != true)) {
-                    this.ID_PatientField = value;
-                    this.RaisePropertyChanged("ID_Patient");
+                if ((object.ReferenceEquals(this.PatientField, value) != true)) {
+                    this.PatientField = value;
+                    this.RaisePropertyChanged("Patient");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
-        public int ID_Doctor {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Doctor Doctor {
             get {
-                return this.ID_DoctorField;
+                return this.DoctorField;
             }
             set {
-                if ((this.ID_DoctorField.Equals(value) != true)) {
-                    this.ID_DoctorField = value;
-                    this.RaisePropertyChanged("ID_Doctor");
+                if ((object.ReferenceEquals(this.DoctorField, value) != true)) {
+                    this.DoctorField = value;
+                    this.RaisePropertyChanged("Doctor");
                 }
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=5)]
-        public int ID_OrderStatus {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderStatus OrderStatus {
             get {
-                return this.ID_OrderStatusField;
+                return this.OrderStatusField;
             }
             set {
-                if ((this.ID_OrderStatusField.Equals(value) != true)) {
-                    this.ID_OrderStatusField = value;
-                    this.RaisePropertyChanged("ID_OrderStatus");
+                if ((object.ReferenceEquals(this.OrderStatusField, value) != true)) {
+                    this.OrderStatusField = value;
+                    this.RaisePropertyChanged("OrderStatus");
                 }
             }
         }
@@ -538,6 +541,174 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
                 if ((this.StatusField.Equals(value) != true)) {
                     this.StatusField = value;
                     this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Doctor", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class Doctor : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ID_DoctorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FieldOfMedicineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt orderOfPatientListField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ID_Doctor {
+            get {
+                return this.ID_DoctorField;
+            }
+            set {
+                if ((this.ID_DoctorField.Equals(value) != true)) {
+                    this.ID_DoctorField = value;
+                    this.RaisePropertyChanged("ID_Doctor");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Lastname {
+            get {
+                return this.LastnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastnameField, value) != true)) {
+                    this.LastnameField = value;
+                    this.RaisePropertyChanged("Lastname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string Firstname {
+            get {
+                return this.FirstnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstnameField, value) != true)) {
+                    this.FirstnameField = value;
+                    this.RaisePropertyChanged("Firstname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string FieldOfMedicine {
+            get {
+                return this.FieldOfMedicineField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FieldOfMedicineField, value) != true)) {
+                    this.FieldOfMedicineField = value;
+                    this.RaisePropertyChanged("FieldOfMedicine");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.ArrayOfInt orderOfPatientList {
+            get {
+                return this.orderOfPatientListField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.orderOfPatientListField, value) != true)) {
+                    this.orderOfPatientListField = value;
+                    this.RaisePropertyChanged("orderOfPatientList");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderStatus", Namespace="http://tempuri.org/")]
+    [System.SerializableAttribute()]
+    public partial class OrderStatus : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        private int ID_OrderStatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OrderNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public int ID_OrderStatus {
+            get {
+                return this.ID_OrderStatusField;
+            }
+            set {
+                if ((this.ID_OrderStatusField.Equals(value) != true)) {
+                    this.ID_OrderStatusField = value;
+                    this.RaisePropertyChanged("ID_OrderStatus");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string OrderName {
+            get {
+                return this.OrderNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OrderNameField, value) != true)) {
+                    this.OrderNameField = value;
+                    this.RaisePropertyChanged("OrderName");
                 }
             }
         }
@@ -1213,6 +1384,27 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllOrders", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersResponse> GetDataAllOrdersAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersRequest request);
+        
+        // CODEGEN: Generating message contract since element name listOrders from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddOrder", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponse AddOrder(ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddOrder", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponse> AddOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequest request);
+        
+        // CODEGEN: Generating message contract since element name listOrders from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateOrder", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponse UpdateOrder(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateOrder", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponse> UpdateOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequest request);
+        
+        // CODEGEN: Generating message contract since element name listOrders from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteOrder", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponse DeleteOrder(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteOrder", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponse> DeleteOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest request);
         
         // CODEGEN: Generating message contract since element name GetDataAllTestsResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllTests", ReplyAction="*")]
@@ -2380,6 +2572,189 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddOrderRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddOrder", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequestBody Body;
+        
+        public AddOrderRequest() {
+        }
+        
+        public AddOrderRequest(ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddOrderRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders;
+        
+        public AddOrderRequestBody() {
+        }
+        
+        public AddOrderRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            this.listOrders = listOrders;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddOrderResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddOrderResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponseBody Body;
+        
+        public AddOrderResponse() {
+        }
+        
+        public AddOrderResponse(ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class AddOrderResponseBody {
+        
+        public AddOrderResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateOrderRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateOrder", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequestBody Body;
+        
+        public UpdateOrderRequest() {
+        }
+        
+        public UpdateOrderRequest(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class UpdateOrderRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders;
+        
+        public UpdateOrderRequestBody() {
+        }
+        
+        public UpdateOrderRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            this.listOrders = listOrders;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateOrderResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateOrderResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponseBody Body;
+        
+        public UpdateOrderResponse() {
+        }
+        
+        public UpdateOrderResponse(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdateOrderResponseBody {
+        
+        public UpdateOrderResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteOrderRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteOrder", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequestBody Body;
+        
+        public DeleteOrderRequest() {
+        }
+        
+        public DeleteOrderRequest(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class DeleteOrderRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders;
+        
+        public DeleteOrderRequestBody() {
+        }
+        
+        public DeleteOrderRequestBody(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            this.listOrders = listOrders;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteOrderResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteOrderResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponseBody Body;
+        
+        public DeleteOrderResponse() {
+        }
+        
+        public DeleteOrderResponse(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class DeleteOrderResponseBody {
+        
+        public DeleteOrderResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetDataAllTestsRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataAllTests", Namespace="http://tempuri.org/", Order=0)]
@@ -3193,6 +3568,78 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersRequest();
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersRequestBody();
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataAllOrdersAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.AddOrder(ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequest request) {
+            return base.Channel.AddOrder(request);
+        }
+        
+        public void AddOrder(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequestBody();
+            inValue.Body.listOrders = listOrders;
+            ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).AddOrder(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.AddOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequest request) {
+            return base.Channel.AddOrderAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderResponse> AddOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.AddOrderRequestBody();
+            inValue.Body.listOrders = listOrders;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).AddOrderAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.UpdateOrder(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequest request) {
+            return base.Channel.UpdateOrder(request);
+        }
+        
+        public void UpdateOrder(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequestBody();
+            inValue.Body.listOrders = listOrders;
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdateOrder(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.UpdateOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequest request) {
+            return base.Channel.UpdateOrderAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderResponse> UpdateOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.UpdateOrderRequestBody();
+            inValue.Body.listOrders = listOrders;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).UpdateOrderAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.DeleteOrder(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest request) {
+            return base.Channel.DeleteOrder(request);
+        }
+        
+        public void DeleteOrder(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequestBody();
+            inValue.Body.listOrders = listOrders;
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeleteOrder(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.DeleteOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest request) {
+            return base.Channel.DeleteOrderAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponse> DeleteOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient[] listOrders) {
+            ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequestBody();
+            inValue.Body.listOrders = listOrders;
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeleteOrderAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

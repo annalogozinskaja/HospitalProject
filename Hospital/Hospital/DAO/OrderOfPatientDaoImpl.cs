@@ -24,7 +24,7 @@ namespace DAOLayer
 
         public List<OrderOfPatient> GetOrdersOfPatient(int PatientId)
         {
-            IQueryable<OrderOfPatient> result = session.Query<OrderOfPatient>().Where(ord => ord.ID_Patient== PatientId);
+            IQueryable<OrderOfPatient> result = session.Query<OrderOfPatient>().Where(ord => ord.Patient.ID_Patient== PatientId);
             List<OrderOfPatient> list = result.ToList();
 
             return list;
