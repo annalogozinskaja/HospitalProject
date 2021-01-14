@@ -64,28 +64,6 @@ namespace ClientHospitalApp.Models
             orderModel = this;
         }
 
-        public void GetAllOrders()
-        {
-            ListOrders = service.GetDataAllOrders().ToList();
-        }
-
-
-
-
-
-        private OrderOfPatientClient ConvertOrderToOrderClient(OrderOfPatient order)
-        {
-            MapperConfiguration config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<OrderOfPatient, OrderOfPatientClient>();
-            });
-
-            IMapper iMapper = config.CreateMapper();
-            OrderOfPatientClient newOrder = iMapper.Map<OrderOfPatient, OrderOfPatientClient>(order);
-
-            return newOrder;
-        }
-
         private List<OrderOfPatientClient> ConvertOrderToOrderClient(List<OrderOfPatient> orderList)
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
@@ -102,18 +80,6 @@ namespace ClientHospitalApp.Models
             return ListOrders;
         }
 
-        private OrderOfPatient ConvertOrderClientToOrder(OrderOfPatientClient order)
-        {
-            MapperConfiguration config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<OrderOfPatientClient, OrderOfPatient>();
-            });
-
-            IMapper iMapper = config.CreateMapper();
-            OrderOfPatient newOrder = iMapper.Map<OrderOfPatientClient, OrderOfPatient>(order);
-
-            return newOrder;
-        }
         private List<OrderOfPatient> ConvertOrderClientToOrder(List<OrderOfPatientClient> orderList)
         {
             MapperConfiguration config = new MapperConfiguration(cfg =>
@@ -133,101 +99,96 @@ namespace ClientHospitalApp.Models
             return lstOrd;
         }
 
+        public void GetAllOrders()
+        {
+            List<OrderOfPatient> lOrd = new List<OrderOfPatient>();
+            lOrd = service.GetDataAllOrders().ToList();
+
+            ListOrders = ConvertOrderToOrderClient(lOrd);
+            FillOrderList();
+        }
+
         void IOrderOfPatientModel.AddOrder()
         {
-            service.AddOrder(ConvertPatientClientToPatient(ListToAdd).ToArray());
+            service.AddOrder(ConvertOrderClientToOrder(ListToAdd).ToArray());
         }
 
-        public void GetAllPatients()
+        void IOrderOfPatientModel.UpdateOrder()
         {
-            List<Patient> lp = new List<Patient>();
-            lp = service.GetDataAllPatients().ToList();
-
-            ListPatients = ConvertPatientToPatientClient(lp);
-            FillPatientList();
+            service.UpdateOrder(ConvertOrderClientToOrder(ListToUpdate).ToArray());
         }
 
-        public void FillPatientList()
+        void IOrderOfPatientModel.DeleteOrder()
         {
-            PatientList = new BindingList<PatientClient>(ListPatients);
-            PatientList.AllowNew = true;
-            PatientList.AllowEdit = true;
-            PatientList.AllowRemove = true;
-            PatientList.RaiseListChangedEvents = true;
-            PatientList.ListChanged += new ListChangedEventHandler(PatientList_ListChanged);
+            service.DeleteOrder(ConvertOrderClientToOrder(ListToDelete).ToArray());
         }
 
-        void IPatientModel.UpdatePatient()
+        public void FillOrderList()
         {
-            service.UpdatePatient(ConvertPatientClientToPatient(ListToUpdate).ToArray());
+            OrderList = new BindingList<OrderOfPatientClient>(ListOrders);
+            OrderList.AllowNew = true;
+            OrderList.AllowEdit = true;
+            OrderList.AllowRemove = true;
+            OrderList.RaiseListChangedEvents = true;
+            OrderList.ListChanged += new ListChangedEventHandler(OrderList_ListChanged);
         }
 
-        void IPatientModel.DeletePatient()
-        {
-            service.DeletePatient(ConvertPatientClientToPatient(ListToDelete).ToArray());
-        }
-        public void GetRelativesOfPatient(PatientClient ptnt)
-        {
-            Patient temp = ConvertPatientClientToPatient(ptnt);
-            patient.RelativeList = service.GetRelativesOfPatient(temp).ToList();
-        }
-
-        public void SaveDataOfPatient()
+        public void SaveDataOfOrder()
         {
             if (ListToAdd.Count > 0)
             {
-                patientModel.AddPatient();
+                orderModel.AddOrder();
                 ListToAdd.Clear();
             }
 
             if (ListToUpdate.Count > 0)
             {
-                patientModel.UpdatePatient();
+                orderModel.UpdateOrder();
                 ListToUpdate.Clear();
             }
 
             if (ListToDelete.Count > 0)
             {
-                patientModel.DeletePatient();
+                orderModel.DeleteOrder();
                 ListToDelete.Clear();
             }
         }
 
-        void PatientList_ListChanged(object sender, ListChangedEventArgs e)
+        void OrderList_ListChanged(object sender, ListChangedEventArgs e)
         {
             if (ListChangedType.ItemAdded == e.ListChangedType)
             {
-                ListToAdd.Add(PatientList[e.NewIndex]);
+                ListToAdd.Add(OrderList[e.NewIndex]);
             }
             else if (ListChangedType.ItemChanged == e.ListChangedType)
             {
-                if (PatientList[e.NewIndex].ID_Patient > 0)  //это пациент из базы
+                if (OrderList[e.NewIndex].ID_Order > 0)  //это ордер из базы
                 {
-                    patientModel.ListToUpdate.Add(PatientList[e.NewIndex]);
+                    orderModel.ListToUpdate.Add(OrderList[e.NewIndex]);
                 }
-                else //это пациент из грида,он еще не сохранен в базе
+                else //это ордер из грида,он еще не сохранен в базе
                 {
                     for (int i = 0; i < ListToAdd.Count; i++)
                     {
-                        if (ListToAdd[i].Equals(Patient))
+                        if (ListToAdd[i].Equals(Order))
                         {
-                            ListToAdd[i] = PatientList[e.NewIndex];
+                            ListToAdd[i] = OrderList[e.NewIndex];
                         }
                     }
-                    Patient = null;
+                    Order = null;
                 }
             }
             else if (ListChangedType.ItemDeleted == e.ListChangedType)
             {
-                if (ListPatients.Contains(Patient))
+                if (ListOrders.Contains(Order))
                 {
-                    ListToDelete.Add(Patient);
+                    ListToDelete.Add(Order);
                 }
                 else
                 {
-                    ListToAdd.Remove(Patient);
+                    ListToAdd.Remove(Order);
                 }
-                Patient = null;
+                Order = null;
             }
         }
 

@@ -200,12 +200,21 @@
     <Compile Include="PatientDataInfoEventArgs.cs" />
     <Compile Include="Presenters\SpecimentsInOrderPresenter.cs" />
     <Compile Include="Presenters\TestsInOrderPresenter.cs" />
+    <Compile Include="Views\DoctorLookUpEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DoctorLookUpEdit.Designer.cs">
+      <DependentUpon>DoctorLookUpEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\GenericModelImpl.cs" />
+    <Compile Include="Views\IDoctorLookUpEdit.cs" />
     <Compile Include="Views\IGenderView.cs" />
     <Compile Include="Views\IGenericModel.cs" />
     <Compile Include="Views\IMainForm.cs" />
+    <Compile Include="Views\IOrderStatusLookUpEdit.cs" />
     <Compile Include="Views\IOrderView.cs" />
     <Compile Include="Views\IPatientDataInfoForm.cs" />
+    <Compile Include="Views\IPatientLookUpEdit.cs" />
     <Compile Include="Views\IPatientSearchExtendForm.cs" />
     <Compile Include="Views\IPatientSearchForm.cs" />
     <Compile Include="Views\ISpecimentNameView.cs" />
@@ -223,11 +232,23 @@
     <Compile Include="Views\OrderLookUpEdit.Designer.cs">
       <DependentUpon>OrderLookUpEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\OrderStatusLookUpEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\OrderStatusLookUpEdit.Designer.cs">
+      <DependentUpon>OrderStatusLookUpEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PatientDataInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\PatientDataInfoForm.Designer.cs">
       <DependentUpon>PatientDataInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientLookUpEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\PatientLookUpEdit.Designer.cs">
+      <DependentUpon>PatientLookUpEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\PatientSearchExtendForm.cs">
       <SubType>Form</SubType>
@@ -325,11 +346,20 @@
     <EmbeddedResource Include="GenderLookUpEdit.resx">
       <DependentUpon>GenderLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\DoctorLookUpEdit.resx">
+      <DependentUpon>DoctorLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\OrderLookUpEdit.resx">
       <DependentUpon>OrderLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderStatusLookUpEdit.resx">
+      <DependentUpon>OrderStatusLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\PatientDataInfoForm.resx">
       <DependentUpon>PatientDataInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PatientLookUpEdit.resx">
+      <DependentUpon>PatientLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PatientSearchExtendForm.resx">
       <DependentUpon>PatientSearchExtendForm.cs</DependentUpon>

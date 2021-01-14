@@ -1,4 +1,5 @@
-﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+﻿using ClientHospitalApp.ClientEntities;
+using ClientHospitalApp.ServiceReferenceDAOLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace ClientHospitalApp.Views
 {
     public interface IOrderView
     {
-        OrderOfPatient Order { get; set; }
+        OrderOfPatientClient Order { get; set; }
     }
 }

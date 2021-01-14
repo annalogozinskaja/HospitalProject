@@ -592,6 +592,42 @@ namespace WebServiceHospitalApp
             SF.Init();
             SF.OpenSession();
 
+            OrderOfPatientDaoImpl orderDao = new OrderOfPatientDaoImpl(SF.GetSession());
+            SpecimentsInOrderDaoImpl specimentDao = new SpecimentsInOrderDaoImpl(SF.GetSession());
+            TestsInOrderDaoImpl testDao = new TestsInOrderDaoImpl(SF.GetSession());
+
+            List<SpecimentsInOrder> listSpec;
+            List<TestsInOrder> listTest;
+
+            foreach (OrderOfPatient item in listOrders)
+                {
+                    item.Status = 0;
+                    orderDao.SaveOrUpdate(item);
+
+                    listSpec = specimentDao.GetSpecimentsOfOrder(item.ID_Order).ToList();
+
+                    if (listSpec.Count > 0)
+                    {
+                        foreach (SpecimentsInOrder itemSpec in listSpec)
+                        {
+                            itemSpec.Status = 0;
+                            specimentDao.SaveOrUpdate(itemSpec);
+
+                            listTest = testDao.GetTestsOfSpeciment(itemSpec.ID_SpecimentOrder).ToList();
+
+                            if (listTest.Count > 0)
+                            {
+                                foreach (TestsInOrder itemTest in listTest)
+                                {
+                                    itemTest.Status = 0;
+                                    testDao.SaveOrUpdate(itemTest);
+                                }
+                            }
+                        }
+                    }
+                }
+            
+
             SF.CloseSession();
         }
 

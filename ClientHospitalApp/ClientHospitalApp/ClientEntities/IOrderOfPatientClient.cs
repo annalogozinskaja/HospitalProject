@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+using System;
 using System.Collections.Generic;
 
 namespace ClientHospitalApp.ClientEntities
@@ -7,10 +8,9 @@ namespace ClientHospitalApp.ClientEntities
     {
         int ID_Order { get; set; }
         DateTime DateOrder { get; set; }
-        int ID_Doctor { get; set; }     
-        int ID_OrderStatus { get; set; }
-        int ID_Patient { get; set; }
-        List<int> specimentsInOrderList { get; set; }
+        Patient Patient { get; set; }
+        Doctor Doctor { get; set; }
+        OrderStatus OrderStatus { get; set; }
         string Symptoms { get; set; }
     }
 }
