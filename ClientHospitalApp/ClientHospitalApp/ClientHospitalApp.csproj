@@ -182,15 +182,19 @@
     <Compile Include="GenderLookUpEdit.Designer.cs">
       <DependentUpon>GenderLookUpEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DoctorModel.cs" />
     <Compile Include="Models\GenderModel.cs" />
+    <Compile Include="Models\IDoctorModel.cs" />
     <Compile Include="Models\IGenderModel.cs" />
     <Compile Include="Models\IOrderOfPatientModel.cs" />
+    <Compile Include="Models\IOrderStatusModel.cs" />
     <Compile Include="Models\ISpecimentNameModel.cs" />
     <Compile Include="Models\ISpecimentsInOrderModel.cs" />
     <Compile Include="Models\ISpecimentStatusModel.cs" />
     <Compile Include="Models\ITestNameModel.cs" />
     <Compile Include="Models\ITestsInOrderModel.cs" />
     <Compile Include="Models\ITestStatusModel.cs" />
+    <Compile Include="Models\OrderStatusModel.cs" />
     <Compile Include="Models\SpecimentNameModel.cs" />
     <Compile Include="Models\SpecimentsInOrderModel.cs" />
     <Compile Include="Models\SpecimentStatusModel.cs" />
@@ -226,6 +230,12 @@
     <Compile Include="Views\ITestSearchForm.cs" />
     <Compile Include="Views\ITestStatusView.cs" />
     <Compile Include="Views\ITestView.cs" />
+    <Compile Include="Views\OrderDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\OrderDetail.Designer.cs">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\OrderLookUpEdit.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -349,6 +359,9 @@
     <EmbeddedResource Include="Views\DoctorLookUpEdit.resx">
       <DependentUpon>DoctorLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderDetail.resx">
+      <DependentUpon>OrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\OrderLookUpEdit.resx">
       <DependentUpon>OrderLookUpEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -440,7 +453,13 @@
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.DeleteTestResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.Doctor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.Gender.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllOrdersResponse.datasource">
@@ -459,6 +478,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.GetDataPatientResponse.datasource">
@@ -486,6 +508,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.OrderOfPatient.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.OrderStatus.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceDAOLayer\ClientHospitalApp.ServiceReferenceDAOLayer.Patient.datasource">

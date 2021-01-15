@@ -346,6 +346,36 @@
       <s:element name="DeleteOrderResponse">
         <s:complexType />
       </s:element>
+      <s:element name="GetDataOrderStatus">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataOrderStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataOrderStatusResult" type="tns:ArrayOfOrderStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrderStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderStatus" nillable="true" type="tns:OrderStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDataAllDoctors">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetDataAllDoctorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDataAllDoctorsResult" type="tns:ArrayOfDoctor" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfDoctor">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Doctor" nillable="true" type="tns:Doctor" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetDataAllTests">
         <s:complexType />
       </s:element>
@@ -572,6 +602,18 @@
   <wsdl:message name="DeleteOrderSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="GetDataOrderStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataOrderStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetDataOrderStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataOrderStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDataAllDoctorsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDataAllDoctors" />
+  </wsdl:message>
+  <wsdl:message name="GetDataAllDoctorsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDataAllDoctorsResponse" />
+  </wsdl:message>
   <wsdl:message name="GetDataAllTestsSoapIn">
     <wsdl:part name="parameters" element="tns:GetDataAllTests" />
   </wsdl:message>
@@ -692,6 +734,14 @@
     <wsdl:operation name="DeleteOrder">
       <wsdl:input message="tns:DeleteOrderSoapIn" />
       <wsdl:output message="tns:DeleteOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrderStatus">
+      <wsdl:input message="tns:GetDataOrderStatusSoapIn" />
+      <wsdl:output message="tns:GetDataOrderStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllDoctors">
+      <wsdl:input message="tns:GetDataAllDoctorsSoapIn" />
+      <wsdl:output message="tns:GetDataAllDoctorsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetDataAllTests">
       <wsdl:input message="tns:GetDataAllTestsSoapIn" />
@@ -902,6 +952,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteOrder">
       <soap:operation soapAction="http://tempuri.org/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrderStatus">
+      <soap:operation soapAction="http://tempuri.org/GetDataOrderStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllDoctors">
+      <soap:operation soapAction="http://tempuri.org/GetDataAllDoctors" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1148,6 +1216,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteOrder">
       <soap12:operation soapAction="http://tempuri.org/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataOrderStatus">
+      <soap12:operation soapAction="http://tempuri.org/GetDataOrderStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataAllDoctors">
+      <soap12:operation soapAction="http://tempuri.org/GetDataAllDoctors" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

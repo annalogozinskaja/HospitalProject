@@ -632,6 +632,36 @@ namespace WebServiceHospitalApp
         }
 
         [WebMethod]
+        public List<OrderStatus> GetDataOrderStatus()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<OrderStatus, int> orderStatusDao = new GenericDaoImpl<OrderStatus, int>(SF.GetSession());
+            List<OrderStatus> list = new List<OrderStatus>();
+            list = orderStatusDao.GetAll().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
+        [WebMethod]
+        public List<Doctor> GetDataAllDoctors()
+        {
+            SessionFactory SF = new SessionFactory();
+            SF.Init();
+            SF.OpenSession();
+
+            GenericDaoImpl<Doctor, int> doctorDao = new GenericDaoImpl<Doctor, int>(SF.GetSession());
+            List<Doctor> list = new List<Doctor>();
+            list = doctorDao.GetAll().ToList();
+
+            SF.CloseSession();
+            return list;
+        }
+
+        [WebMethod]
         public List<TestsInOrder> GetDataAllTests()
         {
             SessionFactory SF = new SessionFactory();

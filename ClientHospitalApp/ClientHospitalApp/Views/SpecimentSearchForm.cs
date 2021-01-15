@@ -35,10 +35,10 @@ namespace ClientHospitalApp.Views
             set { specimentDetail.DataSourceSpecimentStatus = value; }
             get { return (List<SpecimentStatus>)specimentDetail.DataSourceSpecimentStatus; }
         }
-        public List<OrderOfPatient> DataSourceOrder
+        public List<OrderOfPatientClient> DataSourceOrder
         {
             set { specimentDetail.DataSourceOrder = value; }
-            get { return (List<OrderOfPatient>)specimentDetail.DataSourceOrder; }
+            get { return (List<OrderOfPatientClient>)specimentDetail.DataSourceOrder; }
         }
         MainForm mainForm;
         public SpecimentsInOrderClient selectedSpeciment { get; set; }

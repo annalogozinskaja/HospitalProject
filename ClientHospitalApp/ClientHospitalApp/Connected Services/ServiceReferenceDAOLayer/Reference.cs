@@ -1406,6 +1406,20 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/DeleteOrder", ReplyAction="*")]
         System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderResponse> DeleteOrderAsync(ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequest request);
         
+        // CODEGEN: Generating message contract since element name GetDataOrderStatusResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataOrderStatus", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponse GetDataOrderStatus(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataOrderStatus", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponse> GetDataOrderStatusAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetDataAllDoctorsResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllDoctors", ReplyAction="*")]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponse GetDataAllDoctors(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllDoctors", ReplyAction="*")]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponse> GetDataAllDoctorsAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequest request);
+        
         // CODEGEN: Generating message contract since element name GetDataAllTestsResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetDataAllTests", ReplyAction="*")]
         ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsResponse GetDataAllTests(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllTestsRequest request);
@@ -2755,6 +2769,128 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataOrderStatusRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataOrderStatus", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequestBody Body;
+        
+        public GetDataOrderStatusRequest() {
+        }
+        
+        public GetDataOrderStatusRequest(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetDataOrderStatusRequestBody {
+        
+        public GetDataOrderStatusRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataOrderStatusResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataOrderStatusResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponseBody Body;
+        
+        public GetDataOrderStatusResponse() {
+        }
+        
+        public GetDataOrderStatusResponse(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataOrderStatusResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderStatus[] GetDataOrderStatusResult;
+        
+        public GetDataOrderStatusResponseBody() {
+        }
+        
+        public GetDataOrderStatusResponseBody(ClientHospitalApp.ServiceReferenceDAOLayer.OrderStatus[] GetDataOrderStatusResult) {
+            this.GetDataOrderStatusResult = GetDataOrderStatusResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataAllDoctorsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataAllDoctors", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequestBody Body;
+        
+        public GetDataAllDoctorsRequest() {
+        }
+        
+        public GetDataAllDoctorsRequest(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetDataAllDoctorsRequestBody {
+        
+        public GetDataAllDoctorsRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetDataAllDoctorsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataAllDoctorsResponse", Namespace="http://tempuri.org/", Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponseBody Body;
+        
+        public GetDataAllDoctorsResponse() {
+        }
+        
+        public GetDataAllDoctorsResponse(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetDataAllDoctorsResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Doctor[] GetDataAllDoctorsResult;
+        
+        public GetDataAllDoctorsResponseBody() {
+        }
+        
+        public GetDataAllDoctorsResponseBody(ClientHospitalApp.ServiceReferenceDAOLayer.Doctor[] GetDataAllDoctorsResult) {
+            this.GetDataAllDoctorsResult = GetDataAllDoctorsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetDataAllTestsRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="GetDataAllTests", Namespace="http://tempuri.org/", Order=0)]
@@ -3640,6 +3776,52 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.DeleteOrderRequestBody();
             inValue.Body.listOrders = listOrders;
             return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).DeleteOrderAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataOrderStatus(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequest request) {
+            return base.Channel.GetDataOrderStatus(request);
+        }
+        
+        public ClientHospitalApp.ServiceReferenceDAOLayer.OrderStatus[] GetDataOrderStatus() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequestBody();
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataOrderStatus(inValue);
+            return retVal.Body.GetDataOrderStatusResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataOrderStatusAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequest request) {
+            return base.Channel.GetDataOrderStatusAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusResponse> GetDataOrderStatusAsync() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataOrderStatusRequestBody();
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataOrderStatusAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponse ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataAllDoctors(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequest request) {
+            return base.Channel.GetDataAllDoctors(request);
+        }
+        
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Doctor[] GetDataAllDoctors() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequestBody();
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponse retVal = ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataAllDoctors(inValue);
+            return retVal.Body.GetDataAllDoctorsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponse> ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap.GetDataAllDoctorsAsync(ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequest request) {
+            return base.Channel.GetDataAllDoctorsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsResponse> GetDataAllDoctorsAsync() {
+            ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequest inValue = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequest();
+            inValue.Body = new ClientHospitalApp.ServiceReferenceDAOLayer.GetDataAllDoctorsRequestBody();
+            return ((ClientHospitalApp.ServiceReferenceDAOLayer.WebServiceHospitalSoap)(this)).GetDataAllDoctorsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

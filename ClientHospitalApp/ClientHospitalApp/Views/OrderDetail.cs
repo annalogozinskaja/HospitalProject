@@ -12,72 +12,72 @@ using System.Windows.Forms;
 
 namespace ClientHospitalApp.Views
 {
-    public partial class SpecimentDetail : UserControl, ISpecimentView
+    public partial class OrderDetail : UserControl
     {
-        SpecimentsInOrderClient speciment;
-        public SpecimentsInOrderClient Speciment
+        OrderOfPatientClient order;
+        public OrderOfPatientClient Order
         {
-            get { return getSpeciment(); }
-            set { setSpeciment(value); }
+            get { return getOrder(); }
+            set { setOrder(value); }
         }
 
-        public OrderOfPatientClient DataOrder
+        public PatientClient DataPatient
         {
-            set { orderLookUpEdit.Order = value; }
-            get { return orderLookUpEdit.Order; }
+            set { patientLookUpEdit.Patient = value; }
+            get { return patientLookUpEdit.Patient; }
         }
-        public List<OrderOfPatientClient> DataSourceOrder
+        public List<PatientClient> DataSourcePatient
         {
-            set { orderLookUpEdit.OrderDataSource= value; }
-            get { return (List<OrderOfPatientClient>)orderLookUpEdit.OrderDataSource; }
-        }
-
-        public Speciment DataSpecimentName
-        {
-            set { specimentNameLookUpEdit.SpecimentName = value; }
-            get { return specimentNameLookUpEdit.SpecimentName; }
-        }
-        public List<Speciment> DataSourceSpecimentName
-        {
-            set { specimentNameLookUpEdit.SpecimentNameDataSource = value; }
-            get { return (List<Speciment>)specimentNameLookUpEdit.SpecimentNameDataSource; }
+            set { patientLookUpEdit.PatientDataSource = value; }
+            get { return (List<PatientClient>)patientLookUpEdit.PatientDataSource; }
         }
 
-        public SpecimentStatus DataSpecimentStatus
+        public Doctor DataDoctor
         {
-            set { specimentStatusLookUpEdit.SpecimentStatus = value; }
-            get { return specimentStatusLookUpEdit.SpecimentStatus; }
+            set { doctorLookUpEdit.Doctor = value; }
+            get { return doctorLookUpEdit.Doctor; }
         }
-        public List<SpecimentStatus> DataSourceSpecimentStatus
+        public List<Doctor> DataSourceDoctor
         {
-            set { specimentStatusLookUpEdit.SpecimentNameDataSource = value; }
-            get { return (List<SpecimentStatus>)specimentStatusLookUpEdit.SpecimentNameDataSource; }
+            set { doctorLookUpEdit.DoctorDataSource = value; }
+            get { return (List<Doctor>)doctorLookUpEdit.DoctorDataSource; }
         }
-        public event EventHandler AddOrUpdateSpecimentEvent;
 
-        public SpecimentDetail()
+        public OrderStatus DataOrderStatus
+        {
+            set { orderStatusLookUpEdit.OrderStatus = value; }
+            get { return orderStatusLookUpEdit.OrderStatus; }
+        }
+        public List<OrderStatus> DataSourceOrderStatus
+        {
+            set { orderStatusLookUpEdit.OrderStatusDataSource = value; }
+            get { return (List<OrderStatus>)orderStatusLookUpEdit.OrderStatusDataSource; }
+        }
+        public event EventHandler AddOrUpdateOrderEvent;
+
+        public OrderDetail()
         {
             InitializeComponent();
-            speciment = new SpecimentsInOrderClient();
+            order = new OrderOfPatientClient();
         }
 
 
-        void setSpeciment(SpecimentsInOrderClient speciment)
+        void setOrder(OrderOfPatientClient order)
         {
-            if (speciment != null)
+            if (order != null)
             {
-                textEditIdSpeciment.Text = Convert.ToString(speciment.ID_SpecimentOrder);
+                textEditID.Text = Convert.ToString(order.ID_Order);
 
-                if (speciment.Speciment != null)
+                if (order.Patient != null)
                 {
-                    DataSpecimentName = speciment.Speciment;
+                    DataPatient = order.Patient;
                 }
                 dateEditDate.Text = Convert.ToString(speciment.DateOfTaking);
                 textEditNurse.Text = speciment.Nurse;
 
                 if (speciment.Order != null)
                 {
-                   DataOrder = speciment.Order;
+                    DataOrder = speciment.Order;
                 }
 
                 if (speciment.SpecimentStatus != null)
@@ -115,11 +115,11 @@ namespace ClientHospitalApp.Views
             textEditNurse.Text = "";
             orderLookUpEdit.lookUpEditOrder.EditValue = 0;
             specimentStatusLookUpEdit.lookUpEditSpecimentStatus.EditValue = 0;
-         
+
             buttonOK.Text = "Add";
         }
 
-        
+
         private void buttonOK_Click(object sender, EventArgs e)
         {
             AddOrUpdateSpecimentEvent(this, EventArgs.Empty);
