@@ -34,11 +34,11 @@
             this.dateEditDate = new DevExpress.XtraEditors.DateEdit();
             this.labelControlNurse = new DevExpress.XtraEditors.LabelControl();
             this.textEditNurse = new DevExpress.XtraEditors.TextEdit();
-            this.orderLookUpEdit = new ClientHospitalApp.Views.OrderLookUpEdit();
-            this.specimentNameLookUpEdit = new ClientHospitalApp.Views.SpecimentNameLookUpEdit();
-            this.specimentStatusLookUpEdit = new ClientHospitalApp.Views.SpecimentStatusLookUpEdit();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
+            this.specimentStatusLookUpEdit = new ClientHospitalApp.Views.SpecimentStatusLookUpEdit();
+            this.orderLookUpEdit = new ClientHospitalApp.Views.OrderLookUpEdit();
+            this.specimentNameLookUpEdit = new ClientHospitalApp.Views.SpecimentNameLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditIdSpeciment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDate.Properties)).BeginInit();
@@ -84,6 +84,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditDate.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateEditDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEditDate.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateEditDate.Size = new System.Drawing.Size(145, 22);
             this.dateEditDate.TabIndex = 5;
             // 
@@ -106,33 +109,6 @@
             this.textEditNurse.TabIndex = 7;
             this.textEditNurse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textEditNurse_KeyPress);
             // 
-            // orderLookUpEdit
-            // 
-            this.orderLookUpEdit.Location = new System.Drawing.Point(0, 148);
-            this.orderLookUpEdit.Name = "orderLookUpEdit";
-            this.orderLookUpEdit.Order = null;
-            this.orderLookUpEdit.OrderDataSource = null;
-            this.orderLookUpEdit.Size = new System.Drawing.Size(269, 40);
-            this.orderLookUpEdit.TabIndex = 8;
-            // 
-            // specimentNameLookUpEdit
-            // 
-            this.specimentNameLookUpEdit.Location = new System.Drawing.Point(1, 38);
-            this.specimentNameLookUpEdit.Name = "specimentNameLookUpEdit";
-            this.specimentNameLookUpEdit.Size = new System.Drawing.Size(269, 40);
-            this.specimentNameLookUpEdit.SpecimentName = null;
-            this.specimentNameLookUpEdit.SpecimentNameDataSource = null;
-            this.specimentNameLookUpEdit.TabIndex = 2;
-            // 
-            // specimentStatusLookUpEdit
-            // 
-            this.specimentStatusLookUpEdit.Location = new System.Drawing.Point(1, 186);
-            this.specimentStatusLookUpEdit.Name = "specimentStatusLookUpEdit";
-            this.specimentStatusLookUpEdit.Size = new System.Drawing.Size(269, 40);
-            this.specimentStatusLookUpEdit.SpecimentNameDataSource = null;
-            this.specimentStatusLookUpEdit.SpecimentStatus = null;
-            this.specimentStatusLookUpEdit.TabIndex = 9;
-            // 
             // buttonOK
             // 
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -154,6 +130,33 @@
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // specimentStatusLookUpEdit
+            // 
+            this.specimentStatusLookUpEdit.Location = new System.Drawing.Point(1, 186);
+            this.specimentStatusLookUpEdit.Name = "specimentStatusLookUpEdit";
+            this.specimentStatusLookUpEdit.Size = new System.Drawing.Size(269, 40);
+            this.specimentStatusLookUpEdit.SpecimentNameDataSource = null;
+            this.specimentStatusLookUpEdit.SpecimentStatus = null;
+            this.specimentStatusLookUpEdit.TabIndex = 9;
+            // 
+            // orderLookUpEdit
+            // 
+            this.orderLookUpEdit.Location = new System.Drawing.Point(0, 148);
+            this.orderLookUpEdit.Name = "orderLookUpEdit";
+            this.orderLookUpEdit.Order = null;
+            this.orderLookUpEdit.OrderDataSource = null;
+            this.orderLookUpEdit.Size = new System.Drawing.Size(269, 40);
+            this.orderLookUpEdit.TabIndex = 8;
+            // 
+            // specimentNameLookUpEdit
+            // 
+            this.specimentNameLookUpEdit.Location = new System.Drawing.Point(1, 38);
+            this.specimentNameLookUpEdit.Name = "specimentNameLookUpEdit";
+            this.specimentNameLookUpEdit.Size = new System.Drawing.Size(269, 40);
+            this.specimentNameLookUpEdit.SpecimentName = null;
+            this.specimentNameLookUpEdit.SpecimentNameDataSource = null;
+            this.specimentNameLookUpEdit.TabIndex = 2;
             // 
             // SpecimentDetail
             // 

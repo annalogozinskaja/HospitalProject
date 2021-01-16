@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace ClientHospitalApp.Views
 {
-    public partial class OrderDetail : UserControl
+    public partial class OrderDetail : UserControl, IOrderDetail
     {
         OrderOfPatientClient order;
         public OrderOfPatientClient Order
@@ -72,49 +72,49 @@ namespace ClientHospitalApp.Views
                 {
                     DataPatient = order.Patient;
                 }
-                dateEditDate.Text = Convert.ToString(speciment.DateOfTaking);
-                textEditNurse.Text = speciment.Nurse;
+                dateEditDateOrder.Text = Convert.ToString(order.DateOrder);
+                textEditSymptoms.Text = order.Symptoms;
 
-                if (speciment.Order != null)
+                if (order.Doctor != null)
                 {
-                    DataOrder = speciment.Order;
+                    DataDoctor = order.Doctor;
                 }
 
-                if (speciment.SpecimentStatus != null)
+                if (order.OrderStatus != null)
                 {
-                    DataSpecimentStatus = speciment.SpecimentStatus;
+                    DataOrderStatus = order.OrderStatus;
                 }
             }
         }
 
-        SpecimentsInOrderClient getSpeciment()
+        OrderOfPatientClient getOrder()
         {
-            if (textEditIdSpeciment.Text != "")
+            if (textEditID.Text != "")
             {
-                speciment.ID_SpecimentOrder = Convert.ToInt32(textEditIdSpeciment.Text);
+                order.ID_Order = Convert.ToInt32(textEditID.Text);
             }
-            speciment.Speciment = DataSpecimentName;
-            DateTime date = new DateTime();
-            DateTime.TryParse(dateEditDate.Text, out date);
-            speciment.DateOfTaking = date;
-            speciment.Nurse = textEditNurse.Text;
-            speciment.Order = DataOrder;
-            speciment.SpecimentStatus = DataSpecimentStatus;
+            DateTime dateOrder = new DateTime();
+            DateTime.TryParse(dateEditDateOrder.Text, out dateOrder);
+            order.DateOrder = dateOrder;
+            order.Symptoms = textEditSymptoms.Text;
+            order.Patient = DataPatient;
+            order.Doctor = DataDoctor;
+            order.OrderStatus = DataOrderStatus;
 
-            return speciment;
+            return order;
         }
 
 
         public void ClearAllData()
         {
-            speciment = new SpecimentsInOrderClient();
+            order = new OrderOfPatientClient();
 
-            textEditIdSpeciment.Text = "";
-            specimentNameLookUpEdit.lookUpEditSpecimentName.EditValue = 0;
-            dateEditDate.Text = "";
-            textEditNurse.Text = "";
-            orderLookUpEdit.lookUpEditOrder.EditValue = 0;
-            specimentStatusLookUpEdit.lookUpEditSpecimentStatus.EditValue = 0;
+            textEditID.Text = "";
+            dateEditDateOrder.Text = "";
+            textEditSymptoms.Text = "";
+            patientLookUpEdit.lookUpEditPatient.EditValue = 0;
+            doctorLookUpEdit.lookUpEditDoctor.EditValue = 0;
+            orderStatusLookUpEdit.lookUpEditOrderStatus.EditValue = 0;
 
             buttonOK.Text = "Add";
         }
@@ -122,7 +122,7 @@ namespace ClientHospitalApp.Views
 
         private void buttonOK_Click(object sender, EventArgs e)
         {
-            AddOrUpdateSpecimentEvent(this, EventArgs.Empty);
+            AddOrUpdateOrderEvent(this, EventArgs.Empty);
             buttonOK.Text = "Add";
         }
 
@@ -131,14 +131,5 @@ namespace ClientHospitalApp.Views
             ClearAllData();
         }
 
-        private void textEditNurse_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
-
-            if (!Char.IsLetter(number) && e.KeyChar != (char)Keys.Back && e.KeyChar != '-')
-            {
-                e.Handled = true;
-            }
-        }
     }
 }

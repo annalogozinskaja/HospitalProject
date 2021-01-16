@@ -34,11 +34,11 @@
             this.labelSymptoms = new DevExpress.XtraEditors.LabelControl();
             this.textEditSymptoms = new DevExpress.XtraEditors.TextEdit();
             this.dateEditDateOrder = new DevExpress.XtraEditors.DateEdit();
-            this.patientLookUpEdit = new ClientHospitalApp.Views.PatientLookUpEdit();
-            this.doctorLookUpEdit = new ClientHospitalApp.Views.DoctorLookUpEdit();
-            this.orderStatusLookUpEdit = new ClientHospitalApp.Views.OrderStatusLookUpEdit();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
+            this.orderStatusLookUpEdit = new ClientHospitalApp.Views.OrderStatusLookUpEdit();
+            this.doctorLookUpEdit = new ClientHospitalApp.Views.DoctorLookUpEdit();
+            this.patientLookUpEdit = new ClientHospitalApp.Views.PatientLookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEditSymptoms.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEditDateOrder.Properties.CalendarTimeProperties)).BeginInit();
@@ -101,35 +101,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditDateOrder.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditDateOrder.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateEditDateOrder.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEditDateOrder.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateEditDateOrder.Size = new System.Drawing.Size(145, 22);
             this.dateEditDateOrder.TabIndex = 6;
-            // 
-            // patientLookUpEdit
-            // 
-            this.patientLookUpEdit.Location = new System.Drawing.Point(5, 104);
-            this.patientLookUpEdit.Name = "patientLookUpEdit";
-            this.patientLookUpEdit.Patient = null;
-            this.patientLookUpEdit.PatientDataSource = null;
-            this.patientLookUpEdit.Size = new System.Drawing.Size(269, 40);
-            this.patientLookUpEdit.TabIndex = 7;
-            // 
-            // doctorLookUpEdit
-            // 
-            this.doctorLookUpEdit.Doctor = null;
-            this.doctorLookUpEdit.DoctorDataSource = null;
-            this.doctorLookUpEdit.Location = new System.Drawing.Point(5, 141);
-            this.doctorLookUpEdit.Name = "doctorLookUpEdit";
-            this.doctorLookUpEdit.Size = new System.Drawing.Size(269, 40);
-            this.doctorLookUpEdit.TabIndex = 8;
-            // 
-            // orderStatusLookUpEdit
-            // 
-            this.orderStatusLookUpEdit.Location = new System.Drawing.Point(5, 175);
-            this.orderStatusLookUpEdit.Name = "orderStatusLookUpEdit";
-            this.orderStatusLookUpEdit.OrderStatus = null;
-            this.orderStatusLookUpEdit.OrderStatusDataSource = null;
-            this.orderStatusLookUpEdit.Size = new System.Drawing.Size(269, 40);
-            this.orderStatusLookUpEdit.TabIndex = 9;
             // 
             // buttonClear
             // 
@@ -140,6 +116,7 @@
             this.buttonClear.TabIndex = 13;
             this.buttonClear.Text = "Clear";
             this.buttonClear.UseVisualStyleBackColor = true;
+            this.buttonClear.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonOK
             // 
@@ -150,6 +127,34 @@
             this.buttonOK.TabIndex = 12;
             this.buttonOK.Text = "Add";
             this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // orderStatusLookUpEdit
+            // 
+            this.orderStatusLookUpEdit.Location = new System.Drawing.Point(5, 175);
+            this.orderStatusLookUpEdit.Name = "orderStatusLookUpEdit";
+            this.orderStatusLookUpEdit.OrderStatus = null;
+            this.orderStatusLookUpEdit.OrderStatusDataSource = null;
+            this.orderStatusLookUpEdit.Size = new System.Drawing.Size(269, 40);
+            this.orderStatusLookUpEdit.TabIndex = 9;
+            // 
+            // doctorLookUpEdit
+            // 
+            this.doctorLookUpEdit.Doctor = null;
+            this.doctorLookUpEdit.DoctorDataSource = null;
+            this.doctorLookUpEdit.Location = new System.Drawing.Point(5, 141);
+            this.doctorLookUpEdit.Name = "doctorLookUpEdit";
+            this.doctorLookUpEdit.Size = new System.Drawing.Size(269, 40);
+            this.doctorLookUpEdit.TabIndex = 8;
+            // 
+            // patientLookUpEdit
+            // 
+            this.patientLookUpEdit.Location = new System.Drawing.Point(5, 104);
+            this.patientLookUpEdit.Name = "patientLookUpEdit";
+            this.patientLookUpEdit.Patient = null;
+            this.patientLookUpEdit.PatientDataSource = null;
+            this.patientLookUpEdit.Size = new System.Drawing.Size(269, 40);
+            this.patientLookUpEdit.TabIndex = 7;
             // 
             // OrderDetail
             // 

@@ -1,6 +1,6 @@
 ﻿namespace ClientHospitalApp.Views
 {
-    partial class SpecimentSearchForm
+    partial class OrderSearchForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,74 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            ClientHospitalApp.ClientEntities.SpecimentsInOrderClient specimentsInOrderClient1 = new ClientHospitalApp.ClientEntities.SpecimentsInOrderClient();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SpecimentSearchForm));
+            ClientHospitalApp.ClientEntities.OrderOfPatientClient orderOfPatientClient2 = new ClientHospitalApp.ClientEntities.OrderOfPatientClient();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
             this.layoutConverter1 = new DevExpress.XtraLayout.Converter.LayoutConverter(this.components);
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.gridControlSpeciments = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.specimentDetail = new ClientHospitalApp.Views.SpecimentDetail();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.orderDetail = new ClientHospitalApp.Views.OrderDetail();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gridControlOrders = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlSpeciments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlOrders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
-            this.layoutControl1.Controls.Add(this.gridControlSpeciments);
-            this.layoutControl1.Controls.Add(this.specimentDetail);
-            this.layoutControl1.Location = new System.Drawing.Point(6, 4);
+            this.layoutControl1.Controls.Add(this.gridControlOrders);
+            this.layoutControl1.Controls.Add(this.orderDetail);
+            this.layoutControl1.Location = new System.Drawing.Point(3, 4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(941, 434);
+            this.layoutControl1.Size = new System.Drawing.Size(947, 431);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // gridControlSpeciments
-            // 
-            this.gridControlSpeciments.Location = new System.Drawing.Point(323, 12);
-            this.gridControlSpeciments.MainView = this.gridView1;
-            this.gridControlSpeciments.Name = "gridControlSpeciments";
-            this.gridControlSpeciments.Size = new System.Drawing.Size(606, 410);
-            this.gridControlSpeciments.TabIndex = 5;
-            this.gridControlSpeciments.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            this.gridControlSpeciments.Load += new System.EventHandler(this.SpecimentSearchForm_Load);
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.gridControlSpeciments;
-            this.gridView1.Name = "gridView1";
-            // 
-            // specimentDetail
-            // 
-            this.specimentDetail.DataOrder = null;
-            this.specimentDetail.DataSourceOrder = null;
-            this.specimentDetail.DataSourceSpecimentName = null;
-            this.specimentDetail.DataSourceSpecimentStatus = null;
-            this.specimentDetail.DataSpecimentName = null;
-            this.specimentDetail.DataSpecimentStatus = null;
-            this.specimentDetail.Location = new System.Drawing.Point(12, 12);
-            this.specimentDetail.Name = "specimentDetail";
-            this.specimentDetail.Size = new System.Drawing.Size(295, 410);
-            specimentsInOrderClient1.DateOfTaking = new System.DateTime(((long)(0)));
-            specimentsInOrderClient1.ID_SpecimentOrder = -1;
-            specimentsInOrderClient1.Nurse = "";
-            specimentsInOrderClient1.Order = null;
-            specimentsInOrderClient1.Speciment = null;
-            specimentsInOrderClient1.SpecimentStatus = null;
-            specimentsInOrderClient1.testsInOrderList = ((System.Collections.Generic.List<int>)(resources.GetObject("specimentsInOrderClient1.testsInOrderList")));
-            this.specimentDetail.Speciment = specimentsInOrderClient1;
-            this.specimentDetail.TabIndex = 4;
             // 
             // Root
             // 
@@ -106,44 +68,79 @@
             this.layoutControlItem1,
             this.layoutControlItem2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(941, 434);
+            this.Root.Size = new System.Drawing.Size(947, 431);
             this.Root.TextVisible = false;
+            // 
+            // orderDetail
+            // 
+            this.orderDetail.DataDoctor = null;
+            this.orderDetail.DataOrderStatus = null;
+            this.orderDetail.DataPatient = null;
+            this.orderDetail.DataSourceDoctor = null;
+            this.orderDetail.DataSourceOrderStatus = null;
+            this.orderDetail.DataSourcePatient = null;
+            this.orderDetail.Location = new System.Drawing.Point(12, 12);
+            this.orderDetail.Name = "orderDetail";
+            orderOfPatientClient2.DateOrder = new System.DateTime(((long)(0)));
+            orderOfPatientClient2.Doctor = null;
+            orderOfPatientClient2.ID_Order = 0;
+            orderOfPatientClient2.OrderStatus = null;
+            orderOfPatientClient2.Patient = null;
+            orderOfPatientClient2.Symptoms = "";
+            this.orderDetail.Order = orderOfPatientClient2;
+            this.orderDetail.Size = new System.Drawing.Size(295, 407);
+            this.orderDetail.TabIndex = 4;
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.Control = this.specimentDetail;
+            this.layoutControlItem1.Control = this.orderDetail;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(311, 414);
-            this.layoutControlItem1.Text = "   ";
+            this.layoutControlItem1.Size = new System.Drawing.Size(317, 411);
+            this.layoutControlItem1.Text = "  ";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Right;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(9, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(6, 13);
+            // 
+            // gridControlOrders
+            // 
+            this.gridControlOrders.Location = new System.Drawing.Point(329, 12);
+            this.gridControlOrders.MainView = this.gridView1;
+            this.gridControlOrders.Name = "gridControlOrders";
+            this.gridControlOrders.Size = new System.Drawing.Size(606, 407);
+            this.gridControlOrders.TabIndex = 5;
+            this.gridControlOrders.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.GridControl = this.gridControlOrders;
+            this.gridView1.Name = "gridView1";
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.Control = this.gridControlSpeciments;
-            this.layoutControlItem2.Location = new System.Drawing.Point(311, 0);
+            this.layoutControlItem2.Control = this.gridControlOrders;
+            this.layoutControlItem2.Location = new System.Drawing.Point(317, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(610, 414);
+            this.layoutControlItem2.Size = new System.Drawing.Size(610, 411);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
-            // SpecimentSearchForm
+            // OrderSearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 438);
             this.Controls.Add(this.layoutControl1);
-            this.Name = "SpecimentSearchForm";
-            this.Text = "SpecimentSearchForm";
-            this.Load += new System.EventHandler(this.SpecimentSearchForm_Load);
+            this.Name = "OrderSearchForm";
+            this.Text = "OrderSearchForm";
+            this.Load += new System.EventHandler(this.OrderSearchForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.behaviorManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlSpeciments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlOrders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
@@ -154,11 +151,11 @@
         private DevExpress.Utils.Behaviors.BehaviorManager behaviorManager1;
         private DevExpress.XtraLayout.Converter.LayoutConverter layoutConverter1;
         private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraGrid.GridControl gridControlSpeciments;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private SpecimentDetail specimentDetail;
         private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private OrderDetail orderDetail;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraGrid.GridControl gridControlOrders;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
     }
 }

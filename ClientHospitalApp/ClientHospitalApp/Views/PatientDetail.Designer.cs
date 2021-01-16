@@ -193,10 +193,10 @@
             // 
             this.genderLookUpEdit1.GenderData = null;
             this.genderLookUpEdit1.GenderDataSource = null;
-            this.genderLookUpEdit1.Location = new System.Drawing.Point(3, 214);
+            this.genderLookUpEdit1.Location = new System.Drawing.Point(1, 205);
             this.genderLookUpEdit1.Name = "genderLookUpEdit1";
             this.genderLookUpEdit1.Size = new System.Drawing.Size(251, 39);
-            this.genderLookUpEdit1.TabIndex = 70;
+            this.genderLookUpEdit1.TabIndex = 68;
             // 
             // PatientDetail
             // 
@@ -242,6 +242,5 @@
         public System.Windows.Forms.Button buttonCancel;
         public System.Windows.Forms.Button buttonOK;
         private GenderLookUpEdit genderLookUpEdit1;
-        //private Views.GenderLookUpEdit genderLookUpEdit1;
     }
 }

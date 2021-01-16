@@ -215,6 +215,8 @@
     <Compile Include="Views\IGenderView.cs" />
     <Compile Include="Views\IGenericModel.cs" />
     <Compile Include="Views\IMainForm.cs" />
+    <Compile Include="Views\IOrderDetail.cs" />
+    <Compile Include="Views\IOrderSearchForm.cs" />
     <Compile Include="Views\IOrderStatusLookUpEdit.cs" />
     <Compile Include="Views\IOrderView.cs" />
     <Compile Include="Views\IPatientDataInfoForm.cs" />
@@ -241,6 +243,12 @@
     </Compile>
     <Compile Include="Views\OrderLookUpEdit.Designer.cs">
       <DependentUpon>OrderLookUpEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderSearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OrderSearchForm.Designer.cs">
+      <DependentUpon>OrderSearchForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\OrderStatusLookUpEdit.cs">
       <SubType>UserControl</SubType>
@@ -364,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OrderLookUpEdit.resx">
       <DependentUpon>OrderLookUpEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrderSearchForm.resx">
+      <DependentUpon>OrderSearchForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\OrderStatusLookUpEdit.resx">
       <DependentUpon>OrderStatusLookUpEdit.cs</DependentUpon>

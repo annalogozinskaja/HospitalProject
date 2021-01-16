@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestDetail));
             this.labelControlID = new DevExpress.XtraEditors.LabelControl();
             this.labelControlDateStart = new DevExpress.XtraEditors.LabelControl();
             this.labelControlResult = new DevExpress.XtraEditors.LabelControl();
@@ -86,6 +87,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditDateStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEditDateStart.Properties.EditFormat.FormatString = "dd/MM/yyyy";
+            this.dateEditDateStart.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dateEditDateStart.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateEditDateStart.Size = new System.Drawing.Size(145, 22);
             this.dateEditDateStart.TabIndex = 6;
             // 
@@ -152,6 +156,7 @@
             this.specimentsCheckedComboBoxEdit.Name = "specimentsCheckedComboBoxEdit";
             this.specimentsCheckedComboBoxEdit.Size = new System.Drawing.Size(252, 35);
             this.specimentsCheckedComboBoxEdit.SpecimentDataSource = null;
+            this.specimentsCheckedComboBoxEdit.Speciments = ((System.Collections.Generic.List<int>)(resources.GetObject("specimentsCheckedComboBoxEdit.Speciments")));
             this.specimentsCheckedComboBoxEdit.TabIndex = 13;
             // 
             // specimentsCheckedComboBoxEdit1
@@ -160,6 +165,7 @@
             this.specimentsCheckedComboBoxEdit1.Name = "specimentsCheckedComboBoxEdit1";
             this.specimentsCheckedComboBoxEdit1.Size = new System.Drawing.Size(252, 35);
             this.specimentsCheckedComboBoxEdit1.SpecimentDataSource = null;
+            this.specimentsCheckedComboBoxEdit1.Speciments = ((System.Collections.Generic.List<int>)(resources.GetObject("specimentsCheckedComboBoxEdit1.Speciments")));
             this.specimentsCheckedComboBoxEdit1.TabIndex = 13;
             // 
             // TestDetail
