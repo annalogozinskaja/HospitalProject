@@ -57,6 +57,7 @@
             // 
             // textEditID
             // 
+            this.textEditID.Enabled = false;
             this.textEditID.Location = new System.Drawing.Point(123, 7);
             this.textEditID.Name = "textEditID";
             this.textEditID.Properties.AutoHeight = false;

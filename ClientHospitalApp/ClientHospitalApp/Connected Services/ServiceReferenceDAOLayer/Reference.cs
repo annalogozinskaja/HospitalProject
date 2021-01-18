@@ -412,13 +412,13 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
         
         private int ID_OrderField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ClientHospitalApp.ServiceReferenceDAOLayer.Patient PatientField;
+        
         private System.DateTime DateOrderField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SymptomsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private ClientHospitalApp.ServiceReferenceDAOLayer.Patient PatientField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private ClientHospitalApp.ServiceReferenceDAOLayer.Doctor DoctorField;
@@ -454,7 +454,20 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=1)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient Patient {
+            get {
+                return this.PatientField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PatientField, value) != true)) {
+                    this.PatientField = value;
+                    this.RaisePropertyChanged("Patient");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=2)]
         public System.DateTime DateOrder {
             get {
                 return this.DateOrderField;
@@ -467,7 +480,7 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
         public string Symptoms {
             get {
                 return this.SymptomsField;
@@ -476,19 +489,6 @@ namespace ClientHospitalApp.ServiceReferenceDAOLayer {
                 if ((object.ReferenceEquals(this.SymptomsField, value) != true)) {
                     this.SymptomsField = value;
                     this.RaisePropertyChanged("Symptoms");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public ClientHospitalApp.ServiceReferenceDAOLayer.Patient Patient {
-            get {
-                return this.PatientField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PatientField, value) != true)) {
-                    this.PatientField = value;
-                    this.RaisePropertyChanged("Patient");
                 }
             }
         }

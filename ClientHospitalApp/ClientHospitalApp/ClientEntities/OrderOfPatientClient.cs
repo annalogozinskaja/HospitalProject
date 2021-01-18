@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace ClientHospitalApp.ClientEntities
 {
-    public class OrderOfPatientClient : IOrderOfPatientClient
+    public class OrderOfPatientClient : IOrderOfPatientClient, IValidatableObject
     {
         public int ID_Order { get; set; }
-        public PatientClient Patient { get; set; }
+        public Patient Patient { get; set; }
         [Required(ErrorMessage = "Enter Date of Order")]
         public DateTime DateOrder { get; set; }
         [Required(ErrorMessage = "Enter Symptoms")]
@@ -24,14 +24,14 @@ namespace ClientHospitalApp.ClientEntities
         public OrderOfPatientClient()
         {
             this.ID_Order = -1;
-            this.Patient = new PatientClient();          
+            this.Patient = new Patient();          
             this.DateOrder = new DateTime();
             this.Symptoms = string.Empty;
             this.Doctor = new Doctor();
             this.OrderStatus = new OrderStatus();
         }
 
-        public IEnumerable<ValidationResult> Validate(System.ComponentModel.DataAnnotations.ValidationContext validationContext)
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (DateOrder.Year < _year)
             {

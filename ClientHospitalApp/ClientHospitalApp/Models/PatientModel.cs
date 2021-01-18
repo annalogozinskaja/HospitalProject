@@ -20,6 +20,7 @@ namespace ClientHospitalApp.Models
         private List<PatientClient> listToAdd;
         private List<PatientClient> listToUpdate;
         private List<PatientClient> listToDelete;
+        private List<Patient> listPatientsForOrder;
         public PatientClient Patient 
         { 
             get => patient; 
@@ -49,6 +50,11 @@ namespace ClientHospitalApp.Models
         {
             get => listToDelete;
             set => listToDelete = value;
+        }
+        public List<Patient> ListPatientsForOrder
+        {
+            get => listPatientsForOrder;
+            set => listPatientsForOrder = value;
         }
 
         IPatientModel patientModel;
@@ -140,6 +146,7 @@ namespace ClientHospitalApp.Models
         {
             List<Patient> lp = new List<Patient>();
             lp= service.GetDataAllPatients().ToList();
+            ListPatientsForOrder = lp;
 
             ListPatients = ConvertPatientToPatientClient(lp);
             FillPatientList();

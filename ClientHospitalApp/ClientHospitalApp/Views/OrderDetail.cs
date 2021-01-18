@@ -21,15 +21,15 @@ namespace ClientHospitalApp.Views
             set { setOrder(value); }
         }
 
-        public PatientClient DataPatient
+        public Patient DataPatient
         {
             set { patientLookUpEdit.Patient = value; }
             get { return patientLookUpEdit.Patient; }
         }
-        public List<PatientClient> DataSourcePatient
+        public List<Patient> DataSourcePatient
         {
             set { patientLookUpEdit.PatientDataSource = value; }
-            get { return (List<PatientClient>)patientLookUpEdit.PatientDataSource; }
+            get { return (List<Patient>)patientLookUpEdit.PatientDataSource; }
         }
 
         public Doctor DataDoctor

@@ -10,7 +10,7 @@ namespace ClientHospitalApp.Views
     {
         List<Doctor> DataSourceDoctor { get; set; }
         BindingList<OrderOfPatientClient> DataSourceOrders { get; set; }
-        List<PatientClient> DataSourcePatient { get; set; }
+        List<Patient> DataSourcePatient { get; set; }
         List<OrderStatus> DataSourceOrderStatus { get; set; }
         OrderDetail OrderDetailData { get; set; }
         OrderOfPatientClient selectedOrder { get; set; }

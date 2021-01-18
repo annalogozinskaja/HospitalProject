@@ -9,10 +9,10 @@ namespace ClientHospitalApp.Views
     {
         Doctor DataDoctor { get; set; }
         OrderStatus DataOrderStatus { get; set; }
-        PatientClient DataPatient { get; set; }
+        Patient DataPatient { get; set; }
         List<Doctor> DataSourceDoctor { get; set; }
         List<OrderStatus> DataSourceOrderStatus { get; set; }
-        List<PatientClient> DataSourcePatient { get; set; }
+        List<Patient> DataSourcePatient { get; set; }
         OrderOfPatientClient Order { get; set; }
 
         event EventHandler AddOrUpdateOrderEvent;

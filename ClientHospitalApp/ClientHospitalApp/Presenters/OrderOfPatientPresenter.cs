@@ -33,7 +33,7 @@ namespace ClientHospitalApp.Presenters
             this.patientModel.GetAllPatients();
             this.doctorModel.GetDoctors();
             this.orderStatusModel.GetOrderStatuses();
-            this.orderSearchView.DataSourcePatient = this.patientModel.ListPatients;
+            this.orderSearchView.DataSourcePatient = this.patientModel.ListPatientsForOrder;
             this.orderSearchView.DataSourceDoctor = this.doctorModel.ListDoctors;
             this.orderSearchView.DataSourceOrderStatus = this.orderStatusModel.ListOrderStatuses;
 

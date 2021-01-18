@@ -8,7 +8,7 @@ namespace ClientHospitalApp.ClientEntities
     {
         int ID_Order { get; set; }
         DateTime DateOrder { get; set; }
-        PatientClient Patient { get; set; }
+        Patient Patient { get; set; }
         Doctor Doctor { get; set; }
         OrderStatus OrderStatus { get; set; }
         string Symptoms { get; set; }

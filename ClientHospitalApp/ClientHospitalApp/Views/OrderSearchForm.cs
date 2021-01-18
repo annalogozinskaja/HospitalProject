@@ -25,10 +25,10 @@ namespace ClientHospitalApp.Views
             }
             get { return (BindingList<OrderOfPatientClient>)gridControlOrders.DataSource; }
         }
-        public List<PatientClient> DataSourcePatient
+        public List<Patient> DataSourcePatient
         {
             set { orderDetail.DataSourcePatient = value; }
-            get { return (List<PatientClient>)orderDetail.DataSourcePatient; }
+            get { return (List<Patient>)orderDetail.DataSourcePatient; }
         }
         public List<Doctor> DataSourceDoctor
         {
@@ -62,13 +62,15 @@ namespace ClientHospitalApp.Views
         private void CreateGridControl()
         {
             this.gridView1.Columns[0].Caption = "ID";
-
-            //this.gridView1.Columns[4].Caption = "Order";
-
+            this.gridView1.Columns[1].Caption = "Patient";
+            this.gridView1.Columns[4].Caption = "Doctor";
+            this.gridView1.Columns[5].Caption = "Status";
+            
             this.gridView1.Columns[1].FieldName = "Patient.Lastname";
             this.gridView1.Columns[4].FieldName = "Doctor.Lastname";
             this.gridView1.Columns[5].FieldName = "OrderStatus.OrderName";
-            //this.gridView1.Columns[6].Visible = false;
+
+            this.gridView1.Columns[0].Visible = false;
 
             this.gridView1.OptionsView.ShowGroupedColumns = true;
             this.gridView1.ExpandAllGroups();
@@ -81,15 +83,15 @@ namespace ClientHospitalApp.Views
             this.gridView1.Columns[5].OptionsColumn.AllowEdit = false;
 
             this.gridView1.Columns[0].Width = 5;
-            this.gridView1.Columns[1].Width = 135;
-            this.gridView1.Columns[2].Width = 120;
-            this.gridView1.Columns[3].Width = 100;
-            this.gridView1.Columns[4].Width = 70;
+            this.gridView1.Columns[1].Width = 130;
+            this.gridView1.Columns[2].Width = 110;
+            this.gridView1.Columns[3].Width = 140;
+            this.gridView1.Columns[4].Width = 120;
 
             GridColumn unbColumnEdit = gridView1.Columns.AddField("Edit");
             unbColumnEdit.VisibleIndex = gridView1.Columns.Count;
             unbColumnEdit.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            unbColumnEdit.Width = 45;
+            unbColumnEdit.Width = 65;
 
             RepositoryItemButtonEdit edit = new RepositoryItemButtonEdit();
             edit.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
@@ -102,7 +104,7 @@ namespace ClientHospitalApp.Views
             GridColumn unbColumnDel = gridView1.Columns.AddField("Delete");
             unbColumnDel.VisibleIndex = gridView1.Columns.Count;
             unbColumnDel.UnboundType = DevExpress.Data.UnboundColumnType.Decimal;
-            unbColumnDel.Width = 45;
+            unbColumnDel.Width = 60;
 
             RepositoryItemButtonEdit delete = new RepositoryItemButtonEdit();
             delete.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
