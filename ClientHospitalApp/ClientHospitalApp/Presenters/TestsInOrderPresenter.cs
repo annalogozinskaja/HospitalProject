@@ -34,7 +34,7 @@ namespace ClientHospitalApp.Presenters
             this.specimentModel.GetAllSpeciments();
             this.testStatusModel.GetTestStatuses();
             this.testSearchView.DataSourceTestName = this.testNameModel.ListTestNames;
-            this.testSearchView.DataSourceSpeciment = this.specimentModel.ListSpeciments;
+            this.testSearchView.DataSourceSpeciment = this.specimentModel.ListSpecimentsForTest;
             this.testSearchView.DataSourceTestStatus = this.testStatusModel.ListTestStatuses;
 
             this.testSearchView.LoadDataDataEvent += GetAllTestsFromModelEventHandler;

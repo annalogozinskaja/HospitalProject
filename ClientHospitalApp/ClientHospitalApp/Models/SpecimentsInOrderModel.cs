@@ -19,6 +19,7 @@ namespace ClientHospitalApp.Models
         private List<SpecimentsInOrderClient> listToAdd;
         private List<SpecimentsInOrderClient> listToUpdate;
         private List<SpecimentsInOrderClient> listToDelete;
+        private List<SpecimentsInOrder> listSpecimentsForTest;
         ISpecimentsInOrderModel specimentModel;
 
         public SpecimentsInOrderClient Speciment
@@ -50,7 +51,12 @@ namespace ClientHospitalApp.Models
         {
             get => listToDelete;
             set => listToDelete = value;
-        }      
+        }
+        public List<SpecimentsInOrder> ListSpecimentsForTest
+        {
+            get => listSpecimentsForTest;
+            set => listSpecimentsForTest = value;
+        }
 
         public SpecimentsInOrderModel()
         {
@@ -117,6 +123,7 @@ namespace ClientHospitalApp.Models
         {
             List<SpecimentsInOrder> lsp = new List<SpecimentsInOrder>();
             lsp = service.GetDataAllSpeciments().ToList();
+            ListSpecimentsForTest = lsp;
 
             ListSpeciments = ConvertSpecimentsInOrderToSpecimentsInOrderClient(lsp);
             FillSpecimentList();

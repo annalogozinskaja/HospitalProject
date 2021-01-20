@@ -70,7 +70,6 @@
             this.gridControlSpeciments.TabIndex = 5;
             this.gridControlSpeciments.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gridControlSpeciments.Load += new System.EventHandler(this.SpecimentSearchForm_Load);
             // 
             // gridView1
             // 

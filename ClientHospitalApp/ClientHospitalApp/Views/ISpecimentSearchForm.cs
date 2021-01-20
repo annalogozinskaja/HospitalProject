@@ -14,7 +14,7 @@ namespace ClientHospitalApp.Views
         BindingList<SpecimentsInOrderClient> DataSourceSpeciments { get; set; }
         List<Speciment> DataSourceSpecimentName { get; set; }
         List<SpecimentStatus> DataSourceSpecimentStatus { get; set; }
-        List<OrderOfPatientClient> DataSourceOrder { get; set; }
+        List<OrderOfPatient> DataSourceOrder { get; set; }
         SpecimentsInOrderClient selectedSpeciment { get; set; }
         SpecimentDetail SpecimentDetailData { get; set; }
 

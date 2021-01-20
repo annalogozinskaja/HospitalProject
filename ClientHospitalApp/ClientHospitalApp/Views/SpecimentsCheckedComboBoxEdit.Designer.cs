@@ -68,8 +68,7 @@
         }
 
         #endregion
-
-        private DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEditSpeciment;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        public DevExpress.XtraEditors.CheckedComboBoxEdit checkedComboBoxEditSpeciment;
     }
 }

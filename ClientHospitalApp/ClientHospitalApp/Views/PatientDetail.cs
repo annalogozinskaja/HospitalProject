@@ -38,7 +38,8 @@ namespace ClientHospitalApp
         public PatientDetail()
         {
             InitializeComponent();
-            patientData = new PatientClient();          
+            patientData = new PatientClient();
+            //dateEditDOB.EditValue = DateTime.Now;
         }
      
         void setPatientData(PatientClient patientData)

@@ -10,6 +10,6 @@ namespace ClientHospitalApp.Views
 {
     public interface IOrderView
     {
-        OrderOfPatientClient Order { get; set; }
+        OrderOfPatient Order { get; set; }
     }
 }

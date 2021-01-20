@@ -10,7 +10,7 @@ namespace ClientHospitalApp.ClientEntities
         DateTime DateOfTaking { get; set; }
         int ID_SpecimentOrder { get; set; }
         string Nurse { get; set; }
-        OrderOfPatientClient Order { get; set; }
+        OrderOfPatient Order { get; set; }
         Speciment Speciment { get; set; }
         SpecimentStatus SpecimentStatus { get; set; }
         List<int> testsInOrderList { get; set; }

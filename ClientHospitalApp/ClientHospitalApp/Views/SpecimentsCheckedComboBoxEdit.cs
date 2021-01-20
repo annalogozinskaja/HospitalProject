@@ -22,10 +22,10 @@ namespace ClientHospitalApp.Views
             set { setSpeciments(value); }
         }
 
-        public List<SpecimentsInOrderClient> SpecimentDataSource
+        public List<SpecimentsInOrder> SpecimentDataSource
         {
             set { checkedComboBoxEditSpeciment.Properties.DataSource = value; }
-            get { return (List<SpecimentsInOrderClient>)checkedComboBoxEditSpeciment.Properties.DataSource; }
+            get { return (List<SpecimentsInOrder>)checkedComboBoxEditSpeciment.Properties.DataSource; }
         }
 
         public SpecimentsCheckedComboBoxEdit()
@@ -47,17 +47,24 @@ namespace ClientHospitalApp.Views
         {
             foreach (CheckedListBoxItem item in checkedComboBoxEditSpeciment.Properties.GetItems())
             {
-                if (item.CheckState == CheckState.Checked) 
+                if (item.CheckState == CheckState.Checked)
                 {
-                    speciments.Add((int)item.Value); 
+                    speciments.Add((int)item.Value);
                 }
             }
 
-            List<SpecimentsInOrderClient> lsp = new List<SpecimentsInOrderClient>();
+            //checkedComboBoxEditSpeciment.Properties.GetItems().GetCheckedValues().ForEach( n=> speciments.Add((SpecimentsInOrder)n ));
+            // MessageBox.Show("GetCheckedItems:" + checkedComboBoxEditSpeciment.Properties.GetCheckedItems().ToString());
 
-            checkedComboBoxEditSpeciment.Properties.GetItems().GetCheckedValues().ForEach( n=> lsp.Add((SpecimentsInOrderClient)n ));
-            MessageBox.Show("GetCheckedItems:" + checkedComboBoxEditSpeciment.Properties.GetCheckedItems().ToString());
-           
+            //it works for getting as a object not int
+            //List<object> checkedIDs = checkedComboBoxEditSpeciment.Properties.GetItems().GetCheckedValues() as List<object>;
+            //IList<SpecimentsInOrder> listSpec = checkedComboBoxEditSpeciment.Properties.DataSource as IList<SpecimentsInOrder>;
+
+            //foreach (object checkedID in checkedIDs)
+            //{
+            //    speciments.Add(listSpec.FirstOrDefault(x => x.ID_SpecimentOrder == Convert.ToInt32(checkedID)));
+            //}
+
             return speciments;
         }
 

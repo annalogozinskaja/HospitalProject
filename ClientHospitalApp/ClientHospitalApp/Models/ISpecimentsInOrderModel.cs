@@ -23,5 +23,6 @@ namespace ClientHospitalApp.Models
         List<SpecimentsInOrderClient> ListToAdd { get; set; }
         List<SpecimentsInOrderClient> ListToUpdate { get; set; }
         List<SpecimentsInOrderClient> ListToDelete { get; set; }
+        List<SpecimentsInOrder> ListSpecimentsForTest { get; set; }
     }
 }

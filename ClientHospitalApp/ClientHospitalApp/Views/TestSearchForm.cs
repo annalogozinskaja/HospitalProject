@@ -30,10 +30,10 @@ namespace ClientHospitalApp.Views
             set { testDetail.DataSourceTestName = value; }
             get { return (List<Test>)testDetail.DataSourceTestName; }
         }
-        public List<SpecimentsInOrderClient> DataSourceSpeciment
+        public List<SpecimentsInOrder> DataSourceSpeciment
         {
             set { testDetail.DataSourceSpeciment = value; }
-            get { return (List<SpecimentsInOrderClient>)testDetail.DataSourceSpeciment; }
+            get { return (List<SpecimentsInOrder>)testDetail.DataSourceSpeciment; }
         }
         public List<TestStatus> DataSourceTestStatus
         {

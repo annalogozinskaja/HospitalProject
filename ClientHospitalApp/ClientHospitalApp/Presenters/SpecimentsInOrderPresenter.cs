@@ -35,7 +35,7 @@ namespace ClientHospitalApp.Presenters
             this.orderModel.GetAllOrders();
             this.specimentSearchView.DataSourceSpecimentName = this.specimentNameModel.ListSpecimentNames;
             this.specimentSearchView.DataSourceSpecimentStatus = this.specimentStatusModel.ListSpecimentStatuses;
-            this.specimentSearchView.DataSourceOrder = this.orderModel.ListOrders;
+            this.specimentSearchView.DataSourceOrder = this.orderModel.ListOrdersForSpeciment;
 
             this.specimentSearchView.LoadDataDataEvent += GetAllSpecimentsFromModelEventHandler;
             this.specimentSearchView.SpecimentDetailData.AddOrUpdateSpecimentEvent += AddOrUpdateSpecimentEventHandler;

@@ -672,6 +672,17 @@ namespace WebServiceHospitalApp
             List<TestsInOrder> list = new List<TestsInOrder>();
             list = testDao.GetListOfTestsWithActiveStatus().ToList();
 
+            SpecimentsInOrderDaoImpl specimentDao = new SpecimentsInOrderDaoImpl(SF.GetSession());
+
+            for (int i = 0; i < list.Count-1; i++)
+            {
+                list[i].specimentsInOrderList = new List<int>();
+                foreach (SpecimentsInOrder item in specimentDao.GetSpecimentsOfTest(list[i].ID_TestOrder).ToList())
+                {
+                    list[i].specimentsInOrderList.Add(item.ID_SpecimentOrder);
+                }
+            }
+
             SF.CloseSession();
             return list;
         }

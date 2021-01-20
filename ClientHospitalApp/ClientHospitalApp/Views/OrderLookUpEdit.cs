@@ -14,17 +14,17 @@ namespace ClientHospitalApp.Views
 {
     public partial class OrderLookUpEdit : UserControl,IOrderView
     {
-        OrderOfPatientClient order;
-        public OrderOfPatientClient Order
+        OrderOfPatient order;
+        public OrderOfPatient Order
         {
             get { return getOrder(); }
             set { setOrder(value); }
         }
 
-        public List<OrderOfPatientClient> OrderDataSource
+        public List<OrderOfPatient> OrderDataSource
         {
             set { lookUpEditOrder.Properties.DataSource = value; }
-            get { return (List<OrderOfPatientClient>)lookUpEditOrder.Properties.DataSource; }
+            get { return (List<OrderOfPatient>)lookUpEditOrder.Properties.DataSource; }
         }
 
         public OrderLookUpEdit()
@@ -33,7 +33,7 @@ namespace ClientHospitalApp.Views
             FillLookUpEditOrder();
         }
 
-        void setOrder(OrderOfPatientClient order)
+        void setOrder(OrderOfPatient order)
         {
             if (order != null)
             {
@@ -41,9 +41,9 @@ namespace ClientHospitalApp.Views
             }
         }
 
-        OrderOfPatientClient getOrder()
+        OrderOfPatient getOrder()
         {
-            order = (OrderOfPatientClient)lookUpEditOrder.GetSelectedDataRow();
+            order = (OrderOfPatient)lookUpEditOrder.GetSelectedDataRow();
             return order;
         }
 
@@ -52,7 +52,7 @@ namespace ClientHospitalApp.Views
             lookUpEditOrder.Properties.DisplayMember = "ID_Order";
             lookUpEditOrder.Properties.ValueMember = "ID_Order";
             DevExpress.XtraEditors.Controls.LookUpColumnInfo col;
-            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_Order", "OrderOfPatientClient", 100);
+            col = new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID_Order", "OrderOfPatient", 100);
             lookUpEditOrder.Properties.Columns.Add(col);
             lookUpEditOrder.Properties.NullText = "--choose type--";
         }

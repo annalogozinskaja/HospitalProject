@@ -95,8 +95,26 @@ namespace ClientHospitalApp.Models
                 TestsInOrder newTest = iMapper.Map<TestsInOrderClient, TestsInOrder>(item);
                 lstTsts.Add(newTest);
             }
-
             return lstTsts;
+
+            /////
+            //List<TestsInOrder> lstTsts = new List<TestsInOrder>();
+            //List<int> specOfTest = new List<int>();
+
+            //for (int i = 0; i < testList.Count; i++)
+            //{
+            //    specOfTest[i] = testList[i].ID_TestOrder;
+            //}
+            //MapperConfiguration config = new MapperConfiguration(cfg => cfg.CreateMap<TestsInOrderClient, TestsInOrder>()
+            //       .ForMember("specimentsInOrderList", opt => opt.MapFrom(src => specOfTest)));
+            //Mapper mapper = new Mapper(config);
+
+            //foreach (TestsInOrderClient item in testList)
+            //{
+            //    TestsInOrder newTest = mapper.Map<TestsInOrderClient, TestsInOrder>(item);
+            //    lstTsts.Add(newTest);
+            //}
+            //return lstTsts;
         }
 
         void ITestsInOrderModel.AddTest()

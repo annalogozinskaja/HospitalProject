@@ -37,10 +37,10 @@ namespace ClientHospitalApp.Views
             set { specimentsCheckedComboBoxEdit.Speciments = value; }
             get { return specimentsCheckedComboBoxEdit.Speciments; }
         }
-        public List<SpecimentsInOrderClient> DataSourceSpeciment
+        public List<SpecimentsInOrder> DataSourceSpeciment
         {
             set { specimentsCheckedComboBoxEdit.SpecimentDataSource = value; }
-            get { return (List<SpecimentsInOrderClient>)specimentsCheckedComboBoxEdit.SpecimentDataSource; }
+            get { return (List<SpecimentsInOrder>)specimentsCheckedComboBoxEdit.SpecimentDataSource; }
         }
         public TestStatus DataTestStatus
         {
@@ -71,6 +71,10 @@ namespace ClientHospitalApp.Views
                 }
                 dateEditDateStart.Text = Convert.ToString(test.DateStart);
                 textEditResult.Text = test.Result;
+                if (test.specimentsInOrderList != null)
+                {
+                    DataSpeciments = test.specimentsInOrderList;
+                }
 
                 if (test.TestStatus != null)
                 {
@@ -106,6 +110,7 @@ namespace ClientHospitalApp.Views
             dateEditDateStart.Text = "";
             textEditResult.Text = "";
             testStatusLookUpEdit.lookUpEditTestStatus.EditValue = 0;
+            specimentsCheckedComboBoxEdit.checkedComboBoxEditSpeciment.EditValue = 0;
 
             buttonOK.Text = "Add";
         }

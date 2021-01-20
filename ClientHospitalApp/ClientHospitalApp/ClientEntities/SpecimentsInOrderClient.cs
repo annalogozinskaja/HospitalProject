@@ -15,7 +15,7 @@ namespace ClientHospitalApp.ClientEntities
         public SpecimentStatus SpecimentStatus { get; set; }
         [Required(ErrorMessage = "Enter Date of Speciment taking")]
         public DateTime DateOfTaking { get; set; }
-        public OrderOfPatientClient Order { get; set; }
+        public OrderOfPatient Order { get; set; }
 
         [Required(ErrorMessage = "Enter Lastname of the Nurse")]
         [RegularExpression(@"^[А-ЯA-Z]{1}[а-яa-z]+", ErrorMessage = "Lastname of the Nurse must be entered correctly")]
@@ -29,7 +29,7 @@ namespace ClientHospitalApp.ClientEntities
             this.Speciment = new Speciment();
             this.SpecimentStatus = new SpecimentStatus();
             this.DateOfTaking = new DateTime();
-            this.Order = new OrderOfPatientClient();
+            this.Order = new OrderOfPatient();
             this.Nurse = string.Empty;
             this.testsInOrderList = new List<int>();
         }
@@ -60,6 +60,11 @@ namespace ClientHospitalApp.ClientEntities
                     $"Order must be selected",
                     new[] { nameof(Order) });
             }
+        }
+
+        public override string ToString()
+        {
+            return "Speciments";
         }
     }
 }

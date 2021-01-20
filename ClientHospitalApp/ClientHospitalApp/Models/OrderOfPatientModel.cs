@@ -19,6 +19,7 @@ namespace ClientHospitalApp.Models
         private List<OrderOfPatientClient> listToAdd;
         private List<OrderOfPatientClient> listToUpdate;
         private List<OrderOfPatientClient> listToDelete;
+        private List<OrderOfPatient> listOrdersForSpeciment;
 
         public OrderOfPatientClient Order
         {
@@ -49,6 +50,11 @@ namespace ClientHospitalApp.Models
         {
             get => listToDelete;
             set => listToDelete = value;
+        }
+        public List<OrderOfPatient> ListOrdersForSpeciment
+        {
+            get => listOrdersForSpeciment;
+            set => listOrdersForSpeciment = value;
         }
 
         IOrderOfPatientModel orderModel;
@@ -103,6 +109,7 @@ namespace ClientHospitalApp.Models
         {
             List<OrderOfPatient> lOrd = new List<OrderOfPatient>();
             lOrd = service.GetDataAllOrders().ToList();
+            ListOrdersForSpeciment = lOrd;
 
             ListOrders = ConvertOrderToOrderClient(lOrd);
             FillOrderList();

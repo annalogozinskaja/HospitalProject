@@ -1,4 +1,6 @@
-﻿namespace ClientHospitalApp.Views
+﻿using ClientHospitalApp.ServiceReferenceDAOLayer;
+
+namespace ClientHospitalApp.Views
 {
     partial class TestDetail
     {
@@ -156,7 +158,7 @@
             this.specimentsCheckedComboBoxEdit.Name = "specimentsCheckedComboBoxEdit";
             this.specimentsCheckedComboBoxEdit.Size = new System.Drawing.Size(252, 35);
             this.specimentsCheckedComboBoxEdit.SpecimentDataSource = null;
-            this.specimentsCheckedComboBoxEdit.Speciments = ((System.Collections.Generic.List<int>)(resources.GetObject("specimentsCheckedComboBoxEdit.Speciments")));
+     //       this.specimentsCheckedComboBoxEdit.Speciments = ((System.Collections.Generic.List<SpecimentsInOrder>)(resources.GetObject("specimentsCheckedComboBoxEdit.Speciments")));
             this.specimentsCheckedComboBoxEdit.TabIndex = 13;
             // 
             // specimentsCheckedComboBoxEdit1
@@ -165,7 +167,7 @@
             this.specimentsCheckedComboBoxEdit1.Name = "specimentsCheckedComboBoxEdit1";
             this.specimentsCheckedComboBoxEdit1.Size = new System.Drawing.Size(252, 35);
             this.specimentsCheckedComboBoxEdit1.SpecimentDataSource = null;
-            this.specimentsCheckedComboBoxEdit1.Speciments = ((System.Collections.Generic.List<int>)(resources.GetObject("specimentsCheckedComboBoxEdit1.Speciments")));
+     //       this.specimentsCheckedComboBoxEdit1.Speciments = ((System.Collections.Generic.List<SpecimentsInOrder>)(resources.GetObject("specimentsCheckedComboBoxEdit1.Speciments")));
             this.specimentsCheckedComboBoxEdit1.TabIndex = 13;
             // 
             // TestDetail

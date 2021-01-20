@@ -21,15 +21,15 @@ namespace ClientHospitalApp.Views
             set { setSpeciment(value); }
         }
 
-        public OrderOfPatientClient DataOrder
+        public OrderOfPatient DataOrder
         {
             set { orderLookUpEdit.Order = value; }
             get { return orderLookUpEdit.Order; }
         }
-        public List<OrderOfPatientClient> DataSourceOrder
+        public List<OrderOfPatient> DataSourceOrder
         {
             set { orderLookUpEdit.OrderDataSource= value; }
-            get { return (List<OrderOfPatientClient>)orderLookUpEdit.OrderDataSource; }
+            get { return (List<OrderOfPatient>)orderLookUpEdit.OrderDataSource; }
         }
 
         public Speciment DataSpecimentName
